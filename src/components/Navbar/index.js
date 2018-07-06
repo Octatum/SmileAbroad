@@ -30,13 +30,15 @@ const NavItem = styled.div`
   display: flex;
   flex: 0 1 auto;
   font-family: sans-serif;
-  font-size: 1.8rem;
+  font-size: 2rem;
   padding: 5px 15px;
   position: relative;
 `
 
 const NavLink = styled(Link)`
   text-decoration: none;
+  color: black;
+  padding: 0 10px;
 `
 
 const CompanyHover = styled.div`
@@ -50,7 +52,7 @@ const CompanyHover = styled.div`
   background-color: white;
 `;
 
-const Img = styled.img`
+const DropArrow = styled.img`
   height: 10px;
 `;
 
@@ -112,11 +114,11 @@ class Navbar extends Component {
           <NavItem
             onMouseEnter={this.mouseEnterHandler}
             onMouseLeave={this.mouseLeaveHandler}>
-            <NavLink to="/" >Company<Img src={downArrow} /></NavLink>
+            <NavLink to="/" >Company<DropArrow src={downArrow} /></NavLink>
             {hoveredSelection}
           </NavItem>
           <NavItem> <NavLink to="/">Contact</NavLink> </NavItem>
-          <GetStarted> <NavLink to="/" style={{ color: '#fff' }}>Get Started</NavLink> </GetStarted>
+          <NavLink to="/"> <GetStarted>Get started</GetStarted> </NavLink>
         </Nav>
       </Container>
     );

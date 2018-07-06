@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import Link from 'gatsby-link';
 
 import ServiceSlide from './ServicesSlide';
+import Services from './Services';
 
 const Container = styled.div`
   
@@ -12,21 +12,18 @@ const SlideShow = styled.div`
   height: 100vh;
   text-align: center;
   display: grid;
-  grid-template: 1fr 3fr 1fr / 2fr 2fr;
+  box-sizing: border-box;
+  grid-template: 2fr 8fr 2fr / 5fr 4fr;
   grid-template-areas: 
     ". ."
     "Pres ."
     ". .";
-    padding: 50px;
+  background: #eee;
 `;
 
 const Slider = styled(ServiceSlide)`
   grid-area: Pres;
-  border: 1px solid black;
-`;
-
-const Services = styled.div`
-
+  background-color: #ccc;
 `;
 
 const OurServices = () => (

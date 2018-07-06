@@ -1,30 +1,133 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import Link from 'gatsby-link';
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
 
 const Title = styled.p`
-  font-size: 3.5rem;
+  font-size: 4rem;
   font-family: sans-serif;
+  font-weight: 600;
+  color: #404040;
+  max-width: 50%;
 `;
 
 const Separator = styled.hr`
   background: #00C6DB;
-  height: 5px;
-  width: 15%;
+  height: 7px;
+  width: 25%;
   border-radius: 10px;
+  border: none;
+  margin: 15px 0;
+`;
+
+const Description = styled.p`
+  font-family: sans-serif;
+  font-size: 1.6rem;
+  line-height: 1.4em;
+  max-width: 70%;
+  margin: 20px 0;
+`
+
+const BlueText = Description.withComponent('span').extend`
+  color: #00C6DB;
+`
+
+const ButtonCont = styled.div`
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  margin: 20px;
+`
+
+const Button = styled(Link)`
+  flex: 0 1 auto;
+  text-decoration: none;
+  font-family: sans-serif;
+  font-size: 2.2rem;
+  border-radius: 10px;
+  padding: 10px 70px;
+  margin: 0 50px 20px 50px;
+
+  color: black;
+  border: 2px solid black;
+`;
+
+const BlueButton = Button.extend`
+  color: white;
+  background: #00C6DB;
   border: none;
 `;
 
-const ServiceSlide = (props) => (
-  <Container className={props.className}>
-    <Title>Affordable <br /> Health Care</Title>
-    <Separator />
-  </Container>  
-);
+const BubbleCont = ButtonCont.extend`
+
+`;
+
+const Bubble = styled.button`
+  text-decoration: none;
+  height: 20px;
+  width: 20px;
+  border-radius: 10px 10px;
+  border: none;
+  margin: 0 8px;
+  cursor: pointer;
+
+  background: ${props => props.current ? '#00C6DB' : 'grey'};
+  
+  outline: 0;
+`;
+
+class ServiceSlide extends Component {
+  constructor() {
+    super();
+    this.state = {
+      currentActiveBubble: 1,
+    };
+  }
+
+  bubbleClick(event, key) {
+    event.preventDefault();
+    /**
+     * NEXT SLIDE
+     */
+    this.setState({
+      currentActiveBubble: key
+    });
+  }
+  render() {
+    return (
+      <Container className={this.props.className}>
+        <Title>Affordable Health Care</Title>
+        <Separator />
+        <Description>
+          At <BlueText>Neighbor Health</BlueText> we help you find the ideal Dental Health Specialized Treatment.
+        </Description>
+        <Description>
+          We facilitate the process of your experience abroad by creating a personalized itinerary at budget-friendly prices.
+        </Description>
+        <ButtonCont>
+          <BlueButton to="/">Learn More</BlueButton>
+          <Button to="/">Get started</Button>
+        </ButtonCont>
+        <BubbleCont>
+          <Bubble 
+            onClick={e => this.bubbleClick(e, 1)} 
+            current={this.state.currentActiveBubble === 1 ? true : false }/>
+          <Bubble 
+            onClick={e => this.bubbleClick(e, 2)} 
+            current={this.state.currentActiveBubble === 2 ? true : false }/>
+          <Bubble 
+            onClick={e => this.bubbleClick(e, 3)} 
+            current={this.state.currentActiveBubble === 3 ? true : false }/>
+        </BubbleCont>
+      </Container>
+    );
+  }
+};
 
 export default ServiceSlide;

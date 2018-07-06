@@ -6,7 +6,6 @@ const Container = styled.div`
   width: 100%;
   background-color: #00C6DB;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
 `
@@ -24,7 +23,9 @@ const Title = Text.extend`
 `
 
 const Image = styled.img`
-
+  min-height: 150px;
+  border: 1px solid black;
+  width: 100%;
 `
 
 const Presentation = () => (
@@ -32,8 +33,8 @@ const Presentation = () => (
     <div>
       <Text> Welcome to </Text>
       <Title> NeighborHealth </Title>
+      <Image />
     </div>
-    <Image />
   </Container>
 )
 
