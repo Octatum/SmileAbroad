@@ -112,7 +112,7 @@ class ServiceSlide extends Component {
         </Description>
         <ButtonCont>
           <BlueButton to="/">Learn More</BlueButton>
-          <Button to="/">Get started</Button>
+          <Button to="/GetStarted">Get started</Button>
         </ButtonCont>
         <BubbleCont>
           <Bubble 

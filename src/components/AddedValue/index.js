@@ -123,10 +123,10 @@ const Description = styled.p`
 
 // Separator
 const Separator = styled.hr`
-  height: 100%;
+  height: 75%;
   background: #00C6DB;
   width: 25%;
-  margin: 0 auto;
+  margin: auto auto;
   border: none;
   border-radius: 10px;
 `;

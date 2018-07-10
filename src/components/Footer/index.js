@@ -25,6 +25,7 @@ const LinksTitle = Texto.extend`
   grid-area: titleLinks;
   text-align: center;
   font-size: 1.5rem;
+  font-weight: 600;
 `;
 const ContactTitle = LinksTitle.extend`
   grid-area: Contact;
@@ -59,7 +60,7 @@ const UsefulLink = styled(Link)`
   text-decoration: none;
   color: white;
   font-family: sans-serif;
-  padding: 5px 0;
+  padding: 10px 0;
   font-size: 1.25rem;
 `;
 
@@ -77,7 +78,10 @@ const MessageButton = styled(Link)`
   border-radius: 25px;
   text-decoration: none;
   padding: 10px 25px;
+  margin: 0 15px;
   font-size: 1.5rem;
+  font-family: sans-serif;
+  text-align: center;
 `;
 
 const Footer = () => (
@@ -89,14 +93,14 @@ const Footer = () => (
       <UsefulLink to="/">How To</UsefulLink>
       <UsefulLink to="/">Terms of Use</UsefulLink>
       <UsefulLink to="/">Contact</UsefulLink>
-      <UsefulLink to="/">Get Started</UsefulLink>
+      <UsefulLink to="/GetStarted">Get Started</UsefulLink>
     </LinksCont>
 
     <ContactTitle>Contact Us</ContactTitle>
     <ContactCont>
       <ContactData>+1 512 717 3280</ContactData>
       <ContactData>hello@neighbor.health</ContactData>
-      <MessageButton to="/">send a message</MessageButton>
+      <MessageButton to="/contact">send a message</MessageButton>
     </ContactCont>
 
     <Description>
