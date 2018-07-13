@@ -18,6 +18,9 @@ const BlueTitle = Title.withComponent('span').extend`
   color: #00C6DB;
 `;
 
+
+
+
 const GetStartedPage = () => (
   <div>
     <Navbar />

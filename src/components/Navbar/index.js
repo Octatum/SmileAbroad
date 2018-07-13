@@ -35,7 +35,7 @@ const NavItem = styled.div`
   display: flex;
   flex: 0 1 auto;
   font-family: sans-serif;
-  font-size: 3rem;
+  font-size: 2.5rem;
   position: relative;
 `;
 
@@ -47,10 +47,10 @@ const NavLink = styled(Link)`
 `;
 
 const CompanyHover = styled.div`
-  width: 80%;
+  min-width: 80%;
   position: absolute;
   top: 2.5rem;
-  left: 1.5rem;
+  left: 0;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2); 
   display: flex;
   flex-direction: column;
@@ -64,17 +64,14 @@ const DropArrow = styled.img`
   top: 50%;
 `;
 
-const GetStarted = NavItem.extend`
-  border-radius: 10px;
-  color: white;
-  background: #00C6DB;
-  padding: 5px 15px;
-`;
-
 const SelectionLink = NavLink.extend`
   padding: 5px;
   font-size: 1.5rem;
   flex: 0 1 auto;
+
+  &::first-letter {
+    text-transform: uppercase;
+  }
 
   &:hover {
     background-color: #00C6DB;
@@ -82,6 +79,12 @@ const SelectionLink = NavLink.extend`
   }
 `;
 
+const GetStarted = NavItem.extend`
+  border-radius: 10px;
+  color: white;
+  background: #00C6DB;
+  padding: 5px 15px;
+`;
 
 
 class Navbar extends Component {
@@ -107,7 +110,7 @@ class Navbar extends Component {
     if (this.state.hovered) {
       hoveredSelection = (
         <CompanyHover>
-          <SelectionLink to="/">Opcion1</SelectionLink>
+          <SelectionLink to="/">opcion1</SelectionLink>
           <SelectionLink to="/">Opcion2</SelectionLink>
           <SelectionLink to="/">Opcion3</SelectionLink>
           <SelectionLink to="/">Opcion4</SelectionLink>

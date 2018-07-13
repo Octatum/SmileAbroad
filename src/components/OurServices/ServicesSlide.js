@@ -115,15 +115,15 @@ class ServiceSlide extends Component {
           <Button to="/GetStarted">Get started</Button>
         </ButtonCont>
         <BubbleCont>
-          <Bubble 
-            onClick={e => this.bubbleClick(e, 1)} 
-            current={this.state.currentActiveBubble === 1 ? true : false }/>
-          <Bubble 
-            onClick={e => this.bubbleClick(e, 2)} 
-            current={this.state.currentActiveBubble === 2 ? true : false }/>
-          <Bubble 
-            onClick={e => this.bubbleClick(e, 3)} 
-            current={this.state.currentActiveBubble === 3 ? true : false }/>
+          <Bubble
+            onClick={e => this.bubbleClick(e, 1)}
+            current={this.state.currentActiveBubble === 1 ? true : false} />
+          <Bubble
+            onClick={e => this.bubbleClick(e, 2)}
+            current={this.state.currentActiveBubble === 2 ? true : false} />
+          <Bubble
+            onClick={e => this.bubbleClick(e, 3)}
+            current={this.state.currentActiveBubble === 3 ? true : false} />
         </BubbleCont>
       </Container>
     );
