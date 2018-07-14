@@ -13,7 +13,7 @@ const Title = styled.p`
   font-size: 4rem;
   font-family: sans-serif;
   font-weight: 600;
-  color: #404040;
+  color: #202020;
   max-width: 50%;
 `;
 

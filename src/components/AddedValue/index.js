@@ -60,7 +60,7 @@ const ImageCont3 = IMG.extend`
 const ImageCont4 = IMG.extend`
   grid-area: img4;
 `;
-  // img object
+// img object
 const Image = styled.img`
   width: 100%;
   height: 100%;
@@ -86,7 +86,7 @@ const Sub3 = SubCont.extend`
 const Sub4 = SubCont.extend`
   grid-area: title4;
 `;
-  // Subtitle
+// Subtitle
 const Subtitle = styled.p`
   color: black;
   font-size: 2rem;
@@ -113,7 +113,7 @@ const Desc3 = ContDesc.extend`
 const Desc4 = ContDesc.extend`
   grid-area: desc4;
 `;
-  // Description object
+// Description object
 const Description = styled.p`
   font-size: 1.5rem;
   font-family: sans-serif;
@@ -191,7 +191,7 @@ const AddedValue = () => (
       <Desc4> <Description>Receive a personal plan which includes photos of hotel options, recommendations for tourist attractions and activities, and background information about your Certified Specialist</Description></Desc4>
 
       <Track>Neighbor<BlueTrack>Health</BlueTrack>'s Track Record</Track>
-      <OtherComps> <CompImg/> <CompImg/> <CompImg/> <CompImg/> <CompImg/> <CompImg/> </OtherComps>
+      <OtherComps> <CompImg /> <CompImg /> <CompImg /> <CompImg /> <CompImg /> <CompImg /> </OtherComps>
     </InfoContainer>
   </Container>
 );

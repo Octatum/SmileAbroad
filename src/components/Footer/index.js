@@ -34,6 +34,7 @@ const ContactTitle = LinksTitle.extend`
 const Description = Texto.extend`
   grid-area: Desc;
   padding: 0 50px;
+  line-height: 1.7rem;
 `;
 
 const SeparatorL = styled.div`
@@ -75,11 +76,11 @@ const MessageButton = styled(Link)`
   background: #ff392C;
   text-transform: uppercase;
   color: white;
-  border-radius: 25px;
+  border-radius: 30px;
   text-decoration: none;
-  padding: 10px 25px;
+  padding: 15px 30px;
   margin: 0 15px;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-family: sans-serif;
   text-align: center;
 `;
@@ -92,7 +93,7 @@ const Footer = () => (
       <UsefulLink to="/">Company</UsefulLink>
       <UsefulLink to="/">How To</UsefulLink>
       <UsefulLink to="/">Terms of Use</UsefulLink>
-      <UsefulLink to="/">Contact</UsefulLink>
+      <UsefulLink to="/Contact">Contact</UsefulLink>
       <UsefulLink to="/GetStarted">Get Started</UsefulLink>
     </LinksCont>
 
