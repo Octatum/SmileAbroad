@@ -18,11 +18,14 @@ const SlideShow = styled.div`
     ". ."
     "Pres ."
     ". .";
+
+
   background: #eee;
 `;
 
 const Slider = styled(ServiceSlide)`
   grid-area: Pres;
+  
   background-color: #ccc;
 `;
 

@@ -9,7 +9,6 @@ import AddedValue from './../components/AddedValue';
 
 const FeaturedBlog = styled.div`
   height: 100vh;
-
 `;
 
 const Separator = styled.hr`

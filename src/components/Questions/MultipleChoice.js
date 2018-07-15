@@ -65,28 +65,28 @@ let otherAnswer = '';
 
 const MultipleChoice = (props) => {
   let answers = '';
-  let other = '';
   answers = props.options.map(data =>
     <Label
       key={data}
       onClick={() => handleSelection(data)}>
-      <InputRadio 
-          type="radio" 
-          name={props.stateKey}
-          onClick={(event) => event.stopPropagation()} />
+      <InputRadio
+        type="radio"
+        name={props.stateKey}
+        onClick={(event) => event.stopPropagation()} />
       <RadioButton />
       <Questioncontainer>{data}</Questioncontainer>
     </Label>
   );
 
+  let other = '';
   if (props.other) {
     other = (
       <Label
         onClick={() => handleSelection(otherAnswer)}>
-        <InputRadio 
-            type="radio" 
-            name={props.stateKey}
-            onClick={(event) => event.stopPropagation()} />
+        <InputRadio
+          type="radio"
+          name={props.stateKey}
+          onClick={(event) => event.stopPropagation()} />
         <RadioButton />
         <Questioncontainer>
           Other:

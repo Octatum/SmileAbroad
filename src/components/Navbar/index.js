@@ -36,10 +36,12 @@ const NavItem = styled.div`
   font-family: sans-serif;
   font-size: 2rem;
   position: relative;
-  padding: 0 3%;
+  padding-right: calc(2em - 1.5vw);
+  
 
   &:hover ${NavLink}::before {
     width: ${props => props.animateSelection ? 'initial' : '100%'};
+    left: 0;
   }
   `;
 
@@ -48,16 +50,16 @@ const NavLink = styled(Link)`
   color: black;
   position: relative;
   text-align: center;
-  
+
   &::before {
     content: "";
     width: 0%;
     border-bottom: 3px solid #00C6DB;
     display: block;
     position: absolute;
-    left: 0;
     bottom: 0;
-    transition: all 1s ease-out;
+    left: 50%;
+    transition: all 0.75s ease-out;
   }
 `;
 
@@ -75,6 +77,7 @@ const PlaceholderContainer = styled.div`
 const CompanyHover = styled.div`
   width: 80%;
   position: relative;
+
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2); 
   
   margin: 0 auto;
@@ -83,9 +86,9 @@ const CompanyHover = styled.div`
   flex-direction: column;
   
   transform: translate(0, -110%);
-  transition: transform 1s linear, opacity 1s linear;
+  transition: transform 0.75s linear, opacity 0.5s linear;
   opacity: 0;
-  
+
   ${NavItem}:hover ${PlaceholderContainer} & {
     transform: translate(0, 0);
     opacity: 1;
@@ -98,7 +101,12 @@ const DropArrow = styled.img`
   top: 50%;
 `;
 
-const SelectionLink = NavLink.extend`
+const SelectionLink = styled(Link)`
+  text-decoration: none;
+  color: black;
+  position: relative;
+  text-align: center;
+  
   padding: 5px;
   font-size: 1.5rem;
   flex: 0 1 auto;
@@ -113,11 +121,25 @@ const SelectionLink = NavLink.extend`
   }
 `;
 
+/*
+    
+*/
+
 const GetStarted = NavItem.extend`
   border-radius: 15px;
   color: white;
   background: #00C6DB;
   padding: 5px 15px;
+
+  transition: all 0.25s linear;
+  border: 2px solid transparent;
+
+  :hover {
+    background: white;
+    border: 2px solid #00C6DB;
+    color: #00C6DB;
+  }
+
 `;
 
 

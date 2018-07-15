@@ -76,6 +76,7 @@ const MessageButton = styled(Link)`
   background: #ff392C;
   text-transform: uppercase;
   color: white;
+  border: 2px solid #DD2520;
   border-radius: 30px;
   text-decoration: none;
   padding: 15px 30px;
@@ -83,6 +84,13 @@ const MessageButton = styled(Link)`
   font-size: 1.25rem;
   font-family: sans-serif;
   text-align: center;
+
+
+  transition: box-shadow 0.25s linear;
+  :hover{
+
+    box-shadow: 4px 4px 4px 0 rgba(0,0,0,0.3);
+  }
 `;
 
 const Footer = () => (

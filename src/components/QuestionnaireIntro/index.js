@@ -64,7 +64,7 @@ const QuestionnaireIntro = () => (
         recommendations and benefits you get using our <BlueText>NeighborHealth</BlueText> services.
       </Text>
       <Text>
-        We are very excited to welcome you to <span style={{ fontWeight: 'bold' }}>Mexico</span>!
+        We are very excited to welcome you to <BlueText>Mexico</BlueText>!
       </Text>
     </Intro>
     <ImageCont> <IMG /> </ImageCont>

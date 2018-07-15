@@ -43,7 +43,7 @@ const ButtonCont = styled.div`
   justify-content: center;
   box-sizing: border-box;
   margin: 20px;
-`
+`;
 
 const Button = styled(Link)`
   flex: 0 1 auto;
@@ -55,17 +55,23 @@ const Button = styled(Link)`
   margin: 0 50px 20px 50px;
 
   color: black;
-  border: 2px solid black;
+  border: 3px solid black;
+
+  transition: box-shadow 0.25s linear;
+  :hover{
+
+    box-shadow: 4px 4px 4px 0 rgba(0,0,0,0.3);
+  }
 `;
 
 const BlueButton = Button.extend`
   color: white;
   background: #00C6DB;
-  border: none;
+  border: 3px solid transparent;
 `;
 
 const BubbleCont = ButtonCont.extend`
-
+  height: auto;
 `;
 
 const Bubble = styled.button`
@@ -73,13 +79,19 @@ const Bubble = styled.button`
   height: 20px;
   width: 20px;
   border-radius: 10px 10px;
-  border: none;
+  border: 2px solid transparent;
   margin: 0 8px;
   cursor: pointer;
+  outline: 0;
+  position: relative;
 
   background: ${props => props.current ? '#00C6DB' : 'grey'};
-  
-  outline: 0;
+  transform: ${props => props.current ? 'scale(1.1, 1.1)' : 'scale(1,1)'};
+  transition: transform 0.25s ease-out;
+              
+  :hover {
+    transform: scale(1.3, 1.3);
+  }
 `;
 
 class ServiceSlide extends Component {

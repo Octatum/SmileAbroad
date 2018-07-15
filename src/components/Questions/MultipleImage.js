@@ -94,7 +94,7 @@ const MultipleImage = (props) => {
     return (
       <Label
         key={data.description}
-        onClick={(event) => handleSelection(index, event)}
+        onClick={() => handleSelection(index)}
         isSelected={props.selectedOptions[index]}>
 
         <ImageContainer>
@@ -112,7 +112,7 @@ const MultipleImage = (props) => {
   if (props.other) {
     otherOption = (
       <Label
-        onClick={(event) => handleSelection(props.selectedOptions.length - 1, event)}
+        onClick={() => handleSelection(props.selectedOptions.length - 1)}
         isSelected={props.selectedOptions[3]}>
 
         <Div>
@@ -135,7 +135,7 @@ const MultipleImage = (props) => {
     props.handleChange(options, props.stateKey);
   }
 
-  function handleSelection(index, event) {
+  function handleSelection(index) {
     const options = props.selectedOptions;
 
     if (index == options.length - 1) {

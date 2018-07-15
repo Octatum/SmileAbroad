@@ -17,6 +17,7 @@ const Container = styled.div`
 
 `;
 
+
 const ServiceImgContainer = styled.div`
   width: 50%;
   margin: auto;
@@ -36,11 +37,12 @@ const IMG4 = ServiceImgContainer.extend`
 
 const ServiceImg = styled.img`
   position: relative;
-  padding-top: 100%;
-  height: auto;
-  width: 100%;
   border-radius: 50%;
   background: grey;
+  
+  height: auto;
+  width: 100%;
+  padding-top: 100%;
 `;
 
 const IndivService = styled.div`
@@ -79,7 +81,12 @@ const Description = Title.extend`
 const ArrowButton = styled(Link)`
   width: 20%;
   text-decorations: none;
-  margin: 0 auto;
+  margin: auto;
+
+  transition: transform 0.25s linear;
+  :hover ${Arrow} {
+    transform: scale(1.1) translate(10%);
+  }
 `;
 const ArrowButton1 = ArrowButton.extend`
   grid-area: arrow1;
