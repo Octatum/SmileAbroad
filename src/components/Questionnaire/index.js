@@ -54,7 +54,8 @@ const questions = [
       'Within 3 months',
       'Later than 3 months'
     ],
-    other: true
+    other: true,
+    manyOptions: false
   },
   {
     key: 3,
@@ -69,9 +70,10 @@ const questions = [
       'Swimming pool',
       'Breakfast included',
       'Shops',
-      'Terrace and bar'
+      'Terrace and bar',
     ],
-    other: true
+    other: true,
+    manyOptions: true
   },
   {
     key: 5,
@@ -94,12 +96,13 @@ class Questionnaire extends Component {
       1: '',
       2: '',
       3: '',
-      4: '',
+      4: [false, false, false, false, false],
       5: [false, false, false, false]
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
     this.submitInfo = this.submitInfo.bind(this);
+    this.handleManyOptions = this.handleManyOptions.bind(this);
   }
 
   handleInputChange(value, key) {
@@ -109,6 +112,12 @@ class Questionnaire extends Component {
         [key]: value,
       });
     }
+  }
+
+  handleManyOptions(value, key, index) {
+    let newAnswer = [...this.state[[key]]];
+    newAnswer[index] = value;
+    this.handleInputChange(newAnswer, key)
   }
 
   submitInfo(event) {
@@ -140,6 +149,8 @@ class Questionnaire extends Component {
     console.log(finalResponse);
   }
 
+  /// TODO :: change 5 for index+1
+
   render() {
     let questionsList = '';
     questionsList = questions.map(data => {
@@ -158,7 +169,8 @@ class Questionnaire extends Component {
           other={data.other}
           key={data.key}
           stateKey={data.key}
-          handleChange={this.handleInputChange} />
+          handleChange={data.manyOptions ? this.handleManyOptions : this.handleInputChange} 
+          handleMany={data.manyOptions} />
       }
       else if (data.type === 'multipleimage') {
         return <MultipleImage

@@ -1,12 +1,48 @@
 import React from 'react'
-import Link from 'gatsby-link'
+import styled from 'styled-components';
 
-const SecondPage = () => (
-  <div>
-    <h1>Hi from the second page</h1>
-    <p>Welcome to page 2</p>
-    <Link to="/">Go back to the homepage</Link>
-  </div>
+import Navbar from './../components/Navbar';
+import GetInTouch from './../components/GetInTouch';
+
+
+const Container = styled.div`
+`;
+
+const TitleCont = styled.div`
+  margin: 150px 0;
+`;
+
+const Title = styled.p`
+  font-size: 4rem;
+  color: black;
+  font-weight: 600;
+  font-family: sans-serif;
+  width: 100%;
+  text-align: center;
+`;
+const BlueTitle = Title.withComponent('span').extend`
+  color: #00C6DB;
+`;
+
+const SubText = styled.p`
+  font-size: 2rem;
+  color: black;
+  font-family: sans-serif;
+  width: 100%;
+  text-align: center;
+  margin-top: 50px;
+`;
+
+const Contact = () => (
+  <Container>
+    <Navbar />
+    <TitleCont>
+      <Title>Get in <BlueTitle>touch</BlueTitle> with us</Title>
+      <SubText>We are more than happy to help, let us know what we can do for you.</SubText>
+    </TitleCont>
+    
+    <GetInTouch />
+  </Container>
 )
 
-export default SecondPage
+export default Contact;

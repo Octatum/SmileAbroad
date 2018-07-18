@@ -6,12 +6,17 @@ import downArrow from './../../../assets/downArrow.svg';
 
 const Container = styled.div`
   box-sizing: border-box;
-  display: grid;
-  grid-template: minmax(2.5vh, auto) minmax(2.5vh, 60px) / 3fr minmax(auto, 0.5fr) 6fr;
-  grid-template-areas: 
-    "Logo . nav"
-    "Logo . .";
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
   margin: 30px;
+
+  @media(max-width: 1300px) {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
 `;
 
 const Logo = styled.img`
@@ -26,8 +31,13 @@ const Nav = styled.div`
   grid-area: nav;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   padding: 20px;
+  width: 100%;
+  @media(max-width: 1300px) {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 `;
 
 const NavItem = styled.div`
@@ -36,10 +46,10 @@ const NavItem = styled.div`
   font-family: sans-serif;
   font-size: 2rem;
   position: relative;
-  padding-right: calc(2em - 1.5vw);
+  margin-right: calc(2em - 1.5vw);
   
 
-  &:hover ${NavLink}::before {
+  &:hover > ${NavLink}::before {
     width: ${props => props.animateSelection ? 'initial' : '100%'};
     left: 0;
   }
@@ -50,6 +60,7 @@ const NavLink = styled(Link)`
   color: black;
   position: relative;
   text-align: center;
+  margin: 10px 0;
 
   &::before {
     content: "";
@@ -59,7 +70,7 @@ const NavLink = styled(Link)`
     position: absolute;
     bottom: 0;
     left: 50%;
-    transition: all 0.75s ease-out;
+    transition: width 0.5s ease-out, left 0.5s ease-out;
   }
 `;
 
@@ -77,22 +88,32 @@ const PlaceholderContainer = styled.div`
 const CompanyHover = styled.div`
   width: 80%;
   position: relative;
-
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2); 
-  
   margin: 0 auto;
   background-color: white;
   display: flex;
   flex-direction: column;
   
   transform: translate(0, -110%);
-  transition: transform 0.75s linear, opacity 0.5s linear;
+  transition: transform 0.65s ease, opacity 0.45s ease;
   opacity: 0;
+  
+  z-index: 1;
 
-  ${NavItem}:hover ${PlaceholderContainer} & {
+  ${NavItem}:hover > ${PlaceholderContainer} > & {
     transform: translate(0, 0);
     opacity: 1;
   }
+`;
+
+const ShadowBox = styled.div`
+  position: absolute;
+  z-index: -1;
+  left: 5px;
+  top: 5px;
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0,0.3); 
+  filter: blur(2px);
 `;
 
 const DropArrow = styled.img`
@@ -106,6 +127,7 @@ const SelectionLink = styled(Link)`
   color: black;
   position: relative;
   text-align: center;
+  background: white;
   
   padding: 5px;
   font-size: 1.5rem;
@@ -120,10 +142,6 @@ const SelectionLink = styled(Link)`
     color: white;
   }
 `;
-
-/*
-    
-*/
 
 const GetStarted = NavItem.extend`
   border-radius: 15px;
@@ -153,6 +171,7 @@ const Navbar = () => {
         <SelectionLink to="/">Opcion2</SelectionLink>
         <SelectionLink to="/">Opcion3</SelectionLink>
         <SelectionLink to="/">Opcion4</SelectionLink>
+        <ShadowBox />
       </CompanyHover>
     </PlaceholderContainer>
   );

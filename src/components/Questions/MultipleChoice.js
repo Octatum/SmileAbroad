@@ -25,6 +25,10 @@ const Label = styled.label`
   flex-direction: row;
 `;
 
+const OtherLabel = Label.extend`
+  margin-left: 50px;
+`;
+
 const InputRadio = styled.input`
   position: absolute;
   opacity: 0;
@@ -65,14 +69,13 @@ let otherAnswer = '';
 
 const MultipleChoice = (props) => {
   let answers = '';
-  answers = props.options.map(data =>
+  answers = props.options.map((data, index) =>
     <Label
-      key={data}
-      onClick={() => handleSelection(data)}>
+      key={data} >
       <InputRadio
-        type="radio"
+        type={props.handleMany ? "checkbox" : "radio"}
         name={props.stateKey}
-        onClick={(event) => event.stopPropagation()} />
+        onClick={(event) => handleSelection(event, data, index)} />
       <RadioButton />
       <Questioncontainer>{data}</Questioncontainer>
     </Label>
@@ -81,29 +84,39 @@ const MultipleChoice = (props) => {
   let other = '';
   if (props.other) {
     other = (
-      <Label
-        onClick={() => handleSelection(otherAnswer)}>
-        <InputRadio
-          type="radio"
-          name={props.stateKey}
-          onClick={(event) => event.stopPropagation()} />
-        <RadioButton />
+      <OtherLabel>
+        
         <Questioncontainer>
           Other:
           <OtherInput type="text" onChange={userResponse} />
         </Questioncontainer>
-      </Label>
+      </OtherLabel>
     );
   }
 
   function userResponse(event) {
     otherAnswer = event.target.value;
-    props.handleChange(otherAnswer, props.stateKey);
+    if (props.handleMany) {      
+      props.handleChange(otherAnswer, props.stateKey, props.options.length);
+    }
+    else {
+      props.handleChange(otherAnswer, props.stateKey);
+    }
+
   }
 
-  function handleSelection(data) {
-    props.handleChange(data, props.stateKey);
-
+  function handleSelection(event, data, index) {
+    if (props.handleMany) {
+      let checked = event.target.checked == true ? true : false;
+      if(checked && index == props.options.length) {
+        checked = otherAnswer;
+      }
+      props.handleChange(checked, props.stateKey, index)
+    }
+    else {
+      props.handleChange(data, props.stateKey);
+    }
+    event.stopPropagation();
   }
 
   return (
