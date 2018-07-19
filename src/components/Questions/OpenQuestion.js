@@ -8,14 +8,14 @@ const Container = styled.div`
 const Title = styled.p`
   font-size: 3rem;
   margin-bottom: 20px;
-  font-family: sans-serif;
+  font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   padding: 10px;
   min-width: 100%;
   box-sizing: border-box;
 `;
 
 const Answer = styled.input`
-  border: #00C6DB 2px solid;
+  border: ${props => props.theme.color.lightBlue} 2px solid;
   border-radius: 15px;
   width: 85%;
   max-width: 800px;

@@ -19,10 +19,14 @@ const InputCont = styled.div`
   justify-content: space-between;
   margin: 3em 0;
   padding-right: 5%;
+
+  @media(max-width: 1450px) {
+    flex-direction: column;
+  }
 `;
 
 const GridText = styled.span`
-  font-family: sans-serif;
+  font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   font-size: 2.5rem;
   font-weight: bold;
   line-height: 2em;
@@ -32,13 +36,13 @@ const GridText = styled.span`
 `;
 
 const GridInput = styled.input`
-  font-size: 2.5rem;
-  font-family: sans-serif;
+  font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   height: 1.75em;
   position: relative;
   width: 800px;
 
-  border: ${props => props.valid ? '#00C6DB 2px solid' : 'red 2px solid'};
+
+  border: ${props => props.valid ?  props.theme.color.lightBlue + ' 2px solid' : 'red 2px solid'};
   border-radius: 15px;
   padding: 10px;
   font-size: 2rem;
@@ -65,7 +69,7 @@ const Submit = styled.input`
   padding: 0.5em;
   border-radius: 10px;
   margin-right: 5%;
-  background: #00C6DB;
+  background: ${props => props.theme.color.lightBlue};
 
   color: white;
   align-self: flex-end;
@@ -107,7 +111,7 @@ const EmailWarn = styled.div`
   line-height: 2.4rem;
   border-radius: 10px;
   padding: 0 10px;
-  font-family: sans-serif;
+  font-family: ${props => props.theme.fontFamily.main}, sans-serif;
 
   ${GridInput}:focus + & {
     top: 50%;

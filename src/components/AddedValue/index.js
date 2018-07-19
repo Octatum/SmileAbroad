@@ -17,11 +17,11 @@ const Title = styled.p`
   font-size: 3rem;
   font-weight: 600;
   align-self: flex-start;
-  font-family: sans-serif;
+  font-family: ${props => props.theme.fontFamily.main}, sans-serif;
 
 `;
 const BlueTitle = Title.withComponent('span').extend`
-  color: #00C6DB;
+  color: ${props => props.theme.color.lightBlue};
 `;
 
 // Grid container 
@@ -91,7 +91,7 @@ const Subtitle = styled.p`
   color: black;
   font-size: 2rem;
   font-weight: 600;
-  font-family: sans-serif;
+  font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   width: 80%;
   text-align: center;
 `;
@@ -116,7 +116,7 @@ const Desc4 = ContDesc.extend`
 // Description object
 const Description = styled.p`
   font-size: 1.5rem;
-  font-family: sans-serif;
+  font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   text-align: center;
   width: 70%;
 `;

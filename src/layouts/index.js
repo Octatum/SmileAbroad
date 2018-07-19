@@ -1,6 +1,9 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Helmet from 'react-helmet'
+import React from 'react';
+import PropTypes from 'prop-types';
+import Helmet from 'react-helmet';
+
+import { ThemeProvider } from 'styled-components';
+import { globalTheme } from './../components/styles/theme';
 
 import './index.css'
 import Footer from './../components/Footer';
@@ -15,7 +18,9 @@ const Layout = ({ children, data }) => (
       ]}
     />
     <div>
-      {children()}
+      <ThemeProvider theme={globalTheme}>
+        {children()}
+      </ThemeProvider>
     </div>
     <Footer />
   </div>
@@ -29,10 +34,10 @@ export default Layout
 
 export const query = graphql`
   query SiteTitleQuery {
-    site {
-      siteMetadata {
-        title
-      }
+      site {
+    siteMetadata {
+      title
+    }
     }
   }
 `

@@ -17,14 +17,14 @@ const Container = styled.form`
 
 const SendButton = styled.button`
   font-size: 2rem;
-  font-family: sans-serif;
+  font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   text-transform: uppercase;
   padding: 0.5em 2em;
 
   flex: 0 1 auto;
   align-self: flex-end;
 
-  background: #00C6DB;
+  background: ${props => props.theme.color.lightBlue};
   color: white;
   outline: none;
   border: none;
@@ -33,7 +33,7 @@ const SendButton = styled.button`
 `;
 
 const Text = styled.p`
-  font-family: sans-serif;
+  font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   font-size: 2.5rem;
   box-sizing: border-box;
   margin: 50px 0;

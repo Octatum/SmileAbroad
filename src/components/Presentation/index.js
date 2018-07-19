@@ -4,7 +4,7 @@ import styled, { keyframes } from 'styled-components';
 const Container = styled.div`
   height: 100vh;
   width: 100%;
-  background-color: #00C6DB;
+  background-color: ${props => props.theme.color.lightBlue};
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,18 +13,22 @@ const Container = styled.div`
 
 const CenterCont = styled.div`
   position: relative;
+  max-width: 100%;
 `;
 
 const Text = styled.p`
   color: white;
-  font-size: 2.3rem;
-  display: flex;
-  font-family: sans-serif;
+  font-size: calc(5vw + 1rem);
+  font-family: ${props => props.theme.fontFamily.main}, sans-serif;
+
+  @media(min-width: 1250px) {
+    font-size: 4.9rem;
+  }
 `;
 
 const Title = Text.extend`
-  font-size: 4rem;
-  padding-left: 10px;
+  padding-left: 2vw;
+  font-weight: bold;
 `;
 
 const SlideFromLeft = keyframes`
@@ -36,16 +40,20 @@ const SlideFromLeft = keyframes`
   }
 `;
 
+/* CHANGE HEIGHT WHEN ADDING IMAGE  */
 const Image = styled.img`
   position: relative;
-  height: 150px;
+  
+  height: 150px; 
   width: 100%;
-  border: 1px solid black;
 
+  margin-top: 20px;
   left: 0;
 
   animation: 3s ease 0s 1 ${SlideFromLeft};
-  transition: left 0s ease 2s; 
+  
+
+  background: grey;
 `;
 
 const Presentation = () => (

@@ -26,7 +26,7 @@ const Divisor = styled.div`
   width: 5px;
   height: 50%;
   margin: auto;
-  background: #00C6DB;
+  background: ${props => props.theme.color.lightBlue};
 `;
 
 const ImageCont = styled.div`
@@ -42,10 +42,10 @@ const IMG = styled.img`
 const Text = styled.p`
   font-size: 2.5rem;
   text-align: right;
-  font-family: sans-serif;
+  font-family: ${props => props.theme.fontFamily.main}, sans-serif;
 `;
 const BlueText = Text.withComponent('span').extend`
-  color: #00C6DB;
+  color: ${props => props.theme.color.lightBlue};
 `;
 
 const Desc = Text.extend`

@@ -2,6 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 import Link from 'gatsby-link';
 
+/*
+font-size: calc([minimum size] + 
+          ([maximum size] - [minimum size]) * 
+          ((100vw - [minimum viewport width]) / 
+          ([maximum viewport width] - 
+          [minimum viewport width])));
+*/
+
 import rightArrow from './../../../assets/rightArrow.svg';
 
 const Container = styled.div`
@@ -68,7 +76,7 @@ const Tourism = IndivService.extend`
 
 const Title = styled.p`
   color: black;
-  font-family: sans-serif;
+  font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   font-size: 2.5rem;
   margin: 20px;
 `;

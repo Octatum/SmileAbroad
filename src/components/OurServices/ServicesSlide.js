@@ -11,14 +11,14 @@ const Container = styled.div`
 
 const Title = styled.p`
   font-size: 4rem;
-  font-family: sans-serif;
+  font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   font-weight: 600;
   color: #202020;
   max-width: 50%;
 `;
 
 const Separator = styled.hr`
-  background: #00C6DB;
+  background: ${props => props.theme.color.lightBlue};
   height: 7px;
   width: 25%;
   border-radius: 10px;
@@ -27,7 +27,7 @@ const Separator = styled.hr`
 `;
 
 const Description = styled.p`
-  font-family: sans-serif;
+  font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   font-size: 1.6rem;
   line-height: 1.4em;
   max-width: 70%;
@@ -35,7 +35,7 @@ const Description = styled.p`
 `
 
 const BlueText = Description.withComponent('span').extend`
-  color: #00C6DB;
+  color: ${props => props.theme.color.lightBlue};
 `
 
 const ButtonCont = styled.div`
@@ -48,7 +48,7 @@ const ButtonCont = styled.div`
 const Button = styled(Link)`
   flex: 0 1 auto;
   text-decoration: none;
-  font-family: sans-serif;
+  font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   font-size: 2.2rem;
   border-radius: 10px;
   padding: 10px 70px;
@@ -66,7 +66,7 @@ const Button = styled(Link)`
 
 const BlueButton = Button.extend`
   color: white;
-  background: #00C6DB;
+  background: ${props => props.theme.color.lightBlue};
   border: 3px solid transparent;
 `;
 
@@ -85,7 +85,7 @@ const Bubble = styled.button`
   outline: 0;
   position: relative;
 
-  background: ${props => props.current ? '#00C6DB' : 'grey'};
+  background: ${props => props.current ? props.theme.color.lightBlue : 'grey'};
   transform: ${props => props.current ? 'scale(1.1, 1.1)' : 'scale(1,1)'};
   transition: transform 0.25s ease-out;
               

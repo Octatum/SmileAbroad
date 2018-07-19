@@ -9,7 +9,7 @@ const Container = styled.div`
 `;
 
 const SlideShow = styled.div`
-  height: 100vh;
+  min-height: 100vh;
   text-align: center;
   display: grid;
   box-sizing: border-box;
@@ -19,8 +19,12 @@ const SlideShow = styled.div`
     "Pres ."
     ". .";
 
-
   background: #eee;
+
+  @media(max-width: 1300px) {
+    display: block;
+    min-height: 0;
+  }
 `;
 
 const Slider = styled(ServiceSlide)`

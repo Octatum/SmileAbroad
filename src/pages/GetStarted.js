@@ -9,13 +9,13 @@ const Title = styled.p`
   font-size: 4rem;
   color: black;
   font-weight: 600;
-  font-family: sans-serif;
+  font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   width: 100%;
   text-align: center;
   margin-top: 200px;
 `;
 const BlueTitle = Title.withComponent('span').extend`
-  color: #00C6DB;
+  color: ${props => props.theme.color.lightBlue};
 `;
 
 

@@ -4,7 +4,7 @@ import Link from 'gatsby-link';
 
 const Container = styled.div`
   display: grid;
-  grid-template: 1fr 3fr 1fr / 3fr 5px 1fr 5px 1fr;
+  grid-template: 1fr 3fr 1fr / 2fr 5px 1fr 5px minmax(250px, 1fr);
   grid-template-areas:
     ". . titleLinks . Contact"
     "Desc padL links padR ContactInfo"
@@ -16,9 +16,9 @@ const Container = styled.div`
 `;
 
 const Texto = styled.p`
-  font-family: sans-serif;
+  font-family: 'Nunito', sans-serif;
   color: white;
-  font-size: 1.25rem;
+  font-size: 1.4rem;
 `;
 
 const LinksTitle = Texto.extend`
@@ -60,7 +60,7 @@ const LinksCont =  styled.div`
 const UsefulLink = styled(Link)`
   text-decoration: none;
   color: white;
-  font-family: sans-serif;
+  font-family: 'Nunito', sans-serif;
   padding: 10px 0;
   font-size: 1.25rem;
 `;
@@ -82,7 +82,7 @@ const MessageButton = styled(Link)`
   padding: 15px 30px;
   margin: 0 15px;
   font-size: 1.25rem;
-  font-family: sans-serif;
+  font-family: 'Nunito', sans-serif;
   text-align: center;
 
 

@@ -14,7 +14,7 @@ const Container = styled.div`
 const Title = styled.p`
   font-size: 3rem;
   margin-bottom: 20px;
-  font-family: sans-serif;
+  font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   padding: 10px;
   min-width: 100%;
   box-sizing: border-box;
@@ -44,7 +44,7 @@ const Label = styled.label`
 
 const OtherInput = styled.input`
   font-size: 2rem;
-  font-family: sans-serif;
+  font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   border: none;
   border-bottom: 1px solid black;
   background: none;
@@ -74,11 +74,11 @@ const Div = styled.div`
 
 const Category = styled.p`
   font-size: 2rem;
-  font-family: sans-serif;
+  font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   display: inline-block;
 
   &::first-letter {
-    color: #00C6DB;
+    color: ${props => props.theme.color.lightBlue};
     text-transform: uppercase;
   }
 `;

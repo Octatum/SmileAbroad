@@ -10,7 +10,7 @@ const ContainerForm = styled.div`
 const Title = styled.p`
   font-size: 3rem;
   margin-bottom: 20px;
-  font-family: sans-serif;
+  font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   padding: 10px;
   min-width: 100%;
   box-sizing: border-box;
@@ -19,7 +19,7 @@ const Title = styled.p`
 
 const Label = styled.label`
   font-size: 2rem;
-  font-family: sans-serif;
+  font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   margin: 25px 0;
   display: flex;
   flex-direction: row;
@@ -52,7 +52,7 @@ const RadioButton = styled.div`
 
 const OtherInput = styled.input`
   font-size: 2rem;
-  font-family: sans-serif;
+  font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   border: none;
   border-bottom: 1px solid black;
   background: none;
