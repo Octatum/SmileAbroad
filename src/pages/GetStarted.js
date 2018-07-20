@@ -18,12 +18,8 @@ const BlueTitle = Title.withComponent('span').extend`
   color: ${props => props.theme.color.lightBlue};
 `;
 
-
-
-
 const GetStartedPage = () => (
   <div>
-    <Navbar />
     <Title>
       Get <BlueTitle>Started</BlueTitle>
     </Title>

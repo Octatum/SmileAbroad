@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import Link from 'gatsby-link';
 
+import ButtonComponent from './../Button';
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -36,7 +38,7 @@ const Description = styled.p`
 
 const BlueText = Description.withComponent('span').extend`
   color: ${props => props.theme.color.lightBlue};
-`
+`;
 
 const ButtonCont = styled.div`
   display: flex;
@@ -45,26 +47,9 @@ const ButtonCont = styled.div`
   margin: 20px;
 `;
 
-const Button = styled(Link)`
-  flex: 0 1 auto;
-  text-decoration: none;
-  font-family: ${props => props.theme.fontFamily.main}, sans-serif;
-  font-size: 2.2rem;
-  border-radius: 10px;
-  padding: 10px 70px;
-  margin: 0 50px 20px 50px;
+const Button = ButtonComponent(Link);
 
-  color: black;
-  border: 3px solid black;
-
-  transition: box-shadow 0.25s linear;
-  :hover{
-
-    box-shadow: 4px 4px 4px 0 rgba(0,0,0,0.3);
-  }
-`;
-
-const BlueButton = Button.extend`
+const BlueButton = ButtonComponent(Link).extend`
   color: white;
   background: ${props => props.theme.color.lightBlue};
   border: 3px solid transparent;

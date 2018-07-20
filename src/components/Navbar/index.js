@@ -20,11 +20,13 @@ const Container = styled.div`
 `;
 
 /* CHANGE HEIGHT ON ADDED IMAGE */
+const LogoLink = styled(Link)`
+  width: 20em;
+`;
+
 const Logo = styled.img`
-  width: 100%;
-  height: 150px;
-  min-width: 150px;
-  background-color: grey;
+  max-width: 100%;
+  max-height: 100%;
 
   @media(max-width: 1300px) {
     width: 50%;
@@ -33,9 +35,7 @@ const Logo = styled.img`
 
 const ToggleShowButton = styled.div`
   margin-left: auto;
-
   display: none;
-
   background: grey;
   height: 100px;
   width: 100px;
@@ -56,7 +56,7 @@ const Nav = styled.nav`
   align-items: center;
   justify-content: space-between;
   padding: 20px;
-  width: 100%;
+  width: 45%;
   height: 100%;
 
   @media(max-width: 1300px) {
@@ -100,7 +100,7 @@ const NavLink = styled(Link)`
     border-bottom: 3px solid ${props => props.theme.color.lightBlue};
     display: block;
     position: absolute;
-    bottom: 0;
+    bottom: -10%;
     left: 50%;
     transition: width 0.5s ease-out, left 0.5s ease-out;
   }
@@ -217,7 +217,6 @@ const GetStarted = NavItem.extend`
 `;
 
 
-
 class Navbar extends Component {
   constructor() {
     super();
@@ -263,7 +262,7 @@ class Navbar extends Component {
 
     return (
       <Container>
-        <Logo src={logo}/>
+        <LogoLink to="/"><Logo src={logo}/></LogoLink>
         <ToggleShowButton onClick={this.handleToggleClick} />
         <Nav display={this.state.open}>
           <NavItem> <NavLink to="/">Home</NavLink> </NavItem>
