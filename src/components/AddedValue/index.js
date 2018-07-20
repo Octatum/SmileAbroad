@@ -24,6 +24,10 @@ const BlueTitle = Title.withComponent('span').extend`
 const InfoContainer = styled(Slider)`
   margin: 30px;
   margin-bottom: 70px;
+
+  & div {
+    outline: none;
+  }
 `;
 
 // img container to maintain sizing
@@ -54,10 +58,8 @@ const SubCont = styled.div`
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
+  margin: 10px 0;
 
-  @media(max-width: 500px) {
-    height: 100px;
-  }
 `;
 
 // Subtitle
@@ -89,6 +91,7 @@ const Description = styled.p`
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   text-align: center;
   width: 90%;
+  word-wrap: break-word;
 
   @media(max-width: 500px) {
     font-size: 0.75rem;

@@ -9,28 +9,45 @@ const Container = styled.div`
 `;
 
 const TitleCont = styled.div`
-  margin: 150px 0;
+  margin: 150px auto;
+
+  @media(max-width: 800px) {
+    width: 90%;
+    margin: 50px auto; 
+  }
 `;
 
 const Title = styled.p`
-  font-size: 4rem;
+  font-size: calc(2rem + 1vw);
   color: black;
   font-weight: 600;
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
-  width: 100%;
+  width: 80%;
   text-align: center;
+  margin: auto;
+
+  @media(max-width: 800px) {
+    width: 100%;
+    
+  }
 `;
 const BlueTitle = Title.withComponent('span').extend`
   color: ${props => props.theme.color.lightBlue};
 `;
 
 const SubText = styled.p`
-  font-size: 2rem;
+  font-size: calc(1.25rem + 1vw);
   color: black;
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
-  width: 100%;
+  width: 80%;
   text-align: center;
+  margin: auto;
   margin-top: 50px;
+
+  @media(max-width: 800px) {
+    width: 100%;
+    
+  }
 `;
 
 const Contact = () => (

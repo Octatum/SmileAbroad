@@ -9,6 +9,10 @@ import rightArrow from './../../../assets/rightArrow.svg';
 
 const Container = styled(Slider)`
   margin: 50px 0;
+
+  & div {
+    outline: none;
+  }
 `;
 
 const ServiceImgContainer = styled.div`
@@ -32,7 +36,7 @@ const IndivService = styled.div`
   align-items: center;
   text-align: center;
   width: 70%;
-  margin: 0 auto;
+  margin: auto;
 `;
 
 const Title = styled.p`
@@ -44,6 +48,7 @@ const Title = styled.p`
 
   @media(max-width: 500px) {
     font-size: 1rem;
+    margin: 20px 0;
   }
 `;
 
@@ -53,7 +58,6 @@ const Description = Title.extend`
 
   @media(max-width: 500px) {
     font-size: 0.75rem;
-    height: 100px;
   }
 `;
 const ArrowButton = styled(Link)`
@@ -72,21 +76,21 @@ const ArrowButton = styled(Link)`
   
 `;
 const Arrow = styled.img`
-  width: 100px;
+  width: 40px;
   margin: auto;
 
-  @media(max-width: 500px) {
-    width: 40px;
+  @media(min-width: 540px) {
+    width: 70px;
   }
 
-  @media(max-width: 1300px) {
-    width: 70px;
+  @media(min-width: 1300px) {
+    width: 100px;
   }
 `;
 
 const Div = styled.div`
   position: relative;
-  height: 100%;
+  height: 100%; 
 `;
 
 const Services = () => {

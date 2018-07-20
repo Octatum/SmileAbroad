@@ -5,47 +5,61 @@ import LocationIcon from './../../../assets/Location.svg';
 import Internet from './../../../assets/Internet.svg';
 
 const Container = styled.form`
-  margin: 0 10% 100px 100px;
   box-sizing: border-box;
   min-height: 70vh;
 
   display: flex;
   flex-direction: column;
+
+  margin: 0 50px;
+
+  @media(max-width: 520px) {
+    margin: 0;
+  }
 `;
 
 const InputCont = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: 3em 0;
-  padding-right: 5%;
+  margin: 3em 5em;
+  width: 90%;
 
-  @media(max-width: 1450px) {
+  position: relative;
+
+
+  @media(max-width: 900px) {
     flex-direction: column;
+    align-items: center;
+    margin: 15px 10px;
   }
 `;
 
 const GridText = styled.span`
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
-  font-size: 2.5rem;
+  font-size: calc(1rem + 1vw);
   font-weight: bold;
-  line-height: 2em;
   color: black;
   display: inline-block;
-  margin-left: 2.5em;
+
+  padding: 10px 20px;
+
+  @media(max-width: 900px) {
+    align-self: flex-start;
+  }
 `;
 
 const GridInput = styled.input`
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
-  height: 1.75em;
   position: relative;
-  width: 800px;
+  width: 70%;
+  max-width: 800px;
 
 
-  border: ${props => props.valid ?  props.theme.color.lightBlue + ' 2px solid' : 'red 2px solid'};
+  border: ${props => props.valid ? props.theme.color.lightBlue + ' 2px solid' : 'red 2px solid'};
   border-radius: 15px;
   padding: 10px;
-  font-size: 2rem;
+  font-size: calc(1rem + 1vw);
 
   &:focus{
     outline:none;
@@ -65,7 +79,7 @@ const MessageInput = GridInput.withComponent('textarea').extend`
 `;
 
 const Submit = styled.input`
-  font-size: 2rem;
+  font-size: calc(1rem + 1vw);
   padding: 0.5em;
   border-radius: 10px;
   margin-right: 5%;
@@ -81,24 +95,32 @@ const Submit = styled.input`
 
 const Localization = styled.div`
   padding: 20px 0;
-  margin-left: 7em;
   display: flex;
   flex-direction: row;
   align-items: center;
-
+  
+  margin: 3em 5em;
+  @media(max-width: 900px) {
+    margin: 15px 10px;
+  }
+  
+    & span {
+    font-size: calc(0.75rem + 1vw);
+  }
 `;
 
 const SVGicon = styled.img`
-  height: 100px;
+  height: calc(3em + 1vw);
 `;
 
 const EmailWarn = styled.div`
   position: absolute;
   display: block;
-  left: 0;
+  right: 0;
   top: 100%;
-  height: 50%; 
-  width: 100%;
+  height: 1.5em; 
+  width: 70%;
+  max-width: 800px;
   z-index: -1;
 
   opacity: ${props => props.valid ? 0 : 1};
@@ -107,8 +129,7 @@ const EmailWarn = styled.div`
 
   background: pink;
   color: red;
-  font-size: 1.3rem;
-  line-height: 2.4rem;
+  font-size: calc(0.5rem + 1vw);
   border-radius: 10px;
   padding: 0 10px;
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
@@ -116,6 +137,10 @@ const EmailWarn = styled.div`
   ${GridInput}:focus + & {
     top: 50%;
     opacity: 0;
+  }
+
+  @media(max-width: 900px) {
+    left: 0;
   }
 `;
 
@@ -184,13 +209,11 @@ class GetInTouch extends Component {
 
         <InputCont>
           <GridText>Email:</GridText>
-          <div style={{ position: 'relative' }}>
-            <GridInput
-              onChange={(event) => this.handleInputChange(event, 'email')}
-              onBlur={this.emailInputValid}
-              valid={this.state.validEmail} />
-            <EmailWarn valid={this.state.validEmail}> Please enter a valid e-mail address </EmailWarn>
-          </div>
+          <GridInput
+            onChange={(event) => this.handleInputChange(event, 'email')}
+            onBlur={this.emailInputValid}
+            valid={this.state.validEmail} />
+          <EmailWarn valid={this.state.validEmail}> Please enter a valid e-mail address </EmailWarn>
         </InputCont>
 
         <InputCont>
