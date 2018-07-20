@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import Link from 'gatsby-link';
 
-import downArrow from './../../../assets/downArrow.svg';
-import logo from './logo.svg';
+import downArrow from './assets/downArrow.svg';
+import logo from './assets/logo.svg';
 
 const Container = styled.div`
   box-sizing: border-box;

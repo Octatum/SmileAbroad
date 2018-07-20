@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-import LocationIcon from './../../../assets/Location.svg';
-import Internet from './../../../assets/Internet.svg';
+import LocationIcon from './assets/Location.svg';
+import Internet from './assets/internet.svg';
 
 const Container = styled.form`
   box-sizing: border-box;
