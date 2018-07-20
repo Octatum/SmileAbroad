@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-import OpenQuestion from './../Questions/OpenQuestion';
-import MultipleChoice from './../Questions/MultipleChoice';
-import MultipleImage from './../Questions/MultipleImage';
+import OpenQuestion from './Questions/OpenQuestion';
+import MultipleChoice from './Questions/MultipleChoice';
+import MultipleImage from './Questions/MultipleImage';
+import horno from './assets/horno.jpg';
 
 const Container = styled.form`
   width: 80%;
@@ -13,13 +14,17 @@ const Container = styled.form`
   flex-direction: column;
   justify-content: space-evenly;
   align-items: flex-start;
+
+  @media(max-width: 520px) {
+    width: 90%;
+  }
 `;
 
 const SendButton = styled.button`
-  font-size: 2rem;
+  font-size: calc(0.75rem + 1vw);
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   text-transform: uppercase;
-  padding: 0.5em 2em;
+  padding: 0.5em 1em;
 
   flex: 0 1 auto;
   align-self: flex-end;
@@ -34,59 +39,11 @@ const SendButton = styled.button`
 
 const Text = styled.p`
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
-  font-size: 2.5rem;
+  font-size: calc(1rem + 1vw);
   box-sizing: border-box;
   margin: 50px 0;
 `;
 
-const questions = [
-  {
-    key: 1,
-    type: 'open',
-    question: 'Where are you from?'
-  },
-  {
-    key: 2,
-    type: 'multiplechoice',
-    question: 'When are you planning to travel?',
-    options: [
-      'Within a month',
-      'Within 3 months',
-      'Later than 3 months'
-    ],
-    other: true,
-    manyOptions: false
-  },
-  {
-    key: 3,
-    type: 'open',
-    question: 'If not, we can still help. Please describe your dental situation generally'
-  },
-  {
-    key: 4,
-    type: 'multiplechoice',
-    question: 'What characteristics are you looking for in a hotel?',
-    options: [
-      'Swimming pool',
-      'Breakfast included',
-      'Shops',
-      'Terrace and bar',
-    ],
-    other: true,
-    manyOptions: true
-  },
-  {
-    key: 5,
-    type: 'multipleimage',
-    question: 'Which type of tourist activities do you like?',
-    options: [
-      { url: 'http://www.birds.com/wp-content/uploads/home/bird4.jpg', description: 'smiley' },
-      { url: 'http://www.birds.com/wp-content/uploads/home/bird4.jpg', description: 'smiley2' },
-      { url: 'http://www.birds.com/wp-content/uploads/home/bird4.jpg', description: 'smiley3' },
-    ],
-    other: true
-  }
-]
 
 class Questionnaire extends Component {
   constructor() {
@@ -149,9 +106,58 @@ class Questionnaire extends Component {
     console.log(finalResponse);
   }
 
-  /// TODO :: change 5 for index+1
 
   render() {
+
+    const questions = [
+      {
+        key: 1,
+        type: 'open',
+        question: 'Where are you from?'
+      },
+      {
+        key: 2,
+        type: 'multiplechoice',
+        question: 'When are you planning to travel?',
+        options: [
+          'Within a month',
+          'Within 3 months',
+          'Later than 3 months'
+        ],
+        other: true,
+        manyOptions: false
+      },
+      {
+        key: 3,
+        type: 'open',
+        question: 'If not, we can still help. Please describe your dental situation generally'
+      },
+      {
+        key: 4,
+        type: 'multiplechoice',
+        question: 'What characteristics are you looking for in a hotel?',
+        options: [
+          'Swimming pool',
+          'Breakfast included',
+          'Shops',
+          'Terrace and bar',
+        ],
+        other: true,
+        manyOptions: true
+      },
+      {
+        key: 5,
+        type: 'multipleimage',
+        question: 'Which type of tourist activities do you like?',
+        options: [
+          { url: 'http://www.birds.com/wp-content/uploads/home/bird4.jpg', description: 'Outdoor' },
+          { url: 'http://www.birds.com/wp-content/uploads/home/bird4.jpg', description: 'Cultural' },
+          { url: 'http://www.birds.com/wp-content/uploads/home/bird4.jpg', description: 'Recreational' },
+        ],
+        other: true
+      }
+    ]
+
     let questionsList = '';
     questionsList = questions.map(data => {
       if (data.type === 'open') {

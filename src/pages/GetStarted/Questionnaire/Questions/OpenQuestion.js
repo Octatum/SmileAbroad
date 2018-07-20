@@ -3,24 +3,27 @@ import styled from 'styled-components';
 
 const Container = styled.div`
   margin: 20px 0;
+  width: 100%;
 `;
 
 const Title = styled.p`
-  font-size: 3rem;
+  font-size: calc(1rem + 1vw);
   margin-bottom: 20px;
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   padding: 10px;
-  min-width: 100%;
   box-sizing: border-box;
+
+  @media(max-width: 520px) {
+    padding: 0;
+    margin-bottom: 10px;
+  }
 `;
 
 const Answer = styled.input`
   border: ${props => props.theme.color.lightBlue} 2px solid;
   border-radius: 15px;
-  width: 85%;
-  max-width: 800px;
+  width: 100%;
   padding: 10px;
-  font-size: 2rem;
 
   &:focus{
     outline:none;
@@ -41,8 +44,9 @@ const OpenQuestion = (props) => {
   <Container className={props.className} >
     <Title> {props.question} </Title>
     <Answer 
-        type='text' 
-        onChange={userResponse}/>
+      type='text' 
+      onChange={userResponse}
+    />
   </Container>
   );
 };

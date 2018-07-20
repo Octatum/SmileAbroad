@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import horno from '../assets/horno.jpg';
 
 const Container = styled.div`
   display: flex;
@@ -12,38 +13,45 @@ const Container = styled.div`
 `;
 
 const Title = styled.p`
-  font-size: 3rem;
+  font-size: calc(1rem + 1vw);
   margin-bottom: 20px;
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   padding: 10px;
   min-width: 100%;
   box-sizing: border-box;
+
+  @media(max-width: 520px) {
+    padding: 0;
+    margin-bottom: 10px;
+  }
 `;
 
 
 const Label = styled.label`
-  
   display: flex;
   flex-direction: column;
   align-items: center;
   
   box-sizing: border-box;
   padding: 5px;
-  width: 20%;
+  max-width: 20%;
+  min-width: 150px;
   height: 100%;
+  margin-bottom: 20px;
   
   border-radius: 20px;
   background: ${props => props.isSelected !== false ? 'rgba(238, 238, 238, 0.25)' : ''};
   box-shadow: ${props => props.isSelected !== false ? '1px 1px 20px 5px rgba(0,0,0,0.25)' : ''};
-
+  @media(min-width: 800px) {
   :hover {
     background: #eee;
     box-shadow: 1px 1px 10px 5px rgba(0,0,0,0.25);
   }
+  }
 `;
 
 const OtherInput = styled.input`
-  font-size: 2rem;
+  font-size: calc(0.85rem + 1vw);
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   border: none;
   border-bottom: 1px solid black;
@@ -73,7 +81,7 @@ const Div = styled.div`
 `;
 
 const Category = styled.p`
-  font-size: 2rem;
+  font-size: calc(0.85rem + 1vw);
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   display: inline-block;
 
@@ -89,13 +97,16 @@ let otherAnswer = '';
 
 const MultipleImage = (props) => {
 
-  let answersList = '';
-  answersList = props.options.map((data, index) => {
+  let answersList = [
+    { url: 'http://www.birds.com/wp-content/uploads/home/bird4.jpg', description: 'Outdoor' },
+    { url: horno, description: 'Cultural' },
+    { url: 'http://www.birds.com/wp-content/uploads/home/bird4.jpg', description: 'Recreational' },
+  ].map((data, index) => {
     return (
       <Label
         key={data.description}
         onClick={() => handleSelection(index)}
-        isSelected={props.selectedOptions[index]}>
+        isSelected={false}>
 
         <ImageContainer>
           <Image src={data.url} alt={data.description} />
@@ -164,3 +175,4 @@ const MultipleImage = (props) => {
 };
 
 export default MultipleImage;
+  

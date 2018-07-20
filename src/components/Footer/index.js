@@ -2,74 +2,84 @@ import React from 'react';
 import styled from 'styled-components';
 import Link from 'gatsby-link';
 
+
 const Container = styled.div`
-  display: grid;
-  grid-template: 1fr 3fr 1fr / 2fr 5px 1fr 5px minmax(250px, 1fr);
-  grid-template-areas:
-    ". . titleLinks . Contact"
-    "Desc padL links padR ContactInfo"
-    ". . links . .";
-  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
   background: #00C6DB;
   padding: 20px;
 
+  @media(max-width: 520px) {
+    padding: 20px 10px;
+  }
 `;
 
 const Texto = styled.p`
   font-family: 'Nunito', sans-serif;
   color: white;
-  font-size: 1.4rem;
+  font-size: calc(0.4rem + 1vw);
+
+`;
+
+
+const Description = Texto.extend`
+  width: 40%;
+`;
+
+const Separator = styled.div`
+  width: 5px;
+  background: white;
+  height: 200px;
+  border-radius: 10px;
+  margin: auto 0;
+
+  @media(max-width: 520px) {
+    display: none;
+  }
 `;
 
 const LinksTitle = Texto.extend`
-  grid-area: titleLinks;
   text-align: center;
-  font-size: 1.5rem;
+  font-size: calc(0.5rem + 1vw);
   font-weight: 600;
-`;
-const ContactTitle = LinksTitle.extend`
-  grid-area: Contact;
+  margin-bottom: 20px;
 `;
 
-const Description = Texto.extend`
-  grid-area: Desc;
-  padding: 0 50px;
-  line-height: 1.7rem;
-`;
-
-const SeparatorL = styled.div`
-  width: 100%;
-  background: white;
-  height: 100%;
-  border-radius: 10px;
-  margin: auto 0;
-  grid-area: padL;
-`;
-const SeparatorR = SeparatorL.extend`
-  grid-area: padR;
-`;
-
-const LinksCont =  styled.div`
-  grid-area: links;
+const LinksCont = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
-`;  
+
+  text-align: center;
+`;
 
 const UsefulLink = styled(Link)`
   text-decoration: none;
   color: white;
   font-family: 'Nunito', sans-serif;
   padding: 10px 0;
-  font-size: 1.25rem;
+  font-size: calc(0.4rem + 1vw);
+
+  @media(max-width: 520px) {
+    padding: 5px;
+  }
 `;
 
 const ContactCont = LinksCont.extend`
-  grid-area: ContactInfo;
+`;
+
+const ContactTitle = LinksTitle.extend`
+
 `;
 
 const ContactData = Texto.extend`
+  padding: 10px 0;
+  @media(max-width: 520px) {
+    padding: 5px
+  }
 `;
 
 const MessageButton = styled(Link)`
@@ -79,45 +89,62 @@ const MessageButton = styled(Link)`
   border: 2px solid #DD2520;
   border-radius: 30px;
   text-decoration: none;
-  padding: 15px 30px;
-  margin: 0 15px;
-  font-size: 1.25rem;
+  padding: 5px 0.5em;
+  margin: 20px;
+  font-size: calc(0.4rem + 1vw);
   font-family: 'Nunito', sans-serif;
   text-align: center;
 
 
   transition: box-shadow 0.25s linear;
-  :hover{
 
+  :hover{
     box-shadow: 4px 4px 4px 0 rgba(0,0,0,0.3);
   }
+
+  @media(max-width: 520px) {
+    padding: 5px 2.5px;
+  }
+`;
+
+const Div = styled.div`
+  display: flex;
+  flex-direction: column;
+  jsutify-content: space-between;
+  align-self: flex-start;
 `;
 
 const Footer = () => (
   <Container>
-    <LinksTitle>Useful Links</LinksTitle>
-    <LinksCont> 
-      <UsefulLink to="/">Home</UsefulLink>
-      <UsefulLink to="/">Company</UsefulLink>
-      <UsefulLink to="/">How To</UsefulLink>
-      <UsefulLink to="/">Terms of Use</UsefulLink>
-      <UsefulLink to="/Contact">Contact</UsefulLink>
-      <UsefulLink to="/GetStarted">Get Started</UsefulLink>
-    </LinksCont>
-
-    <ContactTitle>Contact Us</ContactTitle>
-    <ContactCont>
-      <ContactData>+1 512 717 3280</ContactData>
-      <ContactData>hello@neighbor.health</ContactData>
-      <MessageButton to="/contact">send a message</MessageButton>
-    </ContactCont>
-
     <Description>
-    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. 
+      Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
     </Description>
+
+    <Separator />
+
+    <Div>
+      <LinksTitle>Useful Links</LinksTitle>
+      <LinksCont>
+        <UsefulLink to="/">Home</UsefulLink>
+        <UsefulLink to="/">Company</UsefulLink>
+        <UsefulLink to="/">How To</UsefulLink>
+        <UsefulLink to="/">Terms of Use</UsefulLink>
+        <UsefulLink to="/Contact">Contact</UsefulLink>
+        <UsefulLink to="/GetStarted">Get Started</UsefulLink>
+      </LinksCont>
+    </Div>
     
-    <SeparatorL />
-    <SeparatorR />
+    <Separator />
+    
+    <Div>
+      <ContactTitle>Contact Us</ContactTitle>
+      <ContactCont>
+        <ContactData>+1 512 717 3280</ContactData>
+        <ContactData>hello@neighbor.health</ContactData>
+        <MessageButton to="/contact">send a message</MessageButton>
+      </ContactCont>
+    </Div>
+
   </Container>
 );
 
