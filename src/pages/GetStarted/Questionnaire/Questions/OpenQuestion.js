@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 const Container = styled.div`
   margin: 20px 0;
+  width: 100%;
 `;
 
 const Title = styled.p`
@@ -21,10 +22,8 @@ const Title = styled.p`
 const Answer = styled.input`
   border: ${props => props.theme.color.lightBlue} 2px solid;
   border-radius: 15px;
-  width: 70%;
-  max-width: 800px;
+  width: 100%;
   padding: 10px;
-  calc(0.85rem + 1vw);
 
   &:focus{
     outline:none;
@@ -45,8 +44,9 @@ const OpenQuestion = (props) => {
   <Container className={props.className} >
     <Title> {props.question} </Title>
     <Answer 
-        type='text' 
-        onChange={userResponse}/>
+      type='text' 
+      onChange={userResponse}
+    />
   </Container>
   );
 };

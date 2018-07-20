@@ -15,6 +15,15 @@ import promexico from './assets/promexico.png';
 import mexico from './assets/mexico.png';
 import newVenture from './assets/newventure.png';
 
+const customerImages = [
+  eogsea,
+  plugplay,
+  sksw,
+  promexico,
+  mexico,
+  newVenture
+];
+
 // Container of entire component
 const Container = styled.div`
   width: 100%;
@@ -25,10 +34,12 @@ const Container = styled.div`
 // Component Title
 const Title = styled.p`
   font-size: calc(2.5rem + 1.25vw);
+  text-align: center;
   font-weight: 600;
   align-self: flex-start;
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
 `;
+
 const BlueTitle = Title.withComponent('span').extend`
   color: ${props => props.theme.color.lightBlue};
 `;
@@ -36,6 +47,10 @@ const BlueTitle = Title.withComponent('span').extend`
 const InfoContainer = styled(Slider)`
   margin: 30px;
   margin-bottom: 70px;
+
+  & div {
+    outline: none;
+  }
 `;
 
 // img container to maintain sizing
@@ -52,7 +67,6 @@ const Image = styled.img`
   width: 100px;
   height: 100px;
   margin: auto;
-  background-color: grey;
 
   @media(max-width: 375px) {
     width: 75px;
@@ -66,10 +80,8 @@ const SubCont = styled.div`
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
+  margin: 10px 0;
 
-  @media(max-width: 500px) {
-    height: 100px;
-  }
 `;
 
 // Subtitle
@@ -101,6 +113,7 @@ const Description = styled.p`
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   text-align: center;
   width: 90%;
+  word-wrap: break-word;
 
   @media(max-width: 500px) {
     font-size: 0.75rem;
@@ -139,7 +152,7 @@ const OtherComps = styled.div`
 `;
 const CompImg = Image.extend`
   width: 200px;
-  height: 100px;
+  height: auto;
   margin: 20px;
 `;
 
@@ -177,7 +190,7 @@ const AddedValue = () => {
   return (
 
     <Container>
-      <Title>We got you <BlueTitle>cover</BlueTitle></Title>
+      <Title>We got you <BlueTitle>covered</BlueTitle></Title>
       <InfoContainer {...Settings} >
         <Div>
           <IMG> <Image src={clock} /> </IMG>
@@ -205,7 +218,9 @@ const AddedValue = () => {
         </Div>
       </InfoContainer>
       <Track>Neighbor<BlueTrack>Health</BlueTrack>'s Track Record</Track>
-      <OtherComps> <CompImg /> <CompImg /> <CompImg /> <CompImg /> <CompImg /> <CompImg /> </OtherComps>
+      <OtherComps> 
+        {customerImages.map(image => <CompImg src={image} />)}
+      </OtherComps>
     </Container>
   )
 };

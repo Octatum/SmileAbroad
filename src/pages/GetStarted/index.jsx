@@ -1,9 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Navbar from './../components/Navbar';
-import QuestionnaireIntro from './../components/QuestionnaireIntro';
-import Questionnaire from './../components/Questionnaire';
+import QuestionnaireIntro from './QuestionnaireIntro';
+import Questionnaire from './Questionnaire';
 
 const Title = styled.p`
   font-size: calc(2.5rem + 1.25vw);
@@ -14,6 +13,7 @@ const Title = styled.p`
   text-align: center;
   margin-top: 100px;
 `;
+
 const BlueTitle = Title.withComponent('span').extend`
   color: ${props => props.theme.color.lightBlue};
 `;

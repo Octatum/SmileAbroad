@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-import OpenQuestion from './../Questions/OpenQuestion';
-import MultipleChoice from './../Questions/MultipleChoice';
-import MultipleImage from './../Questions/MultipleImage';
+import OpenQuestion from './Questions/OpenQuestion';
+import MultipleChoice from './Questions/MultipleChoice';
+import MultipleImage from './Questions/MultipleImage';
+import horno from './assets/horno.jpg'
 
 const Container = styled.form`
   width: 80%;
@@ -84,9 +85,9 @@ const questions = [
     type: 'multipleimage',
     question: 'Which type of tourist activities do you like?',
     options: [
-      { url: 'http://www.birds.com/wp-content/uploads/home/bird4.jpg', description: 'smiley' },
-      { url: 'http://www.birds.com/wp-content/uploads/home/bird4.jpg', description: 'smiley2' },
-      { url: 'http://www.birds.com/wp-content/uploads/home/bird4.jpg', description: 'smiley3' },
+      { url: 'http://www.birds.com/wp-content/uploads/home/bird4.jpg', description: 'Outdoor' },
+      { url: horno, description: 'Cultural' },
+      { url: 'http://www.birds.com/wp-content/uploads/home/bird4.jpg', description: 'Recreational' },
     ],
     other: true
   }

@@ -4,7 +4,7 @@ import Link from 'gatsby-link';
 
 import Slider from 'react-slick';
 
-import rightArrow from './../../../assets/rightArrow.svg';
+import rightArrow from './../../../components/assets/rightArrow.svg';
 import travel from './assets/travel.png';
 import accomodation from './assets/accomodation.png';
 import transport from './assets/transport.png';
@@ -12,6 +12,10 @@ import booking from './assets/booking.png';
 
 const Container = styled(Slider)`
   margin: 50px 0;
+
+  & div {
+    outline: none;
+  }
 `;
 
 const ServiceImgContainer = styled.div`
@@ -44,6 +48,7 @@ const Title = styled.p`
 
   @media(max-width: 500px) {
     font-size: 1rem;
+    margin: 20px 0;
   }
 `;
 
@@ -53,7 +58,6 @@ const Description = Title.extend`
 
   @media(max-width: 500px) {
     font-size: 0.75rem;
-    height: 100px;
   }
 `;
 
@@ -75,18 +79,18 @@ const Arrow = styled.img`
   width: 3rem;
   margin: auto;
 
-  @media(max-width: 500px) {
-    width: 40px;
+  @media(min-width: 540px) {
+    width: 70px;
   }
 
-  @media(max-width: 1300px) {
-    width: 70px;
+  @media(min-width: 1300px) {
+    width: 100px;
   }
 `;
 
 const Div = styled.div`
   position: relative;
-  height: 100%;
+  height: 100%; 
 `;
 
 const Services = () => {

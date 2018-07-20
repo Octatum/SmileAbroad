@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import patient from './assets/patient.jpg';
+
 const Container = styled.div`
   margin: 50px 0;
 `;
@@ -41,6 +43,7 @@ const Intro = styled.div`
     width: 75%;
     margin-bottom: 0 !important;
   }
+
 `;
 
 const Divisor = styled.div`
@@ -61,13 +64,15 @@ const ImageCont = styled.div`
   width: 100%;
   height: 300px;
   background: grey;
+  overflow: hidden;
 
   @media(max-width: 520px) {
     order: 1;
   }
 `;
+
 const IMG = styled.img`
-  height: 100%; 
+  width: 100%;
 `;
 
 const Text = styled.p`
@@ -108,7 +113,7 @@ const QuestionnaireIntro = () => (
         </Text>
       </Intro>
       <Divisor />
-      <ImageCont> <IMG /> </ImageCont>
+      <ImageCont> <IMG src={patient}/> </ImageCont>
     </IntroContainer>
 
     <Desc>

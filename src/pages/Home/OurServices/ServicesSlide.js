@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Link from 'gatsby-link';
-
-import ButtonComponent from '../Button';
+import ButtonComponent from './../../../components/Button';
 
 const Container = styled.div`
   display: flex;
