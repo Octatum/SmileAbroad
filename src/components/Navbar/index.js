@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Link from 'gatsby-link';
 
 import downArrow from './../../../assets/downArrow.svg';
+import logo from './logo.svg';
 
 const Container = styled.div`
   box-sizing: border-box;
@@ -20,7 +21,6 @@ const Container = styled.div`
 
 /* CHANGE HEIGHT ON ADDED IMAGE */
 const Logo = styled.img`
-  
   width: 100%;
   height: 150px;
   min-width: 150px;
@@ -52,7 +52,6 @@ ANIMATE NAV DROPDOWN
 
 
 const Nav = styled.nav`
-  
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -73,21 +72,18 @@ const NavItem = styled.div`
   display: flex;
   flex: 0 1 auto;
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
-  font-size: 2rem;
+  font-size: calc(1rem + 0.5vw);
   position: relative;
-  margin-right: calc(2em - 1.5vw);
   
-
-  &:hover > ${NavLink}::before {
-    width: ${props => props.animateSelection ? 'initial' : '100%'};
-    left: 0;
-  }
-
   @media(max-width: 1300px) {
     margin: 0;
     flex-direction: column;
   }
 
+  &:hover > ${NavLink}::before {
+    width: ${props => props.animateSelection ? 'initial' : '100%'};
+    left: 0;
+  }
 `;
 
 const NavLink = styled(Link)`
@@ -111,13 +107,13 @@ const NavLink = styled(Link)`
 `;
 
 const PlaceholderContainer = styled.div`
-  width: 100%;
   position: absolute;
   display: block;  
   top: 85%;
   left: 0;
 
-  padding-bottom: 10px;
+  padding-bottom: 1rem;
+  padding-right: 1rem;
   overflow: hidden;
 
   @media(max-width: 1300px) {
@@ -128,17 +124,15 @@ const PlaceholderContainer = styled.div`
 `;
 
 const CompanyHover = styled.div`
-  width: 80%;
+  width: 100%;
   position: relative;
   margin: 0 auto;
   background-color: white;
   display: flex;
   flex-direction: column;
-  
   transform: translate(0, -110%);
   transition: transform 0.65s ease, opacity 0.45s ease;
   opacity: 0;
-  
   z-index: 1;
 
   @media(min-width: 1300px) {
@@ -160,8 +154,8 @@ const CompanyHover = styled.div`
 const ShadowBox = styled.div`
   position: absolute;
   z-index: -1;
-  left: 5px;
-  top: 5px;
+  right: -0.5rem;
+  bottom: -0.5rem;
   height: 100%;
   width: 100%;
   background: rgba(0,0,0,0.3); 
@@ -208,11 +202,10 @@ const SelectionLink = styled(Link)`
 `;
 
 const GetStarted = NavItem.extend`
-  border-radius: 15px;
+  border-radius: 1rem;
   color: white;
   background: ${props => props.theme.color.lightBlue};
   padding: 5px 15px;
-
   transition: all 0.25s linear;
   border: 2px solid transparent;
 
@@ -221,7 +214,6 @@ const GetStarted = NavItem.extend`
     border: 2px solid ${props => props.theme.color.lightBlue};
     color: ${props => props.theme.color.lightBlue};
   }
-
 `;
 
 
@@ -257,8 +249,7 @@ class Navbar extends Component {
   }
 
   render() {
-    let hoveredSelection = '';
-    hoveredSelection = (
+    const hoveredSelection = (
       <PlaceholderContainer display={this.state.companySelection} >
         <CompanyHover>
           <SelectionLink to="/">opcion1</SelectionLink>
@@ -270,11 +261,9 @@ class Navbar extends Component {
       </PlaceholderContainer>
     );
 
-
-
     return (
       <Container>
-        <Logo />
+        <Logo src={logo}/>
         <ToggleShowButton onClick={this.handleToggleClick} />
         <Nav display={this.state.open}>
           <NavItem> <NavLink to="/">Home</NavLink> </NavItem>

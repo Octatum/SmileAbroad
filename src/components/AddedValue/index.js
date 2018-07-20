@@ -167,7 +167,7 @@ const CompImg = Image.extend`
 
 const AddedValue = () => (
   <Container>
-    <Title>We got you <BlueTitle>cover</BlueTitle></Title>
+    <Title>We got you <BlueTitle>covered</BlueTitle></Title>
     <InfoContainer>
       <ImageCont1> <Image /> </ImageCont1>
       <ImageCont2> <Image /> </ImageCont2>

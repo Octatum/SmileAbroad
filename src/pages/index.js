@@ -20,10 +20,11 @@ const Separator = styled.hr`
 const IndexPage = () => (
   <div>
     <Presentation />
-    <Navbar />
     <OurServices />
+    { /* 
     <Separator />
     <FeaturedBlog> <p> Featured Blog </p> </FeaturedBlog>
+    */}
     <Separator />
     <AddedValue />
   </div>
