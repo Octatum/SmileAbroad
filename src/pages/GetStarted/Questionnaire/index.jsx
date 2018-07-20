@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import OpenQuestion from './Questions/OpenQuestion';
 import MultipleChoice from './Questions/MultipleChoice';
 import MultipleImage from './Questions/MultipleImage';
-import horno from './assets/horno.jpg'
+import horno from './assets/horno.jpg';
 
 const Container = styled.form`
   width: 80%;
@@ -44,54 +44,6 @@ const Text = styled.p`
   margin: 50px 0;
 `;
 
-const questions = [
-  {
-    key: 1,
-    type: 'open',
-    question: 'Where are you from?'
-  },
-  {
-    key: 2,
-    type: 'multiplechoice',
-    question: 'When are you planning to travel?',
-    options: [
-      'Within a month',
-      'Within 3 months',
-      'Later than 3 months'
-    ],
-    other: true,
-    manyOptions: false
-  },
-  {
-    key: 3,
-    type: 'open',
-    question: 'If not, we can still help. Please describe your dental situation generally'
-  },
-  {
-    key: 4,
-    type: 'multiplechoice',
-    question: 'What characteristics are you looking for in a hotel?',
-    options: [
-      'Swimming pool',
-      'Breakfast included',
-      'Shops',
-      'Terrace and bar',
-    ],
-    other: true,
-    manyOptions: true
-  },
-  {
-    key: 5,
-    type: 'multipleimage',
-    question: 'Which type of tourist activities do you like?',
-    options: [
-      { url: 'http://www.birds.com/wp-content/uploads/home/bird4.jpg', description: 'Outdoor' },
-      { url: horno, description: 'Cultural' },
-      { url: 'http://www.birds.com/wp-content/uploads/home/bird4.jpg', description: 'Recreational' },
-    ],
-    other: true
-  }
-]
 
 class Questionnaire extends Component {
   constructor() {
@@ -156,6 +108,56 @@ class Questionnaire extends Component {
 
 
   render() {
+
+    const questions = [
+      {
+        key: 1,
+        type: 'open',
+        question: 'Where are you from?'
+      },
+      {
+        key: 2,
+        type: 'multiplechoice',
+        question: 'When are you planning to travel?',
+        options: [
+          'Within a month',
+          'Within 3 months',
+          'Later than 3 months'
+        ],
+        other: true,
+        manyOptions: false
+      },
+      {
+        key: 3,
+        type: 'open',
+        question: 'If not, we can still help. Please describe your dental situation generally'
+      },
+      {
+        key: 4,
+        type: 'multiplechoice',
+        question: 'What characteristics are you looking for in a hotel?',
+        options: [
+          'Swimming pool',
+          'Breakfast included',
+          'Shops',
+          'Terrace and bar',
+        ],
+        other: true,
+        manyOptions: true
+      },
+      {
+        key: 5,
+        type: 'multipleimage',
+        question: 'Which type of tourist activities do you like?',
+        options: [
+          { url: 'http://www.birds.com/wp-content/uploads/home/bird4.jpg', description: 'Outdoor' },
+          { url: 'http://www.birds.com/wp-content/uploads/home/bird4.jpg', description: 'Cultural' },
+          { url: 'http://www.birds.com/wp-content/uploads/home/bird4.jpg', description: 'Recreational' },
+        ],
+        other: true
+      }
+    ]
+
     let questionsList = '';
     questionsList = questions.map(data => {
       if (data.type === 'open') {

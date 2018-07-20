@@ -79,8 +79,12 @@ const OtherInput = styled.input`
 let otherAnswer = '';
 
 const MultipleChoice = (props) => {
-  let answers = '';
-  answers = props.options.map((data, index) =>
+  let answers = [
+    'Swimming pool',
+    'Breakfast included',
+    'Shops',
+    'Terrace and bar',
+  ].map((data, index) =>
     <Label
       key={data} >
       <InputRadio

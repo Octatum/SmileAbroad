@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import horno from '../assets/horno.jpg';
 
 const Container = styled.div`
   display: flex;
@@ -96,13 +97,16 @@ let otherAnswer = '';
 
 const MultipleImage = (props) => {
 
-  let answersList = '';
-  answersList = props.options.map((data, index) => {
+  let answersList = [
+    { url: 'http://www.birds.com/wp-content/uploads/home/bird4.jpg', description: 'Outdoor' },
+    { url: horno, description: 'Cultural' },
+    { url: 'http://www.birds.com/wp-content/uploads/home/bird4.jpg', description: 'Recreational' },
+  ].map((data, index) => {
     return (
       <Label
         key={data.description}
         onClick={() => handleSelection(index)}
-        isSelected={props.selectedOptions[index]}>
+        isSelected={false}>
 
         <ImageContainer>
           <Image src={data.url} alt={data.description} />
