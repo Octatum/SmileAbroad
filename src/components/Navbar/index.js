@@ -73,7 +73,7 @@ const NavItem = styled.div`
   display: flex;
   flex: 0 1 auto;
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
-  font-size: 2rem;
+  font-size: calc(1.2rem + 1vw);
   position: relative;
   margin-right: calc(2em - 1.5vw);
   

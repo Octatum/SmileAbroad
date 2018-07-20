@@ -13,7 +13,7 @@ const SlideShow = styled.div`
   text-align: center;
   display: grid;
   box-sizing: border-box;
-  grid-template: 2fr 8fr 2fr / 5fr 4fr;
+  grid-template: 1fr 6fr 1fr / 5fr 4fr;
   grid-template-areas: 
     ". ."
     "Pres ."
@@ -21,7 +21,7 @@ const SlideShow = styled.div`
 
   background: #eee;
 
-  @media(max-width: 1300px) {
+  @media(max-width: 950px) {
     display: block;
     min-height: 0;
   }

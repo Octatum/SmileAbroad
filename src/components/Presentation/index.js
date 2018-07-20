@@ -1,6 +1,15 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 
+/*
+font-size: calc([minimum size] + 
+          ([maximum size] - [minimum size]) * 
+          ((100vw - [minimum viewport width]) / 
+          ([maximum viewport width] - 
+          [minimum viewport width])));
+*/
+
+
 const Container = styled.div`
   height: 100vh;
   width: 100%;
@@ -21,8 +30,8 @@ const Text = styled.p`
   font-size: calc(5vw + 1rem);
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
 
-  @media(min-width: 1250px) {
-    font-size: 4.9rem;
+  @media(min-width: 1300px) {
+    font-size: 5rem;
   }
 `;
 

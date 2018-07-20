@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import Link from 'gatsby-link';
 
-const Container = styled.div`
+  const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,11 +10,15 @@ const Container = styled.div`
 `;
 
 const Title = styled.p`
-  font-size: 4rem;
+  font-size: calc(1.8rem + 1.2vw);
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   font-weight: 600;
   color: #202020;
   max-width: 50%;
+
+  @media(max-width: 520px) {
+    max-width: 70%;
+  }
 `;
 
 const Separator = styled.hr`
@@ -28,10 +32,14 @@ const Separator = styled.hr`
 
 const Description = styled.p`
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
-  font-size: 1.6rem;
+  font-size: calc(1rem + 1.2vw);
   line-height: 1.4em;
   max-width: 70%;
   margin: 20px 0;
+
+  @media(max-width: 520px) {
+    max-width: 80%;
+  }
 `
 
 const BlueText = Description.withComponent('span').extend`
@@ -40,19 +48,24 @@ const BlueText = Description.withComponent('span').extend`
 
 const ButtonCont = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   box-sizing: border-box;
-  margin: 20px;
+  padding: 0 20px;
+  margin: 20px 0;
+  width: 70%;
+
+  @media(max-width: 1200px) {
+    width: 100%;
+  }
 `;
 
 const Button = styled(Link)`
-  flex: 0 1 auto;
   text-decoration: none;
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
-  font-size: 2.2rem;
+  font-size: calc(1rem + 1vw);
   border-radius: 10px;
-  padding: 10px 70px;
-  margin: 0 50px 20px 50px;
+
+  padding: 10px calc(1rem + 1.5vw);
 
   color: black;
   border: 3px solid black;
@@ -72,6 +85,11 @@ const BlueButton = Button.extend`
 
 const BubbleCont = ButtonCont.extend`
   height: auto;
+  width: auto;
+
+  @media(max-width: 1200px) {
+    width: auto;
+  }
 `;
 
 const Bubble = styled.button`
@@ -112,8 +130,10 @@ class ServiceSlide extends Component {
     });
   }
   render() {
+    
+
     return (
-      <Container className={this.props.className}>
+      <Container className={this.props.className} >
         <Title>Affordable Health Care</Title>
         <Separator />
         <Description>
