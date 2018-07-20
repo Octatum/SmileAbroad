@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import Link from 'gatsby-link';
 
-import ButtonComponent from './../Button';
+import ButtonComponent from '../Button';
 
 const Container = styled.div`
   display: flex;
@@ -12,11 +12,15 @@ const Container = styled.div`
 `;
 
 const Title = styled.p`
-  font-size: 4rem;
+  font-size: calc(2rem + 1vw);
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   font-weight: 600;
   color: #202020;
   max-width: 50%;
+
+  @media(max-width: 520px) {
+    max-width: 70%;
+  }
 `;
 
 const Separator = styled.hr`
@@ -30,10 +34,14 @@ const Separator = styled.hr`
 
 const Description = styled.p`
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
-  font-size: 1.6rem;
+  font-size: calc(1rem + 0.5vw);
   line-height: 1.4em;
-  max-width: 70%;
+  max-width: 80%;
   margin: 20px 0;
+
+  @media(max-width: 520px) {
+    max-width: 80%;
+  }
 `
 
 const BlueText = Description.withComponent('span').extend`
@@ -42,12 +50,36 @@ const BlueText = Description.withComponent('span').extend`
 
 const ButtonCont = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   box-sizing: border-box;
-  margin: 20px;
+  padding: 0 20px;
+  margin: 20px 0;
+  width: 70%;
+
+  @media(max-width: 1200px) {
+    width: 100%;
+  }
 `;
 
-const Button = ButtonComponent(Link);
+const Button = styled(Link)`
+  text-decoration: none;
+  font-family: ${props => props.theme.fontFamily.main}, sans-serif;
+
+  font-weight: 600;
+  font-size: calc(1rem + 0.75vw);
+  border-radius: 10px;
+
+  padding: 10px 1em;
+
+  color: black;
+  border: 3px solid black;
+
+  transition: box-shadow 0.25s linear;
+  
+  :hover{
+    box-shadow: 4px 4px 4px 0 rgba(0,0,0,0.3);
+  }
+`;
 
 const BlueButton = ButtonComponent(Link).extend`
   color: white;
@@ -57,6 +89,11 @@ const BlueButton = ButtonComponent(Link).extend`
 
 const BubbleCont = ButtonCont.extend`
   height: auto;
+  width: auto;
+
+  @media(max-width: 1200px) {
+    width: auto;
+  }
 `;
 
 const Bubble = styled.button`
@@ -97,8 +134,10 @@ class ServiceSlide extends Component {
     });
   }
   render() {
+    
+
     return (
-      <Container className={this.props.className}>
+      <Container className={this.props.className} >
         <Title>Affordable Health Care</Title>
         <Separator />
         <Description>
@@ -112,15 +151,12 @@ class ServiceSlide extends Component {
           <Button to="/GetStarted">Get started</Button>
         </ButtonCont>
         <BubbleCont>
-          <Bubble
-            onClick={e => this.bubbleClick(e, 1)}
-            current={this.state.currentActiveBubble === 1 ? true : false} />
-          <Bubble
-            onClick={e => this.bubbleClick(e, 2)}
-            current={this.state.currentActiveBubble === 2 ? true : false} />
-          <Bubble
-            onClick={e => this.bubbleClick(e, 3)}
-            current={this.state.currentActiveBubble === 3 ? true : false} />
+          {[].map((_, index) => (
+            <Bubble
+              onClick={e => this.bubbleClick(e, index)}
+              current={this.state.currentActiveBubble === index} 
+            />
+          ))}
         </BubbleCont>
       </Container>
     );

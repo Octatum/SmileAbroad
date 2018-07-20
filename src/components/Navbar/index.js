@@ -74,6 +74,8 @@ const NavItem = styled.div`
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   font-size: calc(1rem + 0.5vw);
   position: relative;
+  margin-right: calc(2em - 1vw);
+  
   
   @media(max-width: 1300px) {
     margin: 0;
@@ -236,7 +238,6 @@ class Navbar extends Component {
     this.setState({
       companySelection: isOpen
     });
-    console.log("CLICKE");
   }
 
   handleToggleClick(event) {
@@ -266,11 +267,14 @@ class Navbar extends Component {
         <ToggleShowButton onClick={this.handleToggleClick} />
         <Nav display={this.state.open}>
           <NavItem> <NavLink to="/">Home</NavLink> </NavItem>
+          {/*
           <NavItem> <NavLink to="/">Blog</NavLink> </NavItem>
+          
           <NavItem animateSelection>
             <div onClick={this.handleCompany} style={{fontWeight: 600}}>Company<DropArrow src={downArrow} isOpen={this.state.companySelection}/></div>
             {hoveredSelection}
           </NavItem>
+          */}
           <NavItem> <NavLink to="/contact">Contact</NavLink> </NavItem>
           <NavLink to="/GetStarted"> <GetStarted>Get started</GetStarted> </NavLink>
         </Nav>
