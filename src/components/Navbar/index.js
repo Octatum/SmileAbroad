@@ -184,7 +184,7 @@ const DropArrow = styled.img`
   transform: rotate(${props => props.isOpen ? 180 : 0 }deg);
 
   @media(max-width: 1300px) {
-    top: 25px;
+    top: 0.8em;
   }
 `;
 
@@ -196,7 +196,7 @@ const SelectionLink = styled(Link)`
   background: white;
   
   padding: 5px;
-  font-size: 1.5rem;
+  font-size: calc(0.75rem + 1vw);
   flex: 0 1 auto;
 
   &::first-letter {
