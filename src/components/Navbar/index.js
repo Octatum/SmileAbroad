@@ -3,6 +3,9 @@ import styled from 'styled-components';
 import Link from 'gatsby-link';
 
 import downArrow from './../../../assets/downArrow.svg';
+import Logotipo from './../../../assets/neighborhealth__imagotipo.svg';
+// ADD LOGO TO NAVBAR IMAGE
+
 
 const Container = styled.div`
   box-sizing: border-box;
@@ -73,9 +76,9 @@ const NavItem = styled.div`
   display: flex;
   flex: 0 1 auto;
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
-  font-size: calc(1.2rem + 1vw);
+  font-size: calc(1rem + 1vw);
   position: relative;
-  margin-right: calc(2em - 1.5vw);
+  margin-right: calc(2  em - 1vw);
   
 
   &:hover > ${NavLink}::before {

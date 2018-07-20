@@ -29,6 +29,8 @@ const SlideShow = styled.div`
 
 const Slider = styled(ServiceSlide)`
   grid-area: Pres;
+
+  min-width: 600px;
   
   background-color: #ccc;
 `;

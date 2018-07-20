@@ -10,7 +10,7 @@ import Link from 'gatsby-link';
 `;
 
 const Title = styled.p`
-  font-size: calc(1.8rem + 1.2vw);
+  font-size: calc(2rem + 1vw);
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   font-weight: 600;
   color: #202020;
@@ -32,7 +32,7 @@ const Separator = styled.hr`
 
 const Description = styled.p`
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
-  font-size: calc(1rem + 1.2vw);
+  font-size: calc(1rem + 1vw);
   line-height: 1.4em;
   max-width: 70%;
   margin: 20px 0;
@@ -62,17 +62,19 @@ const ButtonCont = styled.div`
 const Button = styled(Link)`
   text-decoration: none;
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
-  font-size: calc(1rem + 1vw);
+
+  font-weight: 600;
+  font-size: calc(1rem + 0.75vw);
   border-radius: 10px;
 
-  padding: 10px calc(1rem + 1.5vw);
+  padding: 10px 1em;
 
   color: black;
   border: 3px solid black;
 
   transition: box-shadow 0.25s linear;
+  
   :hover{
-
     box-shadow: 4px 4px 4px 0 rgba(0,0,0,0.3);
   }
 `;

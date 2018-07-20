@@ -6,21 +6,25 @@ const Container = styled.div`
 `;
 
 const Title = styled.p`
-  font-size: 3rem;
+  font-size: calc(1rem + 1vw);
   margin-bottom: 20px;
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   padding: 10px;
-  min-width: 100%;
   box-sizing: border-box;
+
+  @media(max-width: 520px) {
+    padding: 0;
+    margin-bottom: 10px;
+  }
 `;
 
 const Answer = styled.input`
   border: ${props => props.theme.color.lightBlue} 2px solid;
   border-radius: 15px;
-  width: 85%;
+  width: 70%;
   max-width: 800px;
   padding: 10px;
-  font-size: 2rem;
+  calc(0.85rem + 1vw);
 
   &:focus{
     outline:none;

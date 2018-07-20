@@ -13,13 +13,17 @@ const Container = styled.form`
   flex-direction: column;
   justify-content: space-evenly;
   align-items: flex-start;
+
+  @media(max-width: 520px) {
+    width: 90%;
+  }
 `;
 
 const SendButton = styled.button`
-  font-size: 2rem;
+  font-size: calc(0.75rem + 1vw);
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   text-transform: uppercase;
-  padding: 0.5em 2em;
+  padding: 0.5em 1em;
 
   flex: 0 1 auto;
   align-self: flex-end;
@@ -34,7 +38,7 @@ const SendButton = styled.button`
 
 const Text = styled.p`
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
-  font-size: 2.5rem;
+  font-size: calc(1rem + 1vw);
   box-sizing: border-box;
   margin: 50px 0;
 `;
@@ -149,7 +153,6 @@ class Questionnaire extends Component {
     console.log(finalResponse);
   }
 
-  /// TODO :: change 5 for index+1
 
   render() {
     let questionsList = '';
