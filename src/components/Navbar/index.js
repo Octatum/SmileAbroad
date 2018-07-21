@@ -22,15 +22,17 @@ const Container = styled.div`
 /* CHANGE HEIGHT ON ADDED IMAGE */
 const LogoLink = styled(Link)`
   width: 20em;
+
+  @media(max-width: 1300px) {
+    width: 50%;
+  }
 `;
 
 const Logo = styled.img`
   max-width: 100%;
   max-height: 100%;
 
-  @media(max-width: 1300px) {
-    width: 50%;
-  }
+  
 `;
 
 const ToggleShowButton = styled.div`
@@ -65,6 +67,7 @@ const Nav = styled.nav`
 
     overflow-y: hidden;
     display: ${props => props.display ? 'flex' : 'none'};
+    width: 100%;
   }
 `;
 
