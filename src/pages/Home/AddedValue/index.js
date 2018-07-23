@@ -151,9 +151,10 @@ const OtherComps = styled.div`
   align-items: space-evenly;
 `;
 const CompImg = Image.extend`
-  width: 200px;
+  max-width: 100%;
   height: auto;
   margin: 20px;
+  object-fit: contain;
 `;
 
 const Div = styled.div`
@@ -219,7 +220,7 @@ const AddedValue = () => {
       </InfoContainer>
       <Track>Neighbor<BlueTrack>Health</BlueTrack>'s Track Record</Track>
       <OtherComps> 
-        {customerImages.map(image => <CompImg src={image} />)}
+        {customerImages.map((image, index) => <CompImg src={image} key={index} />)}
       </OtherComps>
     </Container>
   )
