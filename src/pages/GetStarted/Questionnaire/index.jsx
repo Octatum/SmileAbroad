@@ -79,22 +79,24 @@ class Questionnaire extends Component {
 
   submitInfo(event) {
     event.preventDefault();
+
     // array that takes the state t/f and replaces with values of 'questions'
-    let multipleImageResponse = [...this.state[5]];
-    multipleImageResponse = this.state[5].map((data, index) => {
-      // if true and not the last question
+    let multipleImageResponse = [...this.state[5]].map((data, index) => {
+      // if true and not the last option of multiple images 
       if (data && index != this.state[5].length - 1) {
+        // return the image url and description
         return questions[4].options[index];
       }
-      // if last question
+      // if last question return the answer of the user
       else if (data !== false && index === this.state[5].length - 1) {
         return data;
       }
-      // if false
+      // otherwise return false
       else {
         return false;
       }
     })
+
     const finalResponse = [
       this.state[1],
       this.state[2],
@@ -108,8 +110,7 @@ class Questionnaire extends Component {
 
 
   render() {
-
-    const questions = [
+    let questions = [
       {
         key: 1,
         type: 'open',
