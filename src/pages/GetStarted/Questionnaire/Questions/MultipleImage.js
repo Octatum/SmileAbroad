@@ -106,7 +106,7 @@ const MultipleImage = (props) => {
       <Label
         key={data.description}
         onClick={() => handleSelection(index)}
-        isSelected={false}>
+        isSelected={props.selectedOptions[index]}>
 
         <ImageContainer>
           <Image src={data.url} alt={data.description} />
