@@ -110,7 +110,7 @@ const MessageButton = styled(Link)`
 const Div = styled.div`
   display: flex;
   flex-direction: column;
-  jsutify-content: space-between;
+  justify-content: space-between;
   align-self: flex-start;
 `;
 
@@ -126,9 +126,11 @@ const Footer = () => (
       <LinksTitle>Useful Links</LinksTitle>
       <LinksCont>
         <UsefulLink to="/">Home</UsefulLink>
+        {/* 
         <UsefulLink to="/">Company</UsefulLink>
         <UsefulLink to="/">How To</UsefulLink>
         <UsefulLink to="/">Terms of Use</UsefulLink>
+        */}
         <UsefulLink to="/Contact">Contact</UsefulLink>
         <UsefulLink to="/GetStarted">Get Started</UsefulLink>
       </LinksCont>

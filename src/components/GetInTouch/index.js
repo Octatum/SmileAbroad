@@ -227,12 +227,7 @@ class GetInTouch extends Component {
           <SVGicon src={LocationIcon} />
           <GridText>Av. Eugenio Garza Sada #230, Col. Laealido</GridText>
         </Localization>
-
-        <Localization>
-          <SVGicon src={Internet} />
-          <GridText>www.neighbor.health</GridText>
-        </Localization>
-
+        
       </Container>
     )
   }
