@@ -45,6 +45,55 @@ const Text = styled.p`
 `;
 
 
+let questions = [
+  {
+    key: 1,
+    type: 'open',
+    question: 'Where are you from?'
+  },
+  {
+    key: 2,
+    type: 'multiplechoice',
+    question: 'When are you planning to travel?',
+    options: [
+      'Within a month',
+      'Within 3 months',
+      'Later than 3 months'
+    ],
+    other: true,
+    manyOptions: false
+  },
+  {
+    key: 3,
+    type: 'open',
+    question: 'If not, we can still help. Please describe your dental situation generally'
+  },
+  {
+    key: 4,
+    type: 'multiplechoice',
+    question: 'What characteristics are you looking for in a hotel?',
+    options: [
+      'Swimming pool',
+      'Breakfast included',
+      'Shops',
+      'Terrace and bar',
+    ],
+    other: true,
+    manyOptions: true
+  },
+  {
+    key: 5,
+    type: 'multipleimage',
+    question: 'Which type of tourist activities do you like?',
+    options: [
+      { url: 'http://www.birds.com/wp-content/uploads/home/bird4.jpg', description: 'Outdoor' },
+      { url: 'http://www.birds.com/wp-content/uploads/home/bird4.jpg', description: 'Cultural' },
+      { url: 'http://www.birds.com/wp-content/uploads/home/bird4.jpg', description: 'Recreational' },
+    ],
+    other: true
+  }
+]
+
 class Questionnaire extends Component {
   constructor() {
     super();
@@ -79,22 +128,24 @@ class Questionnaire extends Component {
 
   submitInfo(event) {
     event.preventDefault();
+
     // array that takes the state t/f and replaces with values of 'questions'
-    let multipleImageResponse = [...this.state[5]];
-    multipleImageResponse = this.state[5].map((data, index) => {
-      // if true and not the last question
+    let multipleImageResponse = [...this.state[5]].map((data, index) => {
+      // if true and not the last option of multiple images 
       if (data && index != this.state[5].length - 1) {
+        // return the image url and description
         return questions[4].options[index];
       }
-      // if last question
+      // if last question return the answer of the user
       else if (data !== false && index === this.state[5].length - 1) {
         return data;
       }
-      // if false
+      // otherwise return false
       else {
         return false;
       }
     })
+
     const finalResponse = [
       this.state[1],
       this.state[2],
@@ -108,55 +159,7 @@ class Questionnaire extends Component {
 
 
   render() {
-
-    const questions = [
-      {
-        key: 1,
-        type: 'open',
-        question: 'Where are you from?'
-      },
-      {
-        key: 2,
-        type: 'multiplechoice',
-        question: 'When are you planning to travel?',
-        options: [
-          'Within a month',
-          'Within 3 months',
-          'Later than 3 months'
-        ],
-        other: true,
-        manyOptions: false
-      },
-      {
-        key: 3,
-        type: 'open',
-        question: 'If not, we can still help. Please describe your dental situation generally'
-      },
-      {
-        key: 4,
-        type: 'multiplechoice',
-        question: 'What characteristics are you looking for in a hotel?',
-        options: [
-          'Swimming pool',
-          'Breakfast included',
-          'Shops',
-          'Terrace and bar',
-        ],
-        other: true,
-        manyOptions: true
-      },
-      {
-        key: 5,
-        type: 'multipleimage',
-        question: 'Which type of tourist activities do you like?',
-        options: [
-          { url: 'http://www.birds.com/wp-content/uploads/home/bird4.jpg', description: 'Outdoor' },
-          { url: 'http://www.birds.com/wp-content/uploads/home/bird4.jpg', description: 'Cultural' },
-          { url: 'http://www.birds.com/wp-content/uploads/home/bird4.jpg', description: 'Recreational' },
-        ],
-        other: true
-      }
-    ]
+    
 
     let questionsList = '';
     questionsList = questions.map(data => {
