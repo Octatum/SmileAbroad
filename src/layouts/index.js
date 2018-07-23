@@ -14,6 +14,7 @@ const AppLayout = styled.div`
   flex-direction: column;
 `;
 
+
 const Layout = ({ children, data }) => (
   <ThemeProvider theme={globalTheme}>
     <AppLayout>

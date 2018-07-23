@@ -97,6 +97,8 @@ let otherAnswer = '';
 
 const MultipleImage = (props) => {
 
+  const selected = props.selectedOptions ? props.selectedOptions : [false, false, false, false];
+
   let answersList = [
     { url: 'http://www.birds.com/wp-content/uploads/home/bird4.jpg', description: 'Outdoor' },
     { url: horno, description: 'Cultural' },
@@ -106,7 +108,7 @@ const MultipleImage = (props) => {
       <Label
         key={data.description}
         onClick={() => handleSelection(index)}
-        isSelected={props.selectedOptions[index]}>
+        isSelected={selected[index]}>
 
         <ImageContainer>
           <Image src={data.url} alt={data.description} />
