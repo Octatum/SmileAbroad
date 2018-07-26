@@ -62,8 +62,6 @@ const Divisor = styled.div`
 
 const ImageCont = styled.div`
   width: 100%;
-  height: 300px;
-  background: grey;
   overflow: hidden;
 
   @media(max-width: 520px) {

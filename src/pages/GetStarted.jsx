@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
+import Helmet from 'react-helmet';
 
-import QuestionnaireIntro from './QuestionnaireIntro';
-import Questionnaire from './Questionnaire';
+import QuestionnaireIntro from './../components/GetStarted/QuestionnaireIntro';
+import Questionnaire from './../components/GetStarted/Questionnaire';
 
 const Title = styled.p`
   font-size: calc(2.5rem + 1.25vw);
@@ -20,6 +21,7 @@ const BlueTitle = Title.withComponent('span').extend`
 
 const GetStartedPage = () => (
   <div>
+    <Helmet title={data.site.siteMetadata.title} />
     <Title>
       Get <BlueTitle>Started</BlueTitle>
     </Title>

@@ -24,6 +24,8 @@ const Answer = styled.input`
   border-radius: 15px;
   width: 100%;
   padding: 10px;
+  font-size: calc(0.85rem + 1vw);
+  font-family: ${props => props.theme.fontFamily.main}, sans-serif;
 
   &:focus{
     outline:none;
@@ -33,6 +35,7 @@ const Answer = styled.input`
     box-shadow: 2px 2px 5px 1px rgba(0, 198, 219, 0.25),
                 -2px -2px 5px 1px rgba(0, 198, 219, 0.25);
   }
+
 `;
 
 const OpenQuestion = (props) => {

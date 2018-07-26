@@ -69,6 +69,8 @@ const ArrowButton = styled(Link)`
   bottom: 0;
   left: 0;
 
+  display: none;
+
   transition: transform 0.25s linear;
   :hover ${Arrow} {
     transform: scale(1.1) translate(10%);
