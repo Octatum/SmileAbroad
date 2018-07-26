@@ -21,7 +21,7 @@ const BlueTitle = Title.withComponent('span').extend`
 
 const GetStartedPage = () => (
   <div>
-    <Helmet title={data.site.siteMetadata.title} />
+    <Helmet title="Get Started" />
     <Title>
       Get <BlueTitle>Started</BlueTitle>
     </Title>
