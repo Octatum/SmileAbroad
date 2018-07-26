@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, isValidElement } from 'react';
 import styled from 'styled-components';
 
 import LocationIcon from './assets/Location.svg';
@@ -17,6 +17,12 @@ const Container = styled.form`
 
   @media(max-width: 520px) {
     margin: 0;
+    padding: 10px;
+  }
+
+  &, & > div, span, p, input, textarea {
+    font-size: calc(1rem + 1vw);
+    font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   }
 `;
 
@@ -24,34 +30,27 @@ const InputCont = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: 2em 0;
+  margin: 1em 0;
 
   position: relative;
 
-
   @media(max-width: 900px) {
     flex-direction: column;
-    align-items: center;
-    margin: 15px 10px;
+    align-items: flex-start;
+    margin: 2em 10px;
   }
 `;
 
 const GridText = styled.span`
-  font-family: ${props => props.theme.fontFamily.main}, sans-serif;
-  font-size: calc(1rem + 1vw);
   font-weight: bold;
   color: black;
   display: inline-block;
 
   padding: 10px 0;
-
-  @media(max-width: 900px) {
-    align-self: flex-start;
-  }
 `;
 
 const GridInput = styled.input`
-  font-family: ${props => props.theme.fontFamily.main}, sans-serif;
+  
   position: relative;
   width: 70%;
   max-width: 800px;
@@ -60,7 +59,6 @@ const GridInput = styled.input`
   border: ${props => props.valid ? props.theme.color.lightBlue + ' 2px solid' : 'red 2px solid'};
   border-radius: 15px;
   padding: 10px;
-  font-size: calc(1rem + 1vw);
 
   &:focus{
     outline:none;
@@ -76,11 +74,11 @@ const GridInput = styled.input`
 const MessageInput = GridInput.withComponent('textarea').extend`
   resize: vertical;
   overflow: auto;
-  min-height: 300px;
+  min-height: 10em;
 `;
 
 const Submit = styled.input`
-  font-size: calc(1rem + 1vw);
+  margin-top: 1.5em;
   padding: 0.5em;
   border-radius: 10px;
   background: ${props => props.theme.color.lightBlue};
@@ -102,40 +100,39 @@ const Localization = styled.div`
   @media(max-width: 900px) {
     margin: 15px 10px;
   }
-  
-    & span {
-    font-size: calc(0.75rem + 1vw);
+
+  & > span {
+    font-size: 0.80em;
   }
 `;
 
 const SVGicon = styled.img`
-  height: calc(3em + 1vw);
+  height: 3em;
   margin-right: 1em;
 `;
 
-const EmailWarn = styled.div`
+const Warning = styled.div`
   position: absolute;
   display: block;
   right: 0;
   top: 100%;
-  height: 1.5em; 
+  z-index: -1;
   width: 70%;
   max-width: 800px;
-  z-index: -1;
 
   opacity: ${props => props.valid ? 0 : 1};
-  box-sizing: border-box;
-  transition: top 0.5s ease, opacity 0.5s ease;
+  transition: transform 0.5s ease, opacity 0.5s ease;
 
   background: pink;
   color: red;
-  font-size: calc(0.5rem + 1vw);
   border-radius: 10px;
-  padding: 0 10px;
-  font-family: ${props => props.theme.fontFamily.main}, sans-serif;
+  padding: 0 0.75em;
+  
+  font-size: 0.75em;
 
-  ${GridInput}:focus + & {
-    top: 50%;
+  ${GridInput}:focus + &,
+  ${MessageInput}:focus + & {
+    transform: translateY(-100%);
     opacity: 0;
   }
 
@@ -152,25 +149,22 @@ class GetInTouch extends Component {
       name: '',
       email: '',
       message: '',
-      validEmail: true
+      validEmail: true,
+      enteredName: true,
+      enteredMessage: true
     };
 
     this.submitMessage = this.submitMessage.bind(this);
     this.emailInputValid = this.emailInputValid.bind(this);
     this.validateEmail = this.validateEmail.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.validInput = this.validInput.bind(this);
   }
 
   handleInputChange(event, key) {
     this.setState({
       [key]: event.target.value,
     })
-  }
-
-  handleMessageChange(event) {
-    this.setState({
-      message: event.target.value
-    });
   }
 
   emailInputValid() {
@@ -182,17 +176,30 @@ class GetInTouch extends Component {
 
   validateEmail() {
     const re = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
-    const re2 = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+    // const re2 = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
     return re.test(String(this.state.email));
+  }
+
+  validInput(event, tag) {
+    const isValue = event.target.value !== "";
+    if(tag === 'name') {
+      this.setState({
+        enteredName: isValue
+      })
+    }
+    else {
+      this.setState({
+        enteredMessage: isValue
+      })
+    }
   }
 
   submitMessage(event) {
     event.preventDefault();
 
-    console.log(this.validateEmail());
-
     if (!this.state.name || !this.state.email || !this.state.message || !this.validateEmail()) {
       console.log("NOT VALID MESSAGE");
+      alert('please fill out the form');
     }
     else {
       console.log(this.state);
@@ -204,7 +211,12 @@ class GetInTouch extends Component {
       <Container onSubmit={this.submitMessage}>
         <InputCont>
           <GridText>Name:</GridText>
-          <GridInput onChange={(event) => this.handleInputChange(event, 'name')} valid />
+          <GridInput 
+            onChange={(event) => this.handleInputChange(event, 'name')} 
+            onBlur={(event) => this.validInput(event, 'name')}
+            valid={this.state.enteredName}
+            autoComplete="name" />
+          <Warning valid={this.state.enteredName}> Please write your name here </Warning>  
         </InputCont>
 
         <InputCont>
@@ -212,13 +224,18 @@ class GetInTouch extends Component {
           <GridInput
             onChange={(event) => this.handleInputChange(event, 'email')}
             onBlur={this.emailInputValid}
-            valid={this.state.validEmail} />
-          <EmailWarn valid={this.state.validEmail}> Please enter a valid e-mail address </EmailWarn>
+            valid={this.state.validEmail} 
+            autoComplete="email" />
+          <Warning valid={this.state.validEmail}> Please enter a valid e-mail address </Warning>
         </InputCont>
 
         <InputCont>
           <GridText>Message:</GridText>
-          <MessageInput onChange={(event) => this.handleInputChange(event, 'message')} valid />
+          <MessageInput 
+            onChange={(event) => this.handleInputChange(event, 'message')} 
+            onBlur={(event) => this.validInput(event, 'message')}
+            valid={this.state.enteredMessage} />
+            <Warning valid={this.state.enteredMessage}> Please enter a message </Warning>
         </InputCont>
 
         <Submit type="submit" value="Send" onClick={event => this.submitMessage(event)} disabled={!this.state.validEmail} />

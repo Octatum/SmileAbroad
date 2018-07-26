@@ -8,8 +8,16 @@ const Container = styled.div`
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
+  position: relative;
+
   background: #00C6DB;
   padding: 20px;
+
+  &, & > div {
+    font-size: calc(0.4rem + 1vw);
+    font-family: 'Nunito', sans-serif;
+  }
+
 
   @media(max-width: 520px) {
     padding: 20px 10px;
@@ -17,15 +25,13 @@ const Container = styled.div`
 `;
 
 const Texto = styled.p`
-  font-family: 'Nunito', sans-serif;
   color: white;
-  font-size: calc(0.4rem + 1vw);
-
 `;
 
 
 const Description = Texto.extend`
   width: 40%;
+  font-size: 1em;
 `;
 
 const Separator = styled.div`
@@ -41,8 +47,8 @@ const Separator = styled.div`
 `;
 
 const LinksTitle = Texto.extend`
+  font-size: 1.1em;
   text-align: center;
-  font-size: calc(0.5rem + 1vw);
   font-weight: 600;
   margin-bottom: 20px;
 `;
@@ -59,10 +65,9 @@ const LinksCont = styled.div`
 const UsefulLink = styled(Link)`
   text-decoration: none;
   color: white;
-  font-family: 'Nunito', sans-serif;
+  
   padding: 10px 0;
-  font-size: calc(0.4rem + 1vw);
-
+  font-size: 1em;
   @media(max-width: 520px) {
     padding: 5px;
   }
@@ -91,10 +96,9 @@ const MessageButton = styled(Link)`
   text-decoration: none;
   padding: 5px 0.5em;
   margin: 20px;
-  font-size: calc(0.4rem + 1vw);
-  font-family: 'Nunito', sans-serif;
+  font-size: 1em;
+  
   text-align: center;
-
 
   transition: box-shadow 0.25s linear;
 
@@ -110,7 +114,7 @@ const MessageButton = styled(Link)`
 const Div = styled.div`
   display: flex;
   flex-direction: column;
-  jsutify-content: space-between;
+  justify-content: space-between;
   align-self: flex-start;
 `;
 
