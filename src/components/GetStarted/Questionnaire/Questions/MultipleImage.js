@@ -99,11 +99,7 @@ const MultipleImage = (props) => {
 
   const selected = props.selectedOptions ? props.selectedOptions : [false, false, false, false];
 
-  let answersList = [
-    { url: 'http://www.birds.com/wp-content/uploads/home/bird4.jpg', description: 'Outdoor' },
-    { url: horno, description: 'Cultural' },
-    { url: 'http://www.birds.com/wp-content/uploads/home/bird4.jpg', description: 'Recreational' },
-  ].map((data, index) => {
+  let answersList = props.options.map((data, index) => {
     return (
       <Label
         key={data.description}

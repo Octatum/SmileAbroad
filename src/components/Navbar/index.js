@@ -52,7 +52,16 @@ const ToggleShowButton = styled.div`
 
 const Navicon = styled.img`
   width: 40%;
+
+  @media(min-width: 1024px) {
+    width: 70%;
+  }
+
+  @media(min-width: 768px) {
+    width: 55%;
+  }
 `;
+
 
 /*
 ANIMATE NAV DROPDOWN
@@ -105,15 +114,17 @@ const NavLink = styled(Link)`
   margin: 10px 0;
   font-weight: 600;
 
-  &::before {
-    content: "";
-    width: 0%;
-    border-bottom: 3px solid ${props => props.theme.color.lightBlue};
-    display: block;
-    position: absolute;
-    bottom: -10%;
-    left: 50%;
-    transition: width 0.5s ease-out, left 0.5s ease-out;
+  @media(min-width: 1300px) {
+    &::before {
+      content: "";
+      width: 0%;
+      border-bottom: 3px solid ${props => props.theme.color.lightBlue};
+      display: block;
+      position: absolute;
+      bottom: -10%;
+      left: 50%;
+      transition: width 0.5s ease-out, left 0.5s ease-out;
+    }
   }
 `;
 
@@ -265,7 +276,6 @@ class Navbar extends Component {
     this.setState({
       open: isOpen
     });
-    console.log(this.state.open);
   }
 
   render() {

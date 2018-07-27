@@ -172,8 +172,6 @@ class Connection extends Component {
       );
     })
 
-    console.log(bubbles);
-
     return (
       <Container>
         <SlideContainer>

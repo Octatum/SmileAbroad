@@ -87,7 +87,7 @@ let questions = [
     question: 'Which type of tourist activities do you like?',
     options: [
       { url: 'http://www.birds.com/wp-content/uploads/home/bird4.jpg', description: 'Outdoor' },
-      { url: 'http://www.birds.com/wp-content/uploads/home/bird4.jpg', description: 'Cultural' },
+      { url: horno, description: 'Cultural' },
       { url: 'http://www.birds.com/wp-content/uploads/home/bird4.jpg', description: 'Recreational' },
     ],
     other: true
@@ -162,7 +162,7 @@ class Questionnaire extends Component {
     
 
     let questionsList = '';
-    questionsList = questions.map(data => {
+    questionsList = questions.map((data, index) => {
       if (data.type === 'open') {
         return <OpenQuestion
           question={data.question}
@@ -185,7 +185,7 @@ class Questionnaire extends Component {
         return <MultipleImage
           question={data.question}
           options={data.options}
-          selectedOptions={[...this.state[5]]}
+          selectedOptions={[...this.state[index+1]]} //can use index
           other={data.other}
           key={data.key}
           stateKey={data.key}
