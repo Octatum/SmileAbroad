@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
+import Helmet from 'react-helmet';
 
 import GetInTouch from './../components/GetInTouch';
 
@@ -47,6 +48,7 @@ const SubText = styled.p`
 
 const Contact = () => (
   <Container>
+    <Helmet title="Contact Us" />
     <TitleCont>
       <Title>Get in <BlueTitle>touch</BlueTitle> with us</Title>
       <SubText>We are more than happy to help, let us know what we can do for you.</SubText>

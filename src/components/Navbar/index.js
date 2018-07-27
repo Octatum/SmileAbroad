@@ -4,6 +4,7 @@ import Link from 'gatsby-link';
 
 import downArrow from './assets/downArrow.svg';
 import logo from './assets/logo.svg';
+import navicon from './assets/navicon.svg';
 
 const Container = styled.div`
   box-sizing: border-box;
@@ -38,15 +39,29 @@ const Logo = styled.img`
 const ToggleShowButton = styled.div`
   margin-left: auto;
   display: none;
-  background: grey;
   height: 100px;
   width: 100px;
-  
+ 
+  justify-content: center;
+  align-items: center;
+
   @media(max-width: 1300px) {
-    display: block;
-    width: 100px;
+    display: flex;
   }
 `;
+
+const Navicon = styled.img`
+  width: 40%;
+
+  @media(min-width: 1024px) {
+    width: 70%;
+  }
+
+  @media(min-width: 768px) {
+    width: 55%;
+  }
+`;
+
 
 /*
 ANIMATE NAV DROPDOWN
@@ -99,15 +114,17 @@ const NavLink = styled(Link)`
   margin: 10px 0;
   font-weight: 600;
 
-  &::before {
-    content: "";
-    width: 0%;
-    border-bottom: 3px solid ${props => props.theme.color.lightBlue};
-    display: block;
-    position: absolute;
-    bottom: -10%;
-    left: 50%;
-    transition: width 0.5s ease-out, left 0.5s ease-out;
+  @media(min-width: 1300px) {
+    &::before {
+      content: "";
+      width: 0%;
+      border-bottom: 3px solid ${props => props.theme.color.lightBlue};
+      display: block;
+      position: absolute;
+      bottom: -10%;
+      left: 50%;
+      transition: width 0.5s ease-out, left 0.5s ease-out;
+    }
   }
 `;
 
@@ -141,9 +158,11 @@ const CompanyHover = styled.div`
   z-index: 1;
 
   @media(min-width: 1300px) {
-    ${NavItem}:hover > ${PlaceholderContainer} > & {
-      transform: translate(0, 0);
-      opacity: 1;
+    ${NavItem} {
+      &:hover > ${PlaceholderContainer} > & {
+        transform: translate(0, 0);
+        opacity: 1;
+      }
     }
   }
 
@@ -214,10 +233,19 @@ const GetStarted = NavItem.extend`
   transition: all 0.25s linear;
   border: 2px solid transparent;
 
-  :hover {
-    background: white;
-    border: 2px solid ${props => props.theme.color.lightBlue};
-    color: ${props => props.theme.color.lightBlue};
+  @media(min-width: 1300px) {
+    :hover {
+      background: white;
+      border: 2px solid ${props => props.theme.color.lightBlue};
+      color: ${props => props.theme.color.lightBlue};
+    }
+  }
+
+  @media(max-width: 1300px) {
+    border: none;
+    transition: none;
+    background: none;
+    color: black;
   }
 `;
 
@@ -243,12 +271,11 @@ class Navbar extends Component {
     });
   }
 
-  handleToggleClick(event) {
+  handleToggleClick() {
     const isOpen = !this.state.open;
     this.setState({
       open: isOpen
     });
-    console.log(this.state.open);
   }
 
   render() {
@@ -267,7 +294,9 @@ class Navbar extends Component {
     return (
       <Container>
         <LogoLink to="/"><Logo src={logo}/></LogoLink>
-        <ToggleShowButton onClick={this.handleToggleClick} />
+        <ToggleShowButton >
+          <Navicon onClick={this.handleToggleClick} src={navicon} />
+        </ToggleShowButton>
         <Nav display={this.state.open}>
           <NavItem> <NavLink to="/">Home</NavLink> </NavItem>
           {/*
@@ -278,6 +307,7 @@ class Navbar extends Component {
             {hoveredSelection}
           </NavItem>
           */}
+          <NavItem> <NavLink to="/AboutUs">About Us</NavLink> </NavItem> 
           <NavItem> <NavLink to="/contact">Contact</NavLink> </NavItem>
           <NavLink to="/GetStarted"> <GetStarted>Get started</GetStarted> </NavLink>
         </Nav>

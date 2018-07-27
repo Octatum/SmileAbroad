@@ -25,12 +25,26 @@ const Layout = ({ children, data }) => (
           { name: 'description', content: 'Sample' },
           { name: 'keywords', content: 'sample, something' },
         ]}
+        script={[
+          { src:"https://identity.netlify.com/v1/netlify-identity-widget.js" }
+        ]}
       />
       <link rel="stylesheet" type="text/css" charSet="UTF-8" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
       <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
       <div>
           {children()}
       </div>
+      {() => {
+        if (window.netlifyIdentity) {
+          window.netlifyIdentity.on("init", user => {
+            if (!user) {
+              window.netlifyIdentity.on("login", () => {
+                document.location.href = "/admin/";
+              });
+            }
+          })
+        }
+      }}
       <Footer />
     </AppLayout>
   </ThemeProvider>
