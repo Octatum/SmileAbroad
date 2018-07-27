@@ -13,7 +13,7 @@ const Container = styled.div`
 
   padding-bottom: 1.5em;
 
-  font-size: calc(0.5rem + 1vw);
+  font-size: calc(0.8rem + 0.5vw);
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   color: black;
 
@@ -90,6 +90,10 @@ const CardTitle = styled.p`
     bottom: 0;
     border-radius: 1em;
   }
+
+  @media(max-width: 425px) {
+    width: 70%;
+  }
 `;
 
 const CardDescription = styled.p`
@@ -97,6 +101,10 @@ const CardDescription = styled.p`
   text-align: center;
   width: 60%;
   padding: 0.5em 0;
+
+  @media(max-width: 425px) {
+    width: 70%;
+  }
 `;
 const BoldText = CardDescription.withComponent('span').extend`
   font-size: 1em;

@@ -4,6 +4,7 @@ import Link from 'gatsby-link';
 
 import downArrow from './assets/downArrow.svg';
 import logo from './assets/logo.svg';
+import navicon from './assets/navicon.svg';
 
 const Container = styled.div`
   box-sizing: border-box;
@@ -38,14 +39,19 @@ const Logo = styled.img`
 const ToggleShowButton = styled.div`
   margin-left: auto;
   display: none;
-  background: grey;
   height: 100px;
   width: 100px;
-  
+ 
+  justify-content: center;
+  align-items: center;
+
   @media(max-width: 1300px) {
-    display: block;
-    width: 100px;
+    display: flex;
   }
+`;
+
+const Navicon = styled.img`
+  width: 40%;
 `;
 
 /*
@@ -216,10 +222,19 @@ const GetStarted = NavItem.extend`
   transition: all 0.25s linear;
   border: 2px solid transparent;
 
-  :hover {
-    background: white;
-    border: 2px solid ${props => props.theme.color.lightBlue};
-    color: ${props => props.theme.color.lightBlue};
+  @media(min-width: 1300px) {
+    :hover {
+      background: white;
+      border: 2px solid ${props => props.theme.color.lightBlue};
+      color: ${props => props.theme.color.lightBlue};
+    }
+  }
+
+  @media(max-width: 1300px) {
+    border: none;
+    transition: none;
+    background: none;
+    color: black;
   }
 `;
 
@@ -245,7 +260,7 @@ class Navbar extends Component {
     });
   }
 
-  handleToggleClick(event) {
+  handleToggleClick() {
     const isOpen = !this.state.open;
     this.setState({
       open: isOpen
@@ -269,7 +284,9 @@ class Navbar extends Component {
     return (
       <Container>
         <LogoLink to="/"><Logo src={logo}/></LogoLink>
-        <ToggleShowButton onClick={this.handleToggleClick} />
+        <ToggleShowButton >
+          <Navicon onClick={this.handleToggleClick} src={navicon} />
+        </ToggleShowButton>
         <Nav display={this.state.open}>
           <NavItem> <NavLink to="/">Home</NavLink> </NavItem>
           {/*
