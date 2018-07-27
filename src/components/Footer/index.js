@@ -25,10 +25,7 @@ const Container = styled.div`
 
 const Texto = styled.p`
   color: white;
-<<<<<<< HEAD
-=======
   font-size: calc(0.4rem + 0.8vw);
->>>>>>> ContentUpdates
 `;
 
 const Description = Texto.extend`
