@@ -140,13 +140,13 @@ class ServiceSlide extends Component {
         <Title>Affordable Health Care</Title>
         <Separator />
         <Description>
-          At <BlueText>Neighbor Health</BlueText> we help you find the ideal Dental Health Specialized Treatment.
+          At <BlueText>NeighborHealth</BlueText> we help you find the ideal Dental Health Specialized Treatment.
         </Description>
         <Description>
           We facilitate the process of your experience abroad by creating a personalized itinerary at budget-friendly prices.
         </Description>
         <ButtonCont>
-          <BlueButton to="/">Learn More</BlueButton>
+          <BlueButton to="/GetStarted">Learn More</BlueButton>
           <Button to="/GetStarted">Get started</Button>
         </ButtonCont>
         <BubbleCont>

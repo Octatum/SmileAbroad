@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import Link from 'gatsby-link';
 
-
 const Container = styled.div`
   display: flex;
   flex-direction: row;
@@ -26,8 +25,11 @@ const Container = styled.div`
 
 const Texto = styled.p`
   color: white;
+<<<<<<< HEAD
+=======
+  font-size: calc(0.4rem + 0.8vw);
+>>>>>>> ContentUpdates
 `;
-
 
 const Description = Texto.extend`
   width: 40%;
@@ -121,7 +123,7 @@ const Div = styled.div`
 const Footer = () => (
   <Container>
     <Description>
-      Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
+      NeighborHealth is committed to providing you with a service that meets your personal, treatment, and financial needs.  We ensure your safety by personally arranging your transportation, and ensuring you enjoy your stay in a safe manner. All our specialists, accommodations, and tourists attractions have been pre-screened for safety, quality, and convenience.
     </Description>
 
     <Separator />
@@ -130,9 +132,11 @@ const Footer = () => (
       <LinksTitle>Useful Links</LinksTitle>
       <LinksCont>
         <UsefulLink to="/">Home</UsefulLink>
+        {/* 
         <UsefulLink to="/">Company</UsefulLink>
         <UsefulLink to="/">How To</UsefulLink>
         <UsefulLink to="/">Terms of Use</UsefulLink>
+        */}
         <UsefulLink to="/Contact">Contact</UsefulLink>
         <UsefulLink to="/GetStarted">Get Started</UsefulLink>
       </LinksCont>
@@ -144,7 +148,7 @@ const Footer = () => (
       <ContactTitle>Contact Us</ContactTitle>
       <ContactCont>
         <ContactData>+1 512 717 3280</ContactData>
-        <ContactData>hello@neighbor.health</ContactData>
+        <ContactData>Luciaromo94@gmail.com</ContactData>
         <MessageButton to="/contact">send a message</MessageButton>
       </ContactCont>
     </Div>
