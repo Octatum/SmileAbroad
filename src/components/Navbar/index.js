@@ -141,9 +141,11 @@ const CompanyHover = styled.div`
   z-index: 1;
 
   @media(min-width: 1300px) {
-    ${NavItem}:hover > ${PlaceholderContainer} > & {
-      transform: translate(0, 0);
-      opacity: 1;
+    ${NavItem} {
+      &:hover > ${PlaceholderContainer} > & {
+        transform: translate(0, 0);
+        opacity: 1;
+      }
     }
   }
 
@@ -278,6 +280,7 @@ class Navbar extends Component {
             {hoveredSelection}
           </NavItem>
           */}
+          <NavItem> <NavLink to="/AboutUs">About Us</NavLink> </NavItem> 
           <NavItem> <NavLink to="/contact">Contact</NavLink> </NavItem>
           <NavLink to="/GetStarted"> <GetStarted>Get started</GetStarted> </NavLink>
         </Nav>
