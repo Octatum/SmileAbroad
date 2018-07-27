@@ -11,9 +11,15 @@ const Container = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin: 30px;
+  margin: 2em 0;
+  padding: 0 3vw;
+  background: white;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 
-  @media(max-width: 1300px) {
+  @media(max-width: 800px) {
+    margin: 0;
     justify-content: flex-start;
     flex-wrap: wrap;
   }
@@ -23,27 +29,32 @@ const Container = styled.div`
 const LogoLink = styled(Link)`
   width: 20em;
 
-  @media(max-width: 1300px) {
+
+  @media(max-width: 800px) {
     width: 50%;
+    min-width: 14em;
+    max-width: 20em;
+    padding: 1em 0;
   }
 `;
 
 const Logo = styled.img`
   max-width: 100%;
   max-height: 100%;
-
-  
 `;
 
 const ToggleShowButton = styled.div`
   margin-left: auto;
   display: none;
-  background: grey;
   height: 100px;
   width: 100px;
+  color: #333;
+  font-size: 3em;
   
-  @media(max-width: 1300px) {
-    display: block;
+  @media(max-width: 800px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100px;
   }
 `;
@@ -61,7 +72,7 @@ const Nav = styled.nav`
   width: 45%;
   height: 100%;
 
-  @media(max-width: 1300px) {
+  @media(max-width: 800px) {
     flex-direction: column;
     justify-content: center;
 
@@ -80,7 +91,7 @@ const NavItem = styled.div`
   margin-right: calc(2em - 1vw);
   
   
-  @media(max-width: 1300px) {
+  @media(max-width: 800px) {
     margin: 0;
     flex-direction: column;
   }
@@ -121,7 +132,7 @@ const PlaceholderContainer = styled.div`
   padding-right: 1rem;
   overflow: hidden;
 
-  @media(max-width: 1300px) {
+  @media(max-width: 800px) {
     position: relative;
     display: ${props => props.display ? 'block' : 'none'};
   }
@@ -140,14 +151,14 @@ const CompanyHover = styled.div`
   opacity: 0;
   z-index: 1;
 
-  @media(min-width: 1300px) {
+  @media(min-width: 800px) {
     ${NavItem}:hover > ${PlaceholderContainer} > & {
       transform: translate(0, 0);
       opacity: 1;
     }
   }
 
-  @media(max-width: 1300px) {
+  @media(max-width: 800px) {
     height: 100%;
     width: 100%;
     top: 0;
@@ -166,7 +177,7 @@ const ShadowBox = styled.div`
   background: rgba(0,0,0,0.3); 
   filter: blur(2px);
 
-  @media(max-width: 1300px) {
+  @media(max-width: 800px) {
     display: none;
   }
 `;
@@ -179,7 +190,7 @@ const DropArrow = styled.img`
   transition: transform 1s ease;
   transform: rotate(${props => props.isOpen ? 180 : 0 }deg);
 
-  @media(max-width: 1300px) {
+  @media(max-width: 800px) {
     top: 0.8em;
   }
 `;
@@ -267,7 +278,9 @@ class Navbar extends Component {
     return (
       <Container>
         <LogoLink to="/"><Logo src={logo}/></LogoLink>
-        <ToggleShowButton onClick={this.handleToggleClick} />
+        <ToggleShowButton onClick={this.handleToggleClick}>
+          <i className="fa fa-bars" />
+        </ToggleShowButton>
         <Nav display={this.state.open}>
           <NavItem> <NavLink to="/">Home</NavLink> </NavItem>
           {/*

@@ -65,19 +65,21 @@ const ArrowButton = styled(Link)`
   width: 20%;
   text-decoration: none;
   margin: auto;
-
   bottom: 0;
   left: 0;
-
   transition: transform 0.25s linear;
-  :hover ${Arrow} {
-    transform: scale(1.1) translate(10%);
+  transform: scale(0);
+
+  &:hover > *, 
+  & > *:hover {
+    transform: scale(1.1);
   }
 `;
 
 const Arrow = styled.img`
   width: 3rem;
   margin: auto;
+  transition: transform 0.25s ease-in-out;
 
   @media(min-width: 540px) {
     width: 70px;
@@ -124,33 +126,30 @@ const Services = () => {
         <ServiceImgContainer> <ServiceImg src={booking} /> </ServiceImgContainer>
         <IndivService>
           <Title>Booking</Title>
-          <Description>We set up your appointment with a top-rated, certified specialist</Description>
+          <Description>Setting up your appointment with a top-rated specialist has never been easier than through the NeighborHealth Certified Network</Description>
         </IndivService>
-        <ArrowButton to="/"><Arrow src={rightArrow} /></ArrowButton>
+        {/* <ArrowButton to="/"><Arrow src={rightArrow} /></ArrowButton>*/}
       </Div>
       <Div>
         <ServiceImgContainer> <ServiceImg src={transport} /> </ServiceImgContainer>
         <IndivService>
           <Title>Transportation</Title>
-          <Description>We book personal transportation throughout your stay</Description>
+          <Description>At no extra cost, we’ve got you covered throughout your stay</Description>
         </IndivService>
-        <ArrowButton to="/"><Arrow src={rightArrow} /></ArrowButton>
       </Div>
       <Div>
         <ServiceImgContainer> <ServiceImg src={accomodation} /> </ServiceImgContainer>
         <IndivService>
           <Title>Accomodation</Title>
-          <Description>Stay at out partner hotels, save and enjoy the full NeighborHealth experience</Description>
+          <Description>Enjoy the full NeighborHealth experience – Stay with our partner hotels that ensure a safe and comfortable stay</Description>
         </IndivService>
-        <ArrowButton to="/"><Arrow src={rightArrow} /></ArrowButton>
       </Div>
       <Div>
         <ServiceImgContainer> <ServiceImg src={travel} /> </ServiceImgContainer>
         <IndivService>
           <Title>Tourism</Title>
-          <Description>V.I.P access to the Best Attractions in the city</Description>
+          <Description>V.I.P Access to the city’s Best Attractions</Description>
         </IndivService>
-        <ArrowButton to="/"><Arrow src={rightArrow} /></ArrowButton>
       </Div>
     </Container>
 
