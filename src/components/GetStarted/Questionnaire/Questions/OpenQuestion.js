@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const Container = styled.label`
   margin: 20px 0;
@@ -50,17 +51,14 @@ const OpenQuestion = ({questionText, ...rest}) => {
   );
 };
 
-// TODO: define prop-types.
-/*
 OpenQuestion.proptypes = {
-  questionText: PropTypes.string.required,
-  onChange: PropTypes.func.required,
-  name: PropTypes.string.required,
+  questionText: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired,
   required: PropTypes.bool,
   autoComplete: PropTypes.string,
   type: PropTypes.string
 };
-*/
 
 OpenQuestion.defaultProps = {
   required: false,

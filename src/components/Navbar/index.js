@@ -53,7 +53,7 @@ const ToggleShowButton = styled.div`
   justify-content: center;
   align-items: center;
 
-  @media(max-width: 1300px) {
+  @media(max-width: 800px) {
     display: flex;
   }
 `;
@@ -122,7 +122,7 @@ const NavLink = styled(Link)`
   margin: 10px 0;
   font-weight: 600;
 
-  @media(min-width: 1300px) {
+  @media(min-width: 800px) {
     &::before {
       content: "";
       width: 0%;
@@ -228,7 +228,6 @@ const SelectionLink = styled(Link)`
     background-color: ${props => props.theme.color.lightBlue};
     color: white;
   }
-
 `;
 
 const GetStarted = NavItem.extend`
@@ -239,7 +238,7 @@ const GetStarted = NavItem.extend`
   transition: all 0.25s linear;
   border: 2px solid transparent;
 
-  @media(min-width: 1300px) {
+  @media(min-width: 800px) {
     :hover {
       background: white;
       border: 2px solid ${props => props.theme.color.lightBlue};
@@ -247,7 +246,7 @@ const GetStarted = NavItem.extend`
     }
   }
 
-  @media(max-width: 1300px) {
+  @media(max-width: 800px) {
     border: none;
     transition: none;
     background: none;

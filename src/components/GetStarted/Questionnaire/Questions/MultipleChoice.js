@@ -1,10 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const ContainerForm = styled.fieldset`
   display: flex;
   flex-direction: column;
   margin: 20px 0;
+  width: 100%;
 `;
 
 const Title = styled.p`
@@ -37,21 +39,21 @@ const OtherLabel = Label.extend`
   margin-left: 0px;
 `;
 
-const InputRadio = styled.input`
+const CheckboxInput = styled.input`
   position: absolute;
   opacity: 0;
   cursor: default;
-
 `;
 
 const Checkbox = styled.span`
   width: 1em;
   height: 1em;
   position: relative;
-  background: ${props => props.theme.color.lightBlue};
+  background: white;
   padding: 0.2em;
-  margin-right: 0.5em;
   border-radius: 100%;
+  transition: 150ms ease-in-out all;
+  border: 2px solid ${props => props.theme.color.lightBlue};
 
   :before {
     content: "\u2713";
@@ -59,9 +61,9 @@ const Checkbox = styled.span`
     width: 100%;
     height: 100%;
     position: absolute;
-    color: white;
+    color: ${props => props.theme.color.lightBlue};
     opacity: 0;
-    transition: 100ms ease-in-out opacity;
+    transition: inherit;
     top: 50%;
     left: 50%;
     transform: translate(-25%, -50%);
@@ -69,6 +71,14 @@ const Checkbox = styled.span`
 
   input[type='checkbox']:checked ~ &:before {
     opacity: 1;
+  }
+
+  input:focus ~ & {
+    background: ${props => props.theme.color.lightBlue};
+
+    :before {
+      color: white;
+    }
   }
 `;
 
@@ -96,12 +106,13 @@ const MultipleChoice = ({
       <Title> {questionText} </Title>
       {options.map(option => (
         <Label key={option}>
-          <InputRadio 
+          <CheckboxInput 
             type="checkbox"
             name={`${name}-${option}`}
             onChange={onChange}
           />
           <Checkbox />
+          &nbsp;
           {option}
         </Label>
       ))}
@@ -119,22 +130,16 @@ const MultipleChoice = ({
   )
 };
 
-
-/*
-MultipleChoice.proptypes = {
-  questionText: PropTypes.string.required,
-  onChange: PropTypes.func.required,
-  name: PropTypes.string.required,
-  options: PropTypes.array.required,
-  required: PropTypes.bool,
+MultipleChoice.propTypes = {
+  questionText: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired,
+  options: PropTypes.array.isRequired,
   includeOpenAnswer: PropTypes.bool
 };
-*/
 
 MultipleChoice.defaultProps = {
-  required: false,
   includeOpenAnswer: false,
 };
-
 
 export default MultipleChoice;

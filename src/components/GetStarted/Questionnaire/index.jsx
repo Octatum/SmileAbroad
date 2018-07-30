@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { navigateTo } from "gatsby-link";
 
 import OpenQuestion from './Questions/OpenQuestion';
 import MultipleChoice from './Questions/MultipleChoice';
-import MultipleImage from './Questions/MultipleImage';
+import MultipleImageQuestion from './Questions/MultipleImageQuestion';
 import horno from './assets/horno.jpg';
+import recreational from './assets/recreational.jpg';
+import cultural from './assets/cultural.jpg';
+import outdoor from './assets/outdoor.jpg';
+
+// Todo: Refactor MultipleImageQuestion and MultipleChoice into a single component.
 
 const Container = styled.form`
   width: 80%;
@@ -75,7 +81,13 @@ let questions = [
     ],
     other: true
   }
-]
+];
+
+function encode(data) {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&");
+}
 
 class Questionnaire extends Component {
   state = {};
@@ -84,39 +96,46 @@ class Questionnaire extends Component {
     const {target} = event;
     const {name} = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
-    console.log(name, value);
     this.setState({ [name]: value });
   };
 
   handleSubmit = event => {
     event.preventDefault();
+    const form = event.target;
 
-    console.log(this.state);
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({
+        "form-name": form.getAttribute("name"),
+        ...this.state
+      })
+    })
+    .then(() => {
+      alert("Your message was sent!");
+      navigateTo(form.getAttribute("action"))
+    })
+    .catch(error => alert(error));
   }
 
-  render() {
-    let questionsList = questions.map((data, index) => {
-      if (data.type === "multiplechoice") {
-        return <MultipleChoice
-          question={data.question}
-          other={data.other}
-          key={data.key}
-          onChange={this.handleChange} 
-          handleMany={data.manyOptions} 
-        />
-      }
-      else if (data.type === 'multipleimage') {
-        return <MultipleImage
-          question={data.question}
-          key={data.key}
-          stateKey={data.key}
-          onChange={this.handleChange} 
-        />
-      }
-
-    });
+  render() {    
     return (
-      <Container onSubmit={this.handleSubmit} data-netlify="true">
+      <Container 
+        onSubmit={this.handleSubmit}
+        name="customerData"
+        method="post"
+        action="/"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+        onSubmit={this.handleSubmit}
+      >
+        <input type="hidden" name="form-name" value="customer-data" />
+        <p hidden>
+          <label>
+            Don’t fill this out:{" "}
+            <input name="bot-field" onChange={this.handleChange} />
+          </label>
+        </p>
         <OpenQuestion
           questionText="What's your name?"
           onChange={this.handleChange}
@@ -160,6 +179,22 @@ class Questionnaire extends Component {
             'Terrace and Bar',
           ]}
           name="hotelCharacteristics"
+          includeOpenAnswer
+        />
+        <MultipleImageQuestion
+          questionText="Which type of tourist activities do you like?"
+          onChange={this.handleChange}
+          options={[{
+            name: 'Recreational',
+            image: recreational
+          }, {
+            name: 'Outdoor',
+            image: outdoor
+          }, {
+            name: 'Cultural',
+            image: cultural
+          }]}
+          name="tourismActivities"
           includeOpenAnswer
         />
         <Text>

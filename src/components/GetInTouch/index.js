@@ -167,11 +167,11 @@ class GetInTouch extends Component {
         ...self.state
       })
     })
-      .then(() => {
-        alert("Your message was sent!");
-        navigateTo(form.getAttribute("action"))
-      })
-      .catch(error => alert(error));
+    .then(() => {
+      alert("Your message was sent!");
+      navigateTo(form.getAttribute("action"))
+    })
+    .catch(error => alert(error));
   };
 
   render() {
