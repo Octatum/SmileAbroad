@@ -1,5 +1,6 @@
 import React, { Component, isValidElement } from 'react';
 import styled from 'styled-components';
+import { navigateTo } from "gatsby-link";
 
 import LocationIcon from './assets/Location.svg';
 import Internet from './assets/internet.svg';
@@ -26,11 +27,11 @@ const Container = styled.form`
   }
 `;
 
-const InputCont = styled.div`
+const InputCont = styled.label`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: 1em 0;
+  margin: 0.75em 0;
 
   position: relative;
 
@@ -56,7 +57,7 @@ const GridInput = styled.input`
   max-width: 800px;
 
 
-  border: ${props => props.valid ? props.theme.color.lightBlue + ' 2px solid' : 'red 2px solid'};
+  border: ${props => `${props.theme.color.lightBlue} 2px solid` };
   border-radius: 15px;
   padding: 10px;
 
@@ -65,9 +66,7 @@ const GridInput = styled.input`
   }
 
   &:hover {
-    box-shadow: ${props => props.valid ?
-      '2px 2px 5px 1px rgba(0, 198, 219, 0.25), -2px -2px 5px 1px rgba(0, 198, 219, 0.25)' :
-      '2px 2px 5px 1px rgba(255, 0, 0, 0.25), -2px -2px 5px 1px rgba(255, 0, 0, 0.25)'};
+    box-shadow: 2px 2px 5px 1px rgba(0, 198, 219, 0.25);
   }
 `;
 
@@ -77,8 +76,9 @@ const MessageInput = GridInput.withComponent('textarea').extend`
   min-height: 10em;
 `;
 
-const Submit = styled.input`
-  margin-top: 1.5em;
+const Submit = styled.button`
+  margin-top: 0.5em;
+  font-size: 2rem;
   padding: 0.5em;
   border-radius: 10px;
   background: ${props => props.theme.color.lightBlue};
@@ -141,104 +141,85 @@ const Warning = styled.div`
   }
 `;
 
+function encode(data) {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&");
+}
 
 class GetInTouch extends Component {
-  constructor() {
-    super();
-    this.state = {
-      name: '',
-      email: '',
-      message: '',
-      validEmail: true,
-      enteredName: true,
-      enteredMessage: true
-    };
+  state = {
+  };
 
-    this.submitMessage = this.submitMessage.bind(this);
-    this.emailInputValid = this.emailInputValid.bind(this);
-    this.validateEmail = this.validateEmail.bind(this);
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.validInput = this.validInput.bind(this);
-  }
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
 
-  handleInputChange(event, key) {
-    this.setState({
-      [key]: event.target.value,
-    })
-  }
-
-  emailInputValid() {
-    const isValid = this.validateEmail();
-    this.setState({
-      validEmail: isValid
-    })
-  }
-
-  validateEmail() {
-    const re = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
-    // const re2 = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
-    return re.test(String(this.state.email));
-  }
-
-  validInput(event, tag) {
-    const isValue = event.target.value !== "";
-    if(tag === 'name') {
-      this.setState({
-        enteredName: isValue
+  handleSubmit = e => {
+    e.preventDefault();
+    const form = e.target;
+    const self = this;
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({
+        "form-name": form.getAttribute("name"),
+        ...self.state
       })
-    }
-    else {
-      this.setState({
-        enteredMessage: isValue
+    })
+      .then(() => {
+        alert("Your message was sent!");
+        navigateTo(form.getAttribute("action"))
       })
-    }
-  }
-
-  submitMessage(event) {
-    event.preventDefault();
-
-    if (!this.state.name || !this.state.email || !this.state.message || !this.validateEmail()) {
-      console.log("NOT VALID MESSAGE");
-      alert('please fill out the form');
-    }
-    else {
-      console.log(this.state);
-    }
-  }
+      .catch(error => alert(error));
+  };
 
   render() {
     return (
-      <Container onSubmit={this.submitMessage}>
+      <Container 
+        name="contact"
+        method="post"
+        action="/"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+        onSubmit={this.handleSubmit}
+      >
+
+        <input type="hidden" name="form-name" value="contact" />
+        <p hidden>
+          <label>
+            Don’t fill this out:{" "}
+            <input name="bot-field" onChange={this.handleChange} />
+          </label>
+        </p>
         <InputCont>
           <GridText>Name:</GridText>
           <GridInput 
-            onChange={(event) => this.handleInputChange(event, 'name')} 
-            onBlur={(event) => this.validInput(event, 'name')}
-            valid={this.state.enteredName}
-            autoComplete="name" />
-          <Warning valid={this.state.enteredName}> Please write your name here </Warning>  
+            name="name"
+            onChange={this.handleChange} 
+            autoComplete="name" 
+          />
         </InputCont>
 
         <InputCont>
           <GridText>Email:</GridText>
           <GridInput
-            onChange={(event) => this.handleInputChange(event, 'email')}
-            onBlur={this.emailInputValid}
-            valid={this.state.validEmail} 
-            autoComplete="email" />
-          <Warning valid={this.state.validEmail}> Please enter a valid e-mail address </Warning>
+            name="email"
+            onChange={this.handleChange} 
+            type="email"
+            autoComplete="email" 
+          />
         </InputCont>
 
         <InputCont>
           <GridText>Message:</GridText>
           <MessageInput 
-            onChange={(event) => this.handleInputChange(event, 'message')} 
-            onBlur={(event) => this.validInput(event, 'message')}
-            valid={this.state.enteredMessage} />
-            <Warning valid={this.state.enteredMessage}> Please enter a message </Warning>
+            name="message"
+            onChange={this.handleChange} 
+          />
         </InputCont>
 
-        <Submit type="submit" value="Send" onClick={event => this.submitMessage(event)} disabled={!this.state.validEmail} />
+        <Submit type="submit">Send</Submit>
 
         <Localization>
           <SVGicon src={LocationIcon} />

@@ -44,8 +44,15 @@ const Text = styled.p`
   margin: 50px 0;
 `;
 
+function encode(data) {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&");
+}
 
 let questions = [
+
+
   {
     key: 1,
     type: 'open',
@@ -194,7 +201,7 @@ class Questionnaire extends Component {
 
     });
     return (
-      <Container onSubmit={this.submitInfo}>
+      <Container onSubmit={this.submitInfo} data-netlify="true">
         {questionsList}
         <Text>
           Let us help you plan your trip!
