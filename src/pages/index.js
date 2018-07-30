@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components';
 
-import Presentation from './../components/Presentation';
-import OurServices from './Home/OurServices';
-import AddedValue from './Home/AddedValue';
+import Presentation from '../components/Presentation';
+import OurServices from '../components/Home/OurServices';
+import AddedValue from '../components/Home/AddedValue';
 
 const FeaturedBlog = styled.div`
   height: 100vh;

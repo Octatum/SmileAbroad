@@ -4,6 +4,7 @@ import Link from 'gatsby-link';
 
 import downArrow from './assets/downArrow.svg';
 import logo from './assets/logo.svg';
+import navicon from './assets/navicon.svg';
 
 const Container = styled.div`
   box-sizing: border-box;
@@ -11,9 +12,15 @@ const Container = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin: 30px;
+  margin: 2em 0;
+  padding: 0 3vw;
+  background: white;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 
-  @media(max-width: 1300px) {
+  @media(max-width: 800px) {
+    margin: 0;
     justify-content: flex-start;
     flex-wrap: wrap;
   }
@@ -23,30 +30,46 @@ const Container = styled.div`
 const LogoLink = styled(Link)`
   width: 20em;
 
-  @media(max-width: 1300px) {
+
+  @media(max-width: 800px) {
     width: 50%;
+    min-width: 14em;
+    max-width: 20em;
+    padding: 1em 0;
   }
 `;
 
 const Logo = styled.img`
   max-width: 100%;
   max-height: 100%;
-
-  
 `;
 
 const ToggleShowButton = styled.div`
   margin-left: auto;
   display: none;
-  background: grey;
   height: 100px;
   width: 100px;
-  
+ 
+  justify-content: center;
+  align-items: center;
+
   @media(max-width: 1300px) {
-    display: block;
-    width: 100px;
+    display: flex;
   }
 `;
+
+const Navicon = styled.img`
+  width: 40%;
+
+  @media(min-width: 1024px) {
+    width: 70%;
+  }
+
+  @media(min-width: 768px) {
+    width: 55%;
+  }
+`;
+
 
 /*
 ANIMATE NAV DROPDOWN
@@ -61,7 +84,7 @@ const Nav = styled.nav`
   width: 45%;
   height: 100%;
 
-  @media(max-width: 1300px) {
+  @media(max-width: 800px) {
     flex-direction: column;
     justify-content: center;
 
@@ -80,7 +103,7 @@ const NavItem = styled.div`
   margin-right: calc(2em - 1vw);
   
   
-  @media(max-width: 1300px) {
+  @media(max-width: 800px) {
     margin: 0;
     flex-direction: column;
   }
@@ -99,15 +122,17 @@ const NavLink = styled(Link)`
   margin: 10px 0;
   font-weight: 600;
 
-  &::before {
-    content: "";
-    width: 0%;
-    border-bottom: 3px solid ${props => props.theme.color.lightBlue};
-    display: block;
-    position: absolute;
-    bottom: -10%;
-    left: 50%;
-    transition: width 0.5s ease-out, left 0.5s ease-out;
+  @media(min-width: 1300px) {
+    &::before {
+      content: "";
+      width: 0%;
+      border-bottom: 3px solid ${props => props.theme.color.lightBlue};
+      display: block;
+      position: absolute;
+      bottom: -10%;
+      left: 50%;
+      transition: width 0.5s ease-out, left 0.5s ease-out;
+    }
   }
 `;
 
@@ -121,7 +146,7 @@ const PlaceholderContainer = styled.div`
   padding-right: 1rem;
   overflow: hidden;
 
-  @media(max-width: 1300px) {
+  @media(max-width: 800px) {
     position: relative;
     display: ${props => props.display ? 'block' : 'none'};
   }
@@ -140,14 +165,14 @@ const CompanyHover = styled.div`
   opacity: 0;
   z-index: 1;
 
-  @media(min-width: 1300px) {
+  @media(min-width: 800px) {
     ${NavItem}:hover > ${PlaceholderContainer} > & {
       transform: translate(0, 0);
       opacity: 1;
     }
   }
 
-  @media(max-width: 1300px) {
+  @media(max-width: 800px) {
     height: 100%;
     width: 100%;
     top: 0;
@@ -166,7 +191,7 @@ const ShadowBox = styled.div`
   background: rgba(0,0,0,0.3); 
   filter: blur(2px);
 
-  @media(max-width: 1300px) {
+  @media(max-width: 800px) {
     display: none;
   }
 `;
@@ -179,7 +204,7 @@ const DropArrow = styled.img`
   transition: transform 1s ease;
   transform: rotate(${props => props.isOpen ? 180 : 0 }deg);
 
-  @media(max-width: 1300px) {
+  @media(max-width: 800px) {
     top: 0.8em;
   }
 `;
@@ -214,10 +239,19 @@ const GetStarted = NavItem.extend`
   transition: all 0.25s linear;
   border: 2px solid transparent;
 
-  :hover {
-    background: white;
-    border: 2px solid ${props => props.theme.color.lightBlue};
-    color: ${props => props.theme.color.lightBlue};
+  @media(min-width: 1300px) {
+    :hover {
+      background: white;
+      border: 2px solid ${props => props.theme.color.lightBlue};
+      color: ${props => props.theme.color.lightBlue};
+    }
+  }
+
+  @media(max-width: 1300px) {
+    border: none;
+    transition: none;
+    background: none;
+    color: black;
   }
 `;
 
@@ -243,12 +277,11 @@ class Navbar extends Component {
     });
   }
 
-  handleToggleClick(event) {
+  handleToggleClick() {
     const isOpen = !this.state.open;
     this.setState({
       open: isOpen
     });
-    console.log(this.state.open);
   }
 
   render() {
@@ -267,7 +300,9 @@ class Navbar extends Component {
     return (
       <Container>
         <LogoLink to="/"><Logo src={logo}/></LogoLink>
-        <ToggleShowButton onClick={this.handleToggleClick} />
+        <ToggleShowButton >
+          <Navicon onClick={this.handleToggleClick} src={navicon} />
+        </ToggleShowButton>
         <Nav display={this.state.open}>
           <NavItem> <NavLink to="/">Home</NavLink> </NavItem>
           {/*
@@ -278,6 +313,7 @@ class Navbar extends Component {
             {hoveredSelection}
           </NavItem>
           */}
+          <NavItem> <NavLink to="/AboutUs">About Us</NavLink> </NavItem> 
           <NavItem> <NavLink to="/contact">Contact</NavLink> </NavItem>
           <NavLink to="/GetStarted"> <GetStarted>Get started</GetStarted> </NavLink>
         </Nav>
