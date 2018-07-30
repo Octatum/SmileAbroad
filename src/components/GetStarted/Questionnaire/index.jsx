@@ -51,34 +51,10 @@ function encode(data) {
 }
 
 let questions = [
-
-
-  {
-    key: 1,
-    type: 'open',
-    question: 'Where are you from?'
-  },
-  {
-    key: 2,
-    type: 'multiplechoice',
-    question: 'When are you planning to travel?',
-    options: [
-      'Within a month',
-      'Within 3 months',
-      'Later than 3 months'
-    ],
-    other: true,
-    manyOptions: false
-  },
-  {
-    key: 3,
-    type: 'open',
-    question: 'If not, we can still help. Please describe your dental situation generally'
-  },
   {
     key: 4,
     type: 'multiplechoice',
-    question: 'What characteristics are you looking for in a hotel?',
+    questionText: 'What characteristics are you looking for in a hotel?',
     options: [
       'Swimming pool',
       'Breakfast included',
@@ -91,7 +67,7 @@ let questions = [
   {
     key: 5,
     type: 'multipleimage',
-    question: 'Which type of tourist activities do you like?',
+    questionText: 'Which type of tourist activities do you like?',
     options: [
       { url: 'http://www.birds.com/wp-content/uploads/home/bird4.jpg', description: 'Outdoor' },
       { url: horno, description: 'Cultural' },
@@ -102,113 +78,96 @@ let questions = [
 ]
 
 class Questionnaire extends Component {
-  constructor() {
-    super();
+  state = {};
 
-    this.state = {
-      1: '',
-      2: '',
-      3: '',
-      4: [false, false, false, false, false],
-      5: [false, false, false, false]
-    };
+  handleChange = (event) => {
+    const {target} = event;
+    const {name} = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    console.log(name, value);
+    this.setState({ [name]: value });
+  };
 
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.submitInfo = this.submitInfo.bind(this);
-    this.handleManyOptions = this.handleManyOptions.bind(this);
-  }
-
-  handleInputChange(value, key) {
-    let prevState = this.state[[key]];
-    if (prevState != value) {
-      this.setState({
-        [key]: value,
-      });
-    }
-  }
-
-  handleManyOptions(value, key, index) {
-    let newAnswer = [...this.state[[key]]];
-    newAnswer[index] = value;
-    this.handleInputChange(newAnswer, key)
-  }
-
-  submitInfo(event) {
+  handleSubmit = event => {
     event.preventDefault();
 
-    // array that takes the state t/f and replaces with values of 'questions'
-    let multipleImageResponse = [...this.state[5]].map((data, index) => {
-      // if true and not the last option of multiple images 
-      if (data && index != this.state[5].length - 1) {
-        // return the image url and description
-        return questions[4].options[index];
-      }
-      // if last question return the answer of the user
-      else if (data !== false && index === this.state[5].length - 1) {
-        return data;
-      }
-      // otherwise return false
-      else {
-        return false;
-      }
-    })
-
-    const finalResponse = [
-      this.state[1],
-      this.state[2],
-      this.state[3],
-      this.state[4],
-      multipleImageResponse
-    ];
-
-    console.log(finalResponse);
+    console.log(this.state);
   }
 
-
   render() {
-    
-
-    let questionsList = '';
-    questionsList = questions.map((data, index) => {
-      if (data.type === 'open') {
-        return <OpenQuestion
-          question={data.question}
-          key={data.key}
-          stateKey={data.key}
-          handleChange={this.handleInputChange}
-        />
-      }
-      else if (data.type === "multiplechoice") {
+    let questionsList = questions.map((data, index) => {
+      if (data.type === "multiplechoice") {
         return <MultipleChoice
           question={data.question}
-          options={data.options}
           other={data.other}
           key={data.key}
-          stateKey={data.key}
-          handleChange={data.manyOptions ? this.handleManyOptions : this.handleInputChange} 
-          handleMany={data.manyOptions} />
+          onChange={this.handleChange} 
+          handleMany={data.manyOptions} 
+        />
       }
       else if (data.type === 'multipleimage') {
         return <MultipleImage
           question={data.question}
-          options={data.options}
-          selectedOptions={[...this.state[index+1]]} //can use index
-          other={data.other}
           key={data.key}
           stateKey={data.key}
-          handleChange={this.handleInputChange} />
+          onChange={this.handleChange} 
+        />
       }
 
     });
     return (
-      <Container onSubmit={this.submitInfo} data-netlify="true">
-        {questionsList}
+      <Container onSubmit={this.handleSubmit} data-netlify="true">
+        <OpenQuestion
+          questionText="What's your name?"
+          onChange={this.handleChange}
+          name="name"
+          required
+          autoComplete="name"
+        />
+        <OpenQuestion
+          questionText="What's your email address?"
+          onChange={this.handleChange}
+          name="email"
+          required
+          type="email"
+          autoComplete="email"
+        />
+        <OpenQuestion
+          questionText="Where are you from?"
+          onChange={this.handleChange}
+          name="location"
+          required
+        />
+        <OpenQuestion
+          questionText="When are you planning to travel?"
+          onChange={this.handleChange}
+          name="travelDate"
+          required
+        />
+        <OpenQuestion
+          questionText="Briefly describe your dental situation"
+          onChange={this.handleChange}
+          name="dentalDescription"
+          required
+        />
+        <MultipleChoice
+          questionText="What characteristics are you looking for in a hotel?"
+          onChange={this.handleChange}
+          options={[
+            'Swimming Pool',
+            'Breakfast included',
+            'Shops',
+            'Terrace and Bar',
+          ]}
+          name="hotelCharacteristics"
+          includeOpenAnswer
+        />
         <Text>
           Let us help you plan your trip!
           We provide you with discounted access to different spots around town.
           Tell us about yourself (hobbies, favourite food) so we can find you the best deal.
         </Text>
-        <SendButton onClick={this.submitInfo}>Send</SendButton>
+        <SendButton type="submit">Send</SendButton>
       </Container>
     );
   }

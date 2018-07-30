@@ -1,11 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-/*
-  TODO :: ON CLICK OR SELECTION OF OTHER INPUT DESELECT PREVIOUS INPUTS
-*/
-
-const ContainerForm = styled.div`
+const ContainerForm = styled.fieldset`
   display: flex;
   flex-direction: column;
   margin: 20px 0;
@@ -23,7 +19,6 @@ const Title = styled.p`
     margin-bottom: 10px;
   }
 `;
-
 
 const Label = styled.label`
   font-size: calc(0.85rem + 1vw);
@@ -46,21 +41,35 @@ const InputRadio = styled.input`
   position: absolute;
   opacity: 0;
   cursor: default;
+
 `;
 
-const RadioButton = styled.div`
+const Checkbox = styled.span`
   width: 1em;
   height: 1em;
-  border-radius: 50%;
-  display: inline-block;
-  background: rgba(0, 198, 219, 0.3);
-  margin-right: 1.2em;
-  
-  ${Label}:hover > &,
-  ${InputRadio}:checked + & {
-    background: rgba(0, 198, 219, 1);
+  position: relative;
+  background: ${props => props.theme.color.lightBlue};
+  padding: 0.2em;
+  margin-right: 0.5em;
+  border-radius: 100%;
+
+  :before {
+    content: "\u2713";
+    font-weight: 700;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    color: white;
+    opacity: 0;
+    transition: 100ms ease-in-out opacity;
+    top: 50%;
+    left: 50%;
+    transform: translate(-25%, -50%);
   }
-  
+
+  input[type='checkbox']:checked ~ &:before {
+    opacity: 1;
+  }
 `;
 
 const OtherInput = styled.input`
@@ -71,77 +80,61 @@ const OtherInput = styled.input`
   background: none;
   outline: none;
   margin-left: 10px;
-
   width: 60%;
 `;
 
 
-let otherAnswer = '';
-
-const MultipleChoice = (props) => {
-
-  let answers = props.options.map((data, index) =>
-    <Label
-      key={data} >
-      <InputRadio
-        type={props.handleMany ? "checkbox" : "radio"}
-        name={props.stateKey}
-        onClick={(event) => handleSelection(event, data, index)} />
-      <RadioButton />
-      {data}  
-    </Label>
-  );
-
-  let other = '';
-  if (props.other) {
-    other = (
-      <OtherLabel>
-        <InputRadio
-          type={props.handleMany ? "checkbox" : "radio"}
-          name={props.stateKey}
-          onClick={(event) => handleSelection(event, otherAnswer, props.options.length)} />
-          <RadioButton/>
-          Other:
-          <OtherInput
-            type="text"
-            onChange={userResponse}
-            onClick={(event) => handleSelection(event, otherAnswer, props.options.length)} />
-      </OtherLabel>
-    );
-  };
-
-
-  function userResponse(event) {
-    otherAnswer = event.target.value;
-    if (props.handleMany) {
-      props.handleChange(otherAnswer, props.stateKey, props.options.length);
-    }
-    else {
-      props.handleChange(otherAnswer, props.stateKey);
-    }
-
-  }
-
-  function handleSelection(event, data, index) {
-    if (props.handleMany) {
-      let checked = event.target.checked == true ? true : false;
-      if (checked && index == props.options.length) {
-        checked = otherAnswer;
-      }
-      props.handleChange(checked, props.stateKey, index)
-    }
-    else {
-      props.handleChange(data, props.stateKey);
-    }
-  }
-
+const MultipleChoice = ({
+  questionText, 
+  includeOpenAnswer, 
+  onChange,
+  name,
+  options
+}) => {
   return (
-    <ContainerForm className={props.className}>
-      <Title> {props.question} </Title>
-      {answers}
-      {other}
+    <ContainerForm>
+      <Title> {questionText} </Title>
+      {options.map(option => (
+        <Label key={option}>
+          <InputRadio 
+            type="checkbox"
+            name={`${name}-${option}`}
+            onChange={onChange}
+          />
+          <Checkbox />
+          {option}
+        </Label>
+      ))}
+      {includeOpenAnswer && (
+        <OtherLabel>
+          Other:
+          <OtherInput 
+            questionText="other"
+            onChange={onChange}
+            name={`${name}-other`}
+          />
+        </OtherLabel>
+      )}
     </ContainerForm>
   )
 };
+
+
+/*
+MultipleChoice.proptypes = {
+  questionText: PropTypes.string.required,
+  onChange: PropTypes.func.required,
+  name: PropTypes.string.required,
+  options: PropTypes.array.required,
+  required: PropTypes.bool,
+  includeOpenAnswer: PropTypes.bool
+};
+*/
+
+MultipleChoice.defaultProps = {
+  required: false,
+  includeOpenAnswer: false,
+};
+
 
 export default MultipleChoice;
