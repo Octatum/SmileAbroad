@@ -38,6 +38,7 @@ const Answer = styled.input`
     box-shadow: 2px 2px 5px 1px rgba(0, 198, 219, 0.25),
                 -2px -2px 5px 1px rgba(0, 198, 219, 0.25);
   }
+
 `;
 
 const OpenQuestion = ({questionText, ...rest}) => {

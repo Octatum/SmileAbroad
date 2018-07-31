@@ -20,7 +20,6 @@ const Container = styled.form`
   flex-direction: column;
   justify-content: space-evenly;
   align-items: flex-start;
-
   @media(max-width: 520px) {
     width: 90%;
   }
@@ -31,10 +30,8 @@ const SendButton = styled.button`
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   text-transform: uppercase;
   padding: 0.5em 1em;
-
   flex: 0 1 auto;
   align-self: flex-end;
-
   background: ${props => props.theme.color.lightBlue};
   color: white;
   outline: none;

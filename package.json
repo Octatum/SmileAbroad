@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-starter-default",
-  "description": "Gatsby default starter",
+  "name": "neighbor-health-website",
+  "description": "Neighbor Health's Website",
   "version": "1.0.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Octatum <contacto@octatum.com>",
   "dependencies": {
     "babel-plugin-styled-components": "^1.5.1",
     "gatsby": "^1.9.275",
@@ -34,6 +34,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/robruizr/neighborhealth"
   }
 }
