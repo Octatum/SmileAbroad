@@ -11,12 +11,15 @@ const Button = component => styled(component)`
   padding: 10px 1em;
 
   color: black;
-  border: 3px solid black;
+  border: 2px solid black;
 
-  transition: box-shadow 0.25s linear;
+  transition: all 0.25s linear;
   
   :hover{
-    box-shadow: 4px 4px 4px 0 rgba(0,0,0,0.3);
+    {/* box-shadow: 4px 4px 4px 0 rgba(0,0,0,0.3); */}
+    color: ${props => props.theme.color.lightBlue};
+    background: none;
+    border: 2px solid ${props => props.theme.color.lightBlue};
   }
 `;
 

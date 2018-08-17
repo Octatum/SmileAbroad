@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import Link from 'gatsby-link';
 
 import background from './../assets/background.jpg';
+import GetStartedButton from './../../GetStarted/Button';
 
 const Cont = styled.div`
   width: 100%;
@@ -81,7 +81,7 @@ const Message = styled.p`
 const BoldText = Message.withComponent('span').extend`
   font-weight: bold;
 `;
-
+/* 
 const GetStartedButton = styled(Link)`
   color: white;
   font-size: 1.2em;
@@ -91,6 +91,17 @@ const GetStartedButton = styled(Link)`
   padding: 10px 0.5em;
 
   text-decoration: none;
+`; */
+
+const GetStarted = styled(GetStartedButton)`
+  font-size: calc(1rem + 0.75vw);
+  div {
+    border-radius: 10px;
+    padding: 10px 1em;
+    &:hover{
+      background: none;
+    }
+  }
 `;
 
 const Welcome = () => (
@@ -103,7 +114,7 @@ const Welcome = () => (
         abroad by creating a personalized itinerary and establishing a connection 
         with a pre-screened practitioner.
       </Message>
-      <GetStartedButton to="/GetStarted">Get Started</GetStartedButton>
+      <GetStarted />
     </MessageContainer>
   </Cont>
 );

@@ -5,6 +5,7 @@ import Link from 'gatsby-link';
 import downArrow from './assets/downArrow.svg';
 import logo from './assets/logo.svg';
 import navicon from './assets/navicon.svg';
+import GetStartedButton from './../GetStarted/Button';
 
 const Container = styled.div`
   box-sizing: border-box;
@@ -225,30 +226,34 @@ const SelectionLink = styled(Link)`
 
 `;
 
-const GetStarted = NavItem.extend`
-  border-radius: 1rem;
-  color: white;
-  background: ${props => props.theme.color.lightBlue};
-  padding: 5px 15px;
-  transition: all 0.25s linear;
-  border: 2px solid transparent;
 
-  @media(min-width: 1300px) {
-    :hover {
-      background: white;
-      border: 2px solid ${props => props.theme.color.lightBlue};
-      color: ${props => props.theme.color.lightBlue};
-    }
-  }
+const GetStartedCont = styled.div`
+  display: flex;
+  flex: 0 1 auto;
+  margin-right: calc(2em - 1vw);
 
   @media(max-width: 1300px) {
-    border: none;
-    transition: none;
-    background: none;
-    color: black;
+    margin: 0;
+    flex-direction: column;
   }
 `;
 
+const GetStarted = styled(GetStartedButton)`
+  @media(max-width: 1300px) {
+    div {
+      border: none;
+      transition: none;
+      background: none;
+      color: black;
+
+      &:hover {
+        background: initial;
+        border: none;
+        color: black;
+      }
+    }
+  }
+`;
 
 class Navbar extends Component {
   constructor() {
@@ -309,7 +314,7 @@ class Navbar extends Component {
           */}
           <NavItem> <NavLink to="/AboutUs">About Us</NavLink> </NavItem> 
           <NavItem> <NavLink to="/contact">Contact</NavLink> </NavItem>
-          <NavLink to="/GetStarted"> <GetStarted>Get started</GetStarted> </NavLink>
+          <GetStartedCont> <GetStarted /> </GetStartedCont>
         </Nav>
       </Container>
     );

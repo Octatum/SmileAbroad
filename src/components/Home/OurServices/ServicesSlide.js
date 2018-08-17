@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import Link from 'gatsby-link';
 import ButtonComponent from './../../../components/Button';
+import GetStartedButton from './../../GetStarted/Button';
 
 const Container = styled.div`
   display: flex;
@@ -60,30 +61,21 @@ const ButtonCont = styled.div`
   }
 `;
 
-const Button = styled(Link)`
-  text-decoration: none;
-  font-family: ${props => props.theme.fontFamily.main}, sans-serif;
-
-  font-weight: 600;
+const GetStarted = styled(GetStartedButton)`
   font-size: calc(1rem + 0.75vw);
-  border-radius: 10px;
-
-  padding: 10px 1em;
-
-  color: black;
-  border: 3px solid black;
-
-  transition: box-shadow 0.25s linear;
-  
-  :hover{
-    box-shadow: 4px 4px 4px 0 rgba(0,0,0,0.3);
+  div {
+    border-radius: 10px;
+    padding: 10px 1em;
+    &:hover{
+      background: none;
+    }
   }
 `;
 
 const BlueButton = ButtonComponent(Link).extend`
   color: white;
   background: ${props => props.theme.color.lightBlue};
-  border: 3px solid transparent;
+  border: 2px solid transparent;
 `;
 
 const BubbleCont = ButtonCont.extend`
@@ -147,7 +139,7 @@ class ServiceSlide extends Component {
         </Description>
         <ButtonCont>
           <BlueButton to="/">Learn More</BlueButton>
-          <Button to="/GetStarted">Get started</Button>
+          <GetStarted />
         </ButtonCont>
         <BubbleCont>
           {[].map((_, index) => (
