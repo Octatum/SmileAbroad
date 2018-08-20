@@ -150,22 +150,22 @@ const ThumbnailImage = styled.img`
 `;
 
 export default function Template(props) {
-  const { markdownRemark: post } = props.data; 
-  
+  const { markdownRemark: post } = props.data;
+
   return (
     <Container>
       <Helmet title={post.frontmatter.title} />
-        <Title>{post.frontmatter.title}</Title>
-        <AuthorMedia />
-        <ThumbnailImage src={post.frontmatter.thumbnail} />
-        <ReactMD source={post.rawMarkdownBody} />
+      <Title>{post.frontmatter.title}</Title>
+      <AuthorMedia />
+      <ThumbnailImage src={post.frontmatter.thumbnail} />
+      <ReactMD source={post.rawMarkdownBody} />
     </Container>
   );
 }
 
 export const pageQuery = graphql`
-  query BlogPostByPath($route: String) {
-    markdownRemark(frontmatter: { path: { eq: $route } }) {
+  query BlogPostByPath( $date: String, $title: String) {
+    markdownRemark(frontmatter: { date: { eq: $date } title: {eq: $title } }) {
       html
       rawMarkdownBody
       frontmatter {

@@ -12,6 +12,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
           frontmatter {
             title
             path
+            date
             layout
           }
         }
@@ -32,12 +33,12 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
               template = blogPostTemplate;
               break;
           }
-          
-          createPage({
+         createPage({
             path: node.frontmatter.path,
             component: template,
             context: {
-              route: node.frontmatter.path
+              date: node.frontmatter.date,
+              title: node.frontmatter.title
             } 
           });
         });
