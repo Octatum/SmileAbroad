@@ -6,10 +6,7 @@ const Button = component => styled(component)`
 
   font-weight: 600;
   font-size: calc(1rem + 0.75vw);
-  border-radius: 10px;
   text-align: center;
-
-  padding: 10px 1em;
   position: relative;
 
   color: black;
@@ -26,7 +23,7 @@ const Button = component => styled(component)`
 
   }
   &:hover ::before {
-    width: ${props => props.animateSelection ? 'initial' : '100%'};
+    width: 100%;
     left: 0;
   }
 `;

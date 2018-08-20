@@ -15,7 +15,7 @@ const Title = styled.p`
   font-size: calc(2rem + 1vw);
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   font-weight: 600;
-  color: #202020;
+  color: black;
   max-width: 50%;
 
   @media(max-width: 520px) {
@@ -73,7 +73,7 @@ const GetStarted = styled(GetStartedButton)`
 `;
 
 const BlueButton = ButtonComponent(Link).extend`
- 
+  padding: 10px 1em;
 `;
 
 const BubbleCont = ButtonCont.extend`

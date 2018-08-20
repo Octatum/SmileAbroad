@@ -81,17 +81,6 @@ const Message = styled.p`
 const BoldText = Message.withComponent('span').extend`
   font-weight: bold;
 `;
-/* 
-const GetStartedButton = styled(Link)`
-  color: white;
-  font-size: 1.2em;
-  font-weight: bold;
-  background: black;
-  border-radius: 10px;
-  padding: 10px 0.5em;
-
-  text-decoration: none;
-`; */
 
 const GetStarted = styled(GetStartedButton)`
   font-size: calc(1rem + 0.75vw);
