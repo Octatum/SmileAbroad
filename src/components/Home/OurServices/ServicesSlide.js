@@ -73,9 +73,7 @@ const GetStarted = styled(GetStartedButton)`
 `;
 
 const BlueButton = ButtonComponent(Link).extend`
-  color: white;
-  background: ${props => props.theme.color.lightBlue};
-  border: 2px solid transparent;
+ 
 `;
 
 const BubbleCont = ButtonCont.extend`

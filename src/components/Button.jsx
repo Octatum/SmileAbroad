@@ -7,19 +7,27 @@ const Button = component => styled(component)`
   font-weight: 600;
   font-size: calc(1rem + 0.75vw);
   border-radius: 10px;
+  text-align: center;
 
   padding: 10px 1em;
+  position: relative;
 
   color: black;
-  border: 2px solid black;
-
-  transition: all 0.25s linear;
   
-  :hover{
-    {/* box-shadow: 4px 4px 4px 0 rgba(0,0,0,0.3); */}
-    color: ${props => props.theme.color.lightBlue};
-    background: none;
-    border: 2px solid ${props => props.theme.color.lightBlue};
+  &::before {
+    content: "";
+    width: 0%;
+    border-bottom: 3px solid ${props => props.theme.color.lightBlue};
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transition: width 0.5s ease-out, left 0.5s ease-out;
+
+  }
+  &:hover ::before {
+    width: ${props => props.animateSelection ? 'initial' : '100%'};
+    left: 0;
   }
 `;
 
