@@ -1,5 +1,23 @@
 const path = require('path');
 
+exports.onCreateNode = ({ node, boundActionCreators }) => {
+  const { createNodeField } = boundActionCreators;
+
+  if (node.internal.type == 'MarkdownRemark') {
+    let date = node.frontmatter.date;
+    let title = node.frontmatter.title;
+    date = date.slice(0, date.search("T"));
+    title = title.toLowerCase().trim().split(' ').join('-');
+    const path = "content/blog/" + date + '-' + title;
+
+    createNodeField({
+      node,
+      name: 'route',
+      value: path
+    });
+  }
+}
+
 exports.createPages = ({ boundActionCreators, graphql }) => {
   const { createPage } = boundActionCreators;
 
@@ -11,9 +29,11 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
         node {
           frontmatter {
             title
-            path
             date
             layout
+          }
+          fields {
+            route
           }
         }
       }
@@ -26,20 +46,22 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
 
       result.data.allMarkdownRemark.edges
         .forEach(({ node }) => {
-            // select layout based on blog layout value
+          // select layout based on blog layout value
           let template = null;
-          switch(node.frontmatter.layout) {
+          switch (node.frontmatter.layout) {
             case "blog":
               template = blogPostTemplate;
               break;
           }
-         createPage({
-            path: node.frontmatter.path,
+
+          const route = node.fields.route;
+
+          createPage({
+            path: route,
             component: template,
             context: {
-              date: node.frontmatter.date,
-              title: node.frontmatter.title
-            } 
+              route: route
+            }
           });
         });
     });

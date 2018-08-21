@@ -26,13 +26,12 @@ const Title = styled.p`
 
 const Blogs = (props) => {
   const { allMarkdownRemark: Remark } = props.data;
-  console.log(Remark.edges);
 
-  const titles = Remark.edges.map(data => {
+  const titles = Remark.edges.map((data, index) => {
     return (
-      <div>
+      <div key={index}>
         <p>{data.node.frontmatter.title}</p>
-        <Link to={data.node.frontmatter.path}>{data.node.frontmatter.path}</Link>
+        <Link to={data.node.fields.route}>{data.node.fields.route}</Link>
       </div>
     )
   });
@@ -63,7 +62,9 @@ query GetBlogs {
         node{
           frontmatter{
             title
-            path
+          }
+          fields {
+            route
           }
         }
       }

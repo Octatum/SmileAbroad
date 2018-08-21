@@ -164,8 +164,8 @@ export default function Template(props) {
 }
 
 export const pageQuery = graphql`
-  query BlogPostByPath( $date: String, $title: String) {
-    markdownRemark(frontmatter: { date: { eq: $date } title: {eq: $title } }) {
+  query BlogPostByPath( $route: String) {
+    markdownRemark(fields: { route: { eq: $route } }) {
       html
       rawMarkdownBody
       frontmatter {
