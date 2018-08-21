@@ -56,18 +56,18 @@ export default Blogs;
 
 export const pageQuery = graphql`
 query GetBlogs {
-    allMarkdownRemark {
-      totalCount
-      edges{
-        node{
-          frontmatter{
-            title
-          }
-          fields {
-            route
-          }
+  allMarkdownRemark(sort: {fields: [frontmatter___date], order: ASC} ) {
+    totalCount
+    edges{
+      node{
+        frontmatter{
+          title
+          date
+        }
+        fields {
+          route
         }
       }
     }
   }
-`;
+}`;

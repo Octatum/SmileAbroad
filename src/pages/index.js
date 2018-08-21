@@ -4,10 +4,7 @@ import styled from 'styled-components';
 import Presentation from './../components/Presentation';
 import OurServices from './../components/Home/OurServices';
 import AddedValue from './../components/Home/AddedValue';
-
-const FeaturedBlog = styled.div`
-  height: 100vh;
-`;
+import FeaturedBlog from './../components/Home/FeaturedBlog';
 
 const Separator = styled.hr`
   background: #00C6DB;
@@ -16,17 +13,37 @@ const Separator = styled.hr`
   border: none;
 `;
 
-const IndexPage = () => (
+const IndexPage = (props) => (
   <div>
     <Presentation />
     <OurServices />
-    { /* 
+
     <Separator />
-    <FeaturedBlog> <p> Featured Blog </p> </FeaturedBlog>
-    */}
+    <FeaturedBlog postData={props.data} />
+
     <Separator />
     <AddedValue />
   </div>
 )
 
+
 export default IndexPage
+
+export const postQuery = graphql`
+  query GetLatestPost {
+    allMarkdownRemark(sort: {fields: [frontmatter___date], order: DESC}, limit: 1) {
+      edges{
+        node{
+          excerpt
+          frontmatter{
+            title
+            thumbnail
+          }
+          fields {
+            route
+          }
+        }
+      }
+    }
+  }
+`;
