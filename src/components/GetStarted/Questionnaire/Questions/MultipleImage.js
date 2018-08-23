@@ -1,15 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import horno from '../assets/horno.jpg';
+import PropTypes from 'prop-types';
 
-const Container = styled.div`
+const Container = styled.fieldset`
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-content: space-between;
-  align-items: flex-end;
-  margin: 20px 0;
+  width: 100%;
 `;
 
 const Title = styled.p`
@@ -26,27 +21,63 @@ const Title = styled.p`
   }
 `;
 
-
 const Label = styled.label`
+  font-size: calc(1.3rem + 0.5vw);
+  font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
-  
-  box-sizing: border-box;
   padding: 5px;
-  max-width: 20%;
-  min-width: 150px;
-  height: 100%;
-  margin-bottom: 20px;
-  
-  border-radius: 20px;
-  background: ${props => props.isSelected !== false ? 'rgba(238, 238, 238, 0.25)' : ''};
-  box-shadow: ${props => props.isSelected !== false ? '1px 1px 20px 5px rgba(0,0,0,0.25)' : ''};
-  @media(min-width: 800px) {
-  :hover {
-    background: #eee;
-    box-shadow: 1px 1px 10px 5px rgba(0,0,0,0.25);
+  min-width: 15rem;
+  flex: 1;
+  margin-right: 0;
+
+  :before {
+    content: "";
+    display: block;
+    width: 5em;
+    height: 5em;
+    background-image: url('${({backgroundImage}) => backgroundImage}');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
   }
+`;
+
+const Checkbox = styled.span`
+  width: 1em;
+  height: 1em;
+  position: relative;
+  background: white;
+  padding: 0.2em;
+  border-radius: 100%;
+  transition: 150ms ease-in-out all;
+  border: 2px solid ${props => props.theme.color.lightBlue};
+
+  :before {
+    content: "\u2713";
+    font-weight: 700;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    color: ${props => props.theme.color.lightBlue};
+    opacity: 0;
+    transition: inherit;
+    top: 50%;
+    left: 50%;
+    transform: translate(-25%, -50%);
+  }
+
+  input[type='checkbox']:checked ~ &:before {
+    opacity: 1;
+  }
+
+  input:focus ~ & {
+    background: ${props => props.theme.color.lightBlue};
+
+    :before {
+      color: white;
+    }
   }
 `;
 
@@ -61,116 +92,82 @@ const OtherInput = styled.input`
   margin-left: 10px;
 `;
 
-const ImageContainer = styled.div`
-  display: inline-block;
-  max-width: 75%;
-
+const CheckboxInput = styled.input`
+  position: absolute;
+  opacity: 0;
+  cursor: default;
 `;
 
-const Image = styled.img`
-  max-width: 100%;
-  height: auto;
-  border-radius: 10px;
+const OtherLabel = Label.extend`
+  margin-left: 0px;
+  align-self: flex-end;
+
+  :before {
+    content: none;
+  }
 `;
 
-const Div = styled.div`
-  width: 100%;
+const OptionsDiv = styled.div`
   display: flex;
-  flex-direction: row;
-  padding: 5px;
+  flex-flow: row wrap;
+  width: 100%;
+  justify-content: space-between;
 `;
 
-const Category = styled.p`
-  font-size: calc(0.85rem + 1vw);
-  font-family: ${props => props.theme.fontFamily.main}, sans-serif;
-  display: inline-block;
-
-  &::first-letter {
-    color: ${props => props.theme.color.lightBlue};
-    text-transform: uppercase;
-  }
-`;
-
-
-let otherAnswer = '';
-
-
-const MultipleImage = (props) => {
-
-  const selected = props.selectedOptions ? props.selectedOptions : [false, false, false, false];
-
-  let answersList = props.options.map((data, index) => {
-    return (
-      <Label
-        key={data.description}
-        onClick={() => handleSelection(index)}
-        isSelected={selected[index]}>
-
-        <ImageContainer>
-          <Image src={data.url} alt={data.description} />
-        </ImageContainer>
-
-        <Category>
-          {data.description}
-        </Category>
-      </Label>
-    );
-  });
-
-  let otherOption = '';
-  if (props.other) {
-    otherOption = (
-      <Label
-        onClick={() => handleSelection(props.selectedOptions.length - 1)}
-        isSelected={props.selectedOptions[3]}>
-
-        <Div>
-          <Category>Other:</Category>
-          <OtherInput 
-              type="text" 
-              onChange={userResponse} 
-              onClick={(event) => event.stopPropagation()}/>
-        </Div>
-      </Label>
-    );
-  }
-
-  function userResponse(event) {
-    otherAnswer = event.target.value;
-    const options = props.selectedOptions;
-
-    options[options.length - 1] = otherAnswer;
-
-    props.handleChange(options, props.stateKey);
-  }
-
-  function handleSelection(index) {
-    const options = props.selectedOptions;
-
-    if (index == options.length - 1) {
-     if (options[index] !== false) {
-        options[index] = false;
-      }
-      // if false change to answer
-      else {
-        options[index] = otherAnswer;
-      }
-    }
-    else {
-      options[index] = !options[index];
-    }
-
-    props.handleChange(options, props.stateKey);
-  }
-
+const MultipleImageQuestion = ({
+  questionText, 
+  includeOpenAnswer, 
+  onChange,
+  name,
+  options
+}) => {
   return (
-    <Container className={props.className}>
-      <Title> {props.question} </Title>
-      {answersList}
-      {otherOption}
+    <Container>
+      <Title> {questionText} </Title>
+      <OptionsDiv>
+        {options.map(option => (
+          <Label 
+            key={option.name}
+            backgroundImage={option.image}
+          >
+            <CheckboxInput 
+              type="checkbox"
+              name={`${name}-${option.name}`}
+              onChange={onChange}
+            />
+            {option.name}
+            <Checkbox />
+          </Label>
+        ))}
+        {includeOpenAnswer && (
+          <OtherLabel>
+            Other:
+            <OtherInput 
+              questionText="other"
+              onChange={onChange}
+              name={`${name}-other`}
+            />
+          </OtherLabel>
+        )}
+      </OptionsDiv>
     </Container>
   )
 };
 
-export default MultipleImage;
+MultipleImageQuestion.propTypes = {
+  questionText: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired,
+  options: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired
+  })).isRequired,
+  includeOpenAnswer: PropTypes.bool
+};
+
+MultipleImageQuestion.defaultProps = {
+  includeOpenAnswer: false,
+};
+
+export default MultipleImageQuestion;
   

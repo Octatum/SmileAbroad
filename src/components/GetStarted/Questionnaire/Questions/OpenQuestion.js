@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
-const Container = styled.div`
+const Container = styled.label`
   margin: 20px 0;
   width: 100%;
 `;
@@ -40,20 +41,29 @@ const Answer = styled.input`
 
 `;
 
-const OpenQuestion = (props) => {
-  function userResponse(event) {
-    props.handleChange(event.target.value, props.stateKey);
-  }
-
+const OpenQuestion = ({questionText, ...rest}) => {
   return (
-  <Container className={props.className} >
-    <Title> {props.question} </Title>
+  <Container>
+    <Title> {questionText} </Title>
     <Answer 
-      type='text' 
-      onChange={userResponse}
+      {...rest}
     />
   </Container>
   );
+};
+
+OpenQuestion.proptypes = {
+  questionText: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired,
+  required: PropTypes.bool,
+  autoComplete: PropTypes.string,
+  type: PropTypes.string
+};
+
+OpenQuestion.defaultProps = {
+  required: false,
+  type: 'text'
 };
 
 export default OpenQuestion;

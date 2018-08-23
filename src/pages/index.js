@@ -6,6 +6,7 @@ import OurServices from './../components/Home/OurServices';
 import AddedValue from './../components/Home/AddedValue';
 import FeaturedBlog from './../components/Home/FeaturedBlog';
 
+
 const Separator = styled.hr`
   background: #00C6DB;
   height: 10px;

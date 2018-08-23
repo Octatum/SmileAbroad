@@ -15,9 +15,15 @@ const Container = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin: 30px;
+  margin: 2em 0;
+  padding: 0 3vw;
+  background: white;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 
-  @media(max-width: 1300px) {
+  @media(max-width: 800px) {
+    margin: 0;
     justify-content: flex-start;
     flex-wrap: wrap;
   }
@@ -26,8 +32,12 @@ const Container = styled.div`
 const LogoLink = styled(Link)`
   width: 20em;
 
-  @media(max-width: 1300px) {
+
+  @media(max-width: 800px) {
     width: 50%;
+    min-width: 14em;
+    max-width: 20em;
+    padding: 1em 0;
   }
 `;
 
@@ -45,7 +55,7 @@ const ToggleShowButton = styled.div`
   justify-content: center;
   align-items: center;
 
-  @media(max-width: 1300px) {
+  @media(max-width: 800px) {
     display: flex;
   }
 `;
@@ -71,7 +81,7 @@ const Nav = styled.nav`
   width: 45%;
   height: 100%;
 
-  @media(max-width: 1300px) {
+  @media(max-width: 800px) {
     flex-direction: column;
     justify-content: center;
 
@@ -111,6 +121,7 @@ const GetStarted = styled(GetStartedButton)`
         color: black;
       }
     }
+
   }
 `;
 

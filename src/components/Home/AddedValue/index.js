@@ -33,7 +33,7 @@ const Container = styled.div`
 
 // Component Title
 const Title = styled.p`
-  font-size: calc(2.5rem + 1.25vw);
+  font-size: 3rem;
   text-align: center;
   font-weight: 600;
   align-self: flex-start;
@@ -87,7 +87,7 @@ const SubCont = styled.div`
 // Subtitle
 const Subtitle = styled.p`
   color: black;
-  font-size: calc(1.15rem + 1vw);
+  font-size: calc(1.5rem);
   font-weight: 600;
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   width: 90%;
@@ -109,18 +109,19 @@ const ContDesc = styled.div`
 
 // Description object
 const Description = styled.p`
-  font-size: calc(0.75rem + 1vw);
+  font-size: 1.2rem;
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   text-align: center;
   width: 90%;
   word-wrap: break-word;
 
   @media(max-width: 500px) {
-    font-size: 0.75rem;
+    font-size: 1.1rem;
   }
 
   @media(max-width: 320px) {
-    font-size: 0.65rem;
+    font-size: 1rem;
+    width: 100%;
   }
 `;
 
@@ -179,11 +180,15 @@ const AddedValue = () => {
       settings: {
         slidesToShow: 3,
       }
-    },
-    {
+    }, {
       breakpoint: 600,
       settings: {
         slidesToShow: 2,
+      }
+    }, {
+      breakpoint: 320,
+      settings: {
+        slidesToShow: 1,
       }
     }]
   };
@@ -197,31 +202,33 @@ const AddedValue = () => {
           <IMG> <Image src={clock} /> </IMG>
           <SubCont> <Subtitle>We are here for you</Subtitle> </SubCont>
           <Separator />
-          <ContDesc> <Description>Ready to help you 24/7 </Description></ContDesc>
+          <ContDesc> <Description>24/7 – We’re here for you, ready to help</Description></ContDesc>
         </Div>
         <Div>
           <IMG> <Image src={calendar} /> </IMG>
           <SubCont> <Subtitle>Making your life easier</Subtitle> </SubCont>
           <Separator />
-          <ContDesc> <Description>We give you peace of mind by making your accomodation reservations, setting up tourist activities, your dental appointments, and transportation to and fro the clinic and the airport!</Description> </ContDesc>
+          <ContDesc> <Description>We take care of setting up appointments, accommodation, transportation, and translation</Description> </ContDesc>
         </Div>
         <Div>
           <IMG> <Image src={board} /> </IMG>
-          <SubCont> <Subtitle>Get a FREE ESTIMATE from a certified specialist</Subtitle> </SubCont>
+          <SubCont> <Subtitle>Free estimates</Subtitle> </SubCont>
           <Separator />
-          <ContDesc> <Description>At NeighborHealth we provide you with access to our world-renown dental care network of certified dental clinics</Description></ContDesc>
+          <ContDesc> <Description>NeighborHealth provides you with a personalized itinerary and access to our certified specialists and dental clinics</Description></ContDesc>
         </Div>
         <Div>
           <IMG> <Image src={photos} /> </IMG>
           <SubCont> <Subtitle>The NeighborHealth Experience</Subtitle> </SubCont>
           <Separator />
-          <ContDesc> <Description>Receive a personal plan which includes photos of hotel options, recommendations for tourist attractions and activities, and background information about your Certified Specialist</Description></ContDesc>
+          <ContDesc> <Description>Safety, transparency, and quality service are part of our pledge</Description></ContDesc>
         </Div>
       </InfoContainer>
+      {/* 
       <Track>Neighbor<BlueTrack>Health</BlueTrack>'s Track Record</Track>
       <OtherComps> 
         {customerImages.map((image, index) => <CompImg src={image} key={index} />)}
       </OtherComps>
+      */}
     </Container>
   )
 };

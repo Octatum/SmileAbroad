@@ -25,7 +25,6 @@ const Title = styled.p`
 
   @media(max-width: 800px) {
     width: 100%;
-    
   }
 `;
 const BlueTitle = Title.withComponent('span').extend`
@@ -53,7 +52,6 @@ const Contact = () => (
       <Title>Get in <BlueTitle>touch</BlueTitle> with us</Title>
       <SubText>We are more than happy to help, let us know what we can do for you.</SubText>
     </TitleCont>
-    
     <GetInTouch />
   </Container>
 )

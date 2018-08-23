@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { navigateTo } from "gatsby-link";
 
 import OpenQuestion from './Questions/OpenQuestion';
 import MultipleChoice from './Questions/MultipleChoice';
-import MultipleImage from './Questions/MultipleImage';
+import MultipleImageQuestion from './Questions/MultipleImageQuestion';
 import horno from './assets/horno.jpg';
+import recreational from './assets/recreational.jpg';
+import cultural from './assets/cultural.jpg';
+import outdoor from './assets/outdoor.jpg';
+
+// Todo: Refactor MultipleImageQuestion and MultipleChoice into a single component.
 
 const Container = styled.form`
   width: 80%;
@@ -14,7 +20,6 @@ const Container = styled.form`
   flex-direction: column;
   justify-content: space-evenly;
   align-items: flex-start;
-
   @media(max-width: 520px) {
     width: 90%;
   }
@@ -25,10 +30,8 @@ const SendButton = styled.button`
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   text-transform: uppercase;
   padding: 0.5em 1em;
-
   flex: 0 1 auto;
   align-self: flex-end;
-
   background: ${props => props.theme.color.lightBlue};
   color: white;
   outline: none;
@@ -44,34 +47,17 @@ const Text = styled.p`
   margin: 50px 0;
 `;
 
+function encode(data) {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&");
+}
 
 let questions = [
   {
-    key: 1,
-    type: 'open',
-    question: 'Where are you from?'
-  },
-  {
-    key: 2,
-    type: 'multiplechoice',
-    question: 'When are you planning to travel?',
-    options: [
-      'Within a month',
-      'Within 3 months',
-      'Later than 3 months'
-    ],
-    other: true,
-    manyOptions: false
-  },
-  {
-    key: 3,
-    type: 'open',
-    question: 'If not, we can still help. Please describe your dental situation generally'
-  },
-  {
     key: 4,
     type: 'multiplechoice',
-    question: 'What characteristics are you looking for in a hotel?',
+    questionText: 'What characteristics are you looking for in a hotel?',
     options: [
       'Swimming pool',
       'Breakfast included',
@@ -84,7 +70,7 @@ let questions = [
   {
     key: 5,
     type: 'multipleimage',
-    question: 'Which type of tourist activities do you like?',
+    questionText: 'Which type of tourist activities do you like?',
     options: [
       { url: 'http://www.birds.com/wp-content/uploads/home/bird4.jpg', description: 'Outdoor' },
       { url: horno, description: 'Cultural' },
@@ -92,116 +78,128 @@ let questions = [
     ],
     other: true
   }
-]
+];
+
+function encode(data) {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&");
+}
 
 class Questionnaire extends Component {
-  constructor() {
-    super();
+  state = {};
 
-    this.state = {
-      1: '',
-      2: '',
-      3: '',
-      4: [false, false, false, false, false],
-      5: [false, false, false, false]
-    };
+  handleChange = (event) => {
+    const {target} = event;
+    const {name} = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    this.setState({ [name]: value });
+  };
 
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.submitInfo = this.submitInfo.bind(this);
-    this.handleManyOptions = this.handleManyOptions.bind(this);
-  }
-
-  handleInputChange(value, key) {
-    let prevState = this.state[[key]];
-    if (prevState != value) {
-      this.setState({
-        [key]: value,
-      });
-    }
-  }
-
-  handleManyOptions(value, key, index) {
-    let newAnswer = [...this.state[[key]]];
-    newAnswer[index] = value;
-    this.handleInputChange(newAnswer, key)
-  }
-
-  submitInfo(event) {
+  handleSubmit = event => {
     event.preventDefault();
+    const form = event.target;
 
-    // array that takes the state t/f and replaces with values of 'questions'
-    let multipleImageResponse = [...this.state[5]].map((data, index) => {
-      // if true and not the last option of multiple images 
-      if (data && index != this.state[5].length - 1) {
-        // return the image url and description
-        return questions[4].options[index];
-      }
-      // if last question return the answer of the user
-      else if (data !== false && index === this.state[5].length - 1) {
-        return data;
-      }
-      // otherwise return false
-      else {
-        return false;
-      }
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({
+        "form-name": form.getAttribute("name"),
+        ...this.state
+      })
     })
-
-    const finalResponse = [
-      this.state[1],
-      this.state[2],
-      this.state[3],
-      this.state[4],
-      multipleImageResponse
-    ];
-
-    console.log(finalResponse);
+    .then(() => {
+      alert("Your message was sent!");
+      navigateTo(form.getAttribute("action"))
+    })
+    .catch(error => alert(error));
   }
 
-
-  render() {
-    
-
-    let questionsList = '';
-    questionsList = questions.map((data, index) => {
-      if (data.type === 'open') {
-        return <OpenQuestion
-          question={data.question}
-          key={data.key}
-          stateKey={data.key}
-          handleChange={this.handleInputChange}
-        />
-      }
-      else if (data.type === "multiplechoice") {
-        return <MultipleChoice
-          question={data.question}
-          options={data.options}
-          other={data.other}
-          key={data.key}
-          stateKey={data.key}
-          handleChange={data.manyOptions ? this.handleManyOptions : this.handleInputChange} 
-          handleMany={data.manyOptions} />
-      }
-      else if (data.type === 'multipleimage') {
-        return <MultipleImage
-          question={data.question}
-          options={data.options}
-          selectedOptions={[...this.state[index+1]]} //can use index
-          other={data.other}
-          key={data.key}
-          stateKey={data.key}
-          handleChange={this.handleInputChange} />
-      }
-
-    });
+  render() {    
     return (
-      <Container onSubmit={this.submitInfo}>
-        {questionsList}
+      <Container 
+        onSubmit={this.handleSubmit}
+        name="customerData"
+        method="post"
+        action="/"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+        onSubmit={this.handleSubmit}
+      >
+        <input type="hidden" name="form-name" value="customer-data" />
+        <p hidden>
+          <label>
+            Don’t fill this out:{" "}
+            <input name="bot-field" onChange={this.handleChange} />
+          </label>
+        </p>
+        <OpenQuestion
+          questionText="What's your name?"
+          onChange={this.handleChange}
+          name="name"
+          required
+          autoComplete="name"
+        />
+        <OpenQuestion
+          questionText="What's your email address?"
+          onChange={this.handleChange}
+          name="email"
+          required
+          type="email"
+          autoComplete="email"
+        />
+        <OpenQuestion
+          questionText="Where are you from?"
+          onChange={this.handleChange}
+          name="location"
+          required
+        />
+        <OpenQuestion
+          questionText="When are you planning to travel?"
+          onChange={this.handleChange}
+          name="travelDate"
+          required
+        />
+        <OpenQuestion
+          questionText="Briefly describe your dental situation"
+          onChange={this.handleChange}
+          name="dentalDescription"
+          required
+        />
+        <MultipleChoice
+          questionText="What characteristics are you looking for in a hotel?"
+          onChange={this.handleChange}
+          options={[
+            'Swimming Pool',
+            'Breakfast included',
+            'Shops',
+            'Terrace and Bar',
+          ]}
+          name="hotelCharacteristics"
+          includeOpenAnswer
+        />
+        <MultipleImageQuestion
+          questionText="Which type of tourist activities do you like?"
+          onChange={this.handleChange}
+          options={[{
+            name: 'Recreational',
+            image: recreational
+          }, {
+            name: 'Outdoor',
+            image: outdoor
+          }, {
+            name: 'Cultural',
+            image: cultural
+          }]}
+          name="tourismActivities"
+          includeOpenAnswer
+        />
         <Text>
           Let us help you plan your trip!
           We provide you with discounted access to different spots around town.
           Tell us about yourself (hobbies, favourite food) so we can find you the best deal.
         </Text>
-        <SendButton onClick={this.submitInfo}>Send</SendButton>
+        <SendButton type="submit">Send</SendButton>
       </Container>
     );
   }
