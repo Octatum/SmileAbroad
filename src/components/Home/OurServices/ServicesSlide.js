@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Link from 'gatsby-link';
 import ButtonComponent from './../../../components/Button';
 import GetStartedButton from './../../GetStarted/Button';
+import {device} from './../../../utils/device';
 
 const Container = styled.div`
   display: flex;
@@ -18,7 +19,7 @@ const Title = styled.p`
   color: black;
   max-width: 50%;
 
-  @media(max-width: 520px) {
+  ${device.mobile} {
     max-width: 70%;
   }
 `;
@@ -39,7 +40,7 @@ const Description = styled.p`
   max-width: 80%;
   margin: 20px 0;
 
-  @media(max-width: 520px) {
+  ${device.mobile} {
     max-width: 80%;
   }
 `
@@ -56,7 +57,7 @@ const ButtonCont = styled.div`
   margin: 20px 0;
   width: 70%;
 
-  @media(max-width: 1200px) {
+  ${device.laptop} {
     width: 100%;
   }
 `;
@@ -80,7 +81,7 @@ const BubbleCont = ButtonCont.extend`
   height: auto;
   width: auto;
 
-  @media(max-width: 1200px) {
+  ${device.laptop} {
     width: auto;
   }
 `;

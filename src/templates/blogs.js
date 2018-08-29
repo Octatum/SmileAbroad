@@ -3,6 +3,7 @@ import Helmet from "react-helmet";
 import styled from 'styled-components';
 
 import ReactMarkdown from 'react-markdown';
+import {device} from './../utils/device';
 
 const Container = styled.div`
   display: flex;
@@ -18,7 +19,7 @@ const Container = styled.div`
     border-radius: 10px;
   }
 
-  @media(max-width: 768px) {
+  ${device.tablet} {
     margin: 25px 0;
     img {
       border-radius: 0;
@@ -29,7 +30,7 @@ const Container = styled.div`
 const ReactMD = styled(ReactMarkdown)`
   width: 100%;
 
-  @media(max-width: 768px) {
+  ${device.tablet} {
     padding: 0 15px;
     width: 100%;
   }
@@ -125,7 +126,7 @@ const Title = styled.p`
   align-self: flex-start;
   word-break: break-word;
 
-  @media(max-width: 768px) {
+  ${device.tablet} {
     margin: 0 15px;
   }
 `;
@@ -135,7 +136,7 @@ const AuthorMedia = styled.div`
   min-height: 50px;
   background: grey;
 
-  @media(max-width: 768px) {
+  ${device.tablet} {
     padding: 0 15px;
     width: 100%;
   }

@@ -2,9 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import Link from 'gatsby-link';
 
+import {device} from './../../utils/device';
+
 const Container = styled.div`
   font-family: ${props => props.theme.fontFamily.main};
-  font-size: calc(0.75rem + 1vw);
+  font-size: calc(1.25rem + 1vw);
 `;
 
 const Title = styled.p`
@@ -15,6 +17,7 @@ const Title = styled.p`
   padding: 0.5rem;
   text-align: center;
   font-weight: bold;
+
 `;
 
 const PostList = styled.div`

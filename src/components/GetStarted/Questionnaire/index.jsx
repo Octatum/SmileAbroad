@@ -5,6 +5,7 @@ import { navigateTo } from "gatsby-link";
 import OpenQuestion from './Questions/OpenQuestion';
 import MultipleChoice from './Questions/MultipleChoice';
 import MultipleImageQuestion from './Questions/MultipleImageQuestion';
+import {device} from './../../../utils/device';
 import horno from './assets/horno.jpg';
 import recreational from './assets/recreational.jpg';
 import cultural from './assets/cultural.jpg';
@@ -20,7 +21,7 @@ const Container = styled.form`
   flex-direction: column;
   justify-content: space-evenly;
   align-items: flex-start;
-  @media(max-width: 520px) {
+  ${device.mobile} {
     width: 90%;
   }
 `;

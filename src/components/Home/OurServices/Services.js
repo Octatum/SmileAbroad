@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Link from 'gatsby-link';
 
 import Slider from 'react-slick';
+import {device} from './../../../utils/device';
 
 import rightArrow from './../../../components/assets/rightArrow.svg';
 import travel from './assets/travel.png';
@@ -46,7 +47,7 @@ const Title = styled.p`
   font-weight: 600;
   margin: 20px;
 
-  @media(max-width: 500px) {
+  ${device.mobile} {
     font-size: 1rem;
     margin: 20px 0;
   }
@@ -56,7 +57,7 @@ const Description = Title.extend`
   font-size: calc(0.75rem + 1vw);
   font-weight: 500;
 
-  @media(max-width: 500px) {
+  ${device.mobile} {
     font-size: 0.75rem;
   }
 `;
@@ -67,12 +68,9 @@ const ArrowButton = styled(Link)`
   margin: auto;
   bottom: 0;
   left: 0;
-<<<<<<< HEAD:src/components/Home/OurServices/Services.js
 
   display: none;
 
-=======
->>>>>>> ContentUpdates:src/components/Home/OurServices/Services.js
   transition: transform 0.25s linear;
   transform: scale(0);
 
@@ -87,11 +85,10 @@ const Arrow = styled.img`
   margin: auto;
   transition: transform 0.25s ease-in-out;
 
-  @media(min-width: 540px) {
+  ${device.mobile} {
     width: 70px;
   }
-
-  @media(min-width: 1300px) {
+  ${device.laptop} {
     width: 100px;
   }
 `;

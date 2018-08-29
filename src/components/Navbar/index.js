@@ -7,7 +7,7 @@ import navicon from './assets/navicon.svg';
 
 import GetStartedButton from './../GetStarted/Button';
 import ButtonComp from './../Button';
-
+import {device} from './../../utils/device';
 
 const Container = styled.div`
   box-sizing: border-box;
@@ -22,7 +22,7 @@ const Container = styled.div`
   top: 0;
   z-index: 1;
 
-  @media(max-width: 800px) {
+  ${device.tablet} {
     margin: 0;
     justify-content: flex-start;
     flex-wrap: wrap;
@@ -32,9 +32,8 @@ const Container = styled.div`
 const LogoLink = styled(Link)`
   width: 20em;
 
-
-  @media(max-width: 800px) {
-    width: 50%;
+  ${device.tablet} {
+    width: 40%;
     min-width: 14em;
     max-width: 20em;
     padding: 1em 0;
@@ -49,25 +48,29 @@ const Logo = styled.img`
 const ToggleShowButton = styled.div`
   margin-left: auto;
   display: none;
-  height: 100px;
-  width: 100px;
  
   justify-content: center;
   align-items: center;
 
-  @media(max-width: 800px) {
+  ${device.tablet} {
     display: flex;
+    height: 100px;
+    width: 100px;
+  }
+  ${device.mobile} {
+    height: calc(50px + 1vw);
+    width: calc(50px + 1vw);    
   }
 `;
 
 const Navicon = styled.img`
   width: 40%;
 
-  @media(min-width: 1024px) {
+  ${device.laptop} {
     width: 70%;
   }
 
-  @media(min-width: 768px) {
+  ${device.tablet} {
     width: 55%;
   }
 `;
@@ -78,10 +81,10 @@ const Nav = styled.nav`
   justify-content: space-between;
   
   padding: 20px;
-  width: 45%;
+  width: 60%;
   height: 100%;
 
-  @media(max-width: 800px) {
+  ${device.tablet} {
     flex-direction: column;
     justify-content: center;
 
@@ -106,7 +109,7 @@ const GetStarted = styled(GetStartedButton)`
   flex: 0 1 auto;
   margin-right: calc(2em - 1vw);
 
-  @media(max-width: 1300px) {
+  ${device.tablet} {
     margin: 0;
     flex-direction: column;
     div {

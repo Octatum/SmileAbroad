@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Slider from 'react-slick';
+import {device} from './../../../utils/device';
 
 import clock from './assets/clock.png';
 import calendar from './assets/calendar.png';
@@ -57,7 +58,7 @@ const InfoContainer = styled(Slider)`
 const IMG = styled.div`
   margin: 0 auto 40px auto;
 
-  @media(max-width: 500px) {
+  ${device.mobile} {
     margin: auto;
   }
 `;
@@ -68,7 +69,7 @@ const Image = styled.img`
   height: 100px;
   margin: auto;
 
-  @media(max-width: 375px) {
+  ${device.mobile} {
     width: 75px;
     height: 75px;
   }
@@ -93,11 +94,8 @@ const Subtitle = styled.p`
   width: 90%;
   text-align: center;
 
-  @media(max-width: 500px) {
+  ${device.mobile} {
     font-size: 1rem;
-  }
-  @media(max-width: 375px) {
-    font-size: 0.75rem;
   }
 `;
 
@@ -115,14 +113,10 @@ const Description = styled.p`
   width: 90%;
   word-wrap: break-word;
 
-  @media(max-width: 500px) {
+  ${device.mobile} {
     font-size: 1.1rem;
   }
 
-  @media(max-width: 320px) {
-    font-size: 1rem;
-    width: 100%;
-  }
 `;
 
 // Separator

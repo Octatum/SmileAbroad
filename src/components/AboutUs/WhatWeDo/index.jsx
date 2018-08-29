@@ -83,7 +83,7 @@ const WhatWeDo = () => {
         }
       },
       {
-        breakpoint: 600,
+        breakpoint: 540,
         settings: {
           slidesToShow: 1,
         }

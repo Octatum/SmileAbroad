@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import {device} from './../../../utils/device';
 
 import patient from './assets/patient.jpg';
 
@@ -19,7 +20,7 @@ const IntroContainer = styled.div`
     margin-left: 30px;
   }
 
-  @media(max-width: 520px) {
+  ${device.mobile} {
     flex-direction: column;
     margin: 15px 0;
 
@@ -37,7 +38,7 @@ const Intro = styled.div`
 
   width: 100%;
 
-  @media(max-width: 520px) {
+  ${device.mobile} {
     order: 2;
     padding: 0;
     width: 75%;
@@ -53,7 +54,7 @@ const Divisor = styled.div`
   margin: auto;
   background: ${props => props.theme.color.lightBlue};
 
-  @media(max-width: 520px) {
+  ${device.mobile} {
     width: 30%;
     height: 5px;
     order: 3;
@@ -64,7 +65,7 @@ const ImageCont = styled.div`
   width: 100%;
   overflow: hidden;
 
-  @media(max-width: 520px) {
+  ${device.mobile} {
     order: 1;
   }
 `;
@@ -79,7 +80,7 @@ const Text = styled.p`
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   margin-bottom: 15px;
 
-  @media(max-width: 520px) {
+  ${device.mobile} {
     text-align: center;
   }
 `;
@@ -92,7 +93,7 @@ const Desc = Text.extend`
   margin: auto;
   width: 70%;
 
-  @media(max-width: 520px) {
+  ${device.mobile} {
     width: 85%;
   }
 `;

@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import {device} from './../../../utils/device';
+
 import Globe from './../assets/Globe.png';
 import Plane2 from './../assets/Plane2.png';
 import Pin from './../assets/Pin.png';
@@ -61,7 +63,7 @@ const CardContainer = styled.div`
     margin: 0.5em 0;
   }
 
-  @media(max-width: 768px) {
+  ${device.tablet} {
     width: 100%;
   }
 `;
@@ -91,7 +93,7 @@ const CardTitle = styled.p`
     border-radius: 1em;
   }
 
-  @media(max-width: 425px) {
+  ${device.mobile} {
     width: 70%;
   }
 `;
@@ -102,7 +104,7 @@ const CardDescription = styled.p`
   width: 60%;
   padding: 0.5em 0;
 
-  @media(max-width: 425px) {
+  ${device.mobile} {
     width: 70%;
   }
 `;

@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Link from 'gatsby-link';
+import {device} from './../../utils/device';
 
 const Container = styled.div`
   display: flex;
@@ -17,8 +18,7 @@ const Container = styled.div`
     font-family: 'Nunito', sans-serif;
   }
 
-
-  @media(max-width: 520px) {
+  ${device.mobile} {
     padding: 20px 10px;
   }
 `;
@@ -40,7 +40,7 @@ const Separator = styled.div`
   border-radius: 10px;
   margin: auto 0;
 
-  @media(max-width: 520px) {
+  ${device.mobile} {
     display: none;
   }
 `;
@@ -67,7 +67,7 @@ const UsefulLink = styled(Link)`
   
   padding: 10px 0;
   font-size: 1em;
-  @media(max-width: 520px) {
+  ${device.mobile} {
     padding: 5px;
   }
 `;
@@ -81,7 +81,7 @@ const ContactTitle = LinksTitle.extend`
 
 const ContactData = Texto.extend`
   padding: 10px 0;
-  @media(max-width: 520px) {
+  ${device.mobile} {
     padding: 5px
   }
 `;
@@ -105,7 +105,7 @@ const MessageButton = styled(Link)`
     box-shadow: 4px 4px 4px 0 rgba(0,0,0,0.3);
   }
 
-  @media(max-width: 520px) {
+  ${device.mobile} {
     padding: 5px 2.5px;
   }
 `;

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import ServiceSlide from './ServicesSlide';
 import Services from './Services';
+import {device} from './../../../utils/device';
 
 import background from './assets/background.jpg';
 
@@ -18,7 +19,7 @@ const SlideShow = styled.div`
     "Pres ."
     ". .";
 
-  @media(max-width: 950px) {
+  ${device.tablet} {
     display: block;
     min-height: 0;
   }

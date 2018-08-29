@@ -2,6 +2,7 @@ import React, { Component, isValidElement } from 'react';
 import styled from 'styled-components';
 import { navigateTo } from "gatsby-link";
 
+import {device} from './../../utils/device';
 import LocationIcon from './assets/Location.svg';
 import Internet from './assets/internet.svg';
 
@@ -16,7 +17,7 @@ const Container = styled.form`
   padding: 0 3em;
   padding-bottom: 3em;
 
-  @media(max-width: 520px) {
+  ${device.mobile} {
     margin: 0;
     padding: 10px;
   }
@@ -35,7 +36,7 @@ const InputCont = styled.label`
 
   position: relative;
 
-  @media(max-width: 900px) {
+  ${device.tablet} {
     flex-direction: column;
     align-items: flex-start;
     margin: 2em 10px;
@@ -97,7 +98,7 @@ const Localization = styled.div`
   flex-direction: row;
   align-items: center;
 
-  @media(max-width: 900px) {
+  ${device.tablet} {
     margin: 15px 10px;
   }
 
@@ -136,7 +137,7 @@ const Warning = styled.div`
     opacity: 0;
   }
 
-  @media(max-width: 900px) {
+  ${device.tablet} {
     left: 0;
   }
 `;

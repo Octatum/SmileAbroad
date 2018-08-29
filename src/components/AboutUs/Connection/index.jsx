@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 import nerdy from './../assets/nerdy.png';
-/*
-font-size: calc(1rem + 1vw)
-*/
+import {device} from './../../../utils/device';
+
 const Container = styled.div`
   font-size: calc(1rem + 1vw);
   font-family: ${props => props.theme.fontFamily.main};
@@ -18,11 +17,12 @@ const SlideContainer = styled.div`
   margin: 3em;
   margin-right: 0;
 
-  @media(max-width: 900px) {
+  ${device.tablet} {
     flex-direction: column;
     margin: 1.75em;
     margin-right: 0;
   }
+
 `;
 
 const TitleCont = styled.div`
@@ -39,7 +39,7 @@ const TitleCont = styled.div`
     bottom: 0;
   }
 
-  @media(max-width: 900px) {
+  ${device.tablet} {
     width: 100%;
     order: 1;
 
@@ -63,7 +63,7 @@ const TextContainer = styled.div`
   width: 60%;
   padding: 1.5em 2em;
 
-  @media(max-width: 900px) {
+  ${device.tablet} {
     width: 100%;
     order: 3;
     padding: 0;
@@ -81,7 +81,7 @@ const ImageContainer = styled.div`
   width: 40%;
   transform: rotateY(180deg);
 
-  @media(max-width: 900px) {
+  ${device.tablet} {
     align-self: flex-end;
     order: 2;
     width: 60%;
@@ -106,7 +106,7 @@ const BubbleContainer = styled.div`
 
   margin: 2em auto;
 
-  @media(max-width: 425px) {
+  ${device.mobile} {
     width: 90%;
     margin-top: 1em;
   }
@@ -133,7 +133,7 @@ const Bubble = styled.button`
   transition: box-shadow 0.25s linear;
   
 
-  @media(min-width: 425px) {
+  ${device.mobile} {
     :hover{
       box-shadow: 4px 4px 4px 0 rgba(0,0,0,0.3);
     }

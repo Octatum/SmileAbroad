@@ -2,13 +2,14 @@ import React from 'react'
 import styled from 'styled-components';
 import Helmet from 'react-helmet';
 
+import {device} from './../utils/device';
 import GetInTouch from './../components/GetInTouch';
 
 const Container = styled.div`
 `;
 
 const TitleCont = styled.div`
-  @media(max-width: 800px) {
+  ${device.tablet} {
     width: 90%;
     margin: 50px auto; 
   }
@@ -23,7 +24,7 @@ const Title = styled.p`
   text-align: center;
   margin: auto;
 
-  @media(max-width: 800px) {
+  ${device.tablet} {
     width: 100%;
   }
 `;
@@ -40,7 +41,7 @@ const SubText = styled.p`
   margin: auto;
   margin-top: 2em;
 
-  @media(max-width: 800px) {
+  ${device.tablet} {
     width: 100%;
   }
 `;

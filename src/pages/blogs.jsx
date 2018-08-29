@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components';
 import Helmet from 'react-helmet';
 
+import { device } from './../utils/device';
 
 import Newest from './../components/AllBlogs/Newest';
 import Top from './../components/AllBlogs/Top';
@@ -24,7 +25,7 @@ const NewestPost = styled(Newest)`
   width: 65%;
   order: 1;
 
-  @media(max-width: 768px) {
+  ${device.laptop} {
     width: 100%;
     p {
       max-width: 90%;
@@ -40,7 +41,7 @@ const TopPosts = styled(Top)`
   width: 30%;
   order: 2;
 
-  @media(max-width: 768px) {
+  ${device.laptop} {
     width: 100%;
     order: 3;
     
@@ -49,7 +50,8 @@ const TopPosts = styled(Top)`
 
 const Posts = styled(OtherPosts)`
   order: 3;
-  @media(max-width: 768px) {
+
+  ${device.laptop} {
     order: 2;
   }
 `;
@@ -60,12 +62,12 @@ const Blogs = (props) => {
   let newestFive = [];
   let latest = null;
   let restData = [];
-  
+
   Remark.edges.map((data, index) => {
-    if(index == 0) {
+    if (index == 0) {
       latest = data.node;
     }
-    else if(index >= 1 && index <= 5) {
+    else if (index >= 1 && index <= 5) {
       newestFive.push(data.node);
     }
     else {
@@ -76,7 +78,7 @@ const Blogs = (props) => {
   return (
     <Container>
       <Helmet title="Blogs" />
-    
+
       <NewestPost firstPost={latest} />
       <TopPosts fivePosts={newestFive} />
       <Posts posts={restData} />

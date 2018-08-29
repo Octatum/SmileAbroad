@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import {device} from './../../../../utils/device';
 
 const Container = styled.label`
   margin: 20px 0;
@@ -14,7 +15,7 @@ const Title = styled.p`
   padding: 10px;
   box-sizing: border-box;
 
-  @media(max-width: 520px) {
+  ${device.mobile} {
     padding: 0;
     margin-bottom: 10px;
   }

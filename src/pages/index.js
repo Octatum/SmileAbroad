@@ -39,6 +39,7 @@ export const postQuery = graphql`
           frontmatter{
             title
             thumbnail
+            author
           }
           fields {
             route

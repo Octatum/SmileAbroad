@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import {device} from './../../../utils/device';
+
 import background from './../assets/background.jpg';
 import GetStartedButton from './../../GetStarted/Button';
 
@@ -51,7 +53,7 @@ const MessageContainer = styled.div`
     margin-bottom: 1em;
   }
 
-  @media(max-width: 920px) {
+  ${device.tablet} {
     top: 0;
     left: 0;
     width: 100%;
@@ -74,7 +76,7 @@ const Message = styled.p`
   width: 70%;
   margin-bottom: 2em;
 
-   @media(max-width: 920px) {
+   ${device.tablet} {
     width: 100%
   }
 `;
