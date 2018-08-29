@@ -13,7 +13,7 @@ const Container = styled.div`
   font-size: calc(0.75rem + 1vw);
   border-radius: 10px;
 
-  min-height: 50vh;
+  min-height: 75vh;
 
   p {
     text-shadow: 0.5px 0.5px #000, 
@@ -60,7 +60,6 @@ const PostLink = styled(Link)`
   height: 100%;
   top: 0;
   left: 0;
-  z-index: -1;
 `;
 
 const Post = (props) => (

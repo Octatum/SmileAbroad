@@ -17,13 +17,16 @@ const Title = styled.p`
   font-weight: bold;
 `;
 
-const PostList = styled.ul`
+const PostList = styled.div`
   list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
   
-  li {
+  span {
     padding-left: calc(5px + 0.5vw + 1em);
     position: relative;
-    margin: 10px auto;
+    margin: 1em auto;
     width: 90%;
 
     :before {
@@ -48,9 +51,9 @@ const PostList = styled.ul`
 const TopStories = (props) => {
   const List = props.fivePosts.map((data, index) => {
     return (
-    <li key={index}>
+    <span key={index}>
       <Link to={data.fields.route}>{data.frontmatter.title}</Link>
-    </li>
+    </span>
     )
   });
 

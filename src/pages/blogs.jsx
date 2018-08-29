@@ -11,7 +11,8 @@ import OtherPosts from './../components/AllBlogs/RestPosts';
 const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  align-content: space-around;
 
   & > div {
     margin: 10px;
@@ -20,28 +21,9 @@ const Container = styled.div`
   margin: 20px;
 `;
 
-const TitleCont = styled.div`
-  @media(max-width: 800px) {
-    width: 100%;
-    margin: 50px auto; 
-  }
-  width: 100%;
-  order: 1;
-`;
-
-const Title = styled.p`
-  font-size: calc(2rem + 1vw);
-  color: black;
-  font-weight: 600;
-  font-family: ${props => props.theme.fontFamily.main}, sans-serif;
-  width: 80%;
-  text-align: center;
-  margin: auto;
-`;
-
 const NewestPost = styled(Newest)`
   width: 65%;
-  order: 2;
+  order: 1;
 
   @media(max-width: 768px) {
     width: 100%;
@@ -57,19 +39,19 @@ const NewestPost = styled(Newest)`
 
 const TopPosts = styled(Top)`
   width: 30%;
-  order: 3;
+  order: 2;
 
   @media(max-width: 768px) {
     width: 100%;
-    order: 4;
+    order: 3;
     
   }
 `;
 
 const Posts = styled(OtherPosts)`
-  order: 4;
+  order: 3;
   @media(max-width: 768px) {
-    order: 3;
+    order: 2;
   }
 `;
 
@@ -85,7 +67,6 @@ const Blogs = (props) => {
     }
     else if(index >= 1 && index <= 5) {
       newestFive.push(data.node);
-      restData.push(data.node);
     }
     else {
       restData.push(data.node);
@@ -95,12 +76,7 @@ const Blogs = (props) => {
   return (
     <Container>
       <Helmet title="Blogs" />
-      <TitleCont>
-        <Title>All the blogs</Title>
-      </TitleCont>
-
-      
-
+    
       <NewestPost firstPost={latest} />
       <TopPosts fivePosts={newestFive} />
       <Posts posts={restData} />
