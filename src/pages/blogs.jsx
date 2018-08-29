@@ -4,14 +4,29 @@ import Helmet from 'react-helmet';
 
 import Link from 'gatsby-link';
 
+import Newest from './../components/AllBlogs/Newest';
+import Top from './../components/AllBlogs/Top';
+import OtherPosts from './../components/AllBlogs/RestPosts';
+
 const Container = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  & > div {
+    margin: 10px;
+  }
+
+  margin: 20px;
 `;
 
 const TitleCont = styled.div`
   @media(max-width: 800px) {
-    width: 90%;
+    width: 100%;
     margin: 50px auto; 
   }
+  width: 100%;
+  order: 1;
 `;
 
 const Title = styled.p`
@@ -24,16 +39,57 @@ const Title = styled.p`
   margin: auto;
 `;
 
+const NewestPost = styled(Newest)`
+  width: 65%;
+  order: 2;
+
+  @media(max-width: 768px) {
+    width: 100%;
+    p {
+      max-width: 90%;
+    }
+    
+    ::after {
+      border-radius: 0;
+    }
+  }
+`;
+
+const TopPosts = styled(Top)`
+  width: 30%;
+  order: 3;
+
+  @media(max-width: 768px) {
+    width: 100%;
+    order: 4;
+    
+  }
+`;
+
+const Posts = styled(OtherPosts)`
+  order: 4;
+  @media(max-width: 768px) {
+    order: 3;
+  }
+`;
+
 const Blogs = (props) => {
   const { allMarkdownRemark: Remark } = props.data;
 
-  const titles = Remark.edges.map((data, index) => {
-    return (
-      <div key={index}>
-        <p>{data.node.frontmatter.title}</p>
-        <Link to={data.node.fields.route}>{data.node.fields.route}</Link>
-      </div>
-    )
+  let newestFive = [];
+  let latest = null;
+  let restData = [];
+  Remark.edges.map((data, index) => {
+    if(index == 0) {
+      latest = data.node;
+    }
+    else if(index >= 1 && index <= 5) {
+      newestFive.push(data.node);
+      restData.push(data.node);
+    }
+    else {
+      restData.push(data.node);
+    }
   });
 
   return (
@@ -43,8 +99,11 @@ const Blogs = (props) => {
         <Title>All the blogs</Title>
       </TitleCont>
 
-      {titles}
+      
 
+      <NewestPost firstPost={latest} />
+      <TopPosts fivePosts={newestFive} />
+      <Posts posts={restData} />
     </Container>
 
   )
@@ -60,9 +119,11 @@ query GetBlogs {
     totalCount
     edges{
       node{
+        excerpt(pruneLength: 200)
         frontmatter{
           title
           date
+          thumbnail
         }
         fields {
           route
