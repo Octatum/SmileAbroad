@@ -25,7 +25,7 @@ const Title = styled.p`
 `;
 
 const Author = styled.p`
-
+  font-size: 0.8em;
 `;
 
 const PostLink = styled(Link)`
@@ -45,7 +45,7 @@ const Post = (props) => {
       <Thumbnail src={props.postData.frontmatter.thumbnail} />
       <div>
         <Title>{props.postData.frontmatter.title}</Title>
-        <Author>By temp</Author>
+        <Author>By {props.postData.frontmatter.author}</Author>
       </div>
     </Container>
   )

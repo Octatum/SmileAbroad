@@ -74,8 +74,8 @@ const Post = (props) => (
     <Excerpt>
       {props.firstPost.excerpt}
     </Excerpt>
-    <Author>By </Author>
-  </Container >
+    <Author>By {props.firstPost.frontmatter.author}</Author>
+  </Container>
 )
 
 export default Post;

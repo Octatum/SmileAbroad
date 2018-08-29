@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components';
 import Helmet from 'react-helmet';
 
-import Link from 'gatsby-link';
 
 import Newest from './../components/AllBlogs/Newest';
 import Top from './../components/AllBlogs/Top';
@@ -61,6 +60,7 @@ const Blogs = (props) => {
   let newestFive = [];
   let latest = null;
   let restData = [];
+  
   Remark.edges.map((data, index) => {
     if(index == 0) {
       latest = data.node;
@@ -100,6 +100,7 @@ query GetBlogs {
           title
           date
           thumbnail
+          author
         }
         fields {
           route
