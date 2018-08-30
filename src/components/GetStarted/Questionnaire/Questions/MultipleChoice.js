@@ -74,14 +74,18 @@ const Checkbox = styled.span`
     opacity: 1;
   }
 
-  input:focus ~ & {
+  
+`;
+
+/*      PLACE ON CHECKBOX FOR ON-FOCUS BACKGROUND CHANGE
+input:focus ~ & {
     background: ${props => props.theme.color.lightBlue};
 
     :before {
       color: white;
     }
   }
-`;
+*/
 
 const OtherInput = styled.input`
   font-size: calc(0.85rem + 1vw);
