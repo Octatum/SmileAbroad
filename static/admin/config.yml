@@ -18,3 +18,15 @@ collections:
       - {label: "Featured Image", name: "thumbnail", widget: "image"}
       - {label: "Author", name: "author", widget: "string"}
       - {label: "Body", name: "body", widget: "markdown"}
+
+  - name: "doctors"
+    label: "Doctors"
+    folder: "content/doctors"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Layout", name: "layout", widget: "hidden", default: "doctor"}
+      - {label: "Name", name: "name", widget: "string"}
+      - {label: "Id", name: "slug", widget: "string"}
+      - {label: "Doctor's Image", name: "image", widget: "image"}
+      - {label: "Specialty", name: "specialty", widget: "string"}

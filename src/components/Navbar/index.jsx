@@ -94,7 +94,6 @@ const Nav = styled.nav`
   }
 `;
 
-// To replace Navitem-navLink components
 const Temp = ButtonComp(Link).extend`
   margin: 10px 1em;
   padding: 0;
@@ -128,6 +127,7 @@ const GetStarted = styled(GetStartedButton)`
   }
 `;
 
+
 class Navbar extends Component {
   constructor() {
     super();
@@ -159,6 +159,7 @@ class Navbar extends Component {
           <Temp to="/Blogs">Blogs</Temp> 
           <Temp to="/AboutUs">About Us</Temp>
           <Temp to="/Contact">Contact</Temp>
+          <Temp to="/Network">Our Network</Temp>
           <GetStarted />
         </Nav>
       </Container>

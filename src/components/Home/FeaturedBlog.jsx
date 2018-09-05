@@ -35,7 +35,8 @@ const Author = styled.div`
   flex-direction: row;
 `;
 const Image = styled.img`
-  max-width: 100%;
+  max-width: fit-content;
+  margin: 0 auto;
 `;
 const Extract = styled.span`
   display: block;

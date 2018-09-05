@@ -4,11 +4,21 @@ exports.onCreateNode = ({ node, boundActionCreators }) => {
   const { createNodeField } = boundActionCreators;
 
   if (node.internal.type == 'MarkdownRemark') {
-    let date = node.frontmatter.date;
-    let title = node.frontmatter.title;
-    date = date.slice(0, date.search("T"));
-    title = title.toLowerCase().trim().split(' ').join('-');
-    const path = "content/blog/" + date + '-' + title;
+    let path = "";
+    
+    if(node.frontmatter.layout == "doctor") {
+      let name = node.frontmatter.name;
+      let id = node.frontmatter.id;
+
+      path = "content/doctors/" + name + "-" + id;
+    }
+    else {
+      let date = node.frontmatter.date;
+      let title = node.frontmatter.title;
+      date = date.slice(0, date.search("T"));
+      title = title.toLowerCase().trim().split(' ').join('-');
+      path = "content/blog/" + date + '-' + title;
+    }
 
     createNodeField({
       node,
@@ -24,7 +34,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
   const blogPostTemplate = path.resolve(`src/templates/blogs.jsx`);
 
   return graphql(`{
-    allMarkdownRemark {
+    allMarkdownRemark(filter: {frontmatter: {layout: {eq: "blog"}}}) {
       edges {
         node {
           frontmatter {
