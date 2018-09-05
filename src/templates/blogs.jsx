@@ -3,7 +3,7 @@ import Helmet from "react-helmet";
 import styled from 'styled-components';
 
 import ReactMarkdown from 'react-markdown';
-import {device} from './../utils/device';
+import {device} from '../utils/device';
 
 const Container = styled.div`
   display: flex;

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import ServiceSlide from './ServicesSlide';
 import Services from './Services';
-import {device} from './../../../utils/device';
+import {device} from '../../../utils/device';
 
 import background from './assets/background.jpg';
 

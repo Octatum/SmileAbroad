@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Slider from 'react-slick';
-import {device} from './../../../utils/device';
+import {device} from '../../../utils/device';
 
 import clock from './assets/clock.png';
 import calendar from './assets/calendar.png';

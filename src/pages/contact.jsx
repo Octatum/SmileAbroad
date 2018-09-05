@@ -2,8 +2,8 @@ import React from 'react'
 import styled from 'styled-components';
 import Helmet from 'react-helmet';
 
-import {device} from './../utils/device';
-import GetInTouch from './../components/GetInTouch';
+import {device} from '../utils/device';
+import GetInTouch from '../components/GetInTouch';
 
 const Container = styled.div`
 `;

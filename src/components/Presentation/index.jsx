@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled, { keyframes } from 'styled-components';
 
-import {device} from './../../utils/device';
+import {device} from '../../utils/device';
 
 const Container = styled.div`
   position: fixed;

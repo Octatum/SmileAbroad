@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import {device} from './../../../../utils/device';
+import {device} from '../../../../utils/device';
 
 const Container = styled.fieldset`
   display: flex;
@@ -73,18 +73,14 @@ const Checkbox = styled.span`
     opacity: 1;
   }
 
-  
-`;
-
-/*    PLACE ON CHECKBOX FOR ON-FOCUS CHANGE BACKGROUND
-input:focus ~ & {
+  input:focus ~ & {
     background: ${props => props.theme.color.lightBlue};
 
     :before {
       color: white;
     }
   }
-*/
+`;
 
 const OtherInput = styled.input`
   font-size: calc(0.85rem + 1vw);

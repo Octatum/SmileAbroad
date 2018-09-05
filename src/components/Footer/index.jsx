@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Link from 'gatsby-link';
-import {device} from './../../utils/device';
+import {device} from '../../utils/device';
 
 const Container = styled.div`
   display: flex;

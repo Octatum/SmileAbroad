@@ -5,9 +5,9 @@ import Link from 'gatsby-link';
 import logo from './assets/logo.svg';
 import navicon from './assets/navicon.svg';
 
-import GetStartedButton from './../GetStarted/Button';
-import ButtonComp from './../Button';
-import {device} from './../../utils/device';
+import GetStartedButton from '../GetStarted/Button';
+import ButtonComp from '../Button';
+import {device} from '../../utils/device';
 
 const Container = styled.div`
   box-sizing: border-box;

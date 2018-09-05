@@ -2,11 +2,11 @@ import React from 'react'
 import styled from 'styled-components';
 import Helmet from 'react-helmet';
 
-import { device } from './../utils/device';
+import { device } from '../utils/device';
 
-import Newest from './../components/AllBlogs/Newest';
-import Top from './../components/AllBlogs/Top';
-import OtherPosts from './../components/AllBlogs/RestPosts';
+import Newest from '../components/AllBlogs/Newest';
+import Top from '../components/AllBlogs/Top';
+import OtherPosts from '../components/AllBlogs/RestPosts';
 
 const Container = styled.div`
   display: flex;
@@ -18,7 +18,11 @@ const Container = styled.div`
     margin: 10px;
   }
 
-  margin: 20px;
+  margin: 40px;
+
+  ${device.tablet} {
+    margin: 20px;
+  }
 `;
 
 const NewestPost = styled(Newest)`

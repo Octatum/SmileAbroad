@@ -2,7 +2,7 @@ import React, { Component, isValidElement } from 'react';
 import styled from 'styled-components';
 import { navigateTo } from "gatsby-link";
 
-import {device} from './../../utils/device';
+import {device} from '../../utils/device';
 import LocationIcon from './assets/Location.svg';
 import Internet from './assets/internet.svg';
 

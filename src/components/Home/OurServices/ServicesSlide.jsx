@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Link from 'gatsby-link';
-import ButtonComponent from './../../../components/Button';
-import GetStartedButton from './../../GetStarted/Button';
-import {device} from './../../../utils/device';
+import ButtonComponent from '../../Button';
+import GetStartedButton from '../../GetStarted/Button';
+import {device} from '../../../utils/device';
 
 const Container = styled.div`
   display: flex;
@@ -135,6 +135,9 @@ class ServiceSlide extends Component {
         </Description>
         <Description>
           We facilitate the process of your experience abroad by creating a personalized itinerary at budget-friendly prices.
+        </Description>
+        <Description>
+          Go ahead, Visit Mexico to get your quality dental treatment at a price you can afford.
         </Description>
         <ButtonCont>
           <BlueButton to="/">Learn More</BlueButton>
