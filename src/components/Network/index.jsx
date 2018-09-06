@@ -44,28 +44,50 @@ const DoctorsCont = styled.div`
 `;
 
 
-const Network = () => (
-  <Container>
-    <Title>Neighbor<span>Health</span> Network</Title>
-    <Description>
-      What is the NeighborHealth Certified Network?
-    </Description>
-    <Description>
-      Simply put; personal peace of mind.
-    </Description>
-    <Description>
-      NeighborHealth assures you that each of the specialists in the network meet stringent standards for quality
-      of services backed by credentials, safety, customer satisfaction, and cleanliness.
-      Thus ensuring that you will receive quality service from top-rated and highly skilled practitioners that are highly interested your satisfaction.
-    </Description>
-
-    <Separator />
-
-    <Title>Our Team</Title>
-    <DoctorsCont>
-      <Doctor />
-    </DoctorsCont>
-  </Container>
-)
+const Network = ({data}) => {
+  console.log(data);
+  return (
+    <Container>
+      <Title>Neighbor<span>Health</span> Network</Title>
+      <Description>
+        What is the NeighborHealth Certified Network?
+      </Description>
+      <Description>
+        Simply put; personal peace of mind.
+      </Description>
+      <Description>
+        NeighborHealth assures you that each of the specialists in the network meet stringent standards for quality
+        of services backed by credentials, safety, customer satisfaction, and cleanliness.
+        Thus ensuring that you will receive quality service from top-rated and highly skilled practitioners that are highly interested your satisfaction.
+      </Description>
+  
+      <Separator />
+  
+      <Title>Our Team</Title>
+      <DoctorsCont>
+        <Doctor />
+      </DoctorsCont>
+    </Container>
+  )
+}
 
 export default Network;
+
+export const pageQuery = graphql`
+query GetDoctors {
+  allMarkdownRemark {
+    edges{
+      node{
+        frontmatter{
+          imageURL
+          name
+          carrera
+          id
+        }
+        fields {
+          route
+        }
+      }
+    }
+  }
+}`;

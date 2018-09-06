@@ -27,6 +27,6 @@ collections:
     fields:
       - {label: "Layout", name: "layout", widget: "hidden", default: "doctor"}
       - {label: "Name", name: "name", widget: "string"}
-      - {label: "Id", name: "slug", widget: "string"}
+      - {label: "Id", name: "title", widget: "string"}
       - {label: "Doctor's Image", name: "image", widget: "image"}
       - {label: "Specialty", name: "specialty", widget: "string"}
