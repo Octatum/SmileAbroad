@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import {device} from './../../utils/device';
 
 import Doctor from './Doctor';
 
@@ -25,6 +26,10 @@ const Description = styled.p`
   width: 50%;
   text-align: justify;
   text-align-last: center;
+
+  ${device.tablet} {
+    width: 75%;
+  }
 `;
 
 const Separator = styled.div`
@@ -36,17 +41,24 @@ const Separator = styled.div`
 `;
 
 const DoctorsCont = styled.div`
-  width: 80%;
+  width: 85%;
   margin: 0 auto;
 
-  height: 20em;
   border: 1px solid red;
 
   display: flex;
   flex-wrap: wrap;
+`;
 
-  & > div {
-    max-width: 30%;
+const IndivDoctor = styled(Doctor)`
+  width: 30%;
+
+  ${device.tablet} {
+    width: 50%;
+  }
+
+  ${device.mobile} {
+    width: 100%;
   }
 `;
 
@@ -54,7 +66,7 @@ const DoctorsCont = styled.div`
 const Network = (props) => {
   const doctores = props.allDoctors.map((data, index) => {
     return (
-      <Doctor 
+      <IndivDoctor 
         id={index}
         imageURL={data.node.frontmatter.imageURL}
         name={data.node.frontmatter.name}

@@ -3,11 +3,16 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Container = styled.div`
-
+  p {
+    text-align: center;
+    &::first-letter {
+      text-transform: uppercase;
+    }
+  }
 `;
 
 const DocImage = styled.img`
-  max-width: fit-content;
+  max-width: 100%;
 `;
 
 const Name = styled.p`
@@ -15,12 +20,13 @@ const Name = styled.p`
 `;
 
 const Doctor = ({
+  className,
   imageURL,
   name,
   carrera,
   docId
-}, props) => (
-  <Container className={props.className}>
+}) => (
+  <Container className={className}>
     <DocImage src={imageURL} />
     <Name>{name}</Name>
     <p>{carrera}</p>
