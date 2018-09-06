@@ -28,7 +28,7 @@ const Doctor = ({
 }) => (
   <Container className={className}>
     <DocImage src={imageURL} />
-    <Name>{name}</Name>
+    <Name>Dr. {name}</Name>
     <p>{carrera}</p>
     <p>{docId}</p>
   </Container>

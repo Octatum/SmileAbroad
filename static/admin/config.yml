@@ -30,3 +30,14 @@ collections:
       - {label: "Id", name: "title", widget: "string"}
       - {label: "Doctor's Image", name: "image", widget: "image"}
       - {label: "Specialty", name: "specialty", widget: "string"}
+
+  - name: "videos"
+    label: "Videos"
+    folder: "content/videos"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Layout", name: "layout", widget: "hidden", default: "video"}
+      - {label: "VideoName", name: "title", widget: "string"}
+      - {label: "Video", name: "video", widget: "file"}
+      - {label: "PublishDate", name: "date", widget: "datetime"}

@@ -48,17 +48,18 @@ const DoctorsCont = styled.div`
 
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
 `;
 
 const IndivDoctor = styled(Doctor)`
   width: 30%;
 
   ${device.tablet} {
-    width: 50%;
+    width: 45%;
   }
 
   ${device.mobile} {
-    width: 100%;
+    width: 90%;
   }
 `;
 
@@ -67,7 +68,7 @@ const Network = (props) => {
   const doctores = props.allDoctors.map((data, index) => {
     return (
       <IndivDoctor 
-        id={index}
+        key={index}
         imageURL={data.node.frontmatter.imageURL}
         name={data.node.frontmatter.name}
         carrera={data.node.frontmatter.carrera}

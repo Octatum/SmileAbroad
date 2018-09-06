@@ -12,6 +12,13 @@ exports.onCreateNode = ({ node, boundActionCreators }) => {
 
       path = "content/doctors/" + name + "-" + id;
     }
+    else if (node.frontmatter.layout == "video") {
+      let title = node.frontmatter.title;
+      let date = node.frontmatter.date;
+      date = date.slice(0, date.search("T"));
+      title = title.toLowerCase().trim().split(' ').join('-');
+      path = "content/videos/" + date + '-' + title;
+    }
     else {
       let date = node.frontmatter.date;
       let title = node.frontmatter.title;
