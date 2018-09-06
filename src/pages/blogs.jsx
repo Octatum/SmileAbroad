@@ -97,7 +97,7 @@ export default Blogs;
 
 export const pageQuery = graphql`
 query GetBlogs {
-  allMarkdownRemark(sort: {fields: [frontmatter___date], order: DESC} ) {
+  allMarkdownRemark(filter: {frontmatter: {layout: {eq: "blog"}}}, sort: {fields: [frontmatter___date], order: DESC} ) {
     totalCount
     edges{
       node{

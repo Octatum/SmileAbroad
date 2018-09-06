@@ -18,13 +18,13 @@ const Doctor = ({
   imageURL,
   name,
   carrera,
-  id
-}) => (
-  <Container>
+  docId
+}, props) => (
+  <Container className={props.className}>
     <DocImage src={imageURL} />
     <Name>{name}</Name>
     <p>{carrera}</p>
-    <p>{id}</p>
+    <p>{docId}</p>
   </Container>
 )
 
@@ -32,7 +32,7 @@ Doctor.propTypes = {
   imageURL: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   carrera: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired  
+  docId: PropTypes.string.isRequired  
 };
 
 

@@ -41,11 +41,28 @@ const DoctorsCont = styled.div`
 
   height: 20em;
   border: 1px solid red;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  & > div {
+    max-width: 30%;
+  }
 `;
 
 
-const Network = ({data}) => {
-  console.log(data);
+const Network = (props) => {
+  const doctores = props.allDoctors.map((data, index) => {
+    return (
+      <Doctor 
+        id={index}
+        imageURL={data.node.frontmatter.imageURL}
+        name={data.node.frontmatter.name}
+        carrera={data.node.frontmatter.carrera}
+        docId={data.node.frontmatter.title} />
+    )
+  });
+
   return (
     <Container>
       <Title>Neighbor<span>Health</span> Network</Title>
@@ -65,7 +82,7 @@ const Network = ({data}) => {
   
       <Title>Our Team</Title>
       <DoctorsCont>
-        <Doctor />
+        {doctores}
       </DoctorsCont>
     </Container>
   )
@@ -73,21 +90,3 @@ const Network = ({data}) => {
 
 export default Network;
 
-export const pageQuery = graphql`
-query GetDoctors {
-  allMarkdownRemark {
-    edges{
-      node{
-        frontmatter{
-          imageURL
-          name
-          carrera
-          id
-        }
-        fields {
-          route
-        }
-      }
-    }
-  }
-}`;

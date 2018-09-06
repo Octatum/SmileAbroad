@@ -32,7 +32,7 @@ export default IndexPage
 
 export const postQuery = graphql`
   query GetLatestPost {
-    allMarkdownRemark(sort: {fields: [frontmatter___date], order: DESC}, limit: 1) {
+    allMarkdownRemark(filter: {frontmatter: {layout: {eq: "blog"}}}, sort: {fields: [frontmatter___date], order: DESC}, limit: 1) {
       edges{
         node{
           excerpt

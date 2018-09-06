@@ -9,12 +9,31 @@ const Container = styled.div`
 `;
 
 
-const AboutUsPage = () => (
+const AboutUsPage = ({data}) => (
   <Container>
     <Helmet title="Our Network" />
-    <Network />
+    <Network allDoctors={data.allMarkdownRemark.edges} />
   </Container>
 )
 
 
 export default AboutUsPage;
+
+export const pageQuery = graphql`
+query GetDoctors {
+  allMarkdownRemark(filter: {frontmatter: {layout: {eq: "doctor"}}}) {
+    edges{
+      node{
+        frontmatter{
+          imageURL
+          name
+          carrera
+          title
+        }
+        fields {
+          route
+        }
+      }
+    }
+  }
+}`;
