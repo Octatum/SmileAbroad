@@ -46,8 +46,6 @@ const DoctorsCont = styled.div`
   width: 85%;
   margin: 0 auto;
 
-  border: 1px solid red;
-
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -74,6 +72,15 @@ const VideoCont = styled(slider)`
 
   & div {
     outline: none;
+  }
+
+  & .slick-dots {
+    width: 95%;
+    box-sizing: border-box;
+  }
+
+  & .slick-track {
+    margin: 0 auto;
   }
 `;
 
@@ -113,7 +120,8 @@ const Settings = {
   slidesToShow: 1,
   swipeToSlide: true,
   focusOnSelect: true,
-  arrows: false
+  arrows: false,
+  centerMode: true
 };
 
   return (
