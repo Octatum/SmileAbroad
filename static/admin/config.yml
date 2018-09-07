@@ -41,3 +41,4 @@ collections:
       - {label: "VideoName", name: "title", widget: "string"}
       - {label: "Video", name: "video", widget: "file"}
       - {label: "PublishDate", name: "date", widget: "datetime"}
+      - {label: "Descripcion", name: "description", widget: "string"}

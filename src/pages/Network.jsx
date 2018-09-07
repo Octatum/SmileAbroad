@@ -12,7 +12,9 @@ const Container = styled.div`
 const AboutUsPage = ({data}) => (
   <Container>
     <Helmet title="Our Network" />
-    <Network allDoctors={data.allMarkdownRemark.edges} />
+    <Network 
+      allDoctors={data.Doctors.edges} 
+      allVideos={data.Videos.edges} />
   </Container>
 )
 
@@ -21,7 +23,7 @@ export default AboutUsPage;
 
 export const pageQuery = graphql`
 query GetDoctors {
-  allMarkdownRemark(filter: {frontmatter: {layout: {eq: "doctor"}}}) {
+  Doctors: allMarkdownRemark(filter: {frontmatter: {layout: {eq: "doctor"}}}) {
     edges{
       node{
         frontmatter{
@@ -29,6 +31,20 @@ query GetDoctors {
           name
           carrera
           title
+        }
+        fields {
+          route
+        }
+      }
+    }
+  }
+  Videos: allMarkdownRemark(filter: {frontmatter: {layout: {eq: "video"}}}) {
+    edges{
+      node{
+        frontmatter{
+          title
+          video
+          description
         }
         fields {
           route

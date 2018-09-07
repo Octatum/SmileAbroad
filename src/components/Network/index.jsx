@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import {device} from './../../utils/device';
+import slider from 'react-slick';
 
+import Video from './Videos';
 import Doctor from './Doctor';
 
 const Container = styled.div`
@@ -63,6 +65,23 @@ const IndivDoctor = styled(Doctor)`
   }
 `;
 
+const VideoCont = styled(slider)`
+  padding: 1.5em;
+  margin-top: 2em;
+  margin-bottom: 3em;
+  background: ${props => props.theme.color.lightBlue};
+  
+
+  & div {
+    outline: none;
+  }
+`;
+
+const IndivVideo = styled(Video)`
+  margin: auto;
+  width: 70%;
+  
+`;
 
 const Network = (props) => {
   const doctores = props.allDoctors.map((data, index) => {
@@ -75,6 +94,27 @@ const Network = (props) => {
         docId={data.node.frontmatter.title} />
     )
   });
+
+  const videos = props.allVideos.map((data, index) => {
+    return (
+      <IndivVideo
+        key={index}
+        title={data.node.frontmatter.title}
+        video={data.node.frontmatter.video}
+        description={data.node.frontmatter.description}
+      />
+    )
+  })
+
+const Settings = {
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 1,
+  swipeToSlide: true,
+  focusOnSelect: true,
+  arrows: false
+};
 
   return (
     <Container>
@@ -97,6 +137,10 @@ const Network = (props) => {
       <DoctorsCont>
         {doctores}
       </DoctorsCont>
+
+      <VideoCont {...Settings}>
+        {videos}
+      </VideoCont>
     </Container>
   )
 }
