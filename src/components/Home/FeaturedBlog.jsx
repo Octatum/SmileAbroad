@@ -7,13 +7,15 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
 
-  padding: 0 2em;
+  padding: 0 5em;
   margin: 1.5em 0;
 
-  font-family: ${props => props.theme.fontFamily.main};
-  font-size: calc(1rem + 1vw); 
+  ${device.tablet} {
+    padding: 0 2em;
+  }
 
-
+  font-family: ${props => props.theme.fontFamily.main}, sans-serif;
+  font-size: calc(1rem + 0.75vw); 
 `;
 
 const Title = styled.p`
@@ -35,8 +37,8 @@ const Author = styled.div`
   flex-direction: row;
 `;
 const Image = styled.img`
-  max-width: fit-content;
-  margin: 0 auto;
+  max-width: 100%;
+  margin: 1em auto;
 `;
 const Extract = styled.span`
   display: block;
@@ -65,7 +67,8 @@ const FeaturedBlog = (props) => {
       <Image src={node.frontmatter.thumbnail}></Image>
       <Extract>
         {node.excerpt}
-        <ReadMore to={node.fields.route}>... see more</ReadMore>
+        <br/>
+        <ReadMore to={node.fields.route}>see more</ReadMore>
       </Extract>
     </Container>
   );

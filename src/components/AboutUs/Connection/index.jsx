@@ -6,7 +6,7 @@ import {device} from './../../../utils/device';
 
 const Container = styled.div`
   font-size: calc(1rem + 1vw);
-  font-family: ${props => props.theme.fontFamily.main};
+  font-family: ${props => props.theme.fontFamily.main}, sans-serif;
 `;
 
 const SlideContainer = styled.div`

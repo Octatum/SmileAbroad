@@ -4,6 +4,7 @@ import Helmet from 'react-helmet';
 
 import styled, { ThemeProvider } from 'styled-components';
 import { globalTheme } from '../components/styles/theme';
+import {device} from './../utils/device';
 
 import './index.css'
 import Footer from '../components/Footer';
@@ -12,12 +13,28 @@ import Navbar from '../components/Navbar';
 const AppLayout = styled.div`
   display: flex; 
   flex-direction: column;
+  position: relative;
+`;
+
+const PhoneNumber = styled.p`
+  position: fixed;
+  font-size: calc(0.5rem + 0.5vw);
+  z-index: 100;
+  top: 0;
+  right: 3.5em;
+  display: inline-block;
+  font-family: ${globalTheme.fontFamily.main}, sans-serif;
+
+  ${device.tablet} {
+    right: 1em;
+  }
 `;
 
 
 const Layout = ({ children, data }) => (
   <ThemeProvider theme={globalTheme}>
     <AppLayout>
+      <PhoneNumber>+1 512 717 3280</PhoneNumber>
       <Navbar />
       <Helmet
         title={data.site.siteMetadata.title}

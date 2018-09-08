@@ -35,7 +35,7 @@ export const postQuery = graphql`
     allMarkdownRemark(filter: {frontmatter: {layout: {eq: "blog"}}}, sort: {fields: [frontmatter___date], order: DESC}, limit: 1) {
       edges{
         node{
-          excerpt
+          excerpt(pruneLength: 250)
           frontmatter{
             title
             thumbnail

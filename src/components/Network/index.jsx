@@ -10,7 +10,7 @@ const Container = styled.div`
   font-size: calc(0.5rem + 1vw);
 
   p {
-    font-family: ${props => props.theme.fontFamily.main};
+    font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   }
 `;
 

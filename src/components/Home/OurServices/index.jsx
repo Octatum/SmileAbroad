@@ -11,7 +11,6 @@ const SlideShow = styled.div`
   min-height: 100vh;
   text-align: center;
   display: grid;
-  box-sizing: border-box;
   grid-template: 1fr 6fr 1fr / 5fr 4fr;
   position: relative;
   grid-template-areas: 
@@ -21,7 +20,8 @@ const SlideShow = styled.div`
 
   ${device.tablet} {
     display: block;
-    min-height: 0;
+    min-height: 0; 
+    padding: 5em 0;
   }
 
   ::before, 

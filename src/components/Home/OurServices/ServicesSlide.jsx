@@ -10,10 +10,11 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  font-size: calc(0.75rem + 0.5vw);
 `;
 
 const Title = styled.p`
-  font-size: calc(2rem + 1vw);
+  font-size: 2em;
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   font-weight: 600;
   color: black;
@@ -35,7 +36,6 @@ const Separator = styled.hr`
 
 const Description = styled.p`
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
-  font-size: calc(1rem + 0.5vw);
   line-height: 1.4em;
   max-width: 80%;
   margin: 20px 0;
@@ -43,7 +43,11 @@ const Description = styled.p`
   ${device.mobile} {
     max-width: 80%;
   }
-`
+`;
+
+const Bold = Description.withComponent('span').extend`
+  font-weight: bold;
+`;
 
 const BlueText = Description.withComponent('span').extend`
   color: ${props => props.theme.color.lightBlue};
@@ -63,7 +67,7 @@ const ButtonCont = styled.div`
 `;
 
 const GetStarted = styled(GetStartedButton)`
-  font-size: calc(1rem + 0.75vw);
+  font-size: 1.25em;
   div {
     border-radius: 10px;
     padding: 10px 1em;
@@ -75,6 +79,7 @@ const GetStarted = styled(GetStartedButton)`
 
 const BlueButton = ButtonComponent(Link).extend`
   padding: 10px 1em;
+  font-size: 1.25em;
 `;
 
 const BubbleCont = ButtonCont.extend`
@@ -131,10 +136,10 @@ class ServiceSlide extends Component {
         <Title>Affordable Health Care</Title>
         <Separator />
         <Description>
-          At <BlueText>NeighborHealth</BlueText> we help you find the ideal Dental Health Specialized Treatment.
+          At <BlueText>NeighborHealth</BlueText> we help you find the ideal Dental Health <Bold>Specialized</Bold> Treatment.
         </Description>
         <Description>
-          We facilitate the process of your experience abroad by creating a personalized itinerary at budget-friendly prices.
+          We facilitate the process of your experience abroad by creating a <Bold>personalized</Bold> itinerary at <Bold>budget-friendly</Bold> prices.
         </Description>
         <Description>
           Go ahead, Visit Mexico to get your quality dental treatment at a price you can afford.

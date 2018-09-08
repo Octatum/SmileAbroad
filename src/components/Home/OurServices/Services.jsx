@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Link from 'gatsby-link';
 
 import Slider from 'react-slick';
-import {device} from './../../../utils/device';
+import { device } from './../../../utils/device';
 
 import rightArrow from './../../../components/assets/rightArrow.svg';
 import travel from './assets/travel.png';
@@ -44,24 +44,28 @@ const Title = styled.p`
   color: black;
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   font-size: calc(0.75rem + 1vw);
+  font-size: 1.5em;
   font-weight: 600;
   margin: 20px;
 
   ${device.mobile} {
     font-size: 1rem;
+    font-size: 1.15em;
     margin: 20px 0;
   }
 `;
 
 const Description = Title.extend`
   font-size: calc(0.75rem + 1vw);
+  font-size: 1em;
   font-weight: 500;
 
   ${device.mobile} {
     font-size: 0.75rem;
+    font-size: 0.90em;
   }
 `;
-
+/* 
 const ArrowButton = styled(Link)`
   width: 20%;
   text-decoration: none;
@@ -92,10 +96,11 @@ const Arrow = styled.img`
     width: 100px;
   }
 `;
-
+ */
 const Div = styled.div`
   position: relative;
   height: 100%; 
+  font-size: calc(0.75rem + 0.4vw);
 `;
 
 const Services = () => {

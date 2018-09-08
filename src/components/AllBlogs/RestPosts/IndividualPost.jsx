@@ -9,7 +9,7 @@ const Container = styled.div`
 
   position: relative;
   font-size: calc(0.5rem + 1vw);
-  font-family: ${props => props.theme.fontFamily.main};
+  font-family: ${props => props.theme.fontFamily.main}, sans-serif;
 `;
 
 const Thumbnail = styled.img`

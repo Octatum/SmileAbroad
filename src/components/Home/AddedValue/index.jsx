@@ -28,17 +28,27 @@ const customerImages = [
 // Container of entire component
 const Container = styled.div`
   width: 100%;
-  padding: 25px;
-  box-sizing: border-box;
+  padding: 2em;
+
+  ${device.tablet} {
+    padding: 2em 0.5em;
+  }
 `;
 
 // Component Title
 const Title = styled.p`
   font-size: 3rem;
-  text-align: center;
   font-weight: 600;
   align-self: flex-start;
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
+  margin-bottom: 1.5em;
+
+  ${device.tablet} {
+    font-size: 2rem;
+    text-align: center;
+    width: 90%;
+    margin: 0 auto 1.5em auto;
+  }
 `;
 
 const BlueTitle = Title.withComponent('span').extend`
@@ -88,15 +98,13 @@ const SubCont = styled.div`
 // Subtitle
 const Subtitle = styled.p`
   color: black;
-  font-size: calc(1.5rem);
+  font-size: 1.25em;
+
   font-weight: 600;
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   width: 90%;
   text-align: center;
 
-  ${device.mobile} {
-    font-size: 1rem;
-  }
 `;
 
 // Service Description Container
@@ -107,16 +115,11 @@ const ContDesc = styled.div`
 
 // Description object
 const Description = styled.p`
-  font-size: 1.2rem;
+  font-size: 1em;
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   text-align: center;
   width: 90%;
   word-wrap: break-word;
-
-  ${device.mobile} {
-    font-size: 1.1rem;
-  }
-
 `;
 
 // Separator
@@ -158,6 +161,8 @@ const Div = styled.div`
   display: flex;
   flex-direction: column;
   padding: 0 10px;
+
+  font-size: calc(0.7rem + 0.5vw);
 `;
 
 const AddedValue = () => {
@@ -200,7 +205,7 @@ const AddedValue = () => {
         </Div>
         <Div>
           <IMG> <Image src={calendar} /> </IMG>
-          <SubCont> <Subtitle>Making your life easier</Subtitle> </SubCont>
+          <SubCont> <Subtitle>Anxiety free travel</Subtitle> </SubCont>
           <Separator />
           <ContDesc> <Description>We take care of setting up appointments, accommodation, transportation, and translation</Description> </ContDesc>
         </Div>

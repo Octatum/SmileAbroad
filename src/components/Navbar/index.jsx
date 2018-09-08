@@ -27,10 +27,18 @@ const Container = styled.div`
     justify-content: flex-start;
     flex-wrap: wrap;
   }
+
+  /*TEMP Maybe to keep*/
+  box-shadow: 0 5px 10px -5px rgba(0,0,0,0.5);
 `;
 
 const LogoLink = styled(Link)`
-  width: 20em;
+  width: 25%;
+  max-width: 20em;
+
+  ${device.laptop} {
+    width: 15em;
+  }
 
   ${device.tablet} {
     width: 40%;
@@ -80,8 +88,9 @@ const Nav = styled.nav`
   align-items: center;
   justify-content: space-between;
   
-  padding: 20px;
-  width: 60%;
+  padding: 25px;
+  padding-right: 0;
+  width: 70%;
   height: 100%;
 
   ${device.tablet} {
@@ -97,7 +106,7 @@ const Nav = styled.nav`
 const Temp = ButtonComp(Link).extend`
   margin: 10px 1em;
   padding: 0;
-  font-size: calc(1rem + 0.5vw);
+  font-size: calc(1rem + 0.3vw);
   ::before {
     bottom: -10%;
   }
@@ -107,6 +116,7 @@ const GetStarted = styled(GetStartedButton)`
   display: flex;
   flex: 0 1 auto;
   margin-right: calc(2em - 1vw);
+  font-size: calc(1rem + 0.3vw);
 
   ${device.tablet} {
     margin: 0;
