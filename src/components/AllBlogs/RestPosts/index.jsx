@@ -14,17 +14,17 @@ const Container = styled.div`
 const Post = styled(IndividualPost)`
   max-width: 30%;
   flex: 1 0 auto;
-  margin: 0 10px;
+  margin: 1em 10px;
   
+  ${device.tablet} {
+    width: 40%;
+    max-width: 40%;
+  }
   ${device.mobile} {
     width: 100%;
     max-width: 100%;
   }
 
-  ${device.tablet} {
-    width: 40%;
-    max-width: 40%;
-  }
 `;
 
 const AllPosts = (props) => {

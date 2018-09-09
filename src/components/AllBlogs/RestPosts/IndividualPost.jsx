@@ -8,7 +8,7 @@ const Container = styled.div`
   justify-content: space-between;
 
   position: relative;
-  font-size: calc(0.5rem + 1vw);
+  font-size: calc(0.75rem + 0.75vw);
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
 `;
 
@@ -21,11 +21,10 @@ const Thumbnail = styled.img`
 
 const Title = styled.p`
   font-weight: bold;
-  font-size: 1.75em;
+  font-size: 1.5em;
 `;
 
 const Author = styled.p`
-  font-size: 0.8em;
 `;
 
 const PostLink = styled(Link)`

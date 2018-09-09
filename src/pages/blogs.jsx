@@ -14,14 +14,15 @@ const Container = styled.div`
   justify-content: space-evenly;
   align-content: space-around;
 
+
   & > div {
     margin: 10px;
   }
 
-  margin: 40px;
+  margin: 5em;
 
   ${device.tablet} {
-    margin: 20px;
+    margin: 2em;
   }
 `;
 

@@ -10,7 +10,7 @@ const Container = styled.div`
   padding: 1em;
 
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
-  font-size: calc(0.75rem + 1vw);
+  font-size: calc(0.75rem + 0.75vw);
   border-radius: 10px;
 
   min-height: 75vh;
