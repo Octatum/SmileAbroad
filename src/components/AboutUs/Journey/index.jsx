@@ -15,7 +15,7 @@ const Container = styled.div`
 
   padding-bottom: 1.5em;
 
-  font-size: calc(0.8rem + 0.5vw);
+  font-size: calc(0.75rem + 0.75vw);
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   color: black;
 
@@ -41,7 +41,7 @@ const TitleCont = styled.div`
 `;
 
 const Title = styled.p`
-  font-size: calc(1.75em + 1vw);
+  font-size: 1.75em;
   font-weight: bold;
   text-align: center;
   margin: 0.5em 0;
@@ -58,6 +58,8 @@ const CardContainer = styled.div`
   width: 50%;
   padding: 0 2em;
   margin-top: 2em;
+
+  font-size: 0.85em;
 
   & > * {
     margin: 0.5em 0;

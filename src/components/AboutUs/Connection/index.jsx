@@ -5,8 +5,15 @@ import nerdy from './../assets/nerdy.png';
 import {device} from './../../../utils/device';
 
 const Container = styled.div`
-  font-size: calc(1rem + 1vw);
+  font-size: calc(1rem + 0.75vw);
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
+  margin: 4em 0;
+
+  & > p {
+    text-align: center;
+    width: 100%;
+    font-size: 1.5em;
+  }
 `;
 
 const SlideContainer = styled.div`
@@ -16,6 +23,8 @@ const SlideContainer = styled.div`
 
   margin: 3em;
   margin-right: 0;
+
+  font-size: 0.75em;
 
   ${device.tablet} {
     flex-direction: column;
@@ -32,7 +41,7 @@ const TitleCont = styled.div`
   ::before {
     content: "";
     position: absolute;
-    width: 2.5em;
+    width: 3em;
     height: 0.2em;
     background: ${props => props.theme.color.lightBlue};
     border-radius: 10px;
@@ -50,7 +59,7 @@ const TitleCont = styled.div`
 `;
 
 const Title = styled.p`
-  font-size: calc(1.25em + 1.5vw);
+  font-size: 1.75em;
   width: 60%;
   font-weight: bold;
 `;
@@ -93,6 +102,7 @@ const Image = styled.img`
 `;
 
 const UList = styled.ul`
+  list-style-position: inside;
   &, & > li {
     margin: 1em 0;
   }
@@ -131,14 +141,17 @@ const Bubble = styled.button`
   cursor: pointer;
 
   transition: box-shadow 0.25s linear;
+   
+  :hover{
+    box-shadow: 4px 4px 4px 0 rgba(0,0,0,0.3);
+  }
   
-
-  ${device.mobile} {
-    :hover{
-      box-shadow: 4px 4px 4px 0 rgba(0,0,0,0.3);
+  ${device.tablet} {
+    transition: none;
+    :hover {
+      box-shadow: initial;
     }
   }
-
 `;
 
 class Connection extends Component {
@@ -174,6 +187,7 @@ class Connection extends Component {
 
     return (
       <Container>
+        <Title>How It Works</Title>
         <SlideContainer>
           <TitleCont>
             <Title>Your <BlueTitle>connection</BlueTitle> to easy and affordable <BlueTitle>healthcare</BlueTitle></Title>

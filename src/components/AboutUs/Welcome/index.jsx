@@ -16,10 +16,6 @@ const Cont = styled.div`
     text-align: center;
   }
 
-  > div {
-    font-size: calc(1rem + 1vw);
-  }
-
   ::before {
     content: "";
     position: absolute;
@@ -43,7 +39,9 @@ const MessageContainer = styled.div`
   left: 40%;
   max-width: 55%;
   margin: 2.5em 0;
-
+  
+  font-size: calc(0.75rem + 0.75vw);
+  
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -63,7 +61,7 @@ const MessageContainer = styled.div`
 `;
 
 const Title = styled.p`
-  font-size: 1.8em;
+  font-size: 2em;
   font-weight: bold;
 `;
 const TitleBlue = Title.withComponent('span').extend`
@@ -85,10 +83,10 @@ const BoldText = Message.withComponent('span').extend`
 `;
 
 const GetStarted = styled(GetStartedButton)`
-  font-size: calc(1rem + 0.75vw);
+  font-size: 1em;
   div {
     border-radius: 10px;
-    padding: 10px 1em;
+    padding: 0.25em 0.75em;
     &:hover{
       background: none;
     }
