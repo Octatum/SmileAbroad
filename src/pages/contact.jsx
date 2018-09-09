@@ -6,6 +6,7 @@ import {device} from '../utils/device';
 import GetInTouch from '../components/GetInTouch';
 
 const Container = styled.div`
+  font-size: calc(1.5rem + 0.75vw);
 `;
 
 const TitleCont = styled.div`
@@ -16,7 +17,7 @@ const TitleCont = styled.div`
 `;
 
 const Title = styled.p`
-  font-size: calc(2rem + 1vw);
+  
   color: black;
   font-weight: 600;
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
@@ -33,13 +34,13 @@ const BlueTitle = Title.withComponent('span').extend`
 `;
 
 const SubText = styled.p`
-  font-size: calc(1.25rem + 1vw);
+  font-size: 0.75em; 
   color: black;
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   width: 80%;
   text-align: center;
   margin: auto;
-  margin-top: 2em;
+  margin: 2em auto;
 
   ${device.tablet} {
     width: 100%;

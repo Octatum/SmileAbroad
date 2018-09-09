@@ -17,13 +17,14 @@ const Container = styled.form`
   padding: 0 3em;
   padding-bottom: 3em;
 
+
   ${device.mobile} {
     margin: 0;
     padding: 10px;
   }
 
   &, & > div, span, p, input, textarea {
-    font-size: calc(1rem + 1vw);
+    font-size: calc(1rem + 0.75vw);
     font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   }
 `;
@@ -79,7 +80,7 @@ const MessageInput = GridInput.withComponent('textarea').extend`
 
 const Submit = styled.button`
   margin-top: 0.5em;
-  font-size: 2rem;
+  font-size: 1em;
   padding: 0.5em;
   border-radius: 10px;
   background: ${props => props.theme.color.lightBlue};
