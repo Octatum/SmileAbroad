@@ -11,7 +11,7 @@ const ContainerForm = styled.fieldset`
 `;
 
 const Title = styled.p`
-  font-size: calc(1rem + 1vw);
+  font-size: 1.25em;
   margin-bottom: 20px;
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   padding: 10px;
@@ -24,7 +24,7 @@ const Title = styled.p`
 `;
 
 const Label = styled.label`
-  font-size: calc(0.85rem + 1vw);
+  
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   margin: 25px 0;
   display: flex;
@@ -47,11 +47,11 @@ const CheckboxInput = styled.input`
 `;
 
 const Checkbox = styled.span`
-  width: 1em;
-  height: 1em;
+  width: 0.75em;
+  height: 0.75em;
   position: relative;
   background: white;
-  padding: 0.2em;
+  padding: 0.3em;
   border-radius: 100%;
   transition: 150ms ease-in-out all;
   border: 2px solid ${props => props.theme.color.lightBlue};
@@ -88,7 +88,6 @@ input:focus ~ & {
 */
 
 const OtherInput = styled.input`
-  font-size: calc(0.85rem + 1vw);
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   border: none;
   border-bottom: 1px solid black;

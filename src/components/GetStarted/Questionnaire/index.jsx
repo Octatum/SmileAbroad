@@ -14,6 +14,8 @@ import outdoor from './assets/outdoor.jpg';
 // Todo: Refactor MultipleImageQuestion and MultipleChoice into a single component.
 
 const Container = styled.form`
+  font-size: calc(0.75rem + 0.75vw);
+
   width: 80%;
   margin: 0 auto;
   margin-bottom: 10em;
@@ -27,7 +29,7 @@ const Container = styled.form`
 `;
 
 const SendButton = styled.button`
-  font-size: calc(0.75rem + 1vw);
+  font-size: 1em;
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   text-transform: uppercase;
   padding: 0.5em 1em;
@@ -43,7 +45,7 @@ const SendButton = styled.button`
 
 const Text = styled.p`
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
-  font-size: calc(1rem + 1vw);
+  
   box-sizing: border-box;
   margin: 50px 0;
 `;
@@ -110,7 +112,7 @@ class Questionnaire extends Component {
       })
     })
     .then(() => {
-      alert("Your message was sent!");
+      alert("Thanks, we will contact you soon. Less than 48 hours, we promise");
       navigateTo(form.getAttribute("action"))
     })
     .catch(error => alert(error));

@@ -9,8 +9,8 @@ const Container = styled.label`
 `;
 
 const Title = styled.p`
-  font-size: calc(1rem + 1vw);
-  margin-bottom: 20px;
+  font-size: 1.25em;
+  margin-bottom: 0.5em;
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   padding: 10px;
   box-sizing: border-box;
@@ -25,7 +25,6 @@ const Answer = styled.input`
   border: ${props => props.theme.color.lightBlue} 2px solid;
   border-radius: 15px;
   padding: 10px;
-  font-size: calc(0.85rem + 1vw);
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
 
   width: 100%;

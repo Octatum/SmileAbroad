@@ -15,6 +15,7 @@ const IntroContainer = styled.div`
   align-items: center;
 
   margin: 50px 0 50px 20px;
+  font-size: calc(0.75rem + 0.75vw);
 
   & div {
     margin-left: 30px;
@@ -75,10 +76,9 @@ const IMG = styled.img`
 `;
 
 const Text = styled.p`
-  font-size: calc(0.75rem + 1vw);
   text-align: right;
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
-  margin-bottom: 15px;
+  margin-bottom: 0.75em;
 
   ${device.mobile} {
     text-align: center;
@@ -103,12 +103,13 @@ const QuestionnaireIntro = () => (
     <IntroContainer>
       <Intro>
         <Text>
-          This questionnaire will help us prepare your free quote. After you submit your responses a team member from
-        <BlueText> NeighborHealth</BlueText> will contact you offering you a personal plan including dentis profile, hotel and tourist
-        recommendations and benefits you get using our <BlueText>NeighborHealth</BlueText> services.
+          Filling out the following questionnaire will help us prepare your free quote. 
         </Text>
         <Text>
-          We are very excited to welcome you to <span style={{ fontWeight: '600' }}>Mexico</span>!
+          Upon completion, please expect a NeighborHealth team member to contact you in less than 24 hours with your personalized plan. 
+        </Text>
+        <Text>
+          In the plan, you will find: dentist profiles, accommodation choices, and tourist recommendations based on your responses.
         </Text>
       </Intro>
       <Divisor />

@@ -9,8 +9,8 @@ const Container = styled.fieldset`
 `;
 
 const Title = styled.p`
-  font-size: calc(1rem + 1vw);
-  margin-bottom: 20px;
+  font-size: 1.25em;
+  margin-bottom: 1em;
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   padding: 10px;
   min-width: 100%;
@@ -23,7 +23,7 @@ const Title = styled.p`
 `;
 
 const Label = styled.label`
-  font-size: calc(1.3rem + 0.5vw);
+
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   display: flex;
   flex-direction: column;
@@ -46,11 +46,11 @@ const Label = styled.label`
 `;
 
 const Checkbox = styled.span`
-  width: 1em;
-  height: 1em;
+  width: 0.75em;
+  height: 0.75em;
   position: relative;
   background: white;
-  padding: 0.2em;
+  padding: 0.3em;
   border-radius: 100%;
   transition: 150ms ease-in-out all;
   border: 2px solid ${props => props.theme.color.lightBlue};
@@ -87,7 +87,7 @@ input:focus ~ & {
 */
 
 const OtherInput = styled.input`
-  font-size: calc(0.85rem + 1vw);
+  font-size: 1em;
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   border: none;
   border-bottom: 1px solid black;
