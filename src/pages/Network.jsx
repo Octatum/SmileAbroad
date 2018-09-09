@@ -9,14 +9,21 @@ const Container = styled.div`
 `;
 
 
-const AboutUsPage = ({data}) => (
-  <Container>
-    <Helmet title="Our Network" />
-    <Network 
-      allDoctors={data.Doctors.edges} 
-      allVideos={data.Videos.edges} />
-  </Container>
-)
+const AboutUsPage = ({data}) => {
+  console.log(data);
+  let doctors = data.Doctors ? data.Doctors.edges : [];
+  let videos = data.Videos ? data.Videos.edges : [];
+  
+  
+  return (
+    <Container>
+      <Helmet title="Our Network" />
+      <Network 
+        allDoctors={doctors} 
+        allVideos={videos} />
+    </Container>
+  )
+}
 
 
 export default AboutUsPage;

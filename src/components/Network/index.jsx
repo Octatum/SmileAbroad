@@ -7,7 +7,7 @@ import Video from './Videos';
 import Doctor from './Doctor';
 
 const Container = styled.div`
-  font-size: calc(0.5rem + 1vw);
+  font-size: calc(0.5rem + 0.75vw);
 
   p {
     font-family: ${props => props.theme.fontFamily.main}, sans-serif;
@@ -15,7 +15,7 @@ const Container = styled.div`
 `;
 
 const Title = styled.p`
-  font-size: 1.75em;
+  font-size: 1.5em;
   font-weight: bold;
   text-align: center;
   span {
@@ -49,6 +49,12 @@ const DoctorsCont = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+
+  ${device.mobile} {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const IndivDoctor = styled(Doctor)`
@@ -86,7 +92,7 @@ const VideoCont = styled(slider)`
 
 const IndivVideo = styled(Video)`
   margin: auto;
-  width: 70%;
+  width: 75%;
   
 `;
 
