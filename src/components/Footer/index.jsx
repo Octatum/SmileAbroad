@@ -13,8 +13,9 @@ const Container = styled.div`
   background: #00C6DB;
   padding: 20px;
 
+  font-size: calc(0.5rem + 0.5vw);
+
   &, & > div {
-    font-size: calc(0.4rem + 1vw);
     font-family: 'Nunito', sans-serif;
   }
 
@@ -25,12 +26,11 @@ const Container = styled.div`
 
 const Texto = styled.p`
   color: white;
-  font-size: calc(0.4rem + 0.8vw);
+  
 `;
 
 const Description = Texto.extend`
   width: 40%;
-  font-size: 1em;
 `;
 
 const Separator = styled.div`

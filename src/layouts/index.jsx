@@ -18,7 +18,7 @@ const AppLayout = styled.div`
 
 const PhoneNumber = styled.p`
   position: fixed;
-  font-size: calc(0.5rem + 0.5vw);
+  font-size: calc(0.5rem + 0.25vw);
   z-index: 100;
   top: 0;
   right: 3.5em;

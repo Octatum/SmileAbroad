@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Helmet from 'react-helmet';
 
 import Faq from './../components/Faq';
 
@@ -15,6 +16,7 @@ const BlueText = styled.span`
 
 const FaqPage = ({data}) => (
   <div>
+    <Helmet title="Frequently Asked Questions" />
     <Title><BlueText>NeighborHealth</BlueText> Frequently Asked Questions</Title>
     <Faq allQuestions={data.allMarkdownRemark.edges}/>
   </div>
@@ -24,7 +26,7 @@ export default FaqPage;
 
 export const pageQuery = graphql`
 query GetQuestions {
-  allMarkdownRemark(filter: {frontmatter: {layout: {eq: "faq"}}}, sort: {fields: [frontmatter___date], order: DESC} ) {
+  allMarkdownRemark(filter: {frontmatter: {layout: {eq: "faq"}}}) {
     edges{
       node{
         rawMarkdownBody

@@ -4,34 +4,21 @@ exports.onCreateNode = ({ node, boundActionCreators }) => {
   const { createNodeField } = boundActionCreators;
 
   if (node.internal.type == 'MarkdownRemark') {
-    let path = "";
-    
-    /* if(node.frontmatter.layout == "doctor") {
-      let name = node.frontmatter.name;
-      let id = node.frontmatter.id;
-
-      path = "content/doctors/" + name + "-" + id;
-    }
-    else if (node.frontmatter.layout == "video") {
-      let title = node.frontmatter.title;
-      let date = node.frontmatter.date;
-      date = date.slice(0, date.search("T"));
-      title = title.toLowerCase().trim().split(' ').join('-');
-      path = "content/videos/" + date + '-' + title;
-    } */
     if(node.frontmatter.layout == "blog") {
+      let path = "";
+
       let date = node.frontmatter.date;
       let title = node.frontmatter.title;
       date = date.slice(0, date.search("T"));
       title = title.toLowerCase().trim().split(' ').join('-');
       path = "content/blog/" + date + '-' + title;
+      
+      createNodeField({
+        node,
+        name: 'route',
+        value: path
+      });
     }
-
-    createNodeField({
-      node,
-      name: 'route',
-      value: path
-    });
   }
 }
 

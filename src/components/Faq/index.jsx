@@ -5,7 +5,8 @@ import {device} from './../../utils/device';
 import Question from './Question';
 
 const Container = styled.div`
-  margin: 2em 7.5em;
+  margin: 2em auto;
+  width: 60%;
   padding: 2em 3.5em;
   display: flex;
   flex-direction: column;
@@ -17,11 +18,16 @@ const Container = styled.div`
 
   ${device.mobile} {
     margin: 2em 0;
+    width: 100%;
+  }
+
+  ul {
+    list-style-position: inside;
   }
 `;
 
 const IndivQuestion = styled(Question)`
-  margin-bottom: 1.5em;
+  margin-bottom: 2.5em;
 `;
 
 const Faq = (props) => {

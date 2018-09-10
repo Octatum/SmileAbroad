@@ -30,6 +30,8 @@ const Container = styled.div`
   width: 100%;
   padding: 2em;
 
+  font-size: calc(0.75rem + 0.75vw);
+
   ${device.tablet} {
     padding: 2em 0.5em;
   }
@@ -37,14 +39,13 @@ const Container = styled.div`
 
 // Component Title
 const Title = styled.p`
-  font-size: 3rem;
+  font-size: 2em;
   font-weight: 600;
   align-self: flex-start;
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   margin-bottom: 1.5em;
 
   ${device.tablet} {
-    font-size: 2rem;
     text-align: center;
     width: 90%;
     margin: 0 auto 1.5em auto;
@@ -52,6 +53,7 @@ const Title = styled.p`
 `;
 
 const BlueTitle = Title.withComponent('span').extend`
+  font-size: 1em;
   color: ${props => props.theme.color.lightBlue};
 `;
 
@@ -115,7 +117,6 @@ const ContDesc = styled.div`
 
 // Description object
 const Description = styled.p`
-  font-size: 1em;
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   text-align: center;
   width: 90%;

@@ -9,7 +9,7 @@ const Container = styled.div`
 
 const Pregunta = styled.p`
   font-weight: bold;
-  margin-bottom: 1.5em;
+  margin-bottom: 1em;
   font-size: 1.25em;
 `;
 

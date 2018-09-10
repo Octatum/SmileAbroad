@@ -225,7 +225,7 @@ class GetInTouch extends Component {
 
         <Localization>
           <SVGicon src={LocationIcon} />
-          <GridText>Av. Eugenio Garza Sada #230, Col. Laealido</GridText>
+          <GridText>Av. Eugenio Garza Sada No. 427, Local 37</GridText>
         </Localization>
         {/* 
         <Localization>
