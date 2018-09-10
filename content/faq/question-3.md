@@ -1,7 +1,7 @@
 ---
 layout: faq
 title: question 3
-question: What is NeighborHealth Certification
+question: What is NeighborHealth Certification?
 date: '2018-09-10T10:12:00-05:00'
 ---
 Every associated dental clinic is strictly selected because they meet or exceed the NeighborHealth certification, which includes:
