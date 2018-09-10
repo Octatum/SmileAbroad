@@ -186,7 +186,7 @@ class Connection extends Component {
     })
 
     return (
-      <Container>
+      <Container id="how-it-works">
         <Title>How It Works</Title>
         <SlideContainer>
           <TitleCont>

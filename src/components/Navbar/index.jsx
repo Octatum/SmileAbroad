@@ -10,7 +10,6 @@ import ButtonComp from '../Button';
 import {device} from '../../utils/device';
 
 const Container = styled.div`
-  box-sizing: border-box;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -118,11 +117,9 @@ const NavLink = ButtonComp(Link).extend`
 const GetStarted = styled(GetStartedButton)`
   display: flex;
   flex: 0 1 auto;
-  margin-right: calc(2em - 1vw);
   font-size: 1em;
 
   ${device.tablet} {
-    margin: 0;
     flex-direction: column;
     div {
       border: none;
@@ -170,10 +167,11 @@ class Navbar extends Component {
         <Nav display={this.state.open}>
           <NavLink to="/">Home</NavLink>
           <NavLink to="/Blogs">Blogs</NavLink> 
+          <NavLink to="/Network">Our Network</NavLink>
           <NavLink to="/AboutUs">About Us</NavLink>
           <NavLink to="/Contact">Contact</NavLink>
-          <NavLink to="/Network">Our Network</NavLink>
           <NavLink to="/Faq">FAQs</NavLink>
+          <NavLink to="/AboutUs#how-it-works">How it Works</NavLink>
           <GetStarted />
         </Nav>
       </Container>
