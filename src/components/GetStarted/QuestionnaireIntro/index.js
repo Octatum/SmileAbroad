@@ -114,6 +114,11 @@ const QuestionnaireIntro = () => (
       </Intro>
       <Divisor />
       <ImageCont> <IMG src={patient}/> </ImageCont>
+      {/* <Desc>
+        This is the NeighborHealth Advantage.
+        We are excited to Welcome you to Mexico!
+        Find out how much you can save on your dental treatment.
+      </Desc> */}
     </IntroContainer>
   </Container>
 );

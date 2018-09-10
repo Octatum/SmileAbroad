@@ -123,36 +123,34 @@ const Journey = () => (
 
       <CardContainer>
         <CardImage src={Pin} />
-        <CardTitle>Affordability for everyone</CardTitle>
+        <CardTitle>Healthcare for everyone</CardTitle>
         <CardDescription>
-          <BoldText>NeighborHealth</BoldText> is funded by individuals who believe that 
-          <BoldText> healthcare</BoldText> should be easy and affordable for everyone.
+          <BoldText>NeighborHealth</BoldText> is funded by individuals who believe that healthcare should be easily accessible and affordable for all.
         </CardDescription>
       </CardContainer>
       
       <CardContainer>
         <CardImage src={Globe} />
-        <CardTitle>World's largest startup accelerator</CardTitle>
+        <CardTitle>Tried and Tested</CardTitle>
         <CardDescription>
-          <BoldText>NeighborHealth</BoldText> begins summer Bootcamp at Plug and
-          Play SiliCon Valley.
+          <BoldText>NeighborHealth</BoldText> has undergone Plug and Play Bootcamp, the largest startup accelerator in the world.
         </CardDescription>
       </CardContainer>
 
       <CardContainer>
         <CardImage src={Networking} />
-        <CardTitle>Great Networking</CardTitle>
+        <CardTitle>the NeighborHealth Certified Network</CardTitle>
         <CardDescription>
-          <BoldText>NeighborHealth</BoldText> Develpos a pre-screened Healthcare
-          network across Mexico.
+          <BoldText>NeighborHealth</BoldText> takes away the anxiety associated with trip planning. We have pre-screened specialists and provide you only with top-rated practicioners from across Mexico.
+
         </CardDescription>
       </CardContainer>
 
       <CardContainer>
         <CardImage src={Plane2} />
-        <CardTitle>Our Launch</CardTitle>
+        <CardTitle>Ready For You!</CardTitle>
         <CardDescription>
-          <BoldText>NeighborHealth</BoldText> is ready to launch.
+          We have sorted out the kinks, and are ready to welcome you on your NeighborHealth Experience to Mexico!
         </CardDescription>
       </CardContainer>
   </Container>
