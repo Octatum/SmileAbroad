@@ -120,7 +120,9 @@ const Div = styled.div`
 const Footer = () => (
   <Container>
     <Description>
-      NeighborHealth is committed to providing you with a service that meets your personal, treatment, and financial needs.  We ensure your safety by personally arranging your transportation, and ensuring you enjoy your stay in a safe manner. All our specialists, accommodations, and tourists attractions have been pre-screened for safety, quality, and convenience.
+      NeighborHealth creates a personalized itinerary that provides you with personal transportation between dental appointments,
+      any selected tourist activities and attractions, and your chosen accommodation services which have all been 
+      pre-selected for safety and convenience.
     </Description>
 
     <Separator />

@@ -22,6 +22,8 @@ const Container = styled.div`
   top: 0;
   z-index: 1;
 
+  font-size: calc(0.75rem + 0.5vw);
+
   ${device.tablet} {
     margin: 0;
     justify-content: flex-start;
@@ -34,16 +36,16 @@ const Container = styled.div`
 
 const LogoLink = styled(Link)`
   width: 25%;
-  max-width: 20em;
+  max-width: 15em;
 
   ${device.laptop} {
-    width: 15em;
+    width: 10em;
   }
 
   ${device.tablet} {
     width: 40%;
-    min-width: 14em;
-    max-width: 20em;
+    min-width: 7em;
+    max-width: 15em;
     padding: 1em 0;
   }
 `;
@@ -103,10 +105,11 @@ const Nav = styled.nav`
   }
 `;
 
-const Temp = ButtonComp(Link).extend`
+const NavLink = ButtonComp(Link).extend`
   margin: 10px 1em;
   padding: 0;
-  font-size: calc(1rem + 0.3vw);
+  font-size: 1em;
+  
   ::before {
     bottom: -10%;
   }
@@ -116,7 +119,7 @@ const GetStarted = styled(GetStartedButton)`
   display: flex;
   flex: 0 1 auto;
   margin-right: calc(2em - 1vw);
-  font-size: calc(1rem + 0.3vw);
+  font-size: 1em;
 
   ${device.tablet} {
     margin: 0;
@@ -165,12 +168,12 @@ class Navbar extends Component {
           <Navicon onClick={this.handleToggleClick} src={navicon} />
         </ToggleShowButton>
         <Nav display={this.state.open}>
-          <Temp to="/">Home</Temp>
-          <Temp to="/Blogs">Blogs</Temp> 
-          <Temp to="/AboutUs">About Us</Temp>
-          <Temp to="/Contact">Contact</Temp>
-          <Temp to="/Network">Our Network</Temp>
-          <Temp to="/Faq">FAQs</Temp>
+          <NavLink to="/">Home</NavLink>
+          <NavLink to="/Blogs">Blogs</NavLink> 
+          <NavLink to="/AboutUs">About Us</NavLink>
+          <NavLink to="/Contact">Contact</NavLink>
+          <NavLink to="/Network">Our Network</NavLink>
+          <NavLink to="/Faq">FAQs</NavLink>
           <GetStarted />
         </Nav>
       </Container>
