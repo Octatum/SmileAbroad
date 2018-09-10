@@ -170,6 +170,7 @@ class Navbar extends Component {
           <Temp to="/AboutUs">About Us</Temp>
           <Temp to="/Contact">Contact</Temp>
           <Temp to="/Network">Our Network</Temp>
+          <Temp to="/Faq">FAQs</Temp>
           <GetStarted />
         </Nav>
       </Container>

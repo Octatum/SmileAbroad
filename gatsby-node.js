@@ -6,7 +6,7 @@ exports.onCreateNode = ({ node, boundActionCreators }) => {
   if (node.internal.type == 'MarkdownRemark') {
     let path = "";
     
-    if(node.frontmatter.layout == "doctor") {
+    /* if(node.frontmatter.layout == "doctor") {
       let name = node.frontmatter.name;
       let id = node.frontmatter.id;
 
@@ -18,8 +18,8 @@ exports.onCreateNode = ({ node, boundActionCreators }) => {
       date = date.slice(0, date.search("T"));
       title = title.toLowerCase().trim().split(' ').join('-');
       path = "content/videos/" + date + '-' + title;
-    }
-    else {
+    } */
+    if(node.frontmatter.layout == "blog") {
       let date = node.frontmatter.date;
       let title = node.frontmatter.title;
       date = date.slice(0, date.search("T"));

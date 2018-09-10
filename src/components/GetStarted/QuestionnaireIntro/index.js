@@ -6,6 +6,7 @@ import patient from './assets/patient.jpg';
 
 const Container = styled.div`
   margin: 50px 0;
+  font-size: calc(0.75rem + 0.75vw);
 `;
 
 const IntroContainer = styled.div`
@@ -15,7 +16,6 @@ const IntroContainer = styled.div`
   align-items: center;
 
   margin: 50px 0 50px 20px;
-  font-size: calc(0.75rem + 0.75vw);
 
   & div {
     margin-left: 30px;
@@ -114,12 +114,12 @@ const QuestionnaireIntro = () => (
       </Intro>
       <Divisor />
       <ImageCont> <IMG src={patient}/> </ImageCont>
-      {/* <Desc>
-        This is the NeighborHealth Advantage.
-        We are excited to Welcome you to Mexico!
-        Find out how much you can save on your dental treatment.
-      </Desc> */}
     </IntroContainer>
+    <Desc>
+      This is the NeighborHealth Advantage.
+      We are excited to Welcome you to Mexico!
+      Find out how much you can save on your dental treatment.
+    </Desc>
   </Container>
 );
 

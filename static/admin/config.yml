@@ -42,3 +42,15 @@ collections:
       - {label: "Video", name: "video", widget: "file"}
       - {label: "PublishDate", name: "date", widget: "datetime"}
       - {label: "Descripcion", name: "description", widget: "string"}
+
+  - name: "faqs"
+    label: "Frequently Asked Questions"
+    folder: "content/faq"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Layout", name: "layout", widget: "hidden", default: "faq"}
+      - {label: "Question ID", name: "title", widget: "hidden"}
+      - {label: "Question", name: "question", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Body", name: "body", widget: "markdown"}

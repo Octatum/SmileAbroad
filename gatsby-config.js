@@ -28,6 +28,13 @@ module.exports = {
       }
     },
     {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/content/faq`,
+        name: 'faqs'
+      }
+    },
+    {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: []
