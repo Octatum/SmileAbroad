@@ -22,6 +22,7 @@ const Title = styled.p`
 `;
 
 const Answer = styled.input`
+  font-size: 1em;
   border: ${props => props.theme.color.lightBlue} 2px solid;
   border-radius: 15px;
   padding: 10px;

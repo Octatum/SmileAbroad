@@ -6,6 +6,7 @@ import OpenQuestion from './Questions/OpenQuestion';
 import MultipleChoice from './Questions/MultipleChoice';
 import MultipleImageQuestion from './Questions/MultipleImageQuestion';
 import {device} from './../../../utils/device';
+
 import horno from './assets/horno.jpg';
 import recreational from './assets/recreational.jpg';
 import cultural from './assets/cultural.jpg';
@@ -16,7 +17,7 @@ import outdoor from './assets/outdoor.jpg';
 const Container = styled.form`
   font-size: calc(0.75rem + 0.75vw);
 
-  width: 80%;
+  width: 70%;
   margin: 0 auto;
   margin-bottom: 10em;
   display: flex;
@@ -48,6 +49,9 @@ const Text = styled.p`
   
   box-sizing: border-box;
   margin: 50px 0;
+
+  text-align: justify;
+  text-align-last: center;
 `;
 
 function encode(data) {

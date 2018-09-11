@@ -41,6 +41,7 @@ const OtherLabel = Label.extend`
 `;
 
 const CheckboxInput = styled.input`
+  font-size: 1em;
   position: absolute;
   opacity: 0;
   cursor: default;
@@ -88,6 +89,7 @@ input:focus ~ & {
 */
 
 const OtherInput = styled.input`
+  font-size: 1em;
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   border: none;
   border-bottom: 1px solid black;
