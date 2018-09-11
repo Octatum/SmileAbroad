@@ -103,10 +103,11 @@ const MultipleChoice = ({
   includeOpenAnswer, 
   onChange,
   name,
-  options
+  options,
+  className
 }) => {
   return (
-    <ContainerForm>
+    <ContainerForm className={className}>
       <Title> {questionText} </Title>
       {options.map(option => (
         <Label key={option}>

@@ -56,33 +56,6 @@ function encode(data) {
     .join("&");
 }
 
-let questions = [
-  {
-    key: 4,
-    type: 'multiplechoice',
-    questionText: 'What characteristics are you looking for in a hotel?',
-    options: [
-      'Swimming pool',
-      'Breakfast included',
-      'Shops',
-      'Terrace and bar',
-    ],
-    other: true,
-    manyOptions: true
-  },
-  {
-    key: 5,
-    type: 'multipleimage',
-    questionText: 'Which type of tourist activities do you like?',
-    options: [
-      { url: 'http://www.birds.com/wp-content/uploads/home/bird4.jpg', description: 'Outdoor' },
-      { url: horno, description: 'Cultural' },
-      { url: 'http://www.birds.com/wp-content/uploads/home/bird4.jpg', description: 'Recreational' },
-    ],
-    other: true
-  }
-];
-
 function encode(data) {
   return Object.keys(data)
     .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
@@ -151,38 +124,91 @@ class Questionnaire extends Component {
           type="email"
           autoComplete="email"
         />
+        <MultipleChoice
+          questionText="What gender are you?"
+          onChange={this.handleChange}
+          options={[
+            'Male',
+            'Female'
+          ]}
+          name="gender"
+          includeOpenAnswer
+        />
         <OpenQuestion
           questionText="Where are you from?"
           onChange={this.handleChange}
           name="location"
           required
         />
+        <MultipleChoice
+          questionText="Treatment you are looking for:"
+          onChange={this.handleChange}
+          options={[
+            'Implants',
+            'Root canal',
+            'Veneers',
+            'Extractions',
+            'Crowns and bridges'
+          ]}
+          name="treatmentType"
+          includeOpenAnswer
+        />
         <OpenQuestion
-          questionText="When are you planning to travel?"
+          questionText="Planned travel dates:"
           onChange={this.handleChange}
           name="travelDate"
           required
         />
         <OpenQuestion
-          questionText="Briefly describe your dental situation"
+          questionText="Please describe your dental needs"
           onChange={this.handleChange}
           name="dentalDescription"
           required
         />
-        <MultipleChoice
-          questionText="What characteristics are you looking for in a hotel?"
+        <MultipleChoice 
+          questionText="From 0 to 0 in a scale of pain, how would you rate your pain tolerance?"
           onChange={this.handleChange}
           options={[
-            'Swimming Pool',
+            '0',
+            '1',
+            '2',
+            '3',
+            '4',
+            '5',
+            '6',
+            '7',
+            '8',
+            '9'
+          ]}
+          name="painTolerance"
+        />
+        <MultipleChoice
+          questionText="Do you plan to travel accompannied?"
+          onChange={this.handleChange}
+          options={[
+            'Yes',
+            'No',
+          ]}
+          name="accompanied"
+        />
+        <Text>
+          We’re almost there, we can provide you with discounted prices for attractions, restaurant recommendations based on your interests. 
+          Help us plan your trip, tell us about your hobbies, food preferences, allergies, and other interests.
+        </Text>
+        <MultipleChoice
+          questionText="What is most important for you when booking accommodation?"
+          onChange={this.handleChange}
+          options={[
+            'Proximity to shops',
+            'Bar and Terrace',
             'Breakfast included',
-            'Shops',
-            'Terrace and Bar',
+            'Swimming pool and recreational areas',
           ]}
           name="hotelCharacteristics"
           includeOpenAnswer
         />
         <MultipleImageQuestion
-          questionText="Which type of tourist activities do you like?"
+          questionText="Which type of attractions do you prefer?"
           onChange={this.handleChange}
           options={[{
             name: 'Recreational',
