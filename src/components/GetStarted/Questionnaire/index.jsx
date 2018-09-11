@@ -15,7 +15,7 @@ import outdoor from './assets/outdoor.jpg';
 // Todo: Refactor MultipleImageQuestion and MultipleChoice into a single component.
 
 const Container = styled.form`
-  font-size: calc(0.75rem + 0.75vw);
+  font-size: calc(0.75rem + 0.5vw);
 
   width: 70%;
   margin: 0 auto;
@@ -45,6 +45,7 @@ const SendButton = styled.button`
 `;
 
 const Text = styled.p`
+  font-size: 1.25em;
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   
   box-sizing: border-box;

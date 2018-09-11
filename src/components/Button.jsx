@@ -5,7 +5,7 @@ const Button = component => styled(component)`
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
 
   font-weight: 600;
-  font-size: calc(1rem + 0.75vw);
+  font-size: 1em;
   text-align: center;
   position: relative;
 

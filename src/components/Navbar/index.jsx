@@ -7,7 +7,8 @@ import navicon from './assets/navicon.svg';
 
 import GetStartedButton from '../GetStarted/Button';
 import ButtonComp from '../Button';
-import {device} from '../../utils/device';
+import Selection from './Selection';
+import { device } from '../../utils/device';
 
 const Container = styled.div`
   display: flex;
@@ -101,17 +102,15 @@ const Nav = styled.nav`
     overflow-y: hidden;
     display: ${props => props.display ? 'flex' : 'none'};
     width: 100%;
+
+    a {
+      margin: 0.10em auto;
+    }
   }
 `;
 
 const NavLink = ButtonComp(Link).extend`
-  margin: 10px 1em;
-  padding: 0;
-  font-size: 1em;
   
-  ::before {
-    bottom: -10%;
-  }
 `;
 
 const GetStarted = styled(GetStartedButton)`
@@ -148,6 +147,7 @@ class Navbar extends Component {
     }
 
     this.handleToggleClick = this.handleToggleClick.bind(this);
+    this.handleSelectionClick = this.handleSelectionClick.bind(this);
   }
 
   handleToggleClick() {
@@ -156,22 +156,35 @@ class Navbar extends Component {
       open: isOpen
     });
   }
+  handleSelectionClick() {
+    const isOpen = !this.state.companySelection;
+    this.setState({
+      companySelection: isOpen
+    });
+  }
 
   render() {
     return (
       <Container>
-        <LogoLink to="/"><Logo src={logo}/></LogoLink>
+        <LogoLink to="/"><Logo src={logo} /></LogoLink>
         <ToggleShowButton >
           <Navicon onClick={this.handleToggleClick} src={navicon} />
         </ToggleShowButton>
         <Nav display={this.state.open}>
           <NavLink to="/">Home</NavLink>
-          <NavLink to="/Blogs">Blogs</NavLink> 
-          <NavLink to="/Network">Our Network</NavLink>
-          <NavLink to="/AboutUs">About Us</NavLink>
+          <NavLink to="/Blogs">Blogs</NavLink>          
           <NavLink to="/Contact">Contact</NavLink>
           <NavLink to="/Faq">FAQs</NavLink>
           <NavLink to="/AboutUs#how-it-works">How it Works</NavLink>
+          <Selection
+            links={[
+              { url: "/Network", name: "Our Network" },
+              { url: "/AboutUs", name: "About Us" },
+            ]}
+            isOpen={this.state.companySelection}
+            clickAction={this.handleSelectionClick}>
+            Company
+          </Selection>
           <GetStarted />
         </Nav>
       </Container>
