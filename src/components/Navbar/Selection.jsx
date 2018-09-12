@@ -42,7 +42,7 @@ const Hidden = styled.div`
   flex-direction: column;
   background: white;
 
-  margin-top: 0.5em;
+  padding-top: 0.5em;
   width: 150%;
   left: -20%;
   box-shadow: 0 5px 10px -5px rgba(0,0,0,0.5);
