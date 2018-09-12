@@ -42,10 +42,11 @@ const Hidden = styled.div`
   flex-direction: column;
   background: white;
 
+  margin-top: 0.5em;
   width: 150%;
   left: -20%;
   box-shadow: 0 5px 10px -5px rgba(0,0,0,0.5);
-
+  
   ${Container}:hover & {
     display: flex;
   }
@@ -66,6 +67,8 @@ const Hidden = styled.div`
     width: initial;
     left: 0;
   }
+
+  
 `;
 
 const SelectionLink = ButtonComp(Link).extend`
@@ -75,8 +78,9 @@ const SelectionLink = ButtonComp(Link).extend`
 `;
 
 const Selection = ({ className, links, children, isOpen, clickAction }) => {
+
   return (
-    <Container {...className}>
+    <Container className={className}>
       <SelectionName onClick={clickAction}>
         {children}
         <Arrow src={DownArrow} reverse={isOpen} />

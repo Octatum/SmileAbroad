@@ -109,9 +109,7 @@ const Nav = styled.nav`
   }
 `;
 
-const NavLink = ButtonComp(Link).extend`
-  
-`;
+
 
 const GetStarted = styled(GetStartedButton)`
   display: flex;
@@ -136,6 +134,7 @@ const GetStarted = styled(GetStartedButton)`
   }
 `;
 
+const NavLink = ButtonComp(Link);
 
 class Navbar extends Component {
   constructor() {
@@ -173,9 +172,9 @@ class Navbar extends Component {
         <Nav display={this.state.open}>
           <NavLink to="/">Home</NavLink>
           <NavLink to="/Blogs">Blogs</NavLink>          
+          <NavLink to="/AboutUs#how-it-works">How it Works</NavLink>
           <NavLink to="/Contact">Contact</NavLink>
           <NavLink to="/Faq">FAQs</NavLink>
-          <NavLink to="/AboutUs#how-it-works">How it Works</NavLink>
           <Selection
             links={[
               { url: "/Network", name: "Our Network" },
