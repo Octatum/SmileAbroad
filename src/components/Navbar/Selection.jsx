@@ -53,7 +53,7 @@ const Hidden = styled.div`
 
   ${device.tablet} {
     a {
-      font-size: 1em;
+      font-size: 0.8em;
       margin: 0 auto;
     }
 

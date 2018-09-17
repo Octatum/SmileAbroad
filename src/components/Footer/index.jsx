@@ -81,6 +81,7 @@ const ContactTitle = LinksTitle.extend`
 
 const ContactData = Texto.extend`
   padding: 10px 0;
+  word-break: break-all;
   ${device.mobile} {
     padding: 5px
   }

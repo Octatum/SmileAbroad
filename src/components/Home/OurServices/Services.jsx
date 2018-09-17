@@ -6,10 +6,10 @@ import Slider from 'react-slick';
 import { device } from './../../../utils/device';
 
 import rightArrow from './../../../components/assets/rightArrow.svg';
-import travel from './assets/travel.png';
-import accomodation from './assets/accomodation.png';
-import transport from './assets/transport.png';
 import booking from './assets/booking.png';
+import transport from './assets/transport.png';
+import accomodation from './assets/accomodation.png';
+import travel from './assets/travel.png';
 
 const Container = styled(Slider)`
   margin: 50px 0;
@@ -28,7 +28,8 @@ const ServiceImgContainer = styled.div`
 
 const ServiceImg = styled.img`
   position: relative;  
-  height: 7rem;
+  height: 4.5em;
+  width: auto;
 `;
 
 const IndivService = styled.div`

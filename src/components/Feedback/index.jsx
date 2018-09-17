@@ -62,7 +62,7 @@ function encode(data) {
     .join("&");
 }
 
-class Questionnaire extends Component {
+class Feedback extends Component {
   state = {};
 
   handleChange = (event) => {
@@ -148,4 +148,4 @@ class Questionnaire extends Component {
   }
 }
 
-export default Questionnaire;
+export default Feedback;
