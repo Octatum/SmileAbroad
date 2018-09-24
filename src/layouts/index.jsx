@@ -39,8 +39,8 @@ const Layout = ({ children, data }) => (
       <Helmet
         title={data.site.siteMetadata.title}
         meta={[
-          { name: 'description', content: 'Sample' },
-          { name: 'keywords', content: 'sample, something' },
+          { name: 'description', content: 'Find the ideal Dental Health Specialized Treatment at NeighborHealth. Get a personalized itinerary at budget-friendly prices.' },
+          { name: 'keywords', content: 'Neighbor Health, Medical tourism' },
         ]}
         script={[
           { src:"https://identity.netlify.com/v1/netlify-identity-widget.js" }
