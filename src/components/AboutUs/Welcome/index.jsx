@@ -1,8 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import Link from 'gatsby-link';
+
+import {device} from './../../../utils/device';
 
 import background from './../assets/background.jpg';
+import GetStartedButton from './../../GetStarted/Button';
 
 const Cont = styled.div`
   width: 100%;
@@ -12,10 +14,6 @@ const Cont = styled.div`
   p, span, a {
     font-family: ${props => props.theme.fontFamily.main}, sans-serif;
     text-align: center;
-  }
-
-  > div {
-    font-size: calc(1rem + 1vw);
   }
 
   ::before {
@@ -41,7 +39,9 @@ const MessageContainer = styled.div`
   left: 40%;
   max-width: 55%;
   margin: 2.5em 0;
-
+  
+  font-size: calc(0.75rem + 0.75vw);
+  
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -51,7 +51,7 @@ const MessageContainer = styled.div`
     margin-bottom: 1em;
   }
 
-  @media(max-width: 920px) {
+  ${device.tablet} {
     top: 0;
     left: 0;
     width: 100%;
@@ -61,7 +61,7 @@ const MessageContainer = styled.div`
 `;
 
 const Title = styled.p`
-  font-size: 1.8em;
+  font-size: 2em;
   font-weight: bold;
 `;
 const TitleBlue = Title.withComponent('span').extend`
@@ -74,7 +74,7 @@ const Message = styled.p`
   width: 70%;
   margin-bottom: 2em;
 
-   @media(max-width: 920px) {
+   ${device.tablet} {
     width: 100%
   }
 `;
@@ -82,15 +82,15 @@ const BoldText = Message.withComponent('span').extend`
   font-weight: bold;
 `;
 
-const GetStartedButton = styled(Link)`
-  color: white;
-  font-size: 1.2em;
-  font-weight: bold;
-  background: black;
-  border-radius: 10px;
-  padding: 10px 0.5em;
-
-  text-decoration: none;
+const GetStarted = styled(GetStartedButton)`
+  font-size: 1em;
+  div {
+    border-radius: 10px;
+    padding: 0.25em 0.75em;
+    &:hover{
+      background: none;
+    }
+  }
 `;
 
 const Welcome = () => (
@@ -103,7 +103,7 @@ const Welcome = () => (
         abroad by creating a personalized itinerary and establishing a connection 
         with a pre-screened practitioner.
       </Message>
-      <GetStartedButton to="/GetStarted">Get Started</GetStartedButton>
+      <GetStarted />
     </MessageContainer>
   </Cont>
 );

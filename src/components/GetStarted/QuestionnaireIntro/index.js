@@ -1,10 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
+import {device} from './../../../utils/device';
 
 import patient from './assets/patient.jpg';
 
 const Container = styled.div`
   margin: 50px 0;
+  font-size: calc(0.75rem + 0.75vw);
 `;
 
 const IntroContainer = styled.div`
@@ -19,7 +21,7 @@ const IntroContainer = styled.div`
     margin-left: 30px;
   }
 
-  @media(max-width: 520px) {
+  ${device.mobile} {
     flex-direction: column;
     margin: 15px 0;
 
@@ -37,7 +39,7 @@ const Intro = styled.div`
 
   width: 100%;
 
-  @media(max-width: 520px) {
+  ${device.mobile} {
     order: 2;
     padding: 0;
     width: 75%;
@@ -53,7 +55,7 @@ const Divisor = styled.div`
   margin: auto;
   background: ${props => props.theme.color.lightBlue};
 
-  @media(max-width: 520px) {
+  ${device.mobile} {
     width: 30%;
     height: 5px;
     order: 3;
@@ -64,7 +66,7 @@ const ImageCont = styled.div`
   width: 100%;
   overflow: hidden;
 
-  @media(max-width: 520px) {
+  ${device.mobile} {
     order: 1;
   }
 `;
@@ -74,12 +76,11 @@ const IMG = styled.img`
 `;
 
 const Text = styled.p`
-  font-size: calc(0.75rem + 1vw);
   text-align: right;
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
-  margin-bottom: 15px;
+  margin-bottom: 0.75em;
 
-  @media(max-width: 520px) {
+  ${device.mobile} {
     text-align: center;
   }
 `;
@@ -92,7 +93,7 @@ const Desc = Text.extend`
   margin: auto;
   width: 70%;
 
-  @media(max-width: 520px) {
+  ${device.mobile} {
     width: 85%;
   }
 `;
@@ -102,17 +103,23 @@ const QuestionnaireIntro = () => (
     <IntroContainer>
       <Intro>
         <Text>
-          This questionnaire will help us prepare your free quote. After you submit your responses a team member from
-        <BlueText> NeighborHealth</BlueText> will contact you offering you a personal plan including dentis profile, hotel and tourist
-        recommendations and benefits you get using our <BlueText>NeighborHealth</BlueText> services.
+          Filling out the following questionnaire will help us prepare your free quote. 
         </Text>
         <Text>
-          We are very excited to welcome you to <span style={{ fontWeight: '600' }}>Mexico</span>!
+          Upon completion, please expect a NeighborHealth team member to contact you in less than 24 hours with your personalized plan. 
+        </Text>
+        <Text>
+          In the plan, you will find: dentist profiles, accommodation choices, and tourist recommendations based on your responses.
         </Text>
       </Intro>
       <Divisor />
       <ImageCont> <IMG src={patient}/> </ImageCont>
     </IntroContainer>
+    <Desc>
+      This is the NeighborHealth Advantage.
+      We are excited to Welcome you to Mexico!
+      Find out how much you can save on your dental treatment.
+    </Desc>
   </Container>
 );
 

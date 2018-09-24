@@ -1,18 +1,43 @@
 const path = require('path');
 
+exports.onCreateNode = ({ node, boundActionCreators }) => {
+  const { createNodeField } = boundActionCreators;
+
+  if (node.internal.type == 'MarkdownRemark') {
+    if(node.frontmatter.layout == "blog") {
+      let path = "";
+
+      let date = node.frontmatter.date;
+      let title = node.frontmatter.title;
+      date = date.slice(0, date.search("T"));
+      title = title.toLowerCase().trim().split(' ').join('-');
+      path = "content/blog/" + date + '-' + title;
+      
+      createNodeField({
+        node,
+        name: 'route',
+        value: path
+      });
+    }
+  }
+}
+
 exports.createPages = ({ boundActionCreators, graphql }) => {
   const { createPage } = boundActionCreators;
 
-  const blogPostTemplate = path.resolve(`src/templates/blogs.js`);
+  const blogPostTemplate = path.resolve(`src/templates/blogs.jsx`);
 
   return graphql(`{
-    allMarkdownRemark {
+    allMarkdownRemark(filter: {frontmatter: {layout: {eq: "blog"}}}) {
       edges {
         node {
           frontmatter {
             title
-            path
+            date
             layout
+          }
+          fields {
+            route
           }
         }
       }
@@ -25,20 +50,22 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
 
       result.data.allMarkdownRemark.edges
         .forEach(({ node }) => {
-            // select layout based on blog layout value
+          // select layout based on blog layout value
           let template = null;
-          switch(node.frontmatter.layout) {
+          switch (node.frontmatter.layout) {
             case "blog":
               template = blogPostTemplate;
               break;
           }
-          
+
+          const route = node.fields.route;
+
           createPage({
-            path: node.frontmatter.path,
+            path: route,
             component: template,
             context: {
-              route: node.frontmatter.path
-            } 
+              route: route
+            }
           });
         });
     });

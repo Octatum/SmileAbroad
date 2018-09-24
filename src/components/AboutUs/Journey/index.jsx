@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import {device} from './../../../utils/device';
+
 import Globe from './../assets/Globe.png';
 import Plane2 from './../assets/Plane2.png';
 import Pin from './../assets/Pin.png';
@@ -13,7 +15,7 @@ const Container = styled.div`
 
   padding-bottom: 1.5em;
 
-  font-size: calc(0.8rem + 0.5vw);
+  font-size: calc(0.75rem + 0.75vw);
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   color: black;
 
@@ -39,7 +41,7 @@ const TitleCont = styled.div`
 `;
 
 const Title = styled.p`
-  font-size: calc(1.75em + 1vw);
+  font-size: 1.75em;
   font-weight: bold;
   text-align: center;
   margin: 0.5em 0;
@@ -57,11 +59,13 @@ const CardContainer = styled.div`
   padding: 0 2em;
   margin-top: 2em;
 
+  font-size: 0.85em;
+
   & > * {
     margin: 0.5em 0;
   }
 
-  @media(max-width: 768px) {
+  ${device.tablet} {
     width: 100%;
   }
 `;
@@ -91,7 +95,7 @@ const CardTitle = styled.p`
     border-radius: 1em;
   }
 
-  @media(max-width: 425px) {
+  ${device.mobile} {
     width: 70%;
   }
 `;
@@ -102,7 +106,7 @@ const CardDescription = styled.p`
   width: 60%;
   padding: 0.5em 0;
 
-  @media(max-width: 425px) {
+  ${device.mobile} {
     width: 70%;
   }
 `;
@@ -119,36 +123,34 @@ const Journey = () => (
 
       <CardContainer>
         <CardImage src={Pin} />
-        <CardTitle>Affordability for everyone</CardTitle>
+        <CardTitle>Healthcare for everyone</CardTitle>
         <CardDescription>
-          <BoldText>NeighborHealth</BoldText> is funded by individuals who believe that 
-          <BoldText> healthcare</BoldText> should be easy and affordable for everyone.
+          <BoldText>NeighborHealth</BoldText> is funded by individuals who believe that healthcare should be easily accessible and affordable for all.
         </CardDescription>
       </CardContainer>
       
       <CardContainer>
         <CardImage src={Globe} />
-        <CardTitle>World's largest startup accelerator</CardTitle>
+        <CardTitle>Tried and Tested</CardTitle>
         <CardDescription>
-          <BoldText>NeighborHealth</BoldText> begins summer Bootcamp at Plug and
-          Play SiliCon Valley.
+          <BoldText>NeighborHealth</BoldText> has undergone Plug and Play Bootcamp, the largest startup accelerator in the world.
         </CardDescription>
       </CardContainer>
 
       <CardContainer>
         <CardImage src={Networking} />
-        <CardTitle>Great Networking</CardTitle>
+        <CardTitle>the NeighborHealth Certified Network</CardTitle>
         <CardDescription>
-          <BoldText>NeighborHealth</BoldText> Develpos a pre-screened Healthcare
-          network across Mexico.
+          <BoldText>NeighborHealth</BoldText> takes away the anxiety associated with trip planning. We have pre-screened specialists and provide you only with top-rated practicioners from across Mexico.
+
         </CardDescription>
       </CardContainer>
 
       <CardContainer>
         <CardImage src={Plane2} />
-        <CardTitle>Our Launch</CardTitle>
+        <CardTitle>Ready For You!</CardTitle>
         <CardDescription>
-          <BoldText>NeighborHealth</BoldText> is ready to launch.
+          We have sorted out the kinks, and are ready to welcome you on your NeighborHealth Experience to Mexico!
         </CardDescription>
       </CardContainer>
   </Container>

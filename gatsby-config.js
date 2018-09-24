@@ -14,6 +14,27 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/content/doctors`,
+        name: 'doctors'
+      }
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/content/videos`,
+        name: 'videos'
+      }
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/content/faq`,
+        name: 'faqs'
+      }
+    },
+    {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: []

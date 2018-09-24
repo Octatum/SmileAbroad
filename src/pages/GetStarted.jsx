@@ -6,13 +6,13 @@ import QuestionnaireIntro from '../components/GetStarted/QuestionnaireIntro';
 import Questionnaire from '../components/GetStarted/Questionnaire';
 
 const Title = styled.p`
-  font-size: calc(2.5rem + 1.25vw);
+  font-size: calc(1.5rem + 1vw);
   color: black;
   font-weight: 600;
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   width: 100%;
   text-align: center;
-  margin-top: 100px;
+  margin-top: 2em;
 `;
 
 const BlueTitle = Title.withComponent('span').extend`
