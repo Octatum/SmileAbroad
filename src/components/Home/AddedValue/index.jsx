@@ -43,7 +43,6 @@ const Title = styled.p`
   font-weight: 600;
   align-self: flex-start;
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
-  margin-bottom: 1.5em;
 
   ${device.tablet} {
     text-align: center;
@@ -58,8 +57,7 @@ const BlueTitle = Title.withComponent('span').extend`
 `;
 
 const InfoContainer = styled(Slider)`
-  margin: 30px;
-  margin-bottom: 70px;
+  margin: 4em 30px 6em 30px;
 
   & div {
     outline: none;
@@ -196,7 +194,8 @@ const AddedValue = () => {
   return (
 
     <Container>
-      <Title>We got you <BlueTitle>covered</BlueTitle></Title>
+      <Title>Get your <BlueTitle>afforadable</BlueTitle> dental treatment</Title>
+      <Subtitle style={{textAlign: "left"}}>And enjoy <BlueTitle>Mexico</BlueTitle> in three easy steps</Subtitle>
       <InfoContainer {...Settings} >
         <Div>
           <IMG> <Image src={clock} /> </IMG>

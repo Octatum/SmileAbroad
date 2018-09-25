@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 import nerdy from './../assets/nerdy.png';
-import {device} from './../../../utils/device';
+import { device } from './../../../utils/device';
 
 const Container = styled.div`
   font-size: calc(1rem + 0.75vw);
@@ -17,9 +17,11 @@ const Container = styled.div`
 `;
 
 const SlideContainer = styled.div`
-  display: flex;
+  display: ${props => props.show ? 'flex' : 'none'};
   flex-direction: row;
   flex-wrap: wrap;
+
+  min-height: 10em;
 
   margin: 3em;
   margin-right: 0;
@@ -30,6 +32,7 @@ const SlideContainer = styled.div`
     flex-direction: column;
     margin: 1.75em;
     margin-right: 0;
+    min-height: initial;
   }
 
 `;
@@ -37,6 +40,9 @@ const SlideContainer = styled.div`
 const TitleCont = styled.div`
   width: 100%;
   position: relative;
+  margin: 2em 0 0.5em 0;
+
+  font-size: 0.8em;
 
   ::before {
     content: "";
@@ -159,7 +165,7 @@ class Connection extends Component {
     super();
 
     this.state = {
-      currentSelected: 0
+      currentSelected: 1
     }
 
     this.bubbleClickHandler = this.bubbleClickHandler.bind(this);
@@ -173,13 +179,14 @@ class Connection extends Component {
   }
 
   render() {
-    let bubbles = [1,2,3,4,5,6,7,8];
+    let bubbles = [1, 2, 3, 4, 5];
     bubbles = bubbles.map((value, index) => {
+      console.log(index);
       return (
-        <Bubble 
-          onClick={(event) => this.bubbleClickHandler(event, index)} 
-          key={index} 
-          isSelected={this.state.currentSelected === index} >
+        <Bubble
+          onClick={(event) => this.bubbleClickHandler(event, value)}
+          key={index}
+          isSelected={this.state.currentSelected === value} >
           {value}
         </Bubble>
       );
@@ -188,15 +195,17 @@ class Connection extends Component {
     return (
       <Container id="how-it-works">
         <Title>How It Works</Title>
-        <SlideContainer>
+        <SlideContainer show={this.state.currentSelected == 1}>
+          <Title>Step 1 - Contact Us!</Title>
+
           <TitleCont>
             <Title>Your <BlueTitle>connection</BlueTitle> to easy and affordable <BlueTitle>healthcare</BlueTitle></Title>
           </TitleCont>
 
           <TextContainer>
             <Text>
-              Let us take the stress away! <br/>
-              After all, isn't that what a good neighbor is all about? <br/>
+              Let us take the stress away! <br />
+              After all, isn't that what a good neighbor is all about? <br />
               Two <BlueText>easy</BlueText> ways to begin your <BlueText>journey</BlueText>
             </Text>
             <UList>
@@ -208,6 +217,70 @@ class Connection extends Component {
           <ImageContainer>
             <Image src={nerdy} />
           </ImageContainer>
+        </SlideContainer>
+
+        <SlideContainer show={this.state.currentSelected == 2}>
+          <Title>Step 2 - Personalized Plan</Title>
+          <TitleCont>
+            <Title>Receive a <BlueTitle>personalized plan</BlueTitle> which includes: </Title>
+          </TitleCont>
+
+          <TextContainer>
+            <UList>
+              <li>Dentist's profile</li>
+              <li>Estimated cost and days abroad for your dental treatment</li>
+              <li>Accommodation options</li>
+              <li>Touristic recommendations and exclusive coupons</li>
+              <li>NeighborHealth services: Transportation to and from the airport and between your appointments.</li>
+              <li>Total savings</li>
+            </UList>
+          </TextContainer>
+        </SlideContainer>
+
+        <SlideContainer show={this.state.currentSelected == 3}>
+          <Title>Step 3 - Help us help you!</Title>
+
+          <TextContainer>
+            <Text>
+              Provide us your dental studies to help our certified specialist abroad define your personal treatment.
+              (e.g Digital Dental Panorama, Dental Cone Beam CT, Radiography, etc).
+            </Text>
+          </TextContainer>
+        </SlideContainer>
+
+        <SlideContainer show={this.state.currentSelected == 4}>
+          <Title>Step 4 - Payment</Title>
+
+          <TitleCont>
+            <Title>The <BlueTitle>payment</BlueTitle> is divided in two different sections</Title>
+          </TitleCont>
+
+          <TextContainer>
+            <UList>
+              <li><BlueText>The deposit:</BlueText> part of the deposit is a security for the dentist to secure your place an appointment. The other, is to book your hotel, tourist activities and transportation services.</li>
+              <li><BlueText>Final payment:</BlueText> is the remaining amount and must be provided once you have arrived at the dental clinic.</li>
+            </UList>
+          </TextContainer>
+        </SlideContainer>
+
+        <SlideContainer show={this.state.currentSelected == 5}>
+          <Title>Step 5 - Are you ready? Receive your agenda</Title>
+
+          <TitleCont>
+            <Title><BlueTitle>NeighborHealth</BlueTitle> will provide your personalized itinerary, which includes:</Title>
+          </TitleCont>
+
+          <TextContainer>
+            <UList>
+              <li>Your chosen accommodation reservation.</li>
+              <li>Your exclusive codes for tourist attractions.</li>
+              <li>Recommendation of places to eat in the zone.</li>
+              <li>NeighborHealth representative that will assist you during your stay.</li>
+            </UList>
+            <Text>
+              Your personalized itinerary will arrive before you set out on your trip, so your family and friends will always know where and how to keep in contact with you.
+            </Text>
+          </TextContainer>
         </SlideContainer>
 
         <BubbleContainer>
