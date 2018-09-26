@@ -7,13 +7,21 @@ author: Rodolfo Funes
 ---
 Fear.
 
+
+
 It can make us do incredible things; break world records, perform courageous feats, and what was impossible has become possible because of fear.
 
+
+
 Or. . .
+
+
 
 It can cause us to freeze; to forego an opportunity to break our personal glass ceiling, to give up, or to not even try at all.
 
 The difference: Choice. At least that’s what I believe, and that’s where our story begins.
+
+
 
 It’s January 2018, and our founders: Lucia Romo, Giovanna Abramo, Jacob Barrera, Daniel Maldonado and Rafael Alcaraz are in a Biomedical Engineering design class with an objective to solve a medical or health issue. It is here that Medico: A **medical tourism** platform was born and the foundation for **NeighborHealth** was laid. Thanks to their hard work, we have NeighborHealth today.
 
