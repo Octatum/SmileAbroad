@@ -170,11 +170,9 @@ class Navbar extends Component {
           <Navicon onClick={this.handleToggleClick} src={navicon} />
         </ToggleShowButton>
         <Nav display={this.state.open}>
-          <NavLink to="/">Home</NavLink>
           <NavLink to="/Blogs">Blogs</NavLink>          
           <NavLink to="/AboutUs#how-it-works">How it Works</NavLink>
-          <NavLink to="/Contact">Contact</NavLink>
-          <NavLink to="/Faq">FAQs</NavLink>
+          <NavLink to="/AboutUs#pricing">Pricing</NavLink>
           <Selection
             links={[
               { url: "/Network", name: "Our Network" },

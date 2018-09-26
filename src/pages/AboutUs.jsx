@@ -6,6 +6,7 @@ import Welcome from './../components/AboutUs/Welcome';
 import WhatWeDo from './../components/AboutUs/WhatWeDo';
 import Connection from './../components/AboutUs/Connection';
 import Journey from './../components/AboutUs/Journey';
+import Pricing from './../components/AboutUs/Pricing';
 
 const Container = styled.div`
   width: 100%;
@@ -18,6 +19,7 @@ const AboutUsPage = () => (
     <Welcome />
     <WhatWeDo />
     <Connection />
+    <Pricing />
     <Journey />
   </Container>
 )

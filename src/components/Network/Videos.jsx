@@ -19,6 +19,7 @@ const Title = styled.p`
   font-weight: bold;
   font-size: 2.5em;
   color: white;
+  text-align: center;
 `;
 
 const Video = styled.video`

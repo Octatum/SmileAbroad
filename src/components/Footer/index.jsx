@@ -72,6 +72,17 @@ const UsefulLink = styled(Link)`
   }
 `;
 
+const SocialLink = styled.a`
+  text-decoration: none;
+  color: white;
+  
+  padding: 10px 0;
+  font-size: 1em;
+  ${device.mobile} {
+    padding: 5px;
+  }
+`;
+
 const ContactCont = LinksCont.extend`
 `;
 
@@ -132,13 +143,9 @@ const Footer = () => (
       <LinksTitle>Useful Links</LinksTitle>
       <LinksCont>
         <UsefulLink to="/">Home</UsefulLink>
-        {/* 
-        <UsefulLink to="/">Company</UsefulLink>
-        <UsefulLink to="/">How To</UsefulLink>
-        <UsefulLink to="/">Terms of Use</UsefulLink>
-        */}
         <UsefulLink to="/Contact">Contact</UsefulLink>
         <UsefulLink to="/GetStarted">Get Started</UsefulLink>
+        <UsefulLink to="/Faq">FAQs</UsefulLink>
       </LinksCont>
     </Div>
     
@@ -148,7 +155,8 @@ const Footer = () => (
       <ContactTitle>Contact Us</ContactTitle>
       <ContactCont>
         <ContactData>+1 512 717 3280</ContactData>
-        <ContactData>Luciaromo94@gmail.com</ContactData>
+        <SocialLink href="https://www.facebook.com/NeighborHealth/" target="_blank">Facebook</SocialLink>
+        <SocialLink href="https://www.instagram.com/neighborhealthco/?hl=es-la" target="_blank">Instagram</SocialLink>
         <MessageButton to="/contact">send a message</MessageButton>
       </ContactCont>
     </Div>

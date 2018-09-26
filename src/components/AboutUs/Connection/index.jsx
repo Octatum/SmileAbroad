@@ -181,7 +181,6 @@ class Connection extends Component {
   render() {
     let bubbles = [1, 2, 3, 4, 5];
     bubbles = bubbles.map((value, index) => {
-      console.log(index);
       return (
         <Bubble
           onClick={(event) => this.bubbleClickHandler(event, value)}

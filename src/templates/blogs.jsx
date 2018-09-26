@@ -61,6 +61,7 @@ const ReactMD = styled(ReactMarkdown)`
 
   p strong {
     font-weight: bold;
+    display: inline-block;
   }
 
   p em {
@@ -132,15 +133,27 @@ const Title = styled.p`
 `;
 
 const AuthorMedia = styled.div`
-  width: 100%;
-  min-height: 50px;
-  background: grey;
+  font-size: 2em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  > * {
+    margin-right: 1em;
+  }
 
   ${device.tablet} {
     padding: 0 15px;
-    width: 100%;
   }
 `;
+
+const Author = styled.p`
+  font-size: 0.8em;
+  font-style: italic;
+  display: inline-block;
+
+`;
+
 
 const ThumbnailImage = styled.img`
   max-width: 100%;
@@ -157,7 +170,10 @@ export default function Template(props) {
     <Container>
       <Helmet title={post.frontmatter.title} />
       <Title>{post.frontmatter.title}</Title>
-      <AuthorMedia />
+      <AuthorMedia>
+        <Author>{post.frontmatter.author}</Author>
+        <iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fwww.facebook.com%2FNeighborHealth%2F&layout=button&size=small&mobile_iframe=true&width=59&height=20&appId" width="59" height="20" style={{border: "none", overflow: "hidden"}} scrolling="no" frameBorder="0" allowTransparency="true" />
+      </AuthorMedia>
       <ThumbnailImage src={post.frontmatter.thumbnail} />
       <ReactMD source={post.rawMarkdownBody} />
     </Container>
@@ -174,6 +190,7 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         title
         thumbnail
+        author
       }
     }
   }
