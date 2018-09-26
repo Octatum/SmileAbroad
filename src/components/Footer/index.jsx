@@ -148,7 +148,7 @@ const Footer = () => (
       <ContactTitle>Contact Us</ContactTitle>
       <ContactCont>
         <ContactData>+1 512 717 3280</ContactData>
-        <ContactData>Luciaromo94@gmail.com</ContactData>
+        <ContactData>lucia@neighborhealthco.com</ContactData>
         <MessageButton to="/contact">send a message</MessageButton>
       </ContactCont>
     </Div>
