@@ -9,6 +9,8 @@ import calendar from './assets/calendar.png';
 import board from './assets/board.png';
 import photos from './assets/photos.png';
 
+import {svgs} from './Svgs';
+
 import eogsea from './assets/eogsea.png';
 import plugplay from './assets/plugplay.png';
 import sksw from './assets/sksw.png';
@@ -67,6 +69,13 @@ const InfoContainer = styled(Slider)`
 // img container to maintain sizing
 const IMG = styled.div`
   margin: 0 auto 40px auto;
+
+  svg {
+    fill: ${props => props.theme.color.lightBlue};
+    height: 4.5em;
+    display: block;
+    margin: auto;
+  }
 
   ${device.mobile} {
     margin: auto;
@@ -198,25 +207,34 @@ const AddedValue = () => {
       <Subtitle style={{textAlign: "left"}}>And enjoy <BlueTitle>Mexico</BlueTitle> in three easy steps</Subtitle>
       <InfoContainer {...Settings} >
         <Div>
-          <IMG> <Image src={clock} /> </IMG>
+          <IMG> 
+            {svgs.appointment}
+          </IMG>
           <SubCont> <Subtitle>We are here for you</Subtitle> </SubCont>
           <Separator />
           <ContDesc> <Description>24/7 – We’re here for you, ready to help</Description></ContDesc>
         </Div>
         <Div>
-          <IMG> <Image src={calendar} /> </IMG>
+          <IMG> 
+            {svgs.record}
+          </IMG>
+
           <SubCont> <Subtitle>Anxiety free travel</Subtitle> </SubCont>
           <Separator />
           <ContDesc> <Description>We take care of setting up appointments, accommodation, transportation, and translation</Description> </ContDesc>
         </Div>
         <Div>
-          <IMG> <Image src={board} /> </IMG>
+          <IMG>
+           {svgs.doctor}
+          </IMG>
           <SubCont> <Subtitle>Free estimates</Subtitle> </SubCont>
           <Separator />
           <ContDesc> <Description>NeighborHealth provides you with a personalized itinerary and access to our certified specialists and dental clinics</Description></ContDesc>
         </Div>
         <Div>
-          <IMG> <Image src={photos} /> </IMG>
+          <IMG> 
+            {svgs.doubleDocs}
+          </IMG>
           <SubCont> <Subtitle>The NeighborHealth Experience</Subtitle> </SubCont>
           <Separator />
           <ContDesc> <Description>Safety, transparency, and quality service are part of our pledge</Description></ContDesc>

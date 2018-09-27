@@ -5,11 +5,13 @@ import Link from 'gatsby-link';
 import Slider from 'react-slick';
 import { device } from './../../../utils/device';
 
-import rightArrow from './../../../components/assets/rightArrow.svg';
-import booking from './assets/booking.png';
-import transport from './assets/transport.png';
-import accomodation from './assets/accomodation.png';
-import travel from './assets/travel.png';
+
+import luggage from './assets/luggage.svg';
+import appointment from './assets/appointment.svg';
+import travel from './assets/travel.svg';
+
+import {svgs} from './Svgs';
+
 
 const Container = styled(Slider)`
   margin: 50px 0;
@@ -24,12 +26,18 @@ const ServiceImgContainer = styled.div`
   margin: auto;
   display: flex;
   justify-content: center;
+
+  svg {
+    fill: ${props => props.theme.color.lightBlue};
+    height: 4.5em;
+  }
 `;
 
-const ServiceImg = styled.img`
+const ServiceImg = styled.object`
   position: relative;  
   height: 4.5em;
   width: auto;
+  color: ${props => props.theme.color.lightBlue};
 `;
 
 const IndivService = styled.div`
@@ -66,38 +74,7 @@ const Description = Title.extend`
     font-size: 0.90em;
   }
 `;
-/* 
-const ArrowButton = styled(Link)`
-  width: 20%;
-  text-decoration: none;
-  margin: auto;
-  bottom: 0;
-  left: 0;
 
-  display: none;
-
-  transition: transform 0.25s linear;
-  transform: scale(0);
-
-  &:hover > *, 
-  & > *:hover {
-    transform: scale(1.1);
-  }
-`;
-
-const Arrow = styled.img`
-  width: 3rem;
-  margin: auto;
-  transition: transform 0.25s ease-in-out;
-
-  ${device.mobile} {
-    width: 70px;
-  }
-  ${device.laptop} {
-    width: 100px;
-  }
-`;
- */
 const Div = styled.div`
   position: relative;
   height: 100%; 
@@ -132,29 +109,36 @@ const Services = () => {
   return (
     <Container {...Settings}>
       <Div>
-        <ServiceImgContainer> <ServiceImg src={booking} /> </ServiceImgContainer>
+        <ServiceImgContainer> 
+          {svgs.appointment}
+        </ServiceImgContainer>
         <IndivService>
           <Title>Booking</Title>
           <Description>Setting up your appointment with a top-rated specialist has never been easier than through the NeighborHealth Certified Network</Description>
         </IndivService>
-        {/* <ArrowButton to="/"><Arrow src={rightArrow} /></ArrowButton>*/}
       </Div>
       <Div>
-        <ServiceImgContainer> <ServiceImg src={transport} /> </ServiceImgContainer>
+        <ServiceImgContainer> 
+          {svgs.luggage}
+        </ServiceImgContainer>
         <IndivService>
           <Title>Transportation</Title>
           <Description>At no extra cost, we’ve got you covered throughout your stay</Description>
         </IndivService>
       </Div>
       <Div>
-        <ServiceImgContainer> <ServiceImg src={accomodation} /> </ServiceImgContainer>
+        <ServiceImgContainer> 
+          {svgs.luggage}
+        </ServiceImgContainer>
         <IndivService>
           <Title>Accomodation</Title>
           <Description>Enjoy the full NeighborHealth experience – Stay with our partner hotels that ensure a safe and comfortable stay</Description>
         </IndivService>
       </Div>
       <Div>
-        <ServiceImgContainer> <ServiceImg src={travel} /> </ServiceImgContainer>
+        <ServiceImgContainer> 
+          {svgs.travel}
+        </ServiceImgContainer>
         <IndivService>
           <Title>Tourism</Title>
           <Description>V.I.P Access to the city’s Best Attractions</Description>
