@@ -5,6 +5,8 @@ import styled from 'styled-components';
 import ReactMarkdown from 'react-markdown';
 import {device} from '../utils/device';
 
+import AuthorMedia from './../components/AuthorMedia';
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -132,29 +134,6 @@ const Title = styled.p`
   }
 `;
 
-const AuthorMedia = styled.div`
-  font-size: 2em;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-
-  > * {
-    margin-right: 1em;
-  }
-
-  ${device.tablet} {
-    padding: 0 15px;
-  }
-`;
-
-const Author = styled.p`
-  font-size: 0.8em;
-  font-style: italic;
-  display: inline-block;
-
-`;
-
-
 const ThumbnailImage = styled.img`
   max-width: 100%;
   height: auto;
@@ -170,10 +149,9 @@ export default function Template(props) {
     <Container>
       <Helmet title={post.frontmatter.title} />
       <Title>{post.frontmatter.title}</Title>
-      <AuthorMedia>
-        <Author>{post.frontmatter.author}</Author>
-        <iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fwww.facebook.com%2FNeighborHealth%2F&layout=button&size=small&mobile_iframe=true&width=59&height=20&appId" width="59" height="20" style={{border: "none", overflow: "hidden"}} scrolling="no" frameBorder="0" allowTransparency="true" />
-      </AuthorMedia>
+      <AuthorMedia 
+        authorName={post.frontmatter.author} 
+        facebookURL="NeighborHealth"/>
       <ThumbnailImage src={post.frontmatter.thumbnail} />
       <ReactMD source={post.rawMarkdownBody} />
     </Container>

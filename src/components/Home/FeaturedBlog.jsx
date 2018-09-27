@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Link from 'gatsby-link';
 import { device } from './../../utils/device';
+import AuthorMedia from './../AuthorMedia';
 
 const Container = styled.div`
   display: flex;
@@ -50,10 +51,6 @@ const ReadMore = styled(Link)`
   color: ${props => props.theme.color.lightBlue};
 `;
 
-const AuthorName = styled.p`
-  color: ${props => props.theme.color.lightBlue};
-`;
-
 const FeaturedBlog = (props) => {
 
   const node = props.postData.allMarkdownRemark.edges[0].node;
@@ -62,7 +59,9 @@ const FeaturedBlog = (props) => {
     <Container>
       <Title>{node.frontmatter.title}</Title>
       <Author>
-        <AuthorName>{node.frontmatter.author}</AuthorName>
+        <AuthorMedia 
+          authorName={node.frontmatter.author}
+          facebookURL="NeighborHealth" />
       </Author>
       <Image src={node.frontmatter.thumbnail}></Image>
       <Extract>
