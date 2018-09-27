@@ -6,6 +6,8 @@ import Idea from './../assets/Idea.png';
 import People from './../assets/People.png';
 import Plane from './../assets/Plane.png';
 
+import {svgs} from './svgs';
+
 const Container = styled.div`
   width: 100%;
   margin: 50px 0;
@@ -38,17 +40,13 @@ const IconContainer = styled.div`
   align-items: center;
   justify-content: center;
 
-  position: relative;
-  ::before {
-    content: "";
-    position: absolute;
-    top: 60%;
-    left: 0;    
-
-    width: 100%;
-    height: 20%;
-    background: ${props => props.theme.color.lightBlue};
+  svg {
+    width: 30%;
+    position: relative;
+    display: block;
   }
+
+  position: relative;
 `;
 const Icon = styled.img`
   width: 30%;
@@ -102,7 +100,9 @@ const WhatWeDo = () => {
       <Title>Our Values</Title>
       <SliderMod {...Settings} >
         <Div>
-          <IconContainer> <Icon src={Idea} /> </IconContainer>
+          <IconContainer> 
+            {svgs.badge}    
+         </IconContainer>
           <Title>We are <BlueTitle>innovative</BlueTitle> </Title>
           <Text>
             We leverage technological factors and our local expertise to make the “impossible” happen. 
@@ -110,7 +110,9 @@ const WhatWeDo = () => {
           </Text>
         </Div>
         <Div>
-          <IconContainer> <Icon src={People} /> </IconContainer>
+          <IconContainer>
+            {svgs.chat}
+          </IconContainer>
           <Title>We believe in a <BlueTitle>community</BlueTitle> </Title>
           <Text>
           Helping one another to ensure mutual success as individuals and as a community. 
@@ -119,7 +121,9 @@ const WhatWeDo = () => {
           </Text>
         </Div>
         <Div>
-          <IconContainer> <Icon src={Plane} /> </IconContainer>
+          <IconContainer>
+            {svgs.implant}
+          </IconContainer>
           <Title>Our service <BlueTitle>pledge</BlueTitle> </Title>
           <Text>
           We pledge to provide you with a healing, safe, and enjoyable experience. 

@@ -8,6 +8,8 @@ import Plane2 from './../assets/Plane2.png';
 import Pin from './../assets/Pin.png';
 import Networking from './../assets/Networking.png';
 
+import {svgs} from './svgs';
+
 const Container = styled.div`
   display: flex;
   flex-direction: row;
@@ -60,6 +62,12 @@ const CardContainer = styled.div`
   margin-top: 2em;
 
   font-size: 0.85em;
+
+  svg {
+    height: 10em;
+    display: block;
+    fill: white;
+  }
 
   & > * {
     margin: 0.5em 0;
@@ -122,7 +130,7 @@ const Journey = () => (
     </TitleCont>
 
       <CardContainer>
-        <CardImage src={Pin} />
+        {svgs.protection}
         <CardTitle>Healthcare for everyone</CardTitle>
         <CardDescription>
           <BoldText>NeighborHealth</BoldText> is funded by individuals who believe that healthcare should be easily accessible and affordable for all.
@@ -130,7 +138,7 @@ const Journey = () => (
       </CardContainer>
       
       <CardContainer>
-        <CardImage src={Globe} />
+        {svgs.location}
         <CardTitle>Tried and Tested</CardTitle>
         <CardDescription>
           <BoldText>NeighborHealth</BoldText> has undergone Plug and Play Bootcamp, the largest startup accelerator in the world.
@@ -138,7 +146,7 @@ const Journey = () => (
       </CardContainer>
 
       <CardContainer>
-        <CardImage src={Networking} />
+        {svgs.ekgMonitor}
         <CardTitle>the NeighborHealth Certified Network</CardTitle>
         <CardDescription>
           <BoldText>NeighborHealth</BoldText> takes away the anxiety associated with trip planning. We have pre-screened specialists and provide you only with top-rated practicioners from across Mexico.
@@ -147,7 +155,7 @@ const Journey = () => (
       </CardContainer>
 
       <CardContainer>
-        <CardImage src={Plane2} />
+        {svgs.crown}
         <CardTitle>Ready For You!</CardTitle>
         <CardDescription>
           We have sorted out the kinks, and are ready to welcome you on your NeighborHealth Experience to Mexico!

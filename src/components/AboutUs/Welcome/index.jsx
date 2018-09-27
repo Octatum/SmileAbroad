@@ -11,6 +11,8 @@ const Cont = styled.div`
   position: relative;
   padding: 2em;
 
+  border-bottom: 2em solid ${props => props.theme.color.lightBlue};
+
   p, span, a {
     font-family: ${props => props.theme.fontFamily.main}, sans-serif;
     text-align: center;
