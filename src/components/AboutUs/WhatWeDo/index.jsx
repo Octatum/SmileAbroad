@@ -2,10 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import Slider from 'react-slick';
 
-import Idea from './../assets/Idea.png';
-import People from './../assets/People.png';
-import Plane from './../assets/Plane.png';
-
 import {svgs} from './svgs';
 
 const Container = styled.div`

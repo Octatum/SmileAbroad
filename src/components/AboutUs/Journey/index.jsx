@@ -3,11 +3,6 @@ import styled from 'styled-components';
 
 import {device} from './../../../utils/device';
 
-import Globe from './../assets/Globe.png';
-import Plane2 from './../assets/Plane2.png';
-import Pin from './../assets/Pin.png';
-import Networking from './../assets/Networking.png';
-
 import {svgs} from './svgs';
 
 const Container = styled.div`
@@ -64,7 +59,7 @@ const CardContainer = styled.div`
   font-size: 0.85em;
 
   svg {
-    height: 10em;
+    height: 7.5em;
     display: block;
     fill: white;
   }

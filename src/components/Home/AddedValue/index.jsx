@@ -4,11 +4,6 @@ import styled from 'styled-components';
 import Slider from 'react-slick';
 import {device} from '../../../utils/device';
 
-import clock from './assets/clock.png';
-import calendar from './assets/calendar.png';
-import board from './assets/board.png';
-import photos from './assets/photos.png';
-
 import {svgs} from './Svgs';
 
 import eogsea from './assets/eogsea.png';

@@ -5,11 +5,6 @@ import Link from 'gatsby-link';
 import Slider from 'react-slick';
 import { device } from './../../../utils/device';
 
-
-import luggage from './assets/luggage.svg';
-import appointment from './assets/appointment.svg';
-import travel from './assets/travel.svg';
-
 import {svgs} from './Svgs';
 
 
