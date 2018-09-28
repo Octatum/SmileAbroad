@@ -9,13 +9,13 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: calc(0.75rem + 0.75vw);
+  font-size: calc(1rem + 0.75vw);
   font-family: ${props => props.theme.fontFamily.main};
 
   padding: 1.5em 0;
   padding-bottom: 5em;
 
-  background-color: ${props => props.theme.color.lightBlue};
+  background-color: white;
   min-height: 75vh;
   > p {
     margin-bottom: 1em;
@@ -27,27 +27,24 @@ const Container = styled.div`
 
 const Title = styled.p`
   font-size: 1.5em;
-  color: white;
+  color: black;
   font-weight: bold; 
+  text-align: center;
   span {
     color: black;
   }
 `;
 
 const Separator = styled.div`
-  background: white;
-  width: 3em;
-  height: 5px;
+  background: ${props => props.theme.color.lightBlue};
+  width: 2.5em;
+  height: 6px;
   border-radius: 1em;
-`;
-const SeparatorThin = Separator.extend`
-  widtH: 5em;
-  height: 2px;
 `;
 
 const Text = styled.p`
   font-size: 1em;
-  color: white;
+  color: black;
   width: 35%;
   text-align: center; 
 
@@ -56,37 +53,83 @@ const Text = styled.p`
   }
 `;
 
+const Sections = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  position: relative;
+
+  border: 4px dashed black;
+  border-radius: 3em;
+
+  width: 90%;
+  padding: 2em;
+
+  ${device.tablet} {
+    flex-direction: column;
+  }
+`;
+
 const Button = styled(GetStartedButton)`
+  position: absolute;
+  bottom: -1em;
+  
+
   div {
-    border-radius: 0.5em;
+    border-radius: 0.75em;
     padding: 0.25em 1.5em;
     background: black;
 
     &:hover{
-      background: ${props => props.theme.color.lightBlue};
+      background: white;
       color: black;
       border-color: black;
     }
   }
 `;
 
+const PaymentOptions = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.75em;
+  max-width: 20%;
+  p {
+    width: initial;
+  }
+
+  ${device.tablet} {
+    max-width: initial;
+  }
+`;
+
+
+const GiantText = styled.span`
+  font-size: 5em;
+  color: ${props => props.theme.color.lightBlue};
+  font-weight: bold;
+`;
+
+
 const Pricing = () => (
   <Container id="pricing">
     <Title>Pricing</Title>
     <Separator />
-    <Text>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    </Text>
-    <SeparatorThin />
-    <Title>Pricing <span>One</span></Title>
-    <Text>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    </Text>
-    <Button/>
+    <Text>The payment is divided in two different sections:</Text>
+    <Sections>
+      <PaymentOptions>
+        <Title>Deposit</Title>
+        <Text>Part of the deposit is a security for the dentist to secure your place and appointment.</Text>
+        <Text>the other part is to book your hotel and tourist activities</Text>
+      </PaymentOptions>
+      <GiantText>&amp;</GiantText>
+      <PaymentOptions>
+        <Title>Payment</Title>
+        <Text>This final payment is the renaming amount and must be provided once you have arrived at the dental clinic.</Text>
+      </PaymentOptions>
+      <Button />
+    </Sections>
   </Container>
 )
 

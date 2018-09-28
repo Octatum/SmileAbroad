@@ -51,6 +51,10 @@ const ReadMore = styled(Link)`
   color: ${props => props.theme.color.lightBlue};
 `;
 
+const AuthorStyled = styled(AuthorMedia)`
+  font-size: 1em;
+`;
+
 const FeaturedBlog = (props) => {
 
   const node = props.postData.allMarkdownRemark.edges[0].node;
@@ -59,7 +63,7 @@ const FeaturedBlog = (props) => {
     <Container>
       <Title>{node.frontmatter.title}</Title>
       <Author>
-        <AuthorMedia 
+        <AuthorStyled 
           authorName={node.frontmatter.author}
           facebookURL="NeighborHealth" />
       </Author>

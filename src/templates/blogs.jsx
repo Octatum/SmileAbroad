@@ -142,6 +142,7 @@ const ThumbnailImage = styled.img`
   align-self: center;
 `;
 
+
 export default function Template(props) {
   const { markdownRemark: post } = props.data;
 

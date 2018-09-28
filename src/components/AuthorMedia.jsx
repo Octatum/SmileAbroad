@@ -19,7 +19,6 @@ const Container = styled.div`
 `;
 
 const Author = styled.p`
-  font-size: 0.8em;
   font-style: italic;
   display: inline-block;
 
