@@ -25,19 +25,18 @@ const Author = styled.p`
 `;
 
 
-const AuthorMedia = ({authorName, className, facebookURL}) => {
-  console.log(facebookURL);
+const AuthorMedia = ({authorName, className}) => {
   return (
     <Container className={className}>
       <Author>{authorName}</Author>
-      {facebookURL && <iframe 
-        src={"https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fwww.facebook.com%2F" + facebookURL + "%2F&layout=button&size=small&mobile_iframe=true&width=59&height=20&appId"} 
+      <iframe 
+        src={"https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fwww.facebook.com%2FNeighborHealth%2F&layout=button&size=small&mobile_iframe=true&width=59&height=20&appId"} 
         width="59" 
         height="20" 
         style={{border: "none", overflow: "hidden"}} 
         scrolling="no" 
         frameBorder="0" 
-        allowTransparency="true" />}
+        allowTransparency="true" />
       
 
     </Container>
@@ -46,8 +45,7 @@ const AuthorMedia = ({authorName, className, facebookURL}) => {
 
 AuthorMedia.propTypes = {
   authorName: PropTypes.string.isRequired,
-  className: PropTypes.string,
-  facebookURL: PropTypes.string
+  className: PropTypes.string
 
 }
 

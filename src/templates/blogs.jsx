@@ -151,8 +151,7 @@ export default function Template(props) {
       <Helmet title={post.frontmatter.title} />
       <Title>{post.frontmatter.title}</Title>
       <AuthorMedia 
-        authorName={post.frontmatter.author} 
-        facebookURL="NeighborHealth"/>
+        authorName={post.frontmatter.author} />
       <ThumbnailImage src={post.frontmatter.thumbnail} />
       <ReactMD source={post.rawMarkdownBody} />
     </Container>

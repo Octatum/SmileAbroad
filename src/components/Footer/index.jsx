@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Link from 'gatsby-link';
-import {device} from '../../utils/device';
+import { device } from '../../utils/device';
 
 const Container = styled.div`
   display: flex;
@@ -30,7 +30,7 @@ const Texto = styled.p`
 `;
 
 const Description = Texto.extend`
-  width: 40%;
+  width: 30%;
 `;
 
 const Separator = styled.div`
@@ -133,7 +133,7 @@ const Footer = () => (
   <Container>
     <Description>
       NeighborHealth creates a personalized itinerary that provides you with personal transportation between dental appointments,
-      any selected tourist activities and attractions, and your chosen accommodation services which have all been 
+      any selected tourist activities and attractions, and your chosen accommodation services which have all been
       pre-selected for safety and convenience.
     </Description>
 
@@ -148,16 +148,24 @@ const Footer = () => (
         <UsefulLink to="/Faq">FAQs</UsefulLink>
       </LinksCont>
     </Div>
-    
+
     <Separator />
-    
+
     <Div>
       <ContactTitle>Contact Us</ContactTitle>
       <ContactCont>
         <ContactData>+1 512 717 3280</ContactData>
+        <MessageButton to="/contact">send a message</MessageButton>
+      </ContactCont>
+    </Div>
+
+    <Separator />
+
+    <Div>
+      <ContactTitle>Let's connect!</ContactTitle>
+      <ContactCont>
         <SocialLink href="https://www.facebook.com/NeighborHealth/" target="_blank">Facebook</SocialLink>
         <SocialLink href="https://www.instagram.com/neighborhealthco/?hl=es-la" target="_blank">Instagram</SocialLink>
-        <MessageButton to="/contact">send a message</MessageButton>
       </ContactCont>
     </Div>
 

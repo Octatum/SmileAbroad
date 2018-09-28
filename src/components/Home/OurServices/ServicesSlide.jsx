@@ -77,9 +77,12 @@ const GetStarted = styled(GetStartedButton)`
   }
 `;
 
-const BlueButton = ButtonComponent(Link).extend`
+const VideoLink = styled.a``
+
+const BlueButton = ButtonComponent(VideoLink).extend`
   padding: 10px 1em;
   font-size: 1.25em;
+  cursor: pointer;
 `;
 
 const BubbleCont = ButtonCont.extend`
@@ -117,6 +120,13 @@ class ServiceSlide extends Component {
     this.state = {
       currentActiveBubble: 1,
     };
+
+    this.onClickVideoHandle = this.onClickVideoHandle.bind(this);
+  }
+
+  onClickVideoHandle(event) {
+    event.preventDefault();
+    window.open("https://www.youtube.com/watch?v=ra8YOIDrozc", "Video", "width=500,height=500");
   }
 
   bubbleClick(event, key) {
@@ -145,7 +155,7 @@ class ServiceSlide extends Component {
           Go ahead, Visit Mexico to get your quality dental treatment at a price you can afford.
         </Description>
         <ButtonCont>
-          <BlueButton to="/">Learn More</BlueButton>
+          <BlueButton onClick={this.onClickVideoHandle}>Watch Video</BlueButton>
           <GetStarted />
 
         </ButtonCont>

@@ -64,8 +64,7 @@ const FeaturedBlog = (props) => {
       <Title>{node.frontmatter.title}</Title>
       <Author>
         <AuthorStyled 
-          authorName={node.frontmatter.author}
-          facebookURL="NeighborHealth" />
+          authorName={node.frontmatter.author} />
       </Author>
       <Image src={node.frontmatter.thumbnail}></Image>
       <Extract>
