@@ -5,7 +5,7 @@ import Presentation from '../components/Presentation';
 import OurServices from '../components/Home/OurServices';
 import AddedValue from '../components/Home/AddedValue';
 import FeaturedBlog from '../components/Home/FeaturedBlog';
-
+import Assessment from './../components/Home/Assessment';
 
 const Separator = styled.hr`
   background: #00C6DB;
@@ -24,6 +24,8 @@ const IndexPage = (props) => (
 
     <Separator />
     <AddedValue />
+
+    <Assessment />
   </div>
 )
 
