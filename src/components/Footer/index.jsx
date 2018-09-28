@@ -21,6 +21,12 @@ const Container = styled.div`
 
   ${device.mobile} {
     padding: 20px 10px;
+
+    display: grid;
+    grid-template: auto auto / 1fr 1fr 1fr;
+    grid-template-areas:
+      "desc useful useful"
+      "desc connect contact";
   }
 `;
 
@@ -31,6 +37,9 @@ const Texto = styled.p`
 
 const Description = Texto.extend`
   width: 30%;
+  ${device.mobile} {
+    width: initial;
+  }
 `;
 
 const Separator = styled.div`
@@ -59,6 +68,11 @@ const LinksCont = styled.div`
   align-items: center;
 
   text-align: center;
+
+  ${device.mobile} {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 `;
 
 const UsefulLink = styled(Link)`
@@ -85,9 +99,7 @@ const SocialLink = styled.a`
 
 const ContactCont = LinksCont.extend`
 `;
-
 const ContactTitle = LinksTitle.extend`
-
 `;
 
 const ContactData = Texto.extend`
@@ -106,8 +118,8 @@ const MessageButton = styled(Link)`
   border-radius: 30px;
   text-decoration: none;
   padding: 5px 0.5em;
-  margin: 20px;
-  font-size: 1em;
+  margin: 1em;
+  font-size: 0.75em;
   
   text-align: center;
 
@@ -127,11 +139,17 @@ const Div = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-self: flex-start;
+
+  ${device.mobile} {
+    > p {
+      margin-bottom: 0.75em;
+    }
+  }
 `;
 
 const Footer = () => (
   <Container>
-    <Description>
+    <Description style={{gridArea:"desc"}}>
       NeighborHealth creates a personalized itinerary that provides you with personal transportation between dental appointments,
       any selected tourist activities and attractions, and your chosen accommodation services which have all been
       pre-selected for safety and convenience.
@@ -139,7 +157,7 @@ const Footer = () => (
 
     <Separator />
 
-    <Div>
+    <Div style={{gridArea:"useful"}}>
       <LinksTitle>Useful Links</LinksTitle>
       <LinksCont>
         <UsefulLink to="/">Home</UsefulLink>
@@ -151,7 +169,7 @@ const Footer = () => (
 
     <Separator />
 
-    <Div>
+    <Div style={{gridArea:"contact"}}>
       <ContactTitle>Contact Us</ContactTitle>
       <ContactCont>
         <ContactData>+1 512 717 3280</ContactData>
@@ -161,7 +179,7 @@ const Footer = () => (
 
     <Separator />
 
-    <Div>
+    <Div style={{gridArea:"connect"}}>
       <ContactTitle>Let's connect!</ContactTitle>
       <ContactCont>
         <SocialLink href="https://www.facebook.com/NeighborHealth/" target="_blank">Facebook</SocialLink>

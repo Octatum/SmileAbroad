@@ -4,11 +4,19 @@ import Helmet from 'react-helmet';
 
 import Faq from './../components/Faq';
 
+import {device} from './../utils/device'
+
 const Title = styled.p`
   font-size: calc(2rem + 0.75vw);
   font-weight: bold;
+  font-family: ${props => props.theme.fontFamily.main};
+  
   margin: 1.5em auto;
   width: 70%;
+
+  ${device.tablet} {
+    text-align: center;
+  }
 `;
 const BlueText = styled.span`
   color: ${props => props.theme.color.lightBlue};
@@ -17,7 +25,7 @@ const BlueText = styled.span`
 const FaqPage = ({data}) => (
   <div>
     <Helmet title="Frequently Asked Questions" />
-    <Title><BlueText>NeighborHealth</BlueText> Frequently Asked Questions</Title>
+    <Title>Neighbor<BlueText>Health</BlueText> Frequently Asked Questions</Title>
     <Faq allQuestions={data.allMarkdownRemark.edges}/>
   </div>
 )
