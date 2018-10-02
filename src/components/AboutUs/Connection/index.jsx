@@ -17,7 +17,7 @@ const Container = styled.div`
 `;
 
 const SlideContainer = styled.div`
-  display: ${props => props.show ? 'flex' : 'none'};
+  display: ${props => (props.show ? 'flex' : 'none')};
   flex-direction: row;
   flex-wrap: wrap;
 
@@ -34,7 +34,6 @@ const SlideContainer = styled.div`
     margin-right: 0;
     min-height: initial;
   }
-
 `;
 
 const TitleCont = styled.div`
@@ -45,7 +44,7 @@ const TitleCont = styled.div`
   font-size: 0.8em;
 
   ::before {
-    content: "";
+    content: '';
     position: absolute;
     width: 3em;
     height: 0.2em;
@@ -109,7 +108,8 @@ const Image = styled.img`
 
 const UList = styled.ul`
   list-style-position: inside;
-  &, & > li {
+  &,
+  & > li {
     margin: 1em 0;
   }
 `;
@@ -141,17 +141,17 @@ const Bubble = styled.button`
   border-radius: 50%;
 
   background: ${props => props.theme.color.lightBlue};
-  opacity: ${props => props.isSelected ? 1 : 0.4};
+  opacity: ${props => (props.isSelected ? 1 : 0.4)};
   outline: none;
 
   cursor: pointer;
 
   transition: box-shadow 0.25s linear;
-   
-  :hover{
-    box-shadow: 4px 4px 4px 0 rgba(0,0,0,0.3);
+
+  :hover {
+    box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.3);
   }
-  
+
   ${device.tablet} {
     transition: none;
     :hover {
@@ -165,8 +165,8 @@ class Connection extends Component {
     super();
 
     this.state = {
-      currentSelected: 1
-    }
+      currentSelected: 1,
+    };
 
     this.bubbleClickHandler = this.bubbleClickHandler.bind(this);
   }
@@ -174,7 +174,7 @@ class Connection extends Component {
   bubbleClickHandler(event, key) {
     event.preventDefault();
     this.setState({
-      currentSelected: key
+      currentSelected: key,
     });
   }
 
@@ -183,13 +183,13 @@ class Connection extends Component {
     bubbles = bubbles.map((value, index) => {
       return (
         <Bubble
-          onClick={(event) => this.bubbleClickHandler(event, value)}
+          onClick={event => this.bubbleClickHandler(event, value)}
           key={index}
-          isSelected={this.state.currentSelected === value} >
+          isSelected={this.state.currentSelected === value}>
           {value}
         </Bubble>
       );
-    })
+    });
 
     return (
       <Container id="how-it-works">
@@ -198,18 +198,24 @@ class Connection extends Component {
           <Title>Step 1 - Contact Us!</Title>
 
           <TitleCont>
-            <Title>Your <BlueTitle>connection</BlueTitle> to easy and affordable <BlueTitle>healthcare</BlueTitle></Title>
+            <Title>
+              Your <BlueTitle>connection</BlueTitle> to easy and affordable{' '}
+              <BlueTitle>healthcare</BlueTitle>
+            </Title>
           </TitleCont>
 
           <TextContainer>
             <Text>
               Let us take the stress away! <br />
               After all, isn't that what a good neighbor is all about? <br />
-              Two <BlueText>easy</BlueText> ways to begin your <BlueText>journey</BlueText>
+              Two <BlueText>easy</BlueText> ways to begin your{' '}
+              <BlueText>journey</BlueText>
             </Text>
             <UList>
               <li>Send us a message through our website</li>
-              <li>Call us at: <BlueText>+1-512-717-3280</BlueText></li>
+              <li>
+                Call us at: <BlueText>+1-512-717-3280</BlueText>
+              </li>
             </UList>
           </TextContainer>
 
@@ -221,7 +227,9 @@ class Connection extends Component {
         <SlideContainer show={this.state.currentSelected == 2}>
           <Title>Step 2 - Personalized Plan</Title>
           <TitleCont>
-            <Title>Receive a <BlueTitle>personalized plan</BlueTitle> which includes: </Title>
+            <Title>
+              Receive a <BlueTitle>personalized plan</BlueTitle> which includes:{' '}
+            </Title>
           </TitleCont>
 
           <TextContainer>
@@ -230,7 +238,10 @@ class Connection extends Component {
               <li>Estimated cost and days abroad for your dental treatment</li>
               <li>Accommodation options</li>
               <li>Touristic recommendations and exclusive coupons</li>
-              <li>NeighborHealth services: Transportation to and from the airport and between your appointments.</li>
+              <li>
+                NeighborHealth services: Transportation to and from the airport
+                and between your appointments.
+              </li>
               <li>Total savings</li>
             </UList>
           </TextContainer>
@@ -241,8 +252,9 @@ class Connection extends Component {
 
           <TextContainer>
             <Text>
-              Provide us your dental studies to help our certified specialist abroad define your personal treatment.
-              (e.g Digital Dental Panorama, Dental Cone Beam CT, Radiography, etc).
+              Provide us your dental studies to help our certified specialist
+              abroad define your personal treatment. (e.g Digital Dental
+              Panorama, Dental Cone Beam CT, Radiography, etc).
             </Text>
           </TextContainer>
         </SlideContainer>
@@ -251,13 +263,24 @@ class Connection extends Component {
           <Title>Step 4 - Payment</Title>
 
           <TitleCont>
-            <Title>The <BlueTitle>payment</BlueTitle> is divided in two different sections</Title>
+            <Title>
+              The <BlueTitle>payment</BlueTitle> is divided in two different
+              sections
+            </Title>
           </TitleCont>
 
           <TextContainer>
             <UList>
-              <li><BlueText>The deposit:</BlueText> part of the deposit is a security for the dentist to secure your place an appointment. The other, is to book your hotel, tourist activities and transportation services.</li>
-              <li><BlueText>Final payment:</BlueText> is the remaining amount and must be provided once you have arrived at the dental clinic.</li>
+              <li>
+                <BlueText>The deposit:</BlueText> part of the deposit is a
+                security for the dentist to secure your place an appointment.
+                The other, is to book your hotel, tourist activities and
+                transportation services.
+              </li>
+              <li>
+                <BlueText>Final payment:</BlueText> is the remaining amount and
+                must be provided once you have arrived at the dental clinic.
+              </li>
             </UList>
           </TextContainer>
         </SlideContainer>
@@ -266,7 +289,10 @@ class Connection extends Component {
           <Title>Step 5 - Are you ready? Receive your agenda</Title>
 
           <TitleCont>
-            <Title><BlueTitle>NeighborHealth</BlueTitle> will provide your personalized itinerary, which includes:</Title>
+            <Title>
+              <BlueTitle>NeighborHealth</BlueTitle> will provide your
+              personalized itinerary, which includes:
+            </Title>
           </TitleCont>
 
           <TextContainer>
@@ -274,17 +300,20 @@ class Connection extends Component {
               <li>Your chosen accommodation reservation.</li>
               <li>Your exclusive codes for tourist attractions.</li>
               <li>Recommendation of places to eat in the zone.</li>
-              <li>NeighborHealth representative that will assist you during your stay.</li>
+              <li>
+                NeighborHealth representative that will assist you during your
+                stay.
+              </li>
             </UList>
             <Text>
-              Your personalized itinerary will arrive before you set out on your trip, so your family and friends will always know where and how to keep in contact with you.
+              Your personalized itinerary will arrive before you set out on your
+              trip, so your family and friends will always know where and how to
+              keep in contact with you.
             </Text>
           </TextContainer>
         </SlideContainer>
 
-        <BubbleContainer>
-          {bubbles}
-        </BubbleContainer>
+        <BubbleContainer>{bubbles}</BubbleContainer>
       </Container>
     );
   }

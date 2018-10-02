@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {device} from './../../utils/device';
+import { device } from './../../utils/device';
 import slider from 'react-slick';
 
 import Video from './Videos';
@@ -74,7 +74,6 @@ const VideoCont = styled(slider)`
   margin-top: 2em;
   margin-bottom: 3em;
   background: ${props => props.theme.color.lightBlue};
-  
 
   & div {
     outline: none;
@@ -93,19 +92,19 @@ const VideoCont = styled(slider)`
 const IndivVideo = styled(Video)`
   margin: auto;
   width: 75%;
-  
 `;
 
-const Network = (props) => {
+const Network = props => {
   const doctores = props.allDoctors.map((data, index) => {
     return (
-      <IndivDoctor 
+      <IndivDoctor
         key={index}
         imageURL={data.node.frontmatter.imageURL}
         name={data.node.frontmatter.name}
         carrera={data.node.frontmatter.carrera}
-        docId={data.node.frontmatter.title} />
-    )
+        docId={data.node.frontmatter.title}
+      />
+    );
   });
 
   const videos = props.allVideos.map((data, index) => {
@@ -116,48 +115,44 @@ const Network = (props) => {
         video={data.node.frontmatter.video}
         description={data.node.frontmatter.description}
       />
-    )
-  })
+    );
+  });
 
-const Settings = {
-  dots: true,
-  infinite: true,
-  speed: 500,
-  slidesToShow: 1,
-  swipeToSlide: true,
-  focusOnSelect: true,
-  arrows: false,
-  centerMode: true
-};
+  const Settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    swipeToSlide: true,
+    focusOnSelect: true,
+    arrows: false,
+    centerMode: true,
+  };
 
   return (
     <Container>
-      <Title>Neighbor<span>Health</span> Network</Title>
+      <Title>
+        Neighbor
+        <span>Health</span> Network
+      </Title>
+      <Description>What is the NeighborHealth Certified Network?</Description>
+      <Description>Simply put; personal peace of mind.</Description>
       <Description>
-        What is the NeighborHealth Certified Network?
+        NeighborHealth assures you that each of the specialists in the network
+        meet stringent standards for quality of services backed by credentials,
+        safety, customer satisfaction, and cleanliness. Thus ensuring that you
+        will receive quality service from top-rated and highly skilled
+        practitioners that are highly interested your satisfaction.
       </Description>
-      <Description>
-        Simply put; personal peace of mind.
-      </Description>
-      <Description>
-        NeighborHealth assures you that each of the specialists in the network meet stringent standards for quality
-        of services backed by credentials, safety, customer satisfaction, and cleanliness.
-        Thus ensuring that you will receive quality service from top-rated and highly skilled practitioners that are highly interested your satisfaction.
-      </Description>
-  
-      <Separator />
-  
-      <Title>Our Team</Title>
-      <DoctorsCont>
-        {doctores}
-      </DoctorsCont>
 
-      <VideoCont {...Settings}>
-        {videos}
-      </VideoCont>
+      <Separator />
+
+      <Title>Our Team</Title>
+      <DoctorsCont>{doctores}</DoctorsCont>
+
+      <VideoCont {...Settings}>{videos}</VideoCont>
     </Container>
-  )
-}
+  );
+};
 
 export default Network;
-

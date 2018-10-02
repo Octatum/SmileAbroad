@@ -16,7 +16,7 @@ const Container = styled.div`
   }
 
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
-  font-size: calc(1rem + 0.75vw); 
+  font-size: calc(1rem + 0.75vw);
 `;
 
 const Title = styled.p`
@@ -55,25 +55,23 @@ const AuthorStyled = styled(AuthorMedia)`
   font-size: 1em;
 `;
 
-const FeaturedBlog = (props) => {
-
+const FeaturedBlog = props => {
   const node = props.postData.allMarkdownRemark.edges[0].node;
 
   return (
     <Container>
       <Title>{node.frontmatter.title}</Title>
       <Author>
-        <AuthorStyled 
-          authorName={node.frontmatter.author} />
+        <AuthorStyled authorName={node.frontmatter.author} />
       </Author>
-      <Image src={node.frontmatter.thumbnail}></Image>
+      <Image src={node.frontmatter.thumbnail} />
       <Extract>
         {node.excerpt}
-        <br/>
+        <br />
         <ReadMore to={node.fields.route}>see more</ReadMore>
       </Extract>
     </Container>
   );
-}
+};
 
 export default FeaturedBlog;

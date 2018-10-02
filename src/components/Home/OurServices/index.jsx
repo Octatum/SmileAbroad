@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import ServiceSlide from './ServicesSlide';
 import Services from './Services';
-import {device} from '../../../utils/device';
+import { device } from '../../../utils/device';
 
 import background from './assets/background.jpg';
 
@@ -13,20 +13,20 @@ const SlideShow = styled.div`
   display: grid;
   grid-template: 1fr 6fr 1fr / 5fr 4fr;
   position: relative;
-  grid-template-areas: 
-    ". ."
-    "Pres ."
-    ". .";
+  grid-template-areas:
+    '. .'
+    'Pres .'
+    '. .';
 
   ${device.tablet} {
     display: block;
-    min-height: 0; 
+    min-height: 0;
     padding: 5em 0;
   }
 
-  ::before, 
+  ::before,
   ::after {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
@@ -38,16 +38,28 @@ const SlideShow = styled.div`
     z-index: -2;
     background-image: url(${background});
     background-size: 100% auto;
-    background-color: #23C5D9;
+    background-color: #23c5d9;
   }
 
   ::after {
-    z-index: -1;    
+    z-index: -1;
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,0082e5+100 */
     background: #ffffff; /* Old browsers */
-    background: -moz-linear-gradient(left, #ffffff 0%, rgba(0, 0, 0, 0) 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(left, #ffffff 0%,rgba(0, 0, 0, 0) 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to right, #ffffff 0%,rgba(0, 0, 0, 0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    background: -moz-linear-gradient(
+      left,
+      #ffffff 0%,
+      rgba(0, 0, 0, 0) 100%
+    ); /* FF3.6-15 */
+    background: -webkit-linear-gradient(
+      left,
+      #ffffff 0%,
+      rgba(0, 0, 0, 0) 100%
+    ); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(
+      to right,
+      #ffffff 0%,
+      rgba(0, 0, 0, 0) 100%
+    ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   }
 `;
 

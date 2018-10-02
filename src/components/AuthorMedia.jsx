@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import {device} from './../utils/device';
+import { device } from './../utils/device';
 
 const Container = styled.div`
   font-size: 2em;
@@ -21,32 +21,30 @@ const Container = styled.div`
 const Author = styled.p`
   font-style: italic;
   display: inline-block;
-
 `;
 
-
-const AuthorMedia = ({authorName, className}) => {
+const AuthorMedia = ({ authorName, className }) => {
   return (
     <Container className={className}>
       <Author>{authorName}</Author>
-      <iframe 
-        src={"https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fwww.facebook.com%2FNeighborHealth%2F&layout=button&size=small&mobile_iframe=true&width=59&height=20&appId"} 
-        width="59" 
-        height="20" 
-        style={{border: "none", overflow: "hidden"}} 
-        scrolling="no" 
-        frameBorder="0" 
-        allowTransparency="true" />
-      
-
+      <iframe
+        src={
+          'https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fwww.facebook.com%2FNeighborHealth%2F&layout=button&size=small&mobile_iframe=true&width=59&height=20&appId'
+        }
+        width="59"
+        height="20"
+        style={{ border: 'none', overflow: 'hidden' }}
+        scrolling="no"
+        frameBorder="0"
+        allowTransparency="true"
+      />
     </Container>
-  )
-}
+  );
+};
 
 AuthorMedia.propTypes = {
   authorName: PropTypes.string.isRequired,
-  className: PropTypes.string
-
-}
+  className: PropTypes.string,
+};
 
 export default AuthorMedia;

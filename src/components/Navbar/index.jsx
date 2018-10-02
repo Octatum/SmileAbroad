@@ -31,7 +31,7 @@ const Container = styled.div`
   }
 
   /*TEMP Maybe to keep*/
-  box-shadow: 0 5px 10px -5px rgba(0,0,0,0.5);
+  box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.5);
 `;
 
 const LogoLink = styled(Link)`
@@ -58,7 +58,7 @@ const Logo = styled.img`
 const ToggleShowButton = styled.div`
   margin-left: auto;
   display: none;
- 
+
   justify-content: center;
   align-items: center;
 
@@ -69,7 +69,7 @@ const ToggleShowButton = styled.div`
   }
   ${device.mobile} {
     height: calc(50px + 1vw);
-    width: calc(50px + 1vw);    
+    width: calc(50px + 1vw);
   }
 `;
 
@@ -89,7 +89,7 @@ const Nav = styled.nav`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  
+
   padding: 25px;
   padding-right: 0;
   width: 70%;
@@ -100,16 +100,14 @@ const Nav = styled.nav`
     justify-content: center;
 
     overflow-y: hidden;
-    display: ${props => props.display ? 'flex' : 'none'};
+    display: ${props => (props.display ? 'flex' : 'none')};
     width: 100%;
 
     a {
-      margin: 0.10em auto;
+      margin: 0.1em auto;
     }
   }
 `;
-
-
 
 const GetStarted = styled(GetStartedButton)`
   display: flex;
@@ -130,7 +128,6 @@ const GetStarted = styled(GetStartedButton)`
         color: black;
       }
     }
-
   }
 `;
 
@@ -142,8 +139,8 @@ class Navbar extends Component {
 
     this.state = {
       open: false,
-      companySelection: false
-    }
+      companySelection: false,
+    };
 
     this.handleToggleClick = this.handleToggleClick.bind(this);
     this.handleSelectionClick = this.handleSelectionClick.bind(this);
@@ -152,31 +149,34 @@ class Navbar extends Component {
   handleToggleClick() {
     const isOpen = !this.state.open;
     this.setState({
-      open: isOpen
+      open: isOpen,
     });
   }
+
   handleSelectionClick() {
     const isOpen = !this.state.companySelection;
     this.setState({
-      companySelection: isOpen
+      companySelection: isOpen,
     });
   }
 
   render() {
     return (
       <Container>
-        <LogoLink to="/"><Logo src={logo} /></LogoLink>
-        <ToggleShowButton >
+        <LogoLink to="/">
+          <Logo src={logo} />
+        </LogoLink>
+        <ToggleShowButton>
           <Navicon onClick={this.handleToggleClick} src={navicon} />
         </ToggleShowButton>
         <Nav display={this.state.open}>
-          <NavLink to="/Blogs">Blogs</NavLink>          
-          <NavLink to="/AboutUs#how-it-works">How it Works</NavLink>
-          <NavLink to="/AboutUs#pricing">Pricing</NavLink>
+          <NavLink to="/blog">Blogs</NavLink>
+          <NavLink to="/about#how-it-works">How it Works</NavLink>
+          <NavLink to="/about#pricing">Pricing</NavLink>
           <Selection
             links={[
-              { url: "/Network", name: "Our Network" },
-              { url: "/AboutUs", name: "About Us" },
+              { url: '/network', name: 'Our Network' },
+              { url: '/about', name: 'About Us' },
             ]}
             isOpen={this.state.companySelection}
             clickAction={this.handleSelectionClick}>

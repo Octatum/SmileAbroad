@@ -16,11 +16,9 @@ const Container = styled.div`
   min-height: 75vh;
 
   p {
-    text-shadow: 0.5px 0.5px #000, 
-                -0.5px -0.5px #000, 
-                0.5px -0.5px #000, 
-                -0.5px 0.5px #000;
-    
+    text-shadow: 0.5px 0.5px #000, -0.5px -0.5px #000, 0.5px -0.5px #000,
+      -0.5px 0.5px #000;
+
     max-width: 85%;
     color: white;
   }
@@ -30,7 +28,7 @@ const Container = styled.div`
     background-position: center;
 
     position: absolute;
-    content: "";
+    content: '';
     top: 0;
     left: 0;
     width: 100%;
@@ -62,20 +60,15 @@ const PostLink = styled(Link)`
   left: 0;
 `;
 
-const Post = (props) => (
+const Post = props => (
   <Container
     image={props.firstPost.frontmatter.thumbnail}
     className={props.className}>
-
     <PostLink to={props.firstPost.fields.route} />
-    <Title>
-      {props.firstPost.frontmatter.title}
-    </Title>
-    <Excerpt>
-      {props.firstPost.excerpt}
-    </Excerpt>
+    <Title>{props.firstPost.frontmatter.title}</Title>
+    <Excerpt>{props.firstPost.excerpt}</Excerpt>
     <Author>By {props.firstPost.frontmatter.author}</Author>
   </Container>
-)
+);
 
 export default Post;

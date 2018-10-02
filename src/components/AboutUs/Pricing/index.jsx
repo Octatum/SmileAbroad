@@ -28,7 +28,7 @@ const Container = styled.div`
 const Title = styled.p`
   font-size: 1.5em;
   color: black;
-  font-weight: bold; 
+  font-weight: bold;
   text-align: center;
   span {
     color: black;
@@ -46,7 +46,7 @@ const Text = styled.p`
   font-size: 1em;
   color: black;
   width: 35%;
-  text-align: center; 
+  text-align: center;
 
   ${device.tablet} {
     width: 80%;
@@ -74,14 +74,13 @@ const Sections = styled.div`
 const Button = styled(GetStartedButton)`
   position: absolute;
   bottom: -1em;
-  
 
   div {
     border-radius: 0.75em;
     padding: 0.25em 1.5em;
     background: black;
 
-    &:hover{
+    &:hover {
       background: white;
       color: black;
       border-color: black;
@@ -104,13 +103,11 @@ const PaymentOptions = styled.div`
   }
 `;
 
-
 const GiantText = styled.span`
   font-size: 5em;
   color: ${props => props.theme.color.lightBlue};
   font-weight: bold;
 `;
-
 
 const Pricing = () => (
   <Container id="pricing">
@@ -120,17 +117,23 @@ const Pricing = () => (
     <Sections>
       <PaymentOptions>
         <Title>Deposit</Title>
-        <Text>Part of the deposit is a security for the dentist to secure your place and appointment.</Text>
+        <Text>
+          Part of the deposit is a security for the dentist to secure your place
+          and appointment.
+        </Text>
         <Text>the other part is to book your hotel and tourist activities</Text>
       </PaymentOptions>
       <GiantText>&amp;</GiantText>
       <PaymentOptions>
         <Title>Payment</Title>
-        <Text>This final payment is the renaming amount and must be provided once you have arrived at the dental clinic.</Text>
+        <Text>
+          This final payment is the renaming amount and must be provided once
+          you have arrived at the dental clinic.
+        </Text>
       </PaymentOptions>
       <Button />
     </Sections>
   </Container>
-)
+);
 
 export default Pricing;

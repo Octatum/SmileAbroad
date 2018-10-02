@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import {device} from './../../../utils/device';
+import { device } from './../../../utils/device';
 
 import background from './../assets/background.jpg';
 import GetStartedButton from './../../GetStarted/Button';
@@ -13,13 +13,15 @@ const Cont = styled.div`
 
   border-bottom: 2em solid ${props => props.theme.color.lightBlue};
 
-  p, span, a {
+  p,
+  span,
+  a {
     font-family: ${props => props.theme.fontFamily.main}, sans-serif;
     text-align: center;
   }
 
   ::before {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
@@ -31,7 +33,7 @@ const Cont = styled.div`
     z-index: -2;
     background-image: url(${background});
     background-size: 100% auto;
-    background-color: #23C5D9;
+    background-color: #23c5d9;
   }
 `;
 
@@ -41,9 +43,9 @@ const MessageContainer = styled.div`
   left: 40%;
   max-width: 55%;
   margin: 2.5em 0;
-  
+
   font-size: calc(0.75rem + 0.75vw);
-  
+
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -76,8 +78,8 @@ const Message = styled.p`
   width: 70%;
   margin-bottom: 2em;
 
-   ${device.tablet} {
-    width: 100%
+  ${device.tablet} {
+    width: 100%;
   }
 `;
 const BoldText = Message.withComponent('span').extend`
@@ -89,7 +91,7 @@ const GetStarted = styled(GetStartedButton)`
   div {
     border-radius: 10px;
     padding: 0.25em 0.75em;
-    &:hover{
+    &:hover {
       background: none;
     }
   }
@@ -98,12 +100,14 @@ const GetStarted = styled(GetStartedButton)`
 const Welcome = () => (
   <Cont>
     <MessageContainer>
-      <Title>Welcome <TitleBlue>Neighbor</TitleBlue> </Title>
+      <Title>
+        Welcome <TitleBlue>Neighbor</TitleBlue>{' '}
+      </Title>
       <Message>
-        At <BoldText>NeighborHealth</BoldText> we help you find the ideal Dental Health 
-        Specialist Treatment. We facilitate the process of your experience
-        abroad by creating a personalized itinerary and establishing a connection 
-        with a pre-screened practitioner.
+        At <BoldText>NeighborHealth</BoldText> we help you find the ideal Dental
+        Health Specialist Treatment. We facilitate the process of your
+        experience abroad by creating a personalized itinerary and establishing
+        a connection with a pre-screened practitioner.
       </Message>
       <GetStarted />
     </MessageContainer>

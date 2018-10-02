@@ -3,9 +3,7 @@ import styled from 'styled-components';
 
 import ReactMarkdown from 'react-markdown';
 
-const Container = styled.label`
-
-`;
+const Container = styled.label``;
 
 const Pregunta = styled.span`
   font-weight: bold;
@@ -23,18 +21,15 @@ const Respuesta = styled(ReactMarkdown)`
   padding: 0;
 
   /* fade out, then shrink */
-  transition:   
-    opacity .25s,
-    margin .5s 0.25s,
-    font-size .5s 0.25s,
-    padding .5s .25s;
+  transition: opacity 0.25s, margin 0.5s 0.25s, font-size 0.5s 0.25s,
+    padding 0.5s 0.25s;
 `;
 
 const Arrow = styled.span`
   float: right;
   margin-left: 0.5em;
   transform: rotate(90deg);
-  transition: transform .25s ease-out;
+  transition: transform 0.25s ease-out;
 `;
 
 const Checkbox = styled.input`
@@ -45,7 +40,7 @@ const Checkbox = styled.input`
     transform: rotate(270deg);
   }
 
-  &:focus ~ ${Pregunta}{
+  &:focus ~ ${Pregunta} {
     border-color: grey;
   }
 
@@ -54,22 +49,13 @@ const Checkbox = styled.input`
     opacity: 1;
     height: auto;
     padding: 5px 0;
-    
+
     /* grow, then fade in */
-    transition:   
-      margin .25s,
-      padding .25s,
-      font-size .25s,
-      opacity .5s .25s;
+    transition: margin 0.25s, padding 0.25s, font-size 0.25s, opacity 0.5s 0.25s;
   }
 `;
 
-
-const Question = ({
-  question,
-  answer,
-  className
-}) => {
+const Question = ({ question, answer, className }) => {
   return (
     <Container className={className}>
       <Checkbox type="checkbox" />
@@ -78,6 +64,6 @@ const Question = ({
       <Respuesta source={answer} />
     </Container>
   );
-}
+};
 
 export default Question;

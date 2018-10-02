@@ -18,14 +18,12 @@ const Thumbnail = styled.img`
   border-radius: 10px;
 `;
 
-
 const Title = styled.p`
   font-weight: bold;
   font-size: 1.5em;
 `;
 
-const Author = styled.p`
-`;
+const Author = styled.p``;
 
 const PostLink = styled(Link)`
   display: block;
@@ -36,8 +34,7 @@ const PostLink = styled(Link)`
   left: 0;
 `;
 
-const Post = (props) => {
-
+const Post = props => {
   return (
     <Container className={props.className}>
       <PostLink to={props.postData.fields.route} />
@@ -47,7 +44,7 @@ const Post = (props) => {
         <Author>By {props.postData.frontmatter.author}</Author>
       </div>
     </Container>
-  )
-}
+  );
+};
 
 export default Post;

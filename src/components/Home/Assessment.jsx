@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import GetStartedButton from './../GetStarted/Button'
+import GetStartedButton from './../GetStarted/Button';
 
 const Container = styled.div`
   width: 100%;
@@ -24,7 +24,7 @@ const GetStarted = styled(GetStartedButton)`
     border-width: 0.15em;
     color: black;
 
-    &:hover{
+    &:hover {
       background: none;
       color: white;
       border-color: black;
@@ -69,18 +69,18 @@ const Text = styled.p`
   width: 40%;
 `;
 
-
 const Assessment = () => (
   <Container>
     <DottedCont>
       <Title>Ready.Set.Travel</Title>
       <Separator />
       <Text>
-        Take the free online assessment to prepare your personalized plan and get started on your journey.
+        Take the free online assessment to prepare your personalized plan and
+        get started on your journey.
       </Text>
       <GetStarted />
     </DottedCont>
   </Container>
-)
+);
 
-export default Assessment
+export default Assessment;

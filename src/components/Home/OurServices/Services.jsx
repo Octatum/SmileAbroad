@@ -5,8 +5,7 @@ import Link from 'gatsby-link';
 import Slider from 'react-slick';
 import { device } from './../../../utils/device';
 
-import {svgs} from './Svgs';
-
+import { svgs } from './Svgs';
 
 const Container = styled(Slider)`
   margin: 50px 0;
@@ -29,7 +28,7 @@ const ServiceImgContainer = styled.div`
 `;
 
 const ServiceImg = styled.object`
-  position: relative;  
+  position: relative;
   height: 4.5em;
   width: auto;
   color: ${props => props.theme.color.lightBlue};
@@ -66,13 +65,13 @@ const Description = Title.extend`
 
   ${device.mobile} {
     font-size: 0.75rem;
-    font-size: 0.90em;
+    font-size: 0.9em;
   }
 `;
 
 const Div = styled.div`
   position: relative;
-  height: 100%; 
+  height: 100%;
   font-size: calc(0.75rem + 0.4vw);
 `;
 
@@ -90,57 +89,56 @@ const Services = () => {
         breakpoint: 1024,
         settings: {
           slidesToShow: 3,
-        }
+        },
       },
       {
         breakpoint: 600,
         settings: {
           slidesToShow: 2,
-
-        }
-      }]
+        },
+      },
+    ],
   };
 
   return (
     <Container {...Settings}>
       <Div>
-        <ServiceImgContainer> 
-          {svgs.appointment}
-        </ServiceImgContainer>
+        <ServiceImgContainer>{svgs.appointment}</ServiceImgContainer>
         <IndivService>
           <Title>Booking</Title>
-          <Description>Setting up your appointment with a top-rated specialist has never been easier than through the NeighborHealth Certified Network</Description>
+          <Description>
+            Setting up your appointment with a top-rated specialist has never
+            been easier than through the NeighborHealth Certified Network
+          </Description>
         </IndivService>
       </Div>
       <Div>
-        <ServiceImgContainer> 
-          {svgs.luggage}
-        </ServiceImgContainer>
+        <ServiceImgContainer>{svgs.luggage}</ServiceImgContainer>
         <IndivService>
           <Title>Transportation</Title>
-          <Description>At no extra cost, we’ve got you covered throughout your stay</Description>
+          <Description>
+            At no extra cost, we’ve got you covered throughout your stay
+          </Description>
         </IndivService>
       </Div>
       <Div>
-        <ServiceImgContainer> 
-          {svgs.luggage}
-        </ServiceImgContainer>
+        <ServiceImgContainer>{svgs.luggage}</ServiceImgContainer>
         <IndivService>
           <Title>Accomodation</Title>
-          <Description>Enjoy the full NeighborHealth experience – Stay with our partner hotels that ensure a safe and comfortable stay</Description>
+          <Description>
+            Enjoy the full NeighborHealth experience – Stay with our partner
+            hotels that ensure a safe and comfortable stay
+          </Description>
         </IndivService>
       </Div>
       <Div>
-        <ServiceImgContainer> 
-          {svgs.travel}
-        </ServiceImgContainer>
+        <ServiceImgContainer>{svgs.travel}</ServiceImgContainer>
         <IndivService>
           <Title>Tourism</Title>
           <Description>V.I.P Access to the city’s Best Attractions</Description>
         </IndivService>
       </Div>
     </Container>
-
   );
 };
 

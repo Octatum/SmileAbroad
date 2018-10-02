@@ -1,8 +1,8 @@
 import React, { Component, isValidElement } from 'react';
 import styled from 'styled-components';
-import { navigateTo } from "gatsby-link";
+import { navigateTo } from 'gatsby-link';
 
-import {device} from '../../utils/device';
+import { device } from '../../utils/device';
 import LocationIcon from './assets/Location.svg';
 import Internet from './assets/internet.svg';
 
@@ -17,13 +17,17 @@ const Container = styled.form`
   padding: 0 3em;
   padding-bottom: 3em;
 
-
   ${device.mobile} {
     margin: 0;
     padding: 10px;
   }
 
-  &, & > div, span, p, input, textarea {
+  &,
+  & > div,
+  span,
+  p,
+  input,
+  textarea {
     font-size: calc(1rem + 0.75vw);
     font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   }
@@ -53,18 +57,16 @@ const GridText = styled.span`
 `;
 
 const GridInput = styled.input`
-  
   position: relative;
   width: 70%;
   max-width: 800px;
 
-
-  border: ${props => `${props.theme.color.lightBlue} 2px solid` };
+  border: ${props => `${props.theme.color.lightBlue} 2px solid`};
   border-radius: 15px;
   padding: 10px;
 
-  &:focus{
-    outline:none;
+  &:focus {
+    outline: none;
   }
 
   &:hover {
@@ -104,7 +106,7 @@ const Localization = styled.div`
   }
 
   & > span {
-    font-size: 0.80em;
+    font-size: 0.8em;
   }
 `;
 
@@ -122,14 +124,14 @@ const Warning = styled.div`
   width: 70%;
   max-width: 800px;
 
-  opacity: ${props => props.valid ? 0 : 1};
+  opacity: ${props => (props.valid ? 0 : 1)};
   transition: transform 0.5s ease, opacity 0.5s ease;
 
   background: pink;
   color: red;
   border-radius: 10px;
   padding: 0 0.75em;
-  
+
   font-size: 0.75em;
 
   ${GridInput}:focus + &,
@@ -145,13 +147,12 @@ const Warning = styled.div`
 
 function encode(data) {
   return Object.keys(data)
-    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-    .join("&");
+    .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+    .join('&');
 }
 
 class GetInTouch extends Component {
-  state = {
-  };
+  state = {};
 
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
@@ -161,45 +162,43 @@ class GetInTouch extends Component {
     e.preventDefault();
     const form = e.target;
     const self = this;
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({
-        "form-name": form.getAttribute("name"),
-        ...self.state
+        'form-name': form.getAttribute('name'),
+        ...self.state,
+      }),
+    })
+      .then(() => {
+        alert('Your message was sent!');
+        navigateTo(form.getAttribute('action'));
       })
-    })
-    .then(() => {
-      alert("Your message was sent!");
-      navigateTo(form.getAttribute("action"))
-    })
-    .catch(error => alert(error));
+      .catch(error => alert(error));
   };
 
   render() {
     return (
-      <Container 
+      <Container
         name="contact"
         method="post"
         action="/"
         data-netlify="true"
         data-netlify-honeypot="bot-field"
-        onSubmit={this.handleSubmit}
-      >
-
+        onSubmit={this.handleSubmit}>
         <input type="hidden" name="form-name" value="contact" />
         <p hidden>
           <label>
-            Don’t fill this out:{" "}
+            Don’t fill this out:{' '}
             <input name="bot-field" onChange={this.handleChange} />
           </label>
         </p>
         <InputCont>
           <GridText>Name:</GridText>
-          <GridInput 
+          <GridInput
             name="name"
-            onChange={this.handleChange} 
-            autoComplete="name" 
+            onChange={this.handleChange}
+            autoComplete="name"
           />
         </InputCont>
 
@@ -207,18 +206,15 @@ class GetInTouch extends Component {
           <GridText>Email:</GridText>
           <GridInput
             name="email"
-            onChange={this.handleChange} 
+            onChange={this.handleChange}
             type="email"
-            autoComplete="email" 
+            autoComplete="email"
           />
         </InputCont>
 
         <InputCont>
           <GridText>Message:</GridText>
-          <MessageInput 
-            name="message"
-            onChange={this.handleChange} 
-          />
+          <MessageInput name="message" onChange={this.handleChange} />
         </InputCont>
 
         <Submit type="submit">Send</Submit>
@@ -233,9 +229,8 @@ class GetInTouch extends Component {
           <GridText>www.neighbor.health</GridText>
         </Localization>
         */}
-
       </Container>
-    )
+    );
   }
 }
 

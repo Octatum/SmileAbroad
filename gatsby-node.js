@@ -11,7 +11,7 @@ exports.onCreateNode = ({ node, boundActionCreators }) => {
       let title = node.frontmatter.title;
       date = date.slice(0, date.search("T"));
       title = title.toLowerCase().trim().split(' ').join('-');
-      path = "content/blog/" + date + '-' + title;
+      path = "blog/" + date + '-' + title;
       
       createNodeField({
         node,

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import {device} from './../../utils/device';
+import { device } from './../../utils/device';
 import Question from './Question';
 
 const Container = styled.div`
@@ -30,20 +30,18 @@ const IndivQuestion = styled(Question)`
   margin-bottom: 2.5em;
 `;
 
-const Faq = (props) => {
+const Faq = props => {
   const questions = props.allQuestions.map(data => {
-    return <IndivQuestion
-      key={data.node.frontmatter.title}
-      question={data.node.frontmatter.question}
-      answer={data.node.rawMarkdownBody} />
+    return (
+      <IndivQuestion
+        key={data.node.frontmatter.title}
+        question={data.node.frontmatter.question}
+        answer={data.node.rawMarkdownBody}
+      />
+    );
   });
 
-  return (
-    <Container>
-      {questions}
-    </Container>
-  );
+  return <Container>{questions}</Container>;
 };
-
 
 export default Faq;

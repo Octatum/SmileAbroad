@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import {device} from '../../../../utils/device';
+import { device } from '../../../../utils/device';
 
 const Container = styled.fieldset`
   display: flex;
@@ -38,7 +38,7 @@ const Label = styled.label`
     display: block;
     width: 5em;
     height: 5em;
-    background-image: url('${({backgroundImage}) => backgroundImage}');
+    background-image: url('${({ backgroundImage }) => backgroundImage}');
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -56,7 +56,7 @@ const Checkbox = styled.span`
   border: 2px solid ${props => props.theme.color.lightBlue};
 
   :before {
-    content: "\u2713";
+    content: '\u2713';
     font-weight: 700;
     width: 100%;
     height: 100%;
@@ -72,8 +72,6 @@ const Checkbox = styled.span`
   input[type='checkbox']:checked ~ &:before {
     opacity: 1;
   }
-
-  
 `;
 
 /*    PLACE ON CHECKBOX FOR ON-FOCUS CHANGE BACKGROUND
@@ -120,22 +118,19 @@ const OptionsDiv = styled.div`
 `;
 
 const MultipleImageQuestion = ({
-  questionText, 
-  includeOpenAnswer, 
+  questionText,
+  includeOpenAnswer,
   onChange,
   name,
-  options
+  options,
 }) => {
   return (
     <Container>
       <Title> {questionText} </Title>
       <OptionsDiv>
         {options.map(option => (
-          <Label 
-            key={option.name}
-            backgroundImage={option.image}
-          >
-            <CheckboxInput 
+          <Label key={option.name} backgroundImage={option.image}>
+            <CheckboxInput
               type="checkbox"
               name={`${name}-${option.name}`}
               onChange={onChange}
@@ -147,7 +142,7 @@ const MultipleImageQuestion = ({
         {includeOpenAnswer && (
           <OtherLabel>
             Other:
-            <OtherInput 
+            <OtherInput
               questionText="other"
               onChange={onChange}
               name={`${name}-other`}
@@ -156,18 +151,20 @@ const MultipleImageQuestion = ({
         )}
       </OptionsDiv>
     </Container>
-  )
+  );
 };
 
 MultipleImageQuestion.propTypes = {
   questionText: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   name: PropTypes.string.isRequired,
-  options: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired
-  })).isRequired,
-  includeOpenAnswer: PropTypes.bool
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      image: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  includeOpenAnswer: PropTypes.bool,
 };
 
 MultipleImageQuestion.defaultProps = {
@@ -175,4 +172,3 @@ MultipleImageQuestion.defaultProps = {
 };
 
 export default MultipleImageQuestion;
-  

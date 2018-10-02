@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { navigateTo } from "gatsby-link";
+import { navigateTo } from 'gatsby-link';
 
 import OpenQuestion from './Questions/OpenQuestion';
 import MultipleChoice from './Questions/MultipleChoice';
 import MultipleImageQuestion from './Questions/MultipleImageQuestion';
-import {device} from './../../../utils/device';
+import { device } from './../../../utils/device';
 
 import horno from './assets/horno.jpg';
 import recreational from './assets/recreational.jpg';
@@ -47,7 +47,7 @@ const SendButton = styled.button`
 const Text = styled.p`
   font-size: 1.25em;
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
-  
+
   box-sizing: border-box;
   margin: 50px 0;
 
@@ -57,22 +57,16 @@ const Text = styled.p`
 
 function encode(data) {
   return Object.keys(data)
-    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-    .join("&");
-}
-
-function encode(data) {
-  return Object.keys(data)
-    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-    .join("&");
+    .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+    .join('&');
 }
 
 class Questionnaire extends Component {
   state = {};
 
-  handleChange = (event) => {
-    const {target} = event;
-    const {name} = target;
+  handleChange = event => {
+    const { target } = event;
+    const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({ [name]: value });
   };
@@ -81,36 +75,37 @@ class Questionnaire extends Component {
     event.preventDefault();
     const form = event.target;
 
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({
-        "form-name": form.getAttribute("name"),
-        ...this.state
+        'form-name': form.getAttribute('name'),
+        ...this.state,
+      }),
+    })
+      .then(() => {
+        alert(
+          'Thanks, we will contact you soon. Less than 48 hours, we promise'
+        );
+        navigateTo(form.getAttribute('action'));
       })
-    })
-    .then(() => {
-      alert("Thanks, we will contact you soon. Less than 48 hours, we promise");
-      navigateTo(form.getAttribute("action"))
-    })
-    .catch(error => alert(error));
-  }
+      .catch(error => alert(error));
+  };
 
-  render() {    
+  render() {
     return (
-      <Container 
+      <Container
         onSubmit={this.handleSubmit}
         name="customerData"
         method="post"
         action="/"
         data-netlify="true"
         data-netlify-honeypot="bot-field"
-        onSubmit={this.handleSubmit}
-      >
+        onSubmit={this.handleSubmit}>
         <input type="hidden" name="form-name" value="customer-data" />
         <p hidden>
           <label>
-            Don’t fill this out:{" "}
+            Don’t fill this out:{' '}
             <input name="bot-field" onChange={this.handleChange} />
           </label>
         </p>
@@ -132,10 +127,7 @@ class Questionnaire extends Component {
         <MultipleChoice
           questionText="What gender are you?"
           onChange={this.handleChange}
-          options={[
-            'Male',
-            'Female'
-          ]}
+          options={['Male', 'Female']}
           name="gender"
           includeOpenAnswer
         />
@@ -153,7 +145,7 @@ class Questionnaire extends Component {
             'Root canal',
             'Veneers',
             'Extractions',
-            'Crowns and bridges'
+            'Crowns and bridges',
           ]}
           name="treatmentType"
           includeOpenAnswer
@@ -170,35 +162,23 @@ class Questionnaire extends Component {
           name="dentalDescription"
           required
         />
-        <MultipleChoice 
+        <MultipleChoice
           questionText="From 0 to 0 in a scale of pain, how would you rate your pain tolerance?"
           onChange={this.handleChange}
-          options={[
-            '0',
-            '1',
-            '2',
-            '3',
-            '4',
-            '5',
-            '6',
-            '7',
-            '8',
-            '9'
-          ]}
+          options={['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']}
           name="painTolerance"
         />
         <MultipleChoice
           questionText="Do you plan to travel accompannied?"
           onChange={this.handleChange}
-          options={[
-            'Yes',
-            'No',
-          ]}
+          options={['Yes', 'No']}
           name="accompanied"
         />
         <Text>
-          We’re almost there, we can provide you with discounted prices for attractions, restaurant recommendations based on your interests. 
-          Help us plan your trip, tell us about your hobbies, food preferences, allergies, and other interests.
+          We’re almost there, we can provide you with discounted prices for
+          attractions, restaurant recommendations based on your interests. Help
+          us plan your trip, tell us about your hobbies, food preferences,
+          allergies, and other interests.
         </Text>
         <MultipleChoice
           questionText="What is most important for you when booking accommodation?"
@@ -215,23 +195,27 @@ class Questionnaire extends Component {
         <MultipleImageQuestion
           questionText="Which type of attractions do you prefer?"
           onChange={this.handleChange}
-          options={[{
-            name: 'Recreational',
-            image: recreational
-          }, {
-            name: 'Outdoor',
-            image: outdoor
-          }, {
-            name: 'Cultural',
-            image: cultural
-          }]}
+          options={[
+            {
+              name: 'Recreational',
+              image: recreational,
+            },
+            {
+              name: 'Outdoor',
+              image: outdoor,
+            },
+            {
+              name: 'Cultural',
+              image: cultural,
+            },
+          ]}
           name="tourismActivities"
           includeOpenAnswer
         />
         <Text>
-          Let us help you plan your trip!
-          We provide you with discounted access to different spots around town.
-          Tell us about yourself (hobbies, favourite food) so we can find you the best deal.
+          Let us help you plan your trip! We provide you with discounted access
+          to different spots around town. Tell us about yourself (hobbies,
+          favourite food) so we can find you the best deal.
         </Text>
         <SendButton type="submit">Send</SendButton>
       </Container>
