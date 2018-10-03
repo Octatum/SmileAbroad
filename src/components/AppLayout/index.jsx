@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import styled, { ThemeProvider } from 'styled-components';
 
@@ -15,24 +14,9 @@ const Layout = styled.div`
   position: relative;
 `;
 
-const PhoneNumber = styled.p`
-  position: fixed;
-  font-size: calc(0.5rem + 0.25vw);
-  z-index: 100;
-  top: 0;
-  right: 3.5em;
-  display: inline-block;
-  font-family: ${globalTheme.fontFamily.main}, sans-serif;
-
-  ${device.tablet} {
-    right: 1em;
-  }
-`;
-
 const AppLayout = ({ children }) => (
   <ThemeProvider theme={globalTheme}>
     <Layout>
-      <PhoneNumber>+1 512 717 3280</PhoneNumber>
       <Navbar />
       <Helmet
         title="NeighborHealth"

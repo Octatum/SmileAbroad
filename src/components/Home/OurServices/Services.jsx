@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import Link from 'gatsby-link';
 
 import Slider from 'react-slick';
 import { device } from './../../../utils/device';
@@ -25,13 +24,6 @@ const ServiceImgContainer = styled.div`
     fill: ${props => props.theme.color.lightBlue};
     height: 4.5em;
   }
-`;
-
-const ServiceImg = styled.object`
-  position: relative;
-  height: 4.5em;
-  width: auto;
-  color: ${props => props.theme.color.lightBlue};
 `;
 
 const IndivService = styled.div`

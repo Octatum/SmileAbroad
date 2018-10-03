@@ -8,6 +8,8 @@ import FeaturedBlog from '../components/Home/FeaturedBlog';
 import Assessment from './../components/Home/Assessment';
 import AppLayout from '../components/AppLayout';
 
+import { graphql } from 'gatsby';
+
 const Separator = styled.hr`
   background: #00c6db;
   height: 10px;

@@ -7,7 +7,6 @@ import MultipleChoice from './Questions/MultipleChoice';
 import MultipleImageQuestion from './Questions/MultipleImageQuestion';
 import { device } from './../../../utils/device';
 
-import horno from './assets/horno.jpg';
 import recreational from './assets/recreational.jpg';
 import cultural from './assets/cultural.jpg';
 import outdoor from './assets/outdoor.jpg';
@@ -100,8 +99,7 @@ class Questionnaire extends Component {
         method="post"
         action="/"
         data-netlify="true"
-        data-netlify-honeypot="bot-field"
-        onSubmit={this.handleSubmit}>
+        data-netlify-honeypot="bot-field">
         <input type="hidden" name="form-name" value="customer-data" />
         <p hidden>
           <label>

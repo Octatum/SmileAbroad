@@ -2,8 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import Link from 'gatsby-link';
 
-import { device } from './../../utils/device';
-
 const Container = styled.div`
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   font-size: calc(1rem + 0.75vw);

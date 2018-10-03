@@ -4,6 +4,7 @@ export const globalTheme = {
     lightBlue: '#00C6DB',
     white: 'white',
     red: '#FF392C',
+    blueGray: '#343844',
   },
   fontFamily: {
     main: 'Nunito',

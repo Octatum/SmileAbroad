@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import Link from 'gatsby-link';
+
 import ButtonComponent from '../../Button';
 import GetStartedButton from '../../GetStarted/Button';
 import { device } from '../../../utils/device';

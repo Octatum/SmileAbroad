@@ -4,6 +4,7 @@ import Helmet from 'react-helmet';
 
 import Faq from './../components/Faq';
 
+import { graphql } from 'gatsby';
 import { device } from './../utils/device';
 import AppLayout from '../components/AppLayout';
 

@@ -16,10 +16,6 @@ const Container = styled.div`
   top: 0;
 `;
 
-const CenterCont = styled.div`
-  max-width: 100%;
-`;
-
 const Text = styled.p`
   color: white;
   font-size: calc(5vw + 1rem);
@@ -33,10 +29,6 @@ const Text = styled.p`
   > strong {
     font-weight: 700;
   }
-`;
-
-const Title = Text.extend`
-  font-weight: bold;
 `;
 
 const SlideFromLeft = keyframes`

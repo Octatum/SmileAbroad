@@ -83,10 +83,6 @@ const Text = styled.p`
     text-align: center;
   }
 `;
-const BlueText = Text.withComponent('span').extend`
-  color: ${props => props.theme.color.lightBlue};
-`;
-
 const Desc = Text.extend`
   text-align: center;
   margin: auto;

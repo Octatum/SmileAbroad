@@ -72,11 +72,6 @@ const CardContainer = styled.div`
   }
 `;
 
-const CardImage = styled.img`
-  width: auto;
-  height: 30%;
-`;
-
 const CardTitle = styled.p`
   font-size: 1.5em;
   font-weight: bold;

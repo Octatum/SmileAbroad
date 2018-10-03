@@ -44,10 +44,6 @@ const IconContainer = styled.div`
 
   position: relative;
 `;
-const Icon = styled.img`
-  width: 30%;
-  position: relative;
-`;
 
 const Title = styled.p`
   font-size: 1.5em;

@@ -11,6 +11,7 @@ const Container = styled.div`
   align-items: center;
   font-size: calc(1rem + 0.75vw);
   font-family: ${props => props.theme.fontFamily.main};
+  position: relative;
 
   padding: 1.5em 0;
   padding-bottom: 5em;
@@ -110,7 +111,11 @@ const GiantText = styled.span`
 `;
 
 const Pricing = () => (
-  <Container id="pricing">
+  <Container>
+    <span
+      id="pricing"
+      style={{ position: 'absolute', visibility: 'hidden', top: '-100px' }}
+    />
     <Title>Pricing</Title>
     <Separator />
     <Text>The payment is divided in two different sections:</Text>

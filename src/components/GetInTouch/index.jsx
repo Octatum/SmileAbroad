@@ -4,7 +4,6 @@ import { navigateTo } from 'gatsby-link';
 
 import { device } from '../../utils/device';
 import LocationIcon from './assets/Location.svg';
-import Internet from './assets/internet.svg';
 
 const Container = styled.form`
   box-sizing: border-box;
@@ -114,7 +113,7 @@ const SVGicon = styled.img`
   height: 3em;
   margin-right: 1em;
 `;
-
+/* 
 const Warning = styled.div`
   position: absolute;
   display: block;
@@ -144,7 +143,7 @@ const Warning = styled.div`
     left: 0;
   }
 `;
-
+ */
 function encode(data) {
   return Object.keys(data)
     .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
@@ -223,12 +222,6 @@ class GetInTouch extends Component {
           <SVGicon src={LocationIcon} />
           <GridText>Av. Eugenio Garza Sada No. 427, Local 37</GridText>
         </Localization>
-        {/* 
-        <Localization>
-          <SVGicon src={Internet} />
-          <GridText>www.neighbor.health</GridText>
-        </Localization>
-        */}
       </Container>
     );
   }

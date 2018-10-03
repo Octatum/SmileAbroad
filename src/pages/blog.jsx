@@ -4,6 +4,8 @@ import Helmet from 'react-helmet';
 
 import { device } from '../utils/device';
 
+import { graphql } from 'gatsby';
+
 import Newest from '../components/AllBlogs/Newest';
 import Top from '../components/AllBlogs/Top';
 import OtherPosts from '../components/AllBlogs/RestPosts';
@@ -67,8 +69,9 @@ const Blogs = props => {
   let latest = null;
   let restData = [];
 
+  // eslint-disable-next-line
   Remark.edges.map((data, index) => {
-    if (index == 0) {
+    if (index === 0) {
       latest = data.node;
     } else if (index >= 1 && index <= 5) {
       newestFive.push(data.node);

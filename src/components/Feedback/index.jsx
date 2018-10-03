@@ -94,8 +94,7 @@ class Feedback extends Component {
         method="post"
         action="/"
         data-netlify="true"
-        data-netlify-honeypot="bot-field"
-        onSubmit={this.handleSubmit}>
+        data-netlify-honeypot="bot-field">
         <input type="hidden" name="form-name" value="customer-review" />
         <p hidden>
           <label>

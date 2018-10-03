@@ -30,7 +30,6 @@ const Container = styled.div`
     flex-wrap: wrap;
   }
 
-  /*TEMP Maybe to keep*/
   box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.5);
 `;
 

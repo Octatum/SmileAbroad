@@ -2,6 +2,8 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import styled from 'styled-components';
 
+import { graphql } from 'gatsby';
+
 import Network from '../components/Network';
 import AppLayout from '../components/AppLayout';
 

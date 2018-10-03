@@ -5,6 +5,7 @@ import AppLayout from '../components/AppLayout';
 
 import ReactMarkdown from 'react-markdown';
 import { device } from '../utils/device';
+import { graphql } from 'gatsby';
 
 import AuthorMedia from './../components/AuthorMedia';
 

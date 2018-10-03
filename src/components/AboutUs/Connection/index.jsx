@@ -8,7 +8,7 @@ const Container = styled.div`
   font-size: calc(1rem + 0.75vw);
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   margin: 4em 0;
-
+  position: relative;
   & > p {
     text-align: center;
     width: 100%;
@@ -192,9 +192,13 @@ class Connection extends Component {
     });
 
     return (
-      <Container id="how-it-works">
+      <Container>
+        <span
+          id="how-it-works"
+          style={{ position: 'absolute', visibility: 'hidden', top: '-100px' }}
+        />
         <Title>How It Works</Title>
-        <SlideContainer show={this.state.currentSelected == 1}>
+        <SlideContainer show={this.state.currentSelected === 1}>
           <Title>Step 1 - Contact Us!</Title>
 
           <TitleCont>
@@ -224,7 +228,7 @@ class Connection extends Component {
           </ImageContainer>
         </SlideContainer>
 
-        <SlideContainer show={this.state.currentSelected == 2}>
+        <SlideContainer show={this.state.currentSelected === 2}>
           <Title>Step 2 - Personalized Plan</Title>
           <TitleCont>
             <Title>
@@ -247,7 +251,7 @@ class Connection extends Component {
           </TextContainer>
         </SlideContainer>
 
-        <SlideContainer show={this.state.currentSelected == 3}>
+        <SlideContainer show={this.state.currentSelected === 3}>
           <Title>Step 3 - Help us help you!</Title>
 
           <TextContainer>
@@ -259,7 +263,7 @@ class Connection extends Component {
           </TextContainer>
         </SlideContainer>
 
-        <SlideContainer show={this.state.currentSelected == 4}>
+        <SlideContainer show={this.state.currentSelected === 4}>
           <Title>Step 4 - Payment</Title>
 
           <TitleCont>
@@ -285,7 +289,7 @@ class Connection extends Component {
           </TextContainer>
         </SlideContainer>
 
-        <SlideContainer show={this.state.currentSelected == 5}>
+        <SlideContainer show={this.state.currentSelected === 5}>
           <Title>Step 5 - Are you ready? Receive your agenda</Title>
 
           <TitleCont>
