@@ -35,9 +35,9 @@ export const pageQuery = graphql`
       edges {
         node {
           frontmatter {
-            imageURL
+            image
             name
-            carrera
+            specialty
             title
           }
           fields {

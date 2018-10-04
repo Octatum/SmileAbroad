@@ -99,9 +99,9 @@ const Network = props => {
     return (
       <IndivDoctor
         key={index}
-        imageURL={data.node.frontmatter.imageURL}
+        imageURL={data.node.frontmatter.image}
         name={data.node.frontmatter.name}
-        carrera={data.node.frontmatter.carrera}
+        carrera={data.node.frontmatter.specialty}
         docId={data.node.frontmatter.title}
       />
     );
