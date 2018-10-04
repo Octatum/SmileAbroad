@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Link from 'gatsby-link';
-import {device} from '../../utils/device';
+import { device } from '../../utils/device';
 
 const Container = styled.div`
   display: flex;
@@ -10,27 +10,36 @@ const Container = styled.div`
   align-items: center;
   position: relative;
 
-  background: #00C6DB;
+  background: #00c6db;
   padding: 20px;
 
   font-size: calc(0.5rem + 0.5vw);
 
-  &, & > div {
+  &,
+  & > div {
     font-family: 'Nunito', sans-serif;
   }
 
   ${device.mobile} {
     padding: 20px 10px;
+
+    display: grid;
+    grid-template: auto auto / 1fr 1fr 1fr;
+    grid-template-areas:
+      'desc useful useful'
+      'desc connect contact';
   }
 `;
 
 const Texto = styled.p`
   color: white;
-  
 `;
 
 const Description = Texto.extend`
-  width: 40%;
+  width: 30%;
+  ${device.mobile} {
+    width: initial;
+  }
 `;
 
 const Separator = styled.div`
@@ -59,12 +68,17 @@ const LinksCont = styled.div`
   align-items: center;
 
   text-align: center;
+
+  ${device.mobile} {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 `;
 
 const UsefulLink = styled(Link)`
   text-decoration: none;
   color: white;
-  
+
   padding: 10px 0;
   font-size: 1em;
   ${device.mobile} {
@@ -72,38 +86,45 @@ const UsefulLink = styled(Link)`
   }
 `;
 
-const ContactCont = LinksCont.extend`
+const SocialLink = styled.a`
+  text-decoration: none;
+  color: white;
+
+  padding: 10px 0;
+  font-size: 1em;
+  ${device.mobile} {
+    padding: 5px;
+  }
 `;
 
-const ContactTitle = LinksTitle.extend`
-
-`;
+const ContactCont = LinksCont.extend``;
+const ContactTitle = LinksTitle.extend``;
 
 const ContactData = Texto.extend`
   padding: 10px 0;
   word-break: break-all;
   ${device.mobile} {
-    padding: 5px
+    padding: 5px;
   }
 `;
 
 const MessageButton = styled(Link)`
-  background: #ff392C;
+  background: #ff392c;
   text-transform: uppercase;
   color: white;
-  border: 2px solid #DD2520;
+  border: 2px solid #dd2520;
   border-radius: 30px;
   text-decoration: none;
   padding: 5px 0.5em;
-  margin: 20px;
-  font-size: 1em;
-  
+  margin: 1em;
+  font-size: 0.75em;
+
   text-align: center;
 
   transition: box-shadow 0.25s linear;
 
-  :hover{
-    box-shadow: 4px 4px 4px 0 rgba(0,0,0,0.3);
+  :hover {
+    box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.3);
   }
 
   ${device.mobile} {
@@ -116,35 +137,38 @@ const Div = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-self: flex-start;
+
+  ${device.mobile} {
+    > p {
+      margin-bottom: 0.75em;
+    }
+  }
 `;
 
 const Footer = () => (
   <Container>
-    <Description>
-      NeighborHealth creates a personalized itinerary that provides you with personal transportation between dental appointments,
-      any selected tourist activities and attractions, and your chosen accommodation services which have all been 
-      pre-selected for safety and convenience.
+    <Description style={{ gridArea: 'desc' }}>
+      NeighborHealth creates a personalized itinerary that provides you with
+      personal transportation between dental appointments, any selected tourist
+      activities and attractions, and your chosen accommodation services which
+      have all been pre-selected for safety and convenience.
     </Description>
 
     <Separator />
 
-    <Div>
-      <LinksTitle>Useful Links</LinksTitle>
+    <Div style={{ gridArea: 'useful' }}>
+      <LinksTitle>Learn More</LinksTitle>
       <LinksCont>
         <UsefulLink to="/">Home</UsefulLink>
-        {/* 
-        <UsefulLink to="/">Company</UsefulLink>
-        <UsefulLink to="/">How To</UsefulLink>
-        <UsefulLink to="/">Terms of Use</UsefulLink>
-        */}
-        <UsefulLink to="/Contact">Contact</UsefulLink>
-        <UsefulLink to="/GetStarted">Get Started</UsefulLink>
+        <UsefulLink to="/Blogs">Blogs</UsefulLink>
+        <UsefulLink to="/get-started">Get Started</UsefulLink>
+        <UsefulLink to="/faq">FAQs</UsefulLink>
       </LinksCont>
     </Div>
-    
+
     <Separator />
-    
-    <Div>
+
+    <Div style={{ gridArea: 'contact' }}>
       <ContactTitle>Contact Us</ContactTitle>
       <ContactCont>
         <ContactData>+1 512 717 3280</ContactData>
@@ -153,6 +177,23 @@ const Footer = () => (
       </ContactCont>
     </Div>
 
+    <Separator />
+
+    <Div style={{ gridArea: 'connect' }}>
+      <ContactTitle>Let's connect!</ContactTitle>
+      <ContactCont>
+        <SocialLink
+          href="https://www.facebook.com/NeighborHealth/"
+          target="_blank">
+          Facebook
+        </SocialLink>
+        <SocialLink
+          href="https://www.instagram.com/neighborhealthco/?hl=es-la"
+          target="_blank">
+          Instagram
+        </SocialLink>
+      </ContactCont>
+    </Div>
   </Container>
 );
 

@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { navigateTo } from "gatsby-link";
+import { navigateTo } from 'gatsby-link';
 
 import OpenQuestion from './../GetStarted/Questionnaire/Questions/OpenQuestion';
 
 import { device } from './../../utils/device';
-
 
 // Todo: Refactor MultipleImageQuestion and MultipleChoice into a single component.
 
@@ -42,7 +41,7 @@ const SendButton = styled.button`
 const Text = styled.p`
   font-size: 1.25em;
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
-  
+
   box-sizing: border-box;
   margin: 50px 0;
 
@@ -52,20 +51,14 @@ const Text = styled.p`
 
 function encode(data) {
   return Object.keys(data)
-    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-    .join("&");
-}
-
-function encode(data) {
-  return Object.keys(data)
-    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-    .join("&");
+    .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+    .join('&');
 }
 
 class Feedback extends Component {
   state = {};
 
-  handleChange = (event) => {
+  handleChange = event => {
     const { target } = event;
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
@@ -76,20 +69,22 @@ class Feedback extends Component {
     event.preventDefault();
     const form = event.target;
 
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({
-        "form-name": form.getAttribute("name"),
-        ...this.state
-      })
+        'form-name': form.getAttribute('name'),
+        ...this.state,
+      }),
     })
       .then(() => {
-        alert("Thanks, we will contact you soon. Less than 48 hours, we promise");
-        navigateTo(form.getAttribute("action"))
+        alert(
+          'Thanks, we will contact you soon. Less than 48 hours, we promise'
+        );
+        navigateTo(form.getAttribute('action'));
       })
       .catch(error => alert(error));
-  }
+  };
 
   render() {
     return (
@@ -99,13 +94,11 @@ class Feedback extends Component {
         method="post"
         action="/"
         data-netlify="true"
-        data-netlify-honeypot="bot-field"
-        onSubmit={this.handleSubmit}
-      >
+        data-netlify-honeypot="bot-field">
         <input type="hidden" name="form-name" value="customer-review" />
         <p hidden>
           <label>
-            Don’t fill this out:{" "}
+            Don’t fill this out:{' '}
             <input name="bot-field" onChange={this.handleChange} />
           </label>
         </p>
@@ -134,14 +127,12 @@ class Feedback extends Component {
           required
         />
         <OpenQuestion
-          questionText="would you like to personally contact the specialist?"
+          questionText="Would you like to personally contact the specialist?"
           onChange={this.handleChange}
           name="specialistContact"
           required
         />
-        <Text>
-          WE LOOK FORWARD TO WELCOMING YOU TO BEAUTIFUL MONTERREY
-        </Text>
+        <Text>WE LOOK FORWARD TO WELCOMING YOU TO BEAUTIFUL MONTERREY</Text>
         <SendButton type="submit">Send</SendButton>
       </Container>
     );

@@ -2,12 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Slider from 'react-slick';
-import {device} from '../../../utils/device';
+import { device } from '../../../utils/device';
 
-import clock from './assets/clock.png';
-import calendar from './assets/calendar.png';
-import board from './assets/board.png';
-import photos from './assets/photos.png';
+import { svgs } from './Svgs';
 
 import eogsea from './assets/eogsea.png';
 import plugplay from './assets/plugplay.png';
@@ -16,14 +13,7 @@ import promexico from './assets/promexico.png';
 import mexico from './assets/mexico.png';
 import newVenture from './assets/newventure.png';
 
-const customerImages = [
-  eogsea,
-  plugplay,
-  sksw,
-  promexico,
-  mexico,
-  newVenture
-];
+const customerImages = [eogsea, plugplay, sksw, promexico, mexico, newVenture];
 
 // Container of entire component
 const Container = styled.div`
@@ -43,7 +33,6 @@ const Title = styled.p`
   font-weight: 600;
   align-self: flex-start;
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
-  margin-bottom: 1.5em;
 
   ${device.tablet} {
     text-align: center;
@@ -58,8 +47,7 @@ const BlueTitle = Title.withComponent('span').extend`
 `;
 
 const InfoContainer = styled(Slider)`
-  margin: 30px;
-  margin-bottom: 70px;
+  margin: 4em 30px 6em 30px;
 
   & div {
     outline: none;
@@ -69,6 +57,13 @@ const InfoContainer = styled(Slider)`
 // img container to maintain sizing
 const IMG = styled.div`
   margin: 0 auto 40px auto;
+
+  svg {
+    fill: ${props => props.theme.color.lightBlue};
+    height: 4.5em;
+    display: block;
+    margin: auto;
+  }
 
   ${device.mobile} {
     margin: auto;
@@ -94,7 +89,6 @@ const SubCont = styled.div`
   justify-content: flex-end;
   align-items: center;
   margin: 10px 0;
-
 `;
 
 // Subtitle
@@ -106,7 +100,6 @@ const Subtitle = styled.p`
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   width: 90%;
   text-align: center;
-
 `;
 
 // Service Description Container
@@ -126,7 +119,7 @@ const Description = styled.p`
 // Separator
 const Separator = styled.hr`
   height: 5px;
-  background: #00C6DB;
+  background: #00c6db;
   width: 25%;
   margin: 20px auto;
   border: none;
@@ -175,52 +168,93 @@ const AddedValue = () => {
     swipeToSlide: true,
     focusOnSelect: true,
     arrows: false,
-    responsive: [{
-      breakpoint: 1024,
-      settings: {
-        slidesToShow: 3,
-      }
-    }, {
-      breakpoint: 600,
-      settings: {
-        slidesToShow: 2,
-      }
-    }, {
-      breakpoint: 320,
-      settings: {
-        slidesToShow: 1,
-      }
-    }]
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 320,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
   };
-  
-  return (
 
+  return (
     <Container>
-      <Title>We got you <BlueTitle>covered</BlueTitle></Title>
-      <InfoContainer {...Settings} >
+      <Title>
+        Get your <BlueTitle>afforadable</BlueTitle> dental treatment
+      </Title>
+      <Subtitle style={{ textAlign: 'left' }}>
+        And enjoy <BlueTitle>Mexico</BlueTitle> in three easy steps
+      </Subtitle>
+      <InfoContainer {...Settings}>
         <Div>
-          <IMG> <Image src={clock} /> </IMG>
-          <SubCont> <Subtitle>We are here for you</Subtitle> </SubCont>
+          <IMG>{svgs.appointment}</IMG>
+          <SubCont>
+            {' '}
+            <Subtitle>We are here for you</Subtitle>{' '}
+          </SubCont>
           <Separator />
-          <ContDesc> <Description>24/7 – We’re here for you, ready to help</Description></ContDesc>
+          <ContDesc>
+            {' '}
+            <Description>24/7 – We’re here for you, ready to help</Description>
+          </ContDesc>
         </Div>
         <Div>
-          <IMG> <Image src={calendar} /> </IMG>
-          <SubCont> <Subtitle>Anxiety free travel</Subtitle> </SubCont>
+          <IMG>{svgs.record}</IMG>
+
+          <SubCont>
+            {' '}
+            <Subtitle>Anxiety free travel</Subtitle>{' '}
+          </SubCont>
           <Separator />
-          <ContDesc> <Description>We take care of setting up appointments, accommodation, transportation, and translation</Description> </ContDesc>
+          <ContDesc>
+            {' '}
+            <Description>
+              We take care of setting up appointments, accommodation,
+              transportation, and translation
+            </Description>{' '}
+          </ContDesc>
         </Div>
         <Div>
-          <IMG> <Image src={board} /> </IMG>
-          <SubCont> <Subtitle>Free estimates</Subtitle> </SubCont>
+          <IMG>{svgs.doctor}</IMG>
+          <SubCont>
+            {' '}
+            <Subtitle>Free estimates</Subtitle>{' '}
+          </SubCont>
           <Separator />
-          <ContDesc> <Description>NeighborHealth provides you with a personalized itinerary and access to our certified specialists and dental clinics</Description></ContDesc>
+          <ContDesc>
+            {' '}
+            <Description>
+              NeighborHealth provides you with a personalized itinerary and
+              access to our certified specialists and dental clinics
+            </Description>
+          </ContDesc>
         </Div>
         <Div>
-          <IMG> <Image src={photos} /> </IMG>
-          <SubCont> <Subtitle>The NeighborHealth Experience</Subtitle> </SubCont>
+          <IMG>{svgs.doubleDocs}</IMG>
+          <SubCont>
+            {' '}
+            <Subtitle>The NeighborHealth Experience</Subtitle>{' '}
+          </SubCont>
           <Separator />
-          <ContDesc> <Description>Safety, transparency, and quality service are part of our pledge</Description></ContDesc>
+          <ContDesc>
+            {' '}
+            <Description>
+              Safety, transparency, and quality service are part of our pledge
+            </Description>
+          </ContDesc>
         </Div>
       </InfoContainer>
       {/* 
@@ -230,7 +264,7 @@ const AddedValue = () => {
       </OtherComps>
       */}
     </Container>
-  )
+  );
 };
 
 export default AddedValue;

@@ -26,11 +26,10 @@ const NavLink = styled(Link)`
   font-size: calc(1rem + 0.5vw);
 `;
 
-const GetStartedButton = (props) => (
-    <NavLink to="/GetStarted" className={props.className} >  
-      <GetStarted> Get started </GetStarted> 
-    </NavLink>
-
-)
+const GetStartedButton = props => (
+  <NavLink to="/get-started" className={props.className}>
+    <GetStarted> Get started </GetStarted>
+  </NavLink>
+);
 
 export default GetStartedButton;

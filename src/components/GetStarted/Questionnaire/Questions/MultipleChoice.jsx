@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import {device} from '../../../../utils/device';
+import { device } from '../../../../utils/device';
 
 const ContainerForm = styled.fieldset`
   display: flex;
@@ -24,7 +24,6 @@ const Title = styled.p`
 `;
 
 const Label = styled.label`
-  
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   margin: 25px 0;
   display: flex;
@@ -58,7 +57,7 @@ const Checkbox = styled.span`
   border: 2px solid ${props => props.theme.color.lightBlue};
 
   :before {
-    content: "\u2713";
+    content: '\u2713';
     font-weight: 700;
     width: 100%;
     height: 100%;
@@ -74,8 +73,6 @@ const Checkbox = styled.span`
   input[type='checkbox']:checked ~ &:before {
     opacity: 1;
   }
-
-  
 `;
 
 /*      PLACE ON CHECKBOX FOR ON-FOCUS BACKGROUND CHANGE
@@ -99,21 +96,20 @@ const OtherInput = styled.input`
   width: 60%;
 `;
 
-
 const MultipleChoice = ({
-  questionText, 
-  includeOpenAnswer, 
+  questionText,
+  includeOpenAnswer,
   onChange,
   name,
   options,
-  className
+  className,
 }) => {
   return (
     <ContainerForm className={className}>
       <Title> {questionText} </Title>
       {options.map(option => (
         <Label key={option}>
-          <CheckboxInput 
+          <CheckboxInput
             type="checkbox"
             name={`${name}-${option}`}
             onChange={onChange}
@@ -126,7 +122,7 @@ const MultipleChoice = ({
       {includeOpenAnswer && (
         <OtherLabel>
           Other:
-          <OtherInput 
+          <OtherInput
             questionText="other"
             onChange={onChange}
             name={`${name}-other`}
@@ -134,7 +130,7 @@ const MultipleChoice = ({
         </OtherLabel>
       )}
     </ContainerForm>
-  )
+  );
 };
 
 MultipleChoice.propTypes = {
@@ -142,7 +138,7 @@ MultipleChoice.propTypes = {
   onChange: PropTypes.func.isRequired,
   name: PropTypes.string.isRequired,
   options: PropTypes.array.isRequired,
-  includeOpenAnswer: PropTypes.bool
+  includeOpenAnswer: PropTypes.bool,
 };
 
 MultipleChoice.defaultProps = {

@@ -1,7 +1,7 @@
 const path = require('path');
 
-exports.onCreateNode = ({ node, boundActionCreators }) => {
-  const { createNodeField } = boundActionCreators;
+exports.onCreateNode = ({ node, actions }) => {
+  const { createNodeField } = actions;
 
   if (node.internal.type == 'MarkdownRemark') {
     if(node.frontmatter.layout == "blog") {
@@ -11,7 +11,7 @@ exports.onCreateNode = ({ node, boundActionCreators }) => {
       let title = node.frontmatter.title;
       date = date.slice(0, date.search("T"));
       title = title.toLowerCase().trim().split(' ').join('-');
-      path = "content/blog/" + date + '-' + title;
+      path = "blog/" + date + '-' + title;
       
       createNodeField({
         node,
@@ -22,8 +22,8 @@ exports.onCreateNode = ({ node, boundActionCreators }) => {
   }
 }
 
-exports.createPages = ({ boundActionCreators, graphql }) => {
-  const { createPage } = boundActionCreators;
+exports.createPages = ({ actions, graphql }) => {
+  const { createPage } = actions;
 
   const blogPostTemplate = path.resolve(`src/templates/blogs.jsx`);
 
@@ -71,8 +71,8 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
     });
 }
 
-exports.modifyWebpackConfig = ({ config, stage }) => {
-  config.merge({
+exports.onCreateWebpackConfig = ({ stage, actions }) => {
+  actions.setWebpackConfig({
     resolve: {
       extensions: ['.json'],
     }

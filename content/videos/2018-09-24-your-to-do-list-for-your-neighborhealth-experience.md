@@ -1,7 +1,7 @@
 ---
 layout: video
 title: Your "to-do" list for your NeighborHealth experience
-video: /assets/uploads/checklist-01.png
+video: '/assets/uploads/Mexico Tourism.mp4'
 date: '2018-09-24T20:45:10-05:00'
 description: >-
   Do you need help looking for dental treatment? Why not look in Mexico?  Let us

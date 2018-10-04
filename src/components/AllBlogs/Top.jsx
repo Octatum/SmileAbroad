@@ -2,11 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import Link from 'gatsby-link';
 
-import {device} from './../../utils/device';
-
 const Container = styled.div`
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
-  font-size: calc(1rem + 0.75vw);
 `;
 
 const Title = styled.p`
@@ -17,7 +14,6 @@ const Title = styled.p`
   padding: 0.5rem;
   text-align: center;
   font-weight: bold;
-
 `;
 
 const PostList = styled.div`
@@ -25,7 +21,7 @@ const PostList = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  
+
   span {
     padding-left: calc(5px + 0.5vw + 1em);
     position: relative;
@@ -33,7 +29,7 @@ const PostList = styled.div`
     width: 90%;
 
     :before {
-      content: "";
+      content: '';
       position: absolute;
       top: calc(50% - 2.5px - 0.25vw);
       left: 3px;
@@ -41,7 +37,6 @@ const PostList = styled.div`
       height: calc(5px + 0.5vw);
       border-radius: 100%;
       background: black;
-
     }
 
     a {
@@ -51,24 +46,21 @@ const PostList = styled.div`
   }
 `;
 
-const TopStories = (props) => {
+const TopStories = props => {
   const List = props.fivePosts.map((data, index) => {
     return (
-    <span key={index}>
-      <Link to={data.fields.route}>{data.frontmatter.title}</Link>
-    </span>
-    )
+      <span key={index}>
+        <Link to={data.fields.route}>{data.frontmatter.title}</Link>
+      </span>
+    );
   });
-
 
   return (
     <Container className={props.className}>
       <Title>Top Stories</Title>
-      <PostList>
-        {List}
-      </PostList>
+      <PostList>{List}</PostList>
     </Container>
-  )
-}
+  );
+};
 
 export default TopStories;

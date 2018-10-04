@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {device} from './../../../utils/device';
+import { device } from './../../../utils/device';
 
 import patient from './assets/patient.jpg';
 
@@ -45,7 +45,6 @@ const Intro = styled.div`
     width: 75%;
     margin-bottom: 0 !important;
   }
-
 `;
 
 const Divisor = styled.div`
@@ -84,10 +83,6 @@ const Text = styled.p`
     text-align: center;
   }
 `;
-const BlueText = Text.withComponent('span').extend`
-  color: ${props => props.theme.color.lightBlue};
-`;
-
 const Desc = Text.extend`
   text-align: center;
   margin: auto;
@@ -103,22 +98,27 @@ const QuestionnaireIntro = () => (
     <IntroContainer>
       <Intro>
         <Text>
-          Filling out the following questionnaire will help us prepare your free quote. 
+          Filling out the following questionnaire will help us prepare your free
+          quote.
         </Text>
         <Text>
-          Upon completion, please expect a NeighborHealth team member to contact you in less than 24 hours with your personalized plan. 
+          Upon completion, please expect a NeighborHealth team member to contact
+          you in less than 24 hours with your personalized plan.
         </Text>
         <Text>
-          In the plan, you will find: dentist profiles, accommodation choices, and tourist recommendations based on your responses.
+          In the plan, you will find: dentist profiles, accommodation choices,
+          and tourist recommendations based on your responses.
         </Text>
       </Intro>
       <Divisor />
-      <ImageCont> <IMG src={patient}/> </ImageCont>
+      <ImageCont>
+        {' '}
+        <IMG src={patient} />{' '}
+      </ImageCont>
     </IntroContainer>
     <Desc>
-      This is the NeighborHealth Advantage.
-      We are excited to Welcome you to Mexico!
-      Find out how much you can save on your dental treatment.
+      This is the NeighborHealth Advantage. We are excited to Welcome you to
+      Mexico! Find out how much you can save on your dental treatment.
     </Desc>
   </Container>
 );

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const Button = component => styled(component)`
   text-decoration: none;
@@ -10,9 +10,9 @@ const Button = component => styled(component)`
   position: relative;
 
   color: black;
-  
+
   &::before {
-    content: "";
+    content: '';
     width: 0%;
     border-bottom: 3px solid ${props => props.theme.color.lightBlue};
     display: block;
@@ -20,7 +20,6 @@ const Button = component => styled(component)`
     bottom: 0;
     left: 50%;
     transition: width 0.5s ease-out, left 0.5s ease-out;
-
   }
   &:hover ::before {
     width: 100%;

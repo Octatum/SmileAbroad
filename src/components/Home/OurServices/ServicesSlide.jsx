@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import Link from 'gatsby-link';
+
 import ButtonComponent from '../../Button';
 import GetStartedButton from '../../GetStarted/Button';
-import {device} from '../../../utils/device';
+import { device } from '../../../utils/device';
 
 const Container = styled.div`
   display: flex;
@@ -71,15 +71,18 @@ const GetStarted = styled(GetStartedButton)`
   div {
     border-radius: 10px;
     padding: 10px 1em;
-    &:hover{
+    &:hover {
       background: none;
     }
   }
 `;
 
-const BlueButton = ButtonComponent(Link).extend`
+const VideoLink = styled.a``;
+
+const BlueButton = ButtonComponent(VideoLink).extend`
   padding: 10px 1em;
   font-size: 1.25em;
+  cursor: pointer;
 `;
 
 const BubbleCont = ButtonCont.extend`
@@ -102,10 +105,11 @@ const Bubble = styled.button`
   outline: 0;
   position: relative;
 
-  background: ${props => props.current ? props.theme.color.lightBlue : 'grey'};
-  transform: ${props => props.current ? 'scale(1.1, 1.1)' : 'scale(1,1)'};
+  background: ${props =>
+    props.current ? props.theme.color.lightBlue : 'grey'};
+  transform: ${props => (props.current ? 'scale(1.1, 1.1)' : 'scale(1,1)')};
   transition: transform 0.25s ease-out;
-              
+
   :hover {
     transform: scale(1.3, 1.3);
   }
@@ -117,6 +121,17 @@ class ServiceSlide extends Component {
     this.state = {
       currentActiveBubble: 1,
     };
+
+    this.onClickVideoHandle = this.onClickVideoHandle.bind(this);
+  }
+
+  onClickVideoHandle(event) {
+    event.preventDefault();
+    window.open(
+      'https://www.youtube.com/watch?v=ra8YOIDrozc',
+      'Video',
+      'width=500,height=500'
+    );
   }
 
   bubbleClick(event, key) {
@@ -125,41 +140,42 @@ class ServiceSlide extends Component {
      * NEXT SLIDE
      */
     this.setState({
-      currentActiveBubble: key
+      currentActiveBubble: key,
     });
   }
   render() {
-    
-
     return (
-      <Container className={this.props.className} >
+      <Container className={this.props.className}>
         <Title>Affordable Health Care</Title>
         <Separator />
         <Description>
-          At <BlueText>NeighborHealth</BlueText> we help you find the ideal Dental Health <Bold>Specialized</Bold> Treatment.
+          At <BlueText>NeighborHealth</BlueText> we help you find the ideal
+          Dental Health <Bold>Specialized</Bold> Treatment.
         </Description>
         <Description>
-          We facilitate the process of your experience abroad by creating a <Bold>personalized</Bold> itinerary at <Bold>budget-friendly</Bold> prices.
+          We facilitate the process of your experience abroad by creating a{' '}
+          <Bold>personalized</Bold> itinerary at <Bold>budget-friendly</Bold>{' '}
+          prices.
         </Description>
         <Description>
-          Go ahead, Visit Mexico to get your quality dental treatment at a price you can afford.
+          Go ahead, Visit Mexico to get your quality dental treatment at a price
+          you can afford.
         </Description>
         <ButtonCont>
-          <BlueButton to="/">Learn More</BlueButton>
+          <BlueButton onClick={this.onClickVideoHandle}>Watch Video</BlueButton>
           <GetStarted />
-
         </ButtonCont>
         <BubbleCont>
           {[].map((_, index) => (
             <Bubble
               onClick={e => this.bubbleClick(e, index)}
-              current={this.state.currentActiveBubble === index} 
+              current={this.state.currentActiveBubble === index}
             />
           ))}
         </BubbleCont>
       </Container>
     );
   }
-};
+}
 
 export default ServiceSlide;

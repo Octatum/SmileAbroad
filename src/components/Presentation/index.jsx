@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled, { keyframes } from 'styled-components';
 
-import {device} from '../../utils/device';
+import { device } from '../../utils/device';
 
 const Container = styled.div`
   position: fixed;
@@ -16,16 +16,12 @@ const Container = styled.div`
   top: 0;
 `;
 
-const CenterCont = styled.div`
-  max-width: 100%;
-`;
-
 const Text = styled.p`
   color: white;
   font-size: calc(5vw + 1rem);
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   text-align: center;
-  
+
   ${device.laptop} {
     font-size: 5rem;
   }
@@ -33,10 +29,6 @@ const Text = styled.p`
   > strong {
     font-weight: 700;
   }
-`;
-
-const Title = Text.extend`
-  font-weight: bold;
 `;
 
 const SlideFromLeft = keyframes`
@@ -51,7 +43,7 @@ const SlideFromLeft = keyframes`
 /* CHANGE HEIGHT WHEN ADDING IMAGE  */
 const Image = styled.img`
   position: relative;
-  height: 10rem; 
+  height: 10rem;
   width: 15rem;
   margin-top: 20px;
   left: 0;
@@ -61,16 +53,20 @@ const Image = styled.img`
 
 class Presentation extends Component {
   state = {
-    open: 0
-  }
+    open: 0,
+  };
 
   render() {
     return this.state.open ? (
       <Container>
-        <Text>Welcome to<br /><strong>NeighborHealth</strong></Text>
-        <Image/>
+        <Text>
+          Welcome to
+          <br />
+          <strong>NeighborHealth</strong>
+        </Text>
+        <Image />
       </Container>
-      ) : null;
+    ) : null;
   }
 }
 

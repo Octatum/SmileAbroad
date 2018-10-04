@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import {device} from '../../../../utils/device';
+import { device } from '../../../../utils/device';
 
 const Container = styled.label`
   margin: 20px 0;
@@ -31,25 +31,22 @@ const Answer = styled.input`
   width: 100%;
   box-sizing: border-box;
 
-  &:focus{
-    outline:none;
+  &:focus {
+    outline: none;
   }
 
   &:hover {
     box-shadow: 2px 2px 5px 1px rgba(0, 198, 219, 0.25),
-                -2px -2px 5px 1px rgba(0, 198, 219, 0.25);
+      -2px -2px 5px 1px rgba(0, 198, 219, 0.25);
   }
-
 `;
 
-const OpenQuestion = ({questionText, ...rest}) => {
+const OpenQuestion = ({ questionText, ...rest }) => {
   return (
-  <Container>
-    <Title> {questionText} </Title>
-    <Answer 
-      {...rest}
-    />
-  </Container>
+    <Container>
+      <Title> {questionText} </Title>
+      <Answer {...rest} />
+    </Container>
   );
 };
 
@@ -59,12 +56,12 @@ OpenQuestion.proptypes = {
   name: PropTypes.string.isRequired,
   required: PropTypes.bool,
   autoComplete: PropTypes.string,
-  type: PropTypes.string
+  type: PropTypes.string,
 };
 
 OpenQuestion.defaultProps = {
   required: false,
-  type: 'text'
+  type: 'text',
 };
 
 export default OpenQuestion;

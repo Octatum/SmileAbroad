@@ -8,9 +8,9 @@ import { device } from './../../utils/device';
 
 const Container = styled.div`
   position: relative;
-  
+
   font-weight: 600;
-  font-family: ${props => props.theme.fontFamily.main}, sans-serif;  
+  font-family: ${props => props.theme.fontFamily.main}, sans-serif;
 
   ${device.tablet} {
     display: flex;
@@ -27,7 +27,7 @@ const Arrow = styled.img`
   transition: transform ease 0.5s;
 
   ${device.tablet} {
-    transform: ${props => props.reverse ? 'rotate(180deg)' : 'rotate(0deg)'};
+    transform: ${props => (props.reverse ? 'rotate(180deg)' : 'rotate(0deg)')};
   }
 `;
 
@@ -45,8 +45,8 @@ const Hidden = styled.div`
   padding-top: 0.5em;
   width: 150%;
   left: -20%;
-  box-shadow: 0 5px 10px -5px rgba(0,0,0,0.5);
-  
+  box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.5);
+
   ${Container}:hover & {
     display: flex;
   }
@@ -58,17 +58,15 @@ const Hidden = styled.div`
     }
 
     ${Container}:hover & {
-      display: ${props => props.show ? 'flex' : 'none'};
+      display: ${props => (props.show ? 'flex' : 'none')};
     }
-    
+
     box-shadow: initial;
-    display: ${props => props.show ? 'flex' : 'none'};
+    display: ${props => (props.show ? 'flex' : 'none')};
     position: relative;
     width: initial;
     left: 0;
   }
-
-  
 `;
 
 const SelectionLink = ButtonComp(Link).extend`
@@ -78,7 +76,6 @@ const SelectionLink = ButtonComp(Link).extend`
 `;
 
 const Selection = ({ className, links, children, isOpen, clickAction }) => {
-
   return (
     <Container className={className}>
       <SelectionName onClick={clickAction}>
@@ -95,7 +92,7 @@ const Selection = ({ className, links, children, isOpen, clickAction }) => {
         })}
       </Hidden>
     </Container>
-  )
-}
+  );
+};
 
 export default Selection;

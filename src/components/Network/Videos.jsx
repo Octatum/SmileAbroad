@@ -19,6 +19,7 @@ const Title = styled.p`
   font-weight: bold;
   font-size: 2.5em;
   color: white;
+  text-align: center;
 `;
 
 const Video = styled.video`
@@ -34,30 +35,23 @@ const Description = styled.p`
   width: 90%;
 `;
 
-const IndivVideo = ({
-  title,
-  video,
-  description,
-  className
-}) => {
+const IndivVideo = ({ title, video, description, className }) => {
   return (
-  <Container className={className}>
-    <Title>{title}</Title>
-    <Video 
-      controls
-      controlsList="nodownload">
-      <source src={video} type="video/webm" />
-      <source src={video} type="video/mp4" />
-    </Video>
-    <Description>{description}</Description>
-  </Container>
-  )
-}
+    <Container className={className}>
+      <Title>{title}</Title>
+      <Video controls controlsList="nodownload">
+        <source src={video} type="video/webm" />
+        <source src={video} type="video/mp4" />
+      </Video>
+      <Description>{description}</Description>
+    </Container>
+  );
+};
 
 IndivVideo.propTypes = {
   title: PropTypes.string.isRequired,
   video: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired
+  description: PropTypes.string.isRequired,
 };
 
 export default IndivVideo;

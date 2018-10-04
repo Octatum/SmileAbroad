@@ -2,24 +2,28 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 import nerdy from './../assets/nerdy.png';
-import {device} from './../../../utils/device';
+import { device } from './../../../utils/device';
 
 const Container = styled.div`
   font-size: calc(1rem + 0.75vw);
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   margin: 4em 0;
+  position: relative;
 
   & > p {
     text-align: center;
-    width: 100%;
     font-size: 1.5em;
+    margin: 0 auto;
+    text-decoration: underline ${props => props.theme.color.lightBlue};
   }
 `;
 
 const SlideContainer = styled.div`
-  display: flex;
+  display: ${props => (props.show ? 'flex' : 'none')};
   flex-direction: row;
   flex-wrap: wrap;
+
+  min-height: 10em;
 
   margin: 3em;
   margin-right: 0;
@@ -30,16 +34,19 @@ const SlideContainer = styled.div`
     flex-direction: column;
     margin: 1.75em;
     margin-right: 0;
+    min-height: initial;
   }
-
 `;
 
 const TitleCont = styled.div`
   width: 100%;
   position: relative;
+  margin: 2em 0 0.5em 0;
+
+  font-size: 0.8em;
 
   ::before {
-    content: "";
+    content: '';
     position: absolute;
     width: 3em;
     height: 0.2em;
@@ -51,16 +58,11 @@ const TitleCont = styled.div`
   ${device.tablet} {
     width: 100%;
     order: 1;
-
-    p {
-      width: 100%;
-    }
   }
 `;
 
 const Title = styled.p`
   font-size: 1.75em;
-  width: 60%;
   font-weight: bold;
 `;
 const BlueTitle = Title.withComponent('span').extend`
@@ -103,7 +105,8 @@ const Image = styled.img`
 
 const UList = styled.ul`
   list-style-position: inside;
-  &, & > li {
+  &,
+  & > li {
     margin: 1em 0;
   }
 `;
@@ -135,17 +138,17 @@ const Bubble = styled.button`
   border-radius: 50%;
 
   background: ${props => props.theme.color.lightBlue};
-  opacity: ${props => props.isSelected ? 1 : 0.4};
+  opacity: ${props => (props.isSelected ? 1 : 0.4)};
   outline: none;
 
   cursor: pointer;
 
   transition: box-shadow 0.25s linear;
-   
-  :hover{
-    box-shadow: 4px 4px 4px 0 rgba(0,0,0,0.3);
+
+  :hover {
+    box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.3);
   }
-  
+
   ${device.tablet} {
     transition: none;
     :hover {
@@ -159,8 +162,8 @@ class Connection extends Component {
     super();
 
     this.state = {
-      currentSelected: 0
-    }
+      currentSelected: 1,
+    };
 
     this.bubbleClickHandler = this.bubbleClickHandler.bind(this);
   }
@@ -168,40 +171,55 @@ class Connection extends Component {
   bubbleClickHandler(event, key) {
     event.preventDefault();
     this.setState({
-      currentSelected: key
+      currentSelected: key,
     });
   }
 
   render() {
-    let bubbles = [1,2,3,4,5,6,7,8];
+    let bubbles = [1, 2, 3, 4, 5];
     bubbles = bubbles.map((value, index) => {
       return (
-        <Bubble 
-          onClick={(event) => this.bubbleClickHandler(event, index)} 
-          key={index} 
-          isSelected={this.state.currentSelected === index} >
+        <Bubble
+          onClick={event => this.bubbleClickHandler(event, value)}
+          key={index}
+          isSelected={this.state.currentSelected === value}>
           {value}
         </Bubble>
       );
-    })
+    });
 
     return (
-      <Container id="how-it-works">
+      <Container>
+        <span
+          id="how-it-works"
+          style={{ position: 'absolute', visibility: 'hidden', top: '-100px' }}
+        />
         <Title>How It Works</Title>
-        <SlideContainer>
+        <SlideContainer show={this.state.currentSelected === 1}>
+          <Title>
+            {' '}
+            <BlueTitle>Step 1</BlueTitle> - Contact Us!
+          </Title>
+
           <TitleCont>
-            <Title>Your <BlueTitle>connection</BlueTitle> to easy and affordable <BlueTitle>healthcare</BlueTitle></Title>
+            <Title>
+              Your <BlueTitle>connection</BlueTitle> to easy and affordable{' '}
+              <BlueTitle>healthcare</BlueTitle>
+            </Title>
           </TitleCont>
 
           <TextContainer>
             <Text>
-              Let us take the stress away! <br/>
-              After all, isn't that what a good neighbor is all about? <br/>
-              Two <BlueText>easy</BlueText> ways to begin your <BlueText>journey</BlueText>
+              Let us take the stress away! <br />
+              After all, isn't that what a good neighbor is all about? <br />
+              Two <BlueText>easy</BlueText> ways to begin your{' '}
+              <BlueText>journey</BlueText>
             </Text>
             <UList>
               <li>Send us a message through our website</li>
-              <li>Call us at: <BlueText>+1-512-717-3280</BlueText></li>
+              <li>
+                Call us at: <BlueText>+1-512-717-3280</BlueText>
+              </li>
             </UList>
           </TextContainer>
 
@@ -210,9 +228,104 @@ class Connection extends Component {
           </ImageContainer>
         </SlideContainer>
 
-        <BubbleContainer>
-          {bubbles}
-        </BubbleContainer>
+        <SlideContainer show={this.state.currentSelected === 2}>
+          <Title>
+            <BlueTitle>Step 2</BlueTitle> - Personalized Plan
+          </Title>
+          <TitleCont>
+            <Title>
+              Receive a <BlueTitle>personalized plan</BlueTitle> which includes:{' '}
+            </Title>
+          </TitleCont>
+
+          <TextContainer>
+            <UList>
+              <li>Dentist's profile</li>
+              <li>Estimated cost and days abroad for your dental treatment</li>
+              <li>Accommodation options</li>
+              <li>Touristic recommendations and exclusive coupons</li>
+              <li>
+                NeighborHealth services: Transportation to and from the airport
+                and between your appointments.
+              </li>
+              <li>Total savings</li>
+            </UList>
+          </TextContainer>
+        </SlideContainer>
+
+        <SlideContainer show={this.state.currentSelected === 3}>
+          <Title>
+            <BlueTitle>Step 3</BlueTitle> - Help us help you!
+          </Title>
+
+          <TextContainer>
+            <Text>
+              Provide us your dental studies to help our certified specialist
+              abroad define your personal treatment. (e.g Digital Dental
+              Panorama, Dental Cone Beam CT, Radiography, etc).
+            </Text>
+          </TextContainer>
+        </SlideContainer>
+
+        <SlideContainer show={this.state.currentSelected === 4}>
+          <Title>
+            <BlueTitle>Step 4</BlueTitle> - Payment
+          </Title>
+
+          <TitleCont>
+            <Title>
+              The <BlueTitle>payment</BlueTitle> is divided in two different
+              sections
+            </Title>
+          </TitleCont>
+
+          <TextContainer>
+            <UList>
+              <li>
+                <BlueText>The deposit:</BlueText> part of the deposit is a
+                security for the dentist to secure your place an appointment.
+                The other, is to book your hotel, tourist activities and
+                transportation services.
+              </li>
+              <li>
+                <BlueText>Final payment:</BlueText> is the remaining amount and
+                must be provided once you have arrived at the dental clinic.
+              </li>
+            </UList>
+          </TextContainer>
+        </SlideContainer>
+
+        <SlideContainer show={this.state.currentSelected === 5}>
+          <Title>
+            <BlueTitle>Step 5</BlueTitle> - Are you ready? Receive your agenda
+          </Title>
+
+          <TitleCont>
+            <Title>
+              <BlueTitle>NeighborHealth</BlueTitle> will provide your
+              personalized itinerary, which includes:
+            </Title>
+          </TitleCont>
+
+          <TextContainer>
+            <UList>
+              <li>Your chosen accommodation reservation.</li>
+              <li>Your exclusive codes for tourist attractions.</li>
+              <li>Recommendation of places to eat in the zone.</li>
+              <li>
+                NeighborHealth representative that will assist you during your
+                stay.
+              </li>
+            </UList>
+            <Text>
+              Your personalized itinerary will arrive before you set out on your
+              trip, so your family and friends will always know where and how to
+              keep in contact with you.
+            </Text>
+          </TextContainer>
+        </SlideContainer>
+
+        <BubbleContainer>{bubbles}</BubbleContainer>
       </Container>
     );
   }
