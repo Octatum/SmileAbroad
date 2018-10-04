@@ -6,7 +6,6 @@ import { svgs } from './svgs';
 
 const Container = styled.div`
   width: 100%;
-  margin: 50px 0;
 
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   font-size: calc(1rem + 0.75vw);
@@ -62,7 +61,7 @@ const Text = styled.p`
   margin: 0 auto;
 `;
 
-const WhatWeDo = () => {
+const WhatWeDo = ({className}) => {
   const Settings = {
     dots: true,
     infinite: true,
@@ -88,7 +87,7 @@ const WhatWeDo = () => {
   };
 
   return (
-    <Container>
+    <Container className={className}>
       <Title>Our Values</Title>
       <SliderMod {...Settings}>
         <Div>
