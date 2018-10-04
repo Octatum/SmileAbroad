@@ -13,15 +13,29 @@ const Container = styled.div`
   width: 100%;
 `;
 
+const WelcomeComp = styled(Welcome)`
+`;
+const OurValues = styled(WhatWeDo)`
+  margin: 2em 0;
+`;
+const HowItWorks = styled(Connection)`
+  margin: 3em 0 2em 0;
+`;
+const PricingComp = styled(Pricing)`
+  margin: 2em 0em;
+`;
+const JourneyComp = styled(Journey)`
+`;
+
 const AboutUsPage = () => (
   <AppLayout>
     <Container>
       <Helmet title="About Us" />
-      <Welcome />
-      <WhatWeDo />
-      <Connection />
-      <Pricing />
-      <Journey />
+      <WelcomeComp />
+      <OurValues />
+      <HowItWorks />
+      <PricingComp />
+      <JourneyComp />
     </Container>
   </AppLayout>
 );

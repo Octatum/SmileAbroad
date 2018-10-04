@@ -9,7 +9,7 @@ import GetStartedButton from './../../GetStarted/Button';
 const Cont = styled.div`
   width: 100%;
   position: relative;
-  padding: 2em;
+  padding: 5em;
 
   border-bottom: 2em solid ${props => props.theme.color.lightBlue};
 
@@ -97,8 +97,8 @@ const GetStarted = styled(GetStartedButton)`
   }
 `;
 
-const Welcome = () => (
-  <Cont>
+const Welcome = (props) => (
+  <Cont className={props.className}>
     <MessageContainer>
       <Title>
         Welcome <TitleBlue>Neighbor</TitleBlue>{' '}

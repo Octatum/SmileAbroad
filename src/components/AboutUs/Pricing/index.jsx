@@ -14,10 +14,8 @@ const Container = styled.div`
   font-family: ${props => props.theme.fontFamily.main};
   position: relative;
 
-  padding: 1.5em 0;
-  padding-bottom: 5em;
-
   min-height: 75vh;
+
   > p {
     margin-bottom: 1em;
   }
@@ -122,8 +120,8 @@ const GiantText = styled.span`
   font-weight: bold;
 `;
 
-const Pricing = () => (
-  <Container>
+const Pricing = ({className}) => (
+  <Container className={className}>
     <span
       id="pricing"
       style={{ position: 'absolute', visibility: 'hidden', top: '-100px' }}

@@ -7,7 +7,6 @@ import { device } from './../../../utils/device';
 const Container = styled.div`
   font-size: calc(1rem + 0.75vw);
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
-  margin: 4em 0;
   position: relative;
 
   & > p {
@@ -22,28 +21,36 @@ const SlideContainer = styled.div`
   display: ${props => (props.show ? 'flex' : 'none')};
   flex-direction: row;
   flex-wrap: wrap;
+  align-content: flex-start;
 
-  min-height: 10em;
+  min-height: 70vh;
 
   margin: 3em;
   margin-right: 0;
 
   font-size: 0.75em;
 
+  p {
+    width: 100%;
+  }
   ${device.tablet} {
     flex-direction: column;
+    
     margin: 1.75em;
     margin-right: 0;
-    min-height: initial;
+
+    p {
+      width: 90%;
+    }
   }
 `;
 
 const TitleCont = styled.div`
   width: 100%;
   position: relative;
-  margin: 2em 0 0.5em 0;
-
+  margin: 1em 0em;
   font-size: 0.8em;
+  height: auto;
 
   ::before {
     content: '';
@@ -75,7 +82,7 @@ const TextContainer = styled.div`
   padding: 1.5em 2em;
 
   ${device.tablet} {
-    width: 100%;
+    width: 90%;
     order: 3;
     padding: 0;
   }
@@ -189,7 +196,7 @@ class Connection extends Component {
     });
 
     return (
-      <Container>
+      <Container className={this.props.className}>
         <span
           id="how-it-works"
           style={{ position: 'absolute', visibility: 'hidden', top: '-100px' }}
