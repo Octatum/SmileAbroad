@@ -172,6 +172,7 @@ class Navbar extends Component {
           <NavLink to="/blog">Blogs</NavLink>
           <NavLink to="/about#how-it-works">How it Works</NavLink>
           <NavLink to="/about#pricing">Pricing</NavLink>
+          <NavLink to="/faq">FAQs</NavLink>
           <Selection
             links={[
               { url: '/network', name: 'Our Network' },

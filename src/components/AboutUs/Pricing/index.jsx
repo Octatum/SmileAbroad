@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { device } from './../../../utils/device';
 
 import GetStartedButton from './../../GetStarted/Button';
+import Tooth from './assets/Tooth.svg';
 
 const Container = styled.div`
   display: flex;
@@ -16,13 +17,28 @@ const Container = styled.div`
   padding: 1.5em 0;
   padding-bottom: 5em;
 
-  background-color: white;
   min-height: 75vh;
   > p {
     margin-bottom: 1em;
   }
   > div {
     margin-bottom: 1.5em;
+  }
+
+  ::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  ::after {
+    z-index: -2;
+    background-image: url(${Tooth});
+    background-size: 100% auto;
+    opacity: 0.15;
   }
 `;
 
@@ -35,12 +51,8 @@ const Title = styled.p`
     color: black;
   }
 `;
-
-const Separator = styled.div`
-  background: ${props => props.theme.color.lightBlue};
-  width: 2.5em;
-  height: 6px;
-  border-radius: 1em;
+const CompTitle = Title.extend`
+  text-decoration: underline ${props => props.theme.color.lightBlue};
 `;
 
 const Text = styled.p`
@@ -116,8 +128,7 @@ const Pricing = () => (
       id="pricing"
       style={{ position: 'absolute', visibility: 'hidden', top: '-100px' }}
     />
-    <Title>Pricing</Title>
-    <Separator />
+    <CompTitle>Pricing</CompTitle>
     <Text>The payment is divided in two different sections:</Text>
     <Sections>
       <PaymentOptions>

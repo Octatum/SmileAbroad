@@ -154,12 +154,6 @@ class Questionnaire extends Component {
           name="travelDate"
           required
         />
-        <OpenQuestion
-          questionText="Please describe your dental needs"
-          onChange={this.handleChange}
-          name="dentalDescription"
-          required
-        />
         <MultipleChoice
           questionText="From 0 to 0 in a scale of pain, how would you rate your pain tolerance?"
           onChange={this.handleChange}

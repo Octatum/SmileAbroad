@@ -16,6 +16,7 @@ const Container = styled.div`
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-content: space-around;
+  font-size: calc(0.75rem + 0.5vw);
 
   & > div {
     margin: 10px;
@@ -45,13 +46,14 @@ const NewestPost = styled(Newest)`
 `;
 
 const TopPosts = styled(Top)`
-  width: 30%;
+  width: 25%;
   order: 2;
 
   ${device.laptop} {
     width: 100%;
     order: 3;
   }
+  font-size: 1.25em;
 `;
 
 const Posts = styled(OtherPosts)`
@@ -60,6 +62,7 @@ const Posts = styled(OtherPosts)`
   ${device.laptop} {
     order: 2;
   }
+  font-size: 0.85em;
 `;
 
 const Blogs = props => {

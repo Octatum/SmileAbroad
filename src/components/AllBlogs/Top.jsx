@@ -4,7 +4,6 @@ import Link from 'gatsby-link';
 
 const Container = styled.div`
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
-  font-size: calc(1rem + 0.75vw);
 `;
 
 const Title = styled.p`

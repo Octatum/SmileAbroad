@@ -8,7 +8,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
 
-  padding: 0 5em;
+  padding: 0 7.5em;
   margin: 1.5em 0;
 
   ${device.tablet} {
@@ -16,7 +16,7 @@ const Container = styled.div`
   }
 
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
-  font-size: calc(1rem + 0.75vw);
+  font-size: calc(1rem + 0.5vw);
 `;
 
 const Title = styled.p`

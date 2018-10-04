@@ -19,18 +19,22 @@ const Container = styled.div`
 `;
 
 const Author = styled.p`
-  font-style: italic;
+  font-weight: bold;
+  color: ${props => props.theme.color.lightBlue};
   display: inline-block;
 `;
 
 const AuthorMedia = ({ authorName, className }) => {
   return (
     <Container className={className}>
-      <Author>{authorName}</Author>
+      <Author>
+        <span style={{ color: 'black', fontWeight: 'initial' }}>By</span> Dr.{' '}
+        {authorName}
+      </Author>
       <iframe
         title="Facebook"
         src={
-          'https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fwww.facebook.com%2FNeighborHealth%2F&layout=button&size=small&mobile_iframe=true&width=59&height=20&appId'
+          'https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fwww.facebook.com%2FNeighborHealth%2F&layout=button&size=small&mobile_iframe=true&appId'
         }
         width="59"
         height="20"

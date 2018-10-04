@@ -13,6 +13,9 @@ const Container = styled.div`
   p {
     text-align: center;
   }
+  > p {
+    text-decoration: underline ${props => props.theme.color.lightBlue};
+  }
 `;
 
 const SliderMod = styled(Slider)`

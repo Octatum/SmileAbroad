@@ -10,18 +10,17 @@ const Container = styled.div`
   padding: 1em;
 
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
-  font-size: calc(0.75rem + 0.75vw);
   border-radius: 10px;
 
   min-height: 75vh;
-
+  /* 
   p {
     text-shadow: 0.5px 0.5px #000, -0.5px -0.5px #000, 0.5px -0.5px #000,
       -0.5px 0.5px #000;
 
     max-width: 85%;
     color: white;
-  }
+  } */
 
   ::after {
     background-image: url(${props => props.image});
@@ -40,7 +39,7 @@ const Container = styled.div`
 
 const Title = styled.p`
   font-weight: bold;
-  font-size: 3em;
+  font-size: 2em;
 `;
 
 const Excerpt = styled.p`
@@ -48,7 +47,12 @@ const Excerpt = styled.p`
 `;
 
 const Author = styled.p`
-  font-style: italic;
+  font-weight: bold;
+  color: ${props => props.theme.color.lightBlue};
+`;
+
+const Image = styled.img`
+  width: 100%;
 `;
 
 const PostLink = styled(Link)`
@@ -61,13 +65,15 @@ const PostLink = styled(Link)`
 `;
 
 const Post = props => (
-  <Container
-    image={props.firstPost.frontmatter.thumbnail}
-    className={props.className}>
+  <Container className={props.className}>
     <PostLink to={props.firstPost.fields.route} />
     <Title>{props.firstPost.frontmatter.title}</Title>
+    <Image src={props.firstPost.frontmatter.thumbnail} />
     <Excerpt>{props.firstPost.excerpt}</Excerpt>
-    <Author>By {props.firstPost.frontmatter.author}</Author>
+    <Author>
+      <span style={{ color: 'black', fontWeight: 'initial' }}>By </span>
+      Dr. {props.firstPost.frontmatter.author}
+    </Author>
   </Container>
 );
 

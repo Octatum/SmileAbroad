@@ -100,6 +100,11 @@ const Localization = styled.div`
   flex-direction: row;
   align-items: center;
 
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
   ${device.tablet} {
     margin: 15px 10px;
   }
@@ -113,37 +118,7 @@ const SVGicon = styled.img`
   height: 3em;
   margin-right: 1em;
 `;
-/* 
-const Warning = styled.div`
-  position: absolute;
-  display: block;
-  right: 0;
-  top: 100%;
-  z-index: -1;
-  width: 70%;
-  max-width: 800px;
 
-  opacity: ${props => (props.valid ? 0 : 1)};
-  transition: transform 0.5s ease, opacity 0.5s ease;
-
-  background: pink;
-  color: red;
-  border-radius: 10px;
-  padding: 0 0.75em;
-
-  font-size: 0.75em;
-
-  ${GridInput}:focus + &,
-  ${MessageInput}:focus + & {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-
-  ${device.tablet} {
-    left: 0;
-  }
-`;
- */
 function encode(data) {
   return Object.keys(data)
     .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
@@ -220,7 +195,13 @@ class GetInTouch extends Component {
 
         <Localization>
           <SVGicon src={LocationIcon} />
-          <GridText>Av. Eugenio Garza Sada No. 427, Local 37</GridText>
+          <GridText>
+            <a
+              target="__blank"
+              href="https://maps.google.com/maps?q=Av. Eugenio Garza Sada No. 427, Local 37">
+              Av. Eugenio Garza Sada No. 427, Local 37
+            </a>
+          </GridText>
         </Localization>
       </Container>
     );

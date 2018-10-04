@@ -8,7 +8,6 @@ const Container = styled.div`
   justify-content: space-between;
 
   position: relative;
-  font-size: calc(0.75rem + 0.75vw);
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
 `;
 

@@ -9,10 +9,12 @@ const Container = styled.div`
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   margin: 4em 0;
   position: relative;
+
   & > p {
     text-align: center;
-    width: 100%;
     font-size: 1.5em;
+    margin: 0 auto;
+    text-decoration: underline ${props => props.theme.color.lightBlue};
   }
 `;
 
@@ -56,16 +58,11 @@ const TitleCont = styled.div`
   ${device.tablet} {
     width: 100%;
     order: 1;
-
-    p {
-      width: 100%;
-    }
   }
 `;
 
 const Title = styled.p`
   font-size: 1.75em;
-  width: 60%;
   font-weight: bold;
 `;
 const BlueTitle = Title.withComponent('span').extend`
@@ -199,7 +196,10 @@ class Connection extends Component {
         />
         <Title>How It Works</Title>
         <SlideContainer show={this.state.currentSelected === 1}>
-          <Title>Step 1 - Contact Us!</Title>
+          <Title>
+            {' '}
+            <BlueTitle>Step 1</BlueTitle> - Contact Us!
+          </Title>
 
           <TitleCont>
             <Title>
@@ -229,7 +229,9 @@ class Connection extends Component {
         </SlideContainer>
 
         <SlideContainer show={this.state.currentSelected === 2}>
-          <Title>Step 2 - Personalized Plan</Title>
+          <Title>
+            <BlueTitle>Step 2</BlueTitle> - Personalized Plan
+          </Title>
           <TitleCont>
             <Title>
               Receive a <BlueTitle>personalized plan</BlueTitle> which includes:{' '}
@@ -252,7 +254,9 @@ class Connection extends Component {
         </SlideContainer>
 
         <SlideContainer show={this.state.currentSelected === 3}>
-          <Title>Step 3 - Help us help you!</Title>
+          <Title>
+            <BlueTitle>Step 3</BlueTitle> - Help us help you!
+          </Title>
 
           <TextContainer>
             <Text>
@@ -264,7 +268,9 @@ class Connection extends Component {
         </SlideContainer>
 
         <SlideContainer show={this.state.currentSelected === 4}>
-          <Title>Step 4 - Payment</Title>
+          <Title>
+            <BlueTitle>Step 4</BlueTitle> - Payment
+          </Title>
 
           <TitleCont>
             <Title>
@@ -290,7 +296,9 @@ class Connection extends Component {
         </SlideContainer>
 
         <SlideContainer show={this.state.currentSelected === 5}>
-          <Title>Step 5 - Are you ready? Receive your agenda</Title>
+          <Title>
+            <BlueTitle>Step 5</BlueTitle> - Are you ready? Receive your agenda
+          </Title>
 
           <TitleCont>
             <Title>
