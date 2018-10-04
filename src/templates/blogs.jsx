@@ -39,7 +39,7 @@ const ReactMD = styled(ReactMarkdown)`
   }
 
   & * {
-    font-size: calc(0.75rem + 1vw);
+    font-size: calc(1rem + 0.5vw);
     color: black;
     font-family: ${props => props.theme.fontFamily.main}, sans-serif;
     display: block;
@@ -50,6 +50,7 @@ const ReactMD = styled(ReactMarkdown)`
   }
 
   p {
+    margin: 1em 0;
     color: black;
     font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   }
@@ -64,6 +65,7 @@ const ReactMD = styled(ReactMarkdown)`
   p strong {
     font-weight: bold;
     display: inline-block;
+    color: ${props => props.theme.color.lightBlue};    
   }
 
   p em {
@@ -127,7 +129,7 @@ const Title = styled.p`
   font-size: calc(2rem + 2vw);
   color: black;
   font-weight: 600;
-  font-family: ${props => props.theme.fontFamily.main}, sans-serif;
+  font-family: ${props => props.theme.fontFamily.main};
   text-align: center;
 
   margin: 20px 0;

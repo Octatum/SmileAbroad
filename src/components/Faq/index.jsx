@@ -27,7 +27,7 @@ const Container = styled.div`
 `;
 
 const IndivQuestion = styled(Question)`
-  margin-bottom: 2.5em;
+  margin-bottom: 2em;
 `;
 
 const Faq = props => {

@@ -16,7 +16,7 @@ const Title = styled.p`
   margin-top: 2em;
 `;
 
-const BlueTitle = Title.withComponent('span').extend`
+const BlueTitle = styled.span`
   color: ${props => props.theme.color.lightBlue};
 `;
 

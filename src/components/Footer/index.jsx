@@ -160,7 +160,7 @@ const Footer = () => (
       <LinksTitle>Learn More</LinksTitle>
       <LinksCont>
         <UsefulLink to="/">Home</UsefulLink>
-        <UsefulLink to="/Blogs">Blogs</UsefulLink>
+        <UsefulLink to="/blog">Blogs</UsefulLink>
         <UsefulLink to="/get-started">Get Started</UsefulLink>
         <UsefulLink to="/faq">FAQs</UsefulLink>
       </LinksCont>
@@ -171,8 +171,6 @@ const Footer = () => (
     <Div style={{ gridArea: 'contact' }}>
       <ContactTitle>Contact Us</ContactTitle>
       <ContactCont>
-        <ContactData>+1 512 717 3280</ContactData>
-        <ContactData>lucia@neighborhealthco.com</ContactData>
         <MessageButton to="/contact">send a message</MessageButton>
       </ContactCont>
     </Div>

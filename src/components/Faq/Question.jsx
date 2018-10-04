@@ -1,20 +1,24 @@
 import React from 'react';
 import styled from 'styled-components';
-
 import ReactMarkdown from 'react-markdown';
 
-const Container = styled.label``;
+import arrowIcon from './assets/arrow.svg';
 
-const Pregunta = styled.span`
+const Container = styled.label`
+  display: flex;
+  flex-direction: column;
+`;
+
+const Question = styled.div`
   font-weight: bold;
-  margin-bottom: 1em;
+  margin: 0.5em 0;
   font-size: 1.25em;
 
   cursor: pointer;
   border: 1px transparent dotted;
 `;
 
-const Respuesta = styled(ReactMarkdown)`
+const Answer = styled(ReactMarkdown)`
   font-size: 0;
   margin: 0;
   opacity: 0;
@@ -23,31 +27,33 @@ const Respuesta = styled(ReactMarkdown)`
   /* fade out, then shrink */
   transition: opacity 0.25s, margin 0.5s 0.25s, font-size 0.5s 0.25s,
     padding 0.5s 0.25s;
+
+  strong {
+    color: ${({theme}) => theme.color.lightBlue};
+  }
 `;
 
-const Arrow = styled.span`
-  float: right;
-  margin-left: 0.5em;
-  transform: rotate(90deg);
+const Arrow = styled.img`
+  transform: rotate(0turn);
+  width: 1em;
   transition: transform 0.25s ease-out;
+  font-family: ${({theme}) => theme.fontFamily.main};
 `;
 
 const Checkbox = styled.input`
-  position: absolute;
-  left: -9999px;
+  display: none;
 
-  :checked ~ ${Arrow} {
-    transform: rotate(270deg);
+  :checked ~ div img {
+    transform: rotate(0.5turn);
   }
 
-  &:focus ~ ${Pregunta} {
+  &:focus ~ ${Question} {
     border-color: grey;
   }
 
-  :checked ~ ${Respuesta} {
+  :checked ~ ${Answer} {
     font-size: 1em;
     opacity: 1;
-    height: auto;
     padding: 5px 0;
 
     /* grow, then fade in */
@@ -55,15 +61,25 @@ const Checkbox = styled.input`
   }
 `;
 
-const Question = ({ question, answer, className }) => {
+const QuestionHeaderTitle = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const QuestionContainer = ({ question, answer, className }) => {
   return (
     <Container className={className}>
       <Checkbox type="checkbox" />
-      <Pregunta>{question}</Pregunta>
-      <Arrow>&gt;</Arrow>
-      <Respuesta source={answer} />
+      <QuestionHeaderTitle>
+        <Question>{question}</Question>
+        <div>
+          <Arrow src={arrowIcon} />
+        </div>
+      </QuestionHeaderTitle>
+      <Answer source={answer} />
     </Container>
   );
 };
 
-export default Question;
+export default QuestionContainer;
