@@ -1,16 +1,17 @@
 backend:
   name: git-gateway
+  branch: dev
 
 media_folder: static/assets/uploads
 public_folder: /assets/uploads
 
 collections:
-  - name: "blog"                                      # Used in routes, e.g., /admin/collections/blog
-    label: "Blog"                                     # Used in the UI
-    folder: "content/blog"                            # The path to the folder where the documents are stored
-    create: true                                      # Allow users to create new documents in this collection
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"       # Filename template, e.g., YYYY-MM-DD-title.md
-    fields:                                           # The fields for each document, usually in front matter
+  - name: "blog"
+    label: "Entrada de blog"
+    folder: "content/blog"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
       - {label: "Layout", name: "layout", widget: "hidden", default: "blog"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
@@ -53,3 +54,12 @@ collections:
       - {label: "Question", name: "question", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Body", name: "body", widget: "markdown"}
+  
+  - name: "textContent"
+    label: "Texto"
+    folder: "content/textContent"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Layout", name: "layout", widget: "hidden", default: "faq"}
+      - {label: "Content", name: "content", widget: "markdown"}
