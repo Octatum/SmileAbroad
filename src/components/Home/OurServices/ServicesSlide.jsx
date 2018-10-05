@@ -79,11 +79,19 @@ const GetStarted = styled(GetStartedButton)`
 
 const VideoLink = styled.a``;
 
+const Slide = styled.div`
+  display: ${props => (props.display ? 'flex' : 'none')};
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
 const BlueButton = ButtonComponent(VideoLink).extend`
   padding: 10px 1em;
   font-size: 1.25em;
   cursor: pointer;
 `;
+
 
 const BubbleCont = ButtonCont.extend`
   height: auto;
@@ -119,7 +127,7 @@ class ServiceSlide extends Component {
   constructor() {
     super();
     this.state = {
-      currentActiveBubble: 1,
+      currentActiveBubble: 0,
     };
 
     this.onClickVideoHandle = this.onClickVideoHandle.bind(this);
@@ -146,27 +154,74 @@ class ServiceSlide extends Component {
   render() {
     return (
       <Container className={this.props.className}>
-        <Title>Affordable Health Care</Title>
-        <Separator />
-        <Description>
-          At <BlueText>NeighborHealth</BlueText> we help you find the ideal
-          Dental Health <Bold>Specialized</Bold> Treatment.
-        </Description>
-        <Description>
-          We facilitate the process of your experience abroad by creating a{' '}
-          <Bold>personalized</Bold> itinerary at <Bold>budget-friendly</Bold>{' '}
-          prices.
-        </Description>
-        <Description>
-          Go ahead, Visit Mexico to get your quality dental treatment at a price
-          you can afford.
-        </Description>
-        <ButtonCont>
-          <BlueButton onClick={this.onClickVideoHandle}>Watch Video</BlueButton>
-          <GetStarted />
-        </ButtonCont>
+        <Slide display={this.state.currentActiveBubble === 0}>
+          <Title>Affordable Health Care</Title>
+          <Separator />
+          <Description>
+            At <BlueText>NeighborHealth</BlueText> we help you find the ideal
+            Dental Health <Bold>Specialized</Bold> Treatment.
+          </Description>
+          <Description>
+            We facilitate the process of your experience abroad by creating a{' '}
+            <Bold>personalized</Bold> itinerary at <Bold>budget-friendly</Bold>{' '}
+            prices.
+          </Description>
+          <Description>
+            Go ahead, Visit Mexico to get your quality dental treatment at a price
+            you can afford.
+          </Description>
+          <ButtonCont>
+            <BlueButton onClick={this.onClickVideoHandle}>Watch Video</BlueButton>
+            <GetStarted />
+          </ButtonCont>
+        </Slide>
+
+        <Slide display={this.state.currentActiveBubble === 1}>
+          <Title>Affordable Health Care 2</Title>
+          <Separator />
+          <Description>
+            At <BlueText>NeighborHealth</BlueText> we help you find the ideal
+            Dental Health <Bold>Specialized</Bold> Treatment.
+          </Description>
+          <Description>
+            We facilitate the process of your experience abroad by creating a{' '}
+            <Bold>personalized</Bold> itinerary at <Bold>budget-friendly</Bold>{' '}
+            prices.
+          </Description>
+          <Description>
+            Go ahead, Visit Mexico to get your quality dental treatment at a price
+            you can afford.
+          </Description>
+          <ButtonCont>
+            <BlueButton onClick={this.onClickVideoHandle}>Watch Video</BlueButton>
+            <GetStarted />
+          </ButtonCont>
+        </Slide>
+
+        <Slide display={this.state.currentActiveBubble === 2}>
+          <Title>Affordable Health Care 3</Title>
+          <Separator />
+          <Description>
+            At <BlueText>NeighborHealth</BlueText> we help you find the ideal
+            Dental Health <Bold>Specialized</Bold> Treatment.
+          </Description>
+          <Description>
+            We facilitate the process of your experience abroad by creating a{' '}
+            <Bold>personalized</Bold> itinerary at <Bold>budget-friendly</Bold>{' '}
+            prices.
+          </Description>
+          <Description>
+            Go ahead, Visit Mexico to get your quality dental treatment at a price
+            you can afford.
+          </Description>
+          <ButtonCont>
+            <BlueButton onClick={this.onClickVideoHandle}>Watch Video</BlueButton>
+            <GetStarted />
+          </ButtonCont>
+        </Slide>
+
         <BubbleCont>
-          {[].map((_, index) => (
+          {[0,1,2].map((_, index) => (
             <Bubble
               onClick={e => this.bubbleClick(e, index)}
               current={this.state.currentActiveBubble === index}
