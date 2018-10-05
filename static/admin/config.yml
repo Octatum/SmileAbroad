@@ -56,10 +56,11 @@ collections:
       - {label: "Body", name: "body", widget: "markdown"}
   
   - name: "textContent"
-    label: "Texto"
+    label: "Text"
     folder: "content/textContent"
     create: true
     slug: "{{slug}}"
     fields:
       - {label: "Layout", name: "layout", widget: "hidden", default: "faq"}
+      - {label: "Title", name: "title", widget: "string"}
       - {label: "Content", name: "content", widget: "markdown"}
