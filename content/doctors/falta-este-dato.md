@@ -1,6 +1,6 @@
 ---
 layout: doctor
-name: Dr. Brenda Garza
+name: Brenda Garza
 title: falta este dato
 image: /assets/uploads/_mg_3266.jpg
 specialty: >-
