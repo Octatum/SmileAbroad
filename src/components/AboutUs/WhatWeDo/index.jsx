@@ -61,7 +61,7 @@ const Text = styled.p`
   margin: 0 auto;
 `;
 
-const WhatWeDo = ({className}) => {
+const WhatWeDo = ({ className }) => {
   const Settings = {
     dots: true,
     infinite: true,

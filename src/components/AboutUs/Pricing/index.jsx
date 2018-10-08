@@ -120,7 +120,7 @@ const GiantText = styled.span`
   font-weight: bold;
 `;
 
-const Pricing = ({className}) => (
+const Pricing = ({ className }) => (
   <Container className={className}>
     <span
       id="pricing"

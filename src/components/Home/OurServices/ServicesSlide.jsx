@@ -92,7 +92,6 @@ const BlueButton = ButtonComponent(VideoLink).extend`
   cursor: pointer;
 `;
 
-
 const BubbleCont = ButtonCont.extend`
   height: auto;
   width: auto;
@@ -167,11 +166,13 @@ class ServiceSlide extends Component {
             prices.
           </Description>
           <Description>
-            Go ahead, Visit Mexico to get your quality dental treatment at a price
-            you can afford.
+            Go ahead, Visit Mexico to get your quality dental treatment at a
+            price you can afford.
           </Description>
           <ButtonCont>
-            <BlueButton onClick={this.onClickVideoHandle}>Watch Video</BlueButton>
+            <BlueButton onClick={this.onClickVideoHandle}>
+              Watch Video
+            </BlueButton>
             <GetStarted />
           </ButtonCont>
         </Slide>
@@ -189,11 +190,13 @@ class ServiceSlide extends Component {
             prices.
           </Description>
           <Description>
-            Go ahead, Visit Mexico to get your quality dental treatment at a price
-            you can afford.
+            Go ahead, Visit Mexico to get your quality dental treatment at a
+            price you can afford.
           </Description>
           <ButtonCont>
-            <BlueButton onClick={this.onClickVideoHandle}>Watch Video</BlueButton>
+            <BlueButton onClick={this.onClickVideoHandle}>
+              Watch Video
+            </BlueButton>
             <GetStarted />
           </ButtonCont>
         </Slide>
@@ -211,17 +214,19 @@ class ServiceSlide extends Component {
             prices.
           </Description>
           <Description>
-            Go ahead, Visit Mexico to get your quality dental treatment at a price
-            you can afford.
+            Go ahead, Visit Mexico to get your quality dental treatment at a
+            price you can afford.
           </Description>
           <ButtonCont>
-            <BlueButton onClick={this.onClickVideoHandle}>Watch Video</BlueButton>
+            <BlueButton onClick={this.onClickVideoHandle}>
+              Watch Video
+            </BlueButton>
             <GetStarted />
           </ButtonCont>
         </Slide>
 
         <BubbleCont>
-          {[0,1,2].map((_, index) => (
+          {[0, 1, 2].map((_, index) => (
             <Bubble
               onClick={e => this.bubbleClick(e, index)}
               current={this.state.currentActiveBubble === index}

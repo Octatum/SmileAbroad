@@ -35,7 +35,7 @@ const SlideContainer = styled.div`
   }
   ${device.tablet} {
     flex-direction: column;
-    
+
     margin: 1.75em;
     margin-right: 0;
 

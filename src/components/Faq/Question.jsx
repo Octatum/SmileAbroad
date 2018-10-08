@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import ReactMarkdown from 'react-markdown';
 
-import {SVGs} from './svg'; 
+import { SVGs } from './svg';
 
 const Container = styled.label`
   display: flex;
@@ -29,7 +29,7 @@ const Answer = styled(ReactMarkdown)`
     padding 0.5s 0.25s;
 
   strong {
-    color: ${({theme}) => theme.color.lightBlue};
+    color: ${({ theme }) => theme.color.lightBlue};
   }
 `;
 
@@ -61,7 +61,6 @@ const QuestionHeaderTitle = styled.div`
 `;
 
 const ArrowContainer = styled.div`
-
   svg {
     transition: transform 0.25s ease-out;
     transform: rotate(0turn);
@@ -76,9 +75,7 @@ const QuestionContainer = ({ question, answer, className }) => {
       <Checkbox type="checkbox" />
       <QuestionHeaderTitle>
         <Question>{question}</Question>
-        <ArrowContainer>
-          {SVGs.arrow}
-        </ArrowContainer>
+        <ArrowContainer>{SVGs.arrow}</ArrowContainer>
       </QuestionHeaderTitle>
       <Answer source={answer} />
     </Container>

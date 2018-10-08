@@ -13,8 +13,7 @@ const Container = styled.div`
   width: 100%;
 `;
 
-const WelcomeComp = styled(Welcome)`
-`;
+const WelcomeComp = styled(Welcome)``;
 const OurValues = styled(WhatWeDo)`
   margin: 2em 0;
 `;
@@ -24,8 +23,7 @@ const HowItWorks = styled(Connection)`
 const PricingComp = styled(Pricing)`
   margin: 2em 0em;
 `;
-const JourneyComp = styled(Journey)`
-`;
+const JourneyComp = styled(Journey)``;
 
 const AboutUsPage = () => (
   <AppLayout>
