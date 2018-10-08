@@ -18,6 +18,7 @@ const BlueTitle = styled.span`
 `;
 
 const TermsComp = styled(Terms)`
+    margin: 5em auto;
     margin-top: 2em;
 `;
 
