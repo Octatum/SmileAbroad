@@ -25,7 +25,7 @@ By November, what would become the NeighborHealth team, had been invited to pres
 
 But no new venture can grow without its ability to adapt to change, to embrace fear, and to evolve with the needs of its clients, your needs. This is where Roberto Peña, V.P. of National Operations, and Rodolfo Funes, V.P. of International Development, come in. It is thanks to the team members, some of which have moved on, that NeighborHealth has become what it is today: _Your helping hand at home and abroad._
 
-The team continues to choose to work hard, to persist, to adapt in order to ensure that your needs are met. Finding the best deals, providing you with the security you need to be feel safe in their hands, and **connecting you with approved specialist** inside the NeighborHealth network – a [pre-screened network of medical professionals](https://neighborhealthco.com/Network) that will exceed your expectations – all located in **Mexico’s top Medical city, **[**Monterrey.**](https://neighborhealthco.com/Network)
+The team continues to choose to work hard, to persist, to adapt in order to ensure that your needs are met. Finding the best deals, providing you with the security you need to be feel safe in their hands, and **connecting you with approved specialist** inside the NeighborHealth network – a [pre-screened network of medical professionals](https://neighborhealthco.com/Network) that will exceed your expectations – all located in **Mexico’s top Medical city, Monterrey**
 
 So where does that leave us with fear?
 
