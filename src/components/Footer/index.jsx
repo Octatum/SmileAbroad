@@ -185,11 +185,6 @@ const Footer = () => (
           target="_blank">
           Facebook
         </SocialLink>
-        <SocialLink
-          href="https://www.instagram.com/neighborhealthco/?hl=es-la"
-          target="_blank">
-          Instagram
-        </SocialLink>
       </ContactCont>
     </Div>
   </Container>

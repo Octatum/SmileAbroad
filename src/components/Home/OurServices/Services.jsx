@@ -114,7 +114,7 @@ const Services = () => {
         </IndivService>
       </Div>
       <Div>
-        <ServiceImgContainer>{svgs.luggage}</ServiceImgContainer>
+        <ServiceImgContainer>{svgs.hotel}</ServiceImgContainer>
         <IndivService>
           <Title>Accomodation</Title>
           <Description>

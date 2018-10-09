@@ -80,7 +80,7 @@ const GetStarted = styled(GetStartedButton)`
 const VideoLink = styled.a``;
 
 const Slide = styled.div`
-  display: ${props => (props.display ? 'flex' : 'none')};
+  display: ${props => (props.isShow ? 'flex' : 'none')};
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -153,7 +153,7 @@ class ServiceSlide extends Component {
   render() {
     return (
       <Container className={this.props.className}>
-        <Slide display={this.state.currentActiveBubble === 0}>
+        <Slide isShow={this.state.currentActiveBubble === 0}>
           <Title>Affordable Health Care</Title>
           <Separator />
           <Description>
@@ -177,7 +177,7 @@ class ServiceSlide extends Component {
           </ButtonCont>
         </Slide>
 
-        <Slide display={this.state.currentActiveBubble === 1}>
+        <Slide isShow={this.state.currentActiveBubble === 1}>
           <Title>Affordable Health Care 2</Title>
           <Separator />
           <Description>
@@ -201,7 +201,7 @@ class ServiceSlide extends Component {
           </ButtonCont>
         </Slide>
 
-        <Slide display={this.state.currentActiveBubble === 2}>
+        <Slide isShow={this.state.currentActiveBubble === 2}>
           <Title>Affordable Health Care 3</Title>
           <Separator />
           <Description>
@@ -230,6 +230,7 @@ class ServiceSlide extends Component {
             <Bubble
               onClick={e => this.bubbleClick(e, index)}
               current={this.state.currentActiveBubble === index}
+              key={"Bubble-" + (index+1)}
             />
           ))}
         </BubbleCont>
