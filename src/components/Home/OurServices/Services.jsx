@@ -7,8 +7,6 @@ import { device } from './../../../utils/device';
 import { svgs } from './Svgs';
 
 const Container = styled(Slider)`
-  margin: 50px 0;
-
   & div {
     outline: none;
   }
@@ -67,7 +65,7 @@ const Div = styled.div`
   font-size: calc(0.75rem + 0.4vw);
 `;
 
-const Services = () => {
+const Services = ({ className }) => {
   const Settings = {
     dots: true,
     infinite: true,
@@ -93,7 +91,7 @@ const Services = () => {
   };
 
   return (
-    <Container {...Settings}>
+    <Container {...Settings} className={className}>
       <Div>
         <ServiceImgContainer>{svgs.appointment}</ServiceImgContainer>
         <IndivService>

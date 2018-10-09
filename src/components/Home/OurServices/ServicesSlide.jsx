@@ -230,7 +230,7 @@ class ServiceSlide extends Component {
             <Bubble
               onClick={e => this.bubbleClick(e, index)}
               current={this.state.currentActiveBubble === index}
-              key={"Bubble-" + (index+1)}
+              key={'Bubble-' + (index + 1)}
             />
           ))}
         </BubbleCont>

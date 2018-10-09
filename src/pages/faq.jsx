@@ -24,6 +24,16 @@ const BlueText = styled.span`
   color: ${props => props.theme.color.lightBlue};
 `;
 
+const FaqComp = styled(Faq)`
+  margin: 2em auto;
+  width: 60%;
+
+  ${device.mobile} {
+    margin: 2em 0;
+    width: 100%;
+  }
+`;
+
 const FaqPage = ({ data }) => (
   <AppLayout>
     <div>
@@ -32,7 +42,7 @@ const FaqPage = ({ data }) => (
         Neighbor
         <BlueText>Health</BlueText> Frequently Asked Questions
       </Title>
-      <Faq allQuestions={data.allMarkdownRemark.edges} />
+      <FaqComp allQuestions={data.allMarkdownRemark.edges} />
     </div>
   </AppLayout>
 );

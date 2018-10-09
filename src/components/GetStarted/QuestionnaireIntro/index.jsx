@@ -1,11 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import { device } from './../../../utils/device';
+import { device } from '../../../utils/device';
 
 import patient from './assets/patient.jpg';
 
 const Container = styled.div`
-  margin: 50px 0;
   font-size: calc(0.75rem + 0.75vw);
 `;
 
@@ -93,8 +92,8 @@ const Desc = Text.extend`
   }
 `;
 
-const QuestionnaireIntro = () => (
-  <Container>
+const QuestionnaireIntro = ({ className }) => (
+  <Container className={className}>
     <IntroContainer>
       <Intro>
         <Text>

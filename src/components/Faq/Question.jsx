@@ -67,7 +67,7 @@ const ArrowContainer = styled.div`
     width: 1em;
     display: block;
   }
-`; 
+`;
 
 const QuestionContainer = ({ question, answer, className }) => {
   return (

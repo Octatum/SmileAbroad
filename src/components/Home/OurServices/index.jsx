@@ -63,6 +63,10 @@ const SlideShow = styled.div`
   }
 `;
 
+const ServicesComp = styled(Services)`
+  margin: 50px 0;
+`;
+
 const Slider = styled(ServiceSlide)`
   grid-area: Pres;
 `;
@@ -72,7 +76,7 @@ const OurServices = () => (
     <SlideShow>
       <Slider />
     </SlideShow>
-    <Services />
+    <ServicesComp />
   </div>
 );
 

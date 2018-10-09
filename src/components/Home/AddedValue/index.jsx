@@ -6,14 +6,14 @@ import { device } from '../../../utils/device';
 
 import { svgs } from './Svgs';
 
-import eogsea from './assets/eogsea.png';
+/* import eogsea from './assets/eogsea.png';
 import plugplay from './assets/plugplay.png';
 import sksw from './assets/sksw.png';
 import promexico from './assets/promexico.png';
 import mexico from './assets/mexico.png';
 import newVenture from './assets/newventure.png';
 
-const customerImages = [eogsea, plugplay, sksw, promexico, mexico, newVenture];
+const customerImages = [eogsea, plugplay, sksw, promexico, mexico, newVenture]; */
 
 // Container of entire component
 const Container = styled.div`
@@ -71,7 +71,7 @@ const IMG = styled.div`
 `;
 
 // img object
-const Image = styled.img`
+/* const Image = styled.img`
   width: 100px;
   height: 100px;
   margin: auto;
@@ -80,7 +80,7 @@ const Image = styled.img`
     width: 75px;
     height: 75px;
   }
-`;
+`; */
 
 // Subtitle (title of service) container
 const SubCont = styled.div`
@@ -126,7 +126,7 @@ const Separator = styled.hr`
   border-radius: 10px;
 `;
 
-const Track = Subtitle.extend`
+/* const Track = Subtitle.extend`
   margin: 20px auto;
   width: 100%;
 `;
@@ -147,7 +147,7 @@ const CompImg = Image.extend`
   height: auto;
   margin: 20px;
   object-fit: contain;
-`;
+`; */
 
 const Div = styled.div`
   position: relative;

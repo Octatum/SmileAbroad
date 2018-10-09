@@ -18,21 +18,20 @@ const BlueTitle = styled.span`
 `;
 
 const TermsComp = styled(Terms)`
-    margin: 5em auto;
-    margin-top: 2em;
+  margin: 5em auto;
+  margin-top: 2em;
 `;
 
 const TermsPage = () => (
-    <AppLayout>
-      <div>
-        <Helmet title="T&C" />
-        <Title>
-          Terms <BlueTitle>&</BlueTitle> Conditions
-        </Title>
-        <TermsComp />
-      </div>
-    </AppLayout>
-  );
-  
-  export default TermsPage;
-  
+  <AppLayout>
+    <div>
+      <Helmet title="T&C" />
+      <Title>
+        Terms <BlueTitle>&</BlueTitle> Conditions
+      </Title>
+      <TermsComp />
+    </div>
+  </AppLayout>
+);
+
+export default TermsPage;
