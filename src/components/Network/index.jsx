@@ -5,6 +5,7 @@ import slider from 'react-slick';
 
 import Video from './Videos';
 import Doctor from './Doctor';
+import SliderArrow from './SliderArrow';
 
 const Container = styled.div`
   font-size: calc(0.5rem + 0.75vw);
@@ -62,6 +63,7 @@ const IndivDoctor = styled(Doctor)`
 
   ${device.tablet} {
     width: 45%;
+    margin: 1em auto;
   }
 
   ${device.mobile} {
@@ -70,7 +72,6 @@ const IndivDoctor = styled(Doctor)`
 `;
 
 const VideoCont = styled(slider)`
-  padding: 1.5em;
   margin-top: 2em;
   margin-bottom: 3em;
   background: ${props => props.theme.color.lightBlue};
@@ -79,11 +80,10 @@ const VideoCont = styled(slider)`
     outline: none;
   }
 
-  & .slick-dots {
-    width: 95%;
-    box-sizing: border-box;
+  & .slick-next,
+  & .slick-prev {
+    width: calc(15px + 2vw);
   }
-
   & .slick-track {
     margin: 0 auto;
   }
@@ -92,6 +92,31 @@ const VideoCont = styled(slider)`
 const IndivVideo = styled(Video)`
   margin: auto;
   width: 75%;
+`;
+
+const NextArrow = styled(SliderArrow)`
+  z-index: 2;
+  &.slick-next {
+    right: 0;
+  }
+  &.slick-next::before {
+    content: '';
+  }
+  svg {
+    fill: black;
+    stroke: black;
+  }
+`;
+const PrevArrow = NextArrow.extend`
+  &.slick-prev {
+    left: 0;
+  }
+  &.slick-prev::before {
+    content: '';
+  }
+  svg {
+    transform: rotate(180deg);
+  }
 `;
 
 const Network = props => {
@@ -125,8 +150,9 @@ const Network = props => {
     slidesToShow: 1,
     swipeToSlide: true,
     focusOnSelect: true,
-    arrows: false,
-    centerMode: true,
+    arrows: true,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
   };
 
   return (
