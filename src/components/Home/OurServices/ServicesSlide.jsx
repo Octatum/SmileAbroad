@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import Popup from 'reactjs-popup';
 
 import ButtonComponent from '../../Button';
 import GetStartedButton from '../../GetStarted/Button';
@@ -86,7 +87,7 @@ const Slide = styled.div`
   justify-content: center;
 `;
 
-const BlueButton = ButtonComponent(VideoLink).extend`
+const BlueButton = styled(ButtonComponent(VideoLink))`
   padding: 10px 1em;
   font-size: 1.25em;
   cursor: pointer;
@@ -118,9 +119,16 @@ const Bubble = styled.button`
   transition: transform 0.25s ease-out;
 
   :hover {
-    transform: scale(1.3, 1.3);
+    transform: scale(1.3);
   }
 `;
+
+const contentStyle = {
+  padding: '0',
+  border: '0',
+  background: 'black',
+  width: 'initial',
+};
 
 class ServiceSlide extends Component {
   constructor() {
@@ -170,57 +178,23 @@ class ServiceSlide extends Component {
             price you can afford.
           </Description>
           <ButtonCont>
-            <BlueButton onClick={this.onClickVideoHandle}>
-              Watch Video
-            </BlueButton>
-            <GetStarted />
-          </ButtonCont>
-        </Slide>
-
-        <Slide isShow={this.state.currentActiveBubble === 1}>
-          <Title>Affordable Health Care 2</Title>
-          <Separator />
-          <Description>
-            At <BlueText>NeighborHealth</BlueText> we help you find the ideal
-            Dental Health <Bold>Specialized</Bold> Treatment.
-          </Description>
-          <Description>
-            We facilitate the process of your experience abroad by creating a{' '}
-            <Bold>personalized</Bold> itinerary at <Bold>budget-friendly</Bold>{' '}
-            prices.
-          </Description>
-          <Description>
-            Go ahead, Visit Mexico to get your quality dental treatment at a
-            price you can afford.
-          </Description>
-          <ButtonCont>
-            <BlueButton onClick={this.onClickVideoHandle}>
-              Watch Video
-            </BlueButton>
-            <GetStarted />
-          </ButtonCont>
-        </Slide>
-
-        <Slide isShow={this.state.currentActiveBubble === 2}>
-          <Title>Affordable Health Care 3</Title>
-          <Separator />
-          <Description>
-            At <BlueText>NeighborHealth</BlueText> we help you find the ideal
-            Dental Health <Bold>Specialized</Bold> Treatment.
-          </Description>
-          <Description>
-            We facilitate the process of your experience abroad by creating a{' '}
-            <Bold>personalized</Bold> itinerary at <Bold>budget-friendly</Bold>{' '}
-            prices.
-          </Description>
-          <Description>
-            Go ahead, Visit Mexico to get your quality dental treatment at a
-            price you can afford.
-          </Description>
-          <ButtonCont>
-            <BlueButton onClick={this.onClickVideoHandle}>
-              Watch Video
-            </BlueButton>
+            <Popup
+              contentStyle={contentStyle}
+              trigger={<BlueButton>Watch Video</BlueButton>}
+              modal>
+              <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/ra8YOIDrozc"
+                frameborder="0"
+                allow="autoplay; encrypted-media"
+                allowfullscreen="allowfullscreen"
+                mozallowfullscreen="mozallowfullscreen" 
+                msallowfullscreen="msallowfullscreen" 
+                oallowfullscreen="oallowfullscreen" 
+                webkitallowfullscreen="webkitallowfullscreen"
+              />
+            </Popup>
             <GetStarted />
           </ButtonCont>
         </Slide>

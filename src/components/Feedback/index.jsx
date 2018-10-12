@@ -7,7 +7,6 @@ import FileSubmission from './FileSubmission';
 
 import { device } from './../../utils/device';
 
-
 const Container = styled.form`
   font-size: calc(0.75rem + 0.5vw);
 
@@ -58,7 +57,6 @@ const BlueText = Text.withComponent('span').extend`
   color: ${props => props.theme.color.lightBlue};
 `;
 
-
 function encode(data) {
   return Object.keys(data)
     .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
@@ -72,13 +70,11 @@ class Feedback extends Component {
     const { target } = event;
     const { name } = target;
     let value = '';
-    if(target.type === 'checkbox') {
+    if (target.type === 'checkbox') {
       value = target.checked;
-    }
-    else if (target.type === 'file') {
+    } else if (target.type === 'file') {
       value = target.files;
-    }
-    else {
+    } else {
       value = target.value;
     }
     this.setState({ [name]: value });
@@ -122,9 +118,11 @@ class Feedback extends Component {
           </label>
         </p>
         <Text>
-          Thank you for choosing 
-          <BlueText style={{color: 'black'}}> Neighbor</BlueText><BlueText>Health </BlueText> 
-          for your needs. The next step in our process is to modify and personalize your NeigborHealth Personal Plan
+          Thank you for choosing
+          <BlueText style={{ color: 'black' }}> Neighbor</BlueText>
+          <BlueText>Health </BlueText>
+          for your needs. The next step in our process is to modify and
+          personalize your NeigborHealth Personal Plan
         </Text>
         <OpenQuestion
           questionText="Does this specialist meet your expectations?"

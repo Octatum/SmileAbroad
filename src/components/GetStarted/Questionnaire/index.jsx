@@ -59,7 +59,7 @@ class Questionnaire extends Component {
   handleChange = event => {
     const { target } = event;
     const { name } = target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const value = target.type === 'checkbox' || target.type === 'radio' ? target.checked : target.value;
     this.setState({ [name]: value });
   };
 
@@ -142,17 +142,21 @@ class Questionnaire extends Component {
           name="treatmentType"
           includeOpenAnswer
         />
-        <OpenQuestion
+        <MultipleChoice
           questionText="Planned travel dates:"
+          options={['Within month', 'Within 3 months', 'Later than 3 months']}
           onChange={this.handleChange}
           name="travelDate"
+          includeOpenAnswer
           required
         />
         <MultipleChoice
-          questionText="From 0 to 0 in a scale of pain, how would you rate your pain tolerance?"
+          questionText="From 1 to 10 in a scale of pain, how would you rate your pain tolerance?"
           onChange={this.handleChange}
-          options={['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']}
+          options={['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']}
           name="painTolerance"
+          singleAnswer
+          horizontal
         />
         <MultipleChoice
           questionText="Do you plan to travel accompannied?"

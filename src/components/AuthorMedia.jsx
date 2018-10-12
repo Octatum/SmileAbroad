@@ -29,7 +29,7 @@ const AuthorMedia = ({ authorName, className }) => {
   return (
     <Container className={className}>
       <Author>
-        <span style={{ color: 'black', fontWeight: 'initial' }}>By</span> Dr.{' '}
+        <span style={{ color: 'black', fontWeight: 'initial' }}>By</span>{' '}
         {authorName}
       </Author>
       <iframe

@@ -28,6 +28,7 @@ const Label = styled.label`
   margin: 25px 0;
   display: flex;
   flex-direction: row;
+  min-width: 3rem;
 
   ${device.mobile} {
     margin-top: 0;
@@ -70,20 +71,33 @@ const Checkbox = styled.span`
     transform: translate(-25%, -50%);
   }
 
-  input[type='checkbox']:checked ~ &:before {
+  input[type='checkbox']:checked ~ &:before,
+  input[type='radio']:checked ~ &:before {
     opacity: 1;
   }
-`;
 
-/*      PLACE ON CHECKBOX FOR ON-FOCUS BACKGROUND CHANGE
-input:focus ~ & {
+  input[type='checkbox']:focus ~ & {
     background: ${props => props.theme.color.lightBlue};
 
     :before {
       color: white;
     }
   }
+`;
+
+/*      PLACE ON CHECKBOX FOR ON-FOCUS BACKGROUND CHANGE
 */
+
+const OptionsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  ${({horizontal}) => horizontal && `
+    flex-direction: row;
+    justify-content: space-between;
+    flex-flow: row wrap;
+  `}
+`;
 
 const OtherInput = styled.input`
   font-size: 1em;
@@ -103,22 +117,26 @@ const MultipleChoice = ({
   name,
   options,
   className,
+  singleAnswer,
+  horizontal
 }) => {
   return (
     <ContainerForm className={className}>
       <Title> {questionText} </Title>
-      {options.map(option => (
-        <Label key={option}>
-          <CheckboxInput
-            type="checkbox"
-            name={`${name}-${option}`}
-            onChange={onChange}
-          />
-          <Checkbox />
-          &nbsp;
-          {option}
-        </Label>
-      ))}
+      <OptionsContainer horizontal={horizontal}>
+        {options.map(option => (
+          <Label key={option}>
+            <CheckboxInput
+              type={'checkbox'}
+              name={`${name}-${option}`}
+              onChange={onChange}
+            />
+            <Checkbox />
+            &nbsp;
+            {option}
+          </Label>
+        ))}
+      </OptionsContainer>
       {includeOpenAnswer && (
         <OtherLabel>
           Other:
