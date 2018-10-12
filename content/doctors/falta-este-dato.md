@@ -1,7 +1,7 @@
 ---
 layout: doctor
 name: Brenda Garza
-title: '8142084'
+title: ID 8142084
 image: /assets/uploads/_mg_3266.jpg
 specialty: >-
   Dr. Brenda Garza is an experienced periodontist who lecture Nacional and
