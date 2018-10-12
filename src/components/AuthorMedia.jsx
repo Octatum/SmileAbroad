@@ -21,7 +21,7 @@ const Container = styled.div`
 const Author = styled.p`
   font-weight: bold;
   color: ${props => props.theme.color.lightBlue};
-  font-family: ${props => props.theme.fontFamily.main}, sans-serif;  
+  font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   display: inline-block;
 `;
 
@@ -42,7 +42,6 @@ const AuthorMedia = ({ authorName, className }) => {
         style={{ border: 'none', overflow: 'hidden' }}
         scrolling="no"
         frameBorder="0"
-        allowTransparency="true"
       />
     </Container>
   );

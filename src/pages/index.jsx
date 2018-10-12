@@ -17,6 +17,10 @@ const Separator = styled.hr`
   border: none;
 `;
 
+const FeaturedBlogComp = styled(FeaturedBlog)`
+  margin: 1.5em 0;
+`;
+
 const IndexPage = props => (
   <AppLayout>
     <div>
@@ -24,7 +28,7 @@ const IndexPage = props => (
       <OurServices />
 
       <Separator />
-      <FeaturedBlog postData={props.data} />
+      <FeaturedBlogComp postData={props.data} />
 
       <Separator />
       <AddedValue />

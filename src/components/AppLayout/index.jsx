@@ -3,7 +3,6 @@ import Helmet from 'react-helmet';
 import styled, { ThemeProvider } from 'styled-components';
 
 import { globalTheme } from './theme';
-import { device } from '../../utils/device';
 import './index.css';
 import Footer from '../Footer';
 import Navbar from '../Navbar';

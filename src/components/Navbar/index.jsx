@@ -99,7 +99,7 @@ const Nav = styled.nav`
     justify-content: center;
 
     overflow-y: hidden;
-    display: ${props => (props.display ? 'flex' : 'none')};
+    display: ${props => (props.isOpen ? 'flex' : 'none')};
     width: 100%;
 
     a {
@@ -168,7 +168,7 @@ class Navbar extends Component {
         <ToggleShowButton>
           <Navicon onClick={this.handleToggleClick} src={navicon} />
         </ToggleShowButton>
-        <Nav display={this.state.open}>
+        <Nav isOpen={this.state.open}>
           <NavLink to="/blog">Blogs</NavLink>
           <NavLink to="/about#how-it-works">How it Works</NavLink>
           <NavLink to="/about#pricing">Pricing</NavLink>
@@ -177,6 +177,7 @@ class Navbar extends Component {
             links={[
               { url: '/network', name: 'Our Network' },
               { url: '/about', name: 'About Us' },
+              { url: '/terms-and-conditions', name: 'Terms & Conditions' },
             ]}
             isOpen={this.state.companySelection}
             clickAction={this.handleSelectionClick}>

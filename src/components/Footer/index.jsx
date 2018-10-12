@@ -100,14 +100,6 @@ const SocialLink = styled.a`
 const ContactCont = LinksCont.extend``;
 const ContactTitle = LinksTitle.extend``;
 
-const ContactData = Texto.extend`
-  padding: 10px 0;
-  word-break: break-all;
-  ${device.mobile} {
-    padding: 5px;
-  }
-`;
-
 const MessageButton = styled(Link)`
   background: #ff392c;
   text-transform: uppercase;
@@ -184,11 +176,6 @@ const Footer = () => (
           href="https://www.facebook.com/NeighborHealth/"
           target="_blank">
           Facebook
-        </SocialLink>
-        <SocialLink
-          href="https://www.instagram.com/neighborhealthco/?hl=es-la"
-          target="_blank">
-          Instagram
         </SocialLink>
       </ContactCont>
     </Div>

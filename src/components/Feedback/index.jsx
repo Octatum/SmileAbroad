@@ -3,10 +3,10 @@ import styled from 'styled-components';
 import { navigateTo } from 'gatsby-link';
 
 import OpenQuestion from './../GetStarted/Questionnaire/Questions/OpenQuestion';
+import FileSubmission from './FileSubmission';
 
 import { device } from './../../utils/device';
 
-// Todo: Refactor MultipleImageQuestion and MultipleChoice into a single component.
 
 const Container = styled.form`
   font-size: calc(0.75rem + 0.5vw);
@@ -36,6 +36,10 @@ const SendButton = styled.button`
   border: none;
   border-radius: 15px;
   cursor: pointer;
+
+  :focus {
+    outline: 1px dotted black;
+  }
 `;
 
 const Text = styled.p`
@@ -48,6 +52,12 @@ const Text = styled.p`
   text-align: justify;
   text-align-last: center;
 `;
+const BlueText = Text.withComponent('span').extend`
+  font-size: 1em;
+  font-weight: bold;
+  color: ${props => props.theme.color.lightBlue};
+`;
+
 
 function encode(data) {
   return Object.keys(data)
@@ -61,7 +71,16 @@ class Feedback extends Component {
   handleChange = event => {
     const { target } = event;
     const { name } = target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
+    let value = '';
+    if(target.type === 'checkbox') {
+      value = target.checked;
+    }
+    else if (target.type === 'file') {
+      value = target.files;
+    }
+    else {
+      value = target.value;
+    }
     this.setState({ [name]: value });
   };
 
@@ -102,6 +121,11 @@ class Feedback extends Component {
             <input name="bot-field" onChange={this.handleChange} />
           </label>
         </p>
+        <Text>
+          Thank you for choosing 
+          <BlueText style={{color: 'black'}}> Neighbor</BlueText><BlueText>Health </BlueText> 
+          for your needs. The next step in our process is to modify and personalize your NeigborHealth Personal Plan
+        </Text>
         <OpenQuestion
           questionText="Does this specialist meet your expectations?"
           onChange={this.handleChange}
@@ -131,6 +155,14 @@ class Feedback extends Component {
           onChange={this.handleChange}
           name="specialistContact"
           required
+        />
+        <FileSubmission
+          questionText="In order to provide you with the best quote possible – please attach any professional study or provide us with pictures of the area of desired treatment"
+          name="dentalImage"
+          onChange={this.handleChange}
+          required
+          multiple
+          fileList={this.state.dentalImage}
         />
         <Text>WE LOOK FORWARD TO WELCOMING YOU TO BEAUTIFUL MONTERREY</Text>
         <SendButton type="submit">Send</SendButton>

@@ -13,14 +13,6 @@ const Container = styled.div`
   border-radius: 10px;
 
   min-height: 75vh;
-  /* 
-  p {
-    text-shadow: 0.5px 0.5px #000, -0.5px -0.5px #000, 0.5px -0.5px #000,
-      -0.5px 0.5px #000;
-
-    max-width: 85%;
-    color: white;
-  } */
 
   ::after {
     background-image: url(${props => props.image});

@@ -9,7 +9,6 @@ const Container = styled.div`
   flex-direction: column;
 
   padding: 0 7.5em;
-  margin: 1.5em 0;
 
   ${device.tablet} {
     padding: 0 2em;
@@ -59,7 +58,7 @@ const FeaturedBlog = props => {
   const node = props.postData.allMarkdownRemark.edges[0].node;
 
   return (
-    <Container>
+    <Container className={props.className}>
       <Title>{node.frontmatter.title}</Title>
       <Author>
         <AuthorStyled authorName={node.frontmatter.author} />

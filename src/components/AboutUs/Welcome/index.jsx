@@ -97,7 +97,7 @@ const GetStarted = styled(GetStartedButton)`
   }
 `;
 
-const Welcome = (props) => (
+const Welcome = props => (
   <Cont className={props.className}>
     <MessageContainer>
       <Title>

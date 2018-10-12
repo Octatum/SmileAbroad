@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import Helmet from 'react-helmet';
 
+import { device } from '../utils/device';
+
 import QuestionnaireIntro from '../components/GetStarted/QuestionnaireIntro';
 import Questionnaire from '../components/GetStarted/Questionnaire';
 import AppLayout from '../components/AppLayout';
@@ -20,6 +22,20 @@ const BlueTitle = styled.span`
   color: ${props => props.theme.color.lightBlue};
 `;
 
+const QuestionnaireComp = styled(Questionnaire)`
+  width: 70%;
+  margin: 0 auto;
+  margin-bottom: 10em;
+
+  ${device.mobile} {
+    width: 90%;
+  }
+`;
+
+const QuestionnaireIntroComp = styled(QuestionnaireIntro)`
+  margin: 50px 0;
+`;
+
 const GetStartedPage = () => (
   <AppLayout>
     <div>
@@ -27,8 +43,8 @@ const GetStartedPage = () => (
       <Title>
         Get <BlueTitle>Started</BlueTitle>
       </Title>
-      <QuestionnaireIntro />
-      <Questionnaire />
+      <QuestionnaireIntroComp />
+      <QuestionnaireComp />
     </div>
   </AppLayout>
 );

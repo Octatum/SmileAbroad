@@ -5,7 +5,6 @@ import { navigateTo } from 'gatsby-link';
 import OpenQuestion from './Questions/OpenQuestion';
 import MultipleChoice from './Questions/MultipleChoice';
 import MultipleImageQuestion from './Questions/MultipleImageQuestion';
-import { device } from './../../../utils/device';
 
 import recreational from './assets/recreational.jpg';
 import cultural from './assets/cultural.jpg';
@@ -16,16 +15,10 @@ import outdoor from './assets/outdoor.jpg';
 const Container = styled.form`
   font-size: calc(0.75rem + 0.5vw);
 
-  width: 70%;
-  margin: 0 auto;
-  margin-bottom: 10em;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: flex-start;
-  ${device.mobile} {
-    width: 90%;
-  }
 `;
 
 const SendButton = styled.button`
@@ -94,6 +87,7 @@ class Questionnaire extends Component {
   render() {
     return (
       <Container
+        className={this.props.className}
         onSubmit={this.handleSubmit}
         name="customerData"
         method="post"

@@ -65,7 +65,7 @@ const ReactMD = styled(ReactMarkdown)`
   p strong {
     font-weight: bold;
     display: inline-block;
-    color: ${props => props.theme.color.lightBlue};    
+    color: ${props => props.theme.color.lightBlue};
   }
 
   p em {

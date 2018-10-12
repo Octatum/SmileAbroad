@@ -1,13 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { device } from './../../utils/device';
 import Question from './Question';
 
 const Container = styled.div`
-  margin: 2em auto;
-  width: 60%;
   padding: 2em 3.5em;
+  width: 60%;
   display: flex;
   flex-direction: column;
 
@@ -15,11 +13,6 @@ const Container = styled.div`
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
 
   background: #efefef;
-
-  ${device.mobile} {
-    margin: 2em 0;
-    width: 100%;
-  }
 
   ul {
     list-style-position: inside;
@@ -41,7 +34,7 @@ const Faq = props => {
     );
   });
 
-  return <Container>{questions}</Container>;
+  return <Container className={props.className}>{questions}</Container>;
 };
 
 export default Faq;

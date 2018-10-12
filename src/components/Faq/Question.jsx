@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import ReactMarkdown from 'react-markdown';
 
-import arrowIcon from './assets/arrow.svg';
+import { SVGs } from './svg';
 
 const Container = styled.label`
   display: flex;
@@ -29,21 +29,14 @@ const Answer = styled(ReactMarkdown)`
     padding 0.5s 0.25s;
 
   strong {
-    color: ${({theme}) => theme.color.lightBlue};
+    color: ${({ theme }) => theme.color.lightBlue};
   }
-`;
-
-const Arrow = styled.img`
-  transform: rotate(0turn);
-  width: 1em;
-  transition: transform 0.25s ease-out;
-  font-family: ${({theme}) => theme.fontFamily.main};
 `;
 
 const Checkbox = styled.input`
   display: none;
 
-  :checked ~ div img {
+  :checked ~ div svg {
     transform: rotate(0.5turn);
   }
 
@@ -67,15 +60,22 @@ const QuestionHeaderTitle = styled.div`
   align-items: center;
 `;
 
+const ArrowContainer = styled.div`
+  svg {
+    transition: transform 0.25s ease-out;
+    transform: rotate(0turn);
+    width: 1em;
+    display: block;
+  }
+`;
+
 const QuestionContainer = ({ question, answer, className }) => {
   return (
     <Container className={className}>
       <Checkbox type="checkbox" />
       <QuestionHeaderTitle>
         <Question>{question}</Question>
-        <div>
-          <Arrow src={arrowIcon} />
-        </div>
+        <ArrowContainer>{SVGs.arrow}</ArrowContainer>
       </QuestionHeaderTitle>
       <Answer source={answer} />
     </Container>
