@@ -4,7 +4,6 @@ import { navigateTo } from 'gatsby-link';
 
 import OpenQuestion from './../GetStarted/Questionnaire/Questions/OpenQuestion';
 import FileSubmission from './FileSubmission';
-
 import { device } from './../../utils/device';
 
 const Container = styled.form`
@@ -17,6 +16,7 @@ const Container = styled.form`
   flex-direction: column;
   justify-content: space-evenly;
   align-items: flex-start;
+
   ${device.mobile} {
     width: 90%;
   }
@@ -44,13 +44,16 @@ const SendButton = styled.button`
 const Text = styled.p`
   font-size: 1.25em;
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
+  text-align: center;
+  width: 100%;
 
   box-sizing: border-box;
-  margin: 50px 0;
+  margin: 1.5rem 0;
 
   text-align: justify;
   text-align-last: center;
 `;
+
 const BlueText = Text.withComponent('span').extend`
   font-size: 1em;
   font-weight: bold;
@@ -64,7 +67,9 @@ function encode(data) {
 }
 
 class Feedback extends Component {
-  state = {};
+  state = {
+    dentalImage: []
+  };
 
   handleChange = event => {
     const { target } = event;
@@ -73,7 +78,10 @@ class Feedback extends Component {
     if (target.type === 'checkbox') {
       value = target.checked;
     } else if (target.type === 'file') {
-      value = target.files;
+      const { files } = target;
+      const fileList = Object.keys(files).map(fileKey => files[fileKey]);
+      const cleanFiles = fileList.filter(file => file.type.startsWith('image') || file.type === 'application/pdf');
+      value = [...this.state.dentalImage, ...cleanFiles];
     } else {
       value = target.value;
     }
@@ -125,6 +133,12 @@ class Feedback extends Component {
           personalize your NeigborHealth Personal Plan
         </Text>
         <OpenQuestion
+          questionText="What's your name?"
+          onChange={this.handleChange}
+          name="Customer name"
+          required
+        />
+        <OpenQuestion
           questionText="Does this specialist meet your expectations?"
           onChange={this.handleChange}
           name="expectations"
@@ -155,14 +169,14 @@ class Feedback extends Component {
           required
         />
         <FileSubmission
-          questionText="In order to provide you with the best quote possible – please attach any professional study or provide us with pictures of the area of desired treatment"
+          questionText="In order to provide you with the best quote possible – please attach any professional study or provide us with pictures of the area of desired treatment. Please look at these examples:"
           name="dentalImage"
           onChange={this.handleChange}
           required
           multiple
           fileList={this.state.dentalImage}
         />
-        <Text>WE LOOK FORWARD TO WELCOMING YOU TO BEAUTIFUL MONTERREY</Text>
+        <Text>We look forward to serving you and meeting you in Beautiful Monterrey</Text>
         <SendButton type="submit">Send</SendButton>
       </Container>
     );

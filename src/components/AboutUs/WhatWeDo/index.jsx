@@ -51,6 +51,7 @@ const Title = styled.p`
   font-size: 1.5em;
   font-weight: bold;
 `;
+
 const BlueTitle = Title.withComponent('span').extend`
   font-size: 1em;
   color: ${props => props.theme.color.lightBlue};

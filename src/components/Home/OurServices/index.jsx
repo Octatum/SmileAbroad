@@ -37,8 +37,10 @@ const SlideShow = styled.div`
   ::before {
     z-index: -2;
     background-image: url(${background});
-    background-size: 100% auto;
-    background-color: #23c5d9;
+    background-repeat: no-repeat;
+    background-position: center right;
+    background-size: cover;
+    background-color: #D6D6D4;
   }
 
   ::after {

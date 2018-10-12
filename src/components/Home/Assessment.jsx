@@ -3,9 +3,16 @@ import styled from 'styled-components';
 
 import GetStartedButton from './../GetStarted/Button';
 
+import background from './assets/bg.png';
+import { device } from '../../utils/device';
+
 const Container = styled.div`
   width: 100%;
-  background-color: ${props => props.theme.color.lightBlue};
+  background-color: #91DBEC;
+  background-image: url('${background}');
+  background-position: right;
+  background-size: 100%;
+  background-repeat: no-repeat;
   border: 1px solid ${props => props.theme.color.lightBlue};
 
   font-size: calc(1em + 0.5vw);
@@ -67,6 +74,10 @@ const Separator = styled.div`
 const Text = styled.p`
   font-size: 1em;
   width: 40%;
+
+  ${device.tablet} {
+    width: 60%;
+  }
 `;
 
 const Assessment = () => (

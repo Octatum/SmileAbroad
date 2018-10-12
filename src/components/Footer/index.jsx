@@ -10,7 +10,7 @@ const Container = styled.div`
   align-items: center;
   position: relative;
 
-  background: #00c6db;
+  background: ${({ theme }) => theme.color.lightGray};
   padding: 20px;
 
   font-size: calc(0.5rem + 0.5vw);
@@ -32,7 +32,7 @@ const Container = styled.div`
 `;
 
 const Texto = styled.p`
-  color: white;
+  color: ${({ theme }) => theme.color.blueGray};
 `;
 
 const Description = Texto.extend`
@@ -43,8 +43,8 @@ const Description = Texto.extend`
 `;
 
 const Separator = styled.div`
-  width: 5px;
-  background: white;
+  width: 3px;
+  background: ${({ theme }) => theme.color.blueGray};
   height: 200px;
   border-radius: 10px;
   margin: auto 0;
@@ -77,7 +77,7 @@ const LinksCont = styled.div`
 
 const UsefulLink = styled(Link)`
   text-decoration: none;
-  color: white;
+  color: ${({ theme }) => theme.color.blueGray};
 
   padding: 10px 0;
   font-size: 1em;
@@ -88,7 +88,7 @@ const UsefulLink = styled(Link)`
 
 const SocialLink = styled.a`
   text-decoration: none;
-  color: white;
+  color: ${({ theme }) => theme.color.blueGray};
 
   padding: 10px 0;
   font-size: 1em;
@@ -101,7 +101,7 @@ const ContactCont = LinksCont.extend``;
 const ContactTitle = LinksTitle.extend``;
 
 const MessageButton = styled(Link)`
-  background: #ff392c;
+  background: ${({ theme }) => theme.color.red};
   text-transform: uppercase;
   color: white;
   border: 2px solid #dd2520;

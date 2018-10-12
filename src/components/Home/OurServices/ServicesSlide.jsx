@@ -189,25 +189,15 @@ class ServiceSlide extends Component {
                 frameborder="0"
                 allow="autoplay; encrypted-media"
                 allowfullscreen="allowfullscreen"
-                mozallowfullscreen="mozallowfullscreen" 
-                msallowfullscreen="msallowfullscreen" 
-                oallowfullscreen="oallowfullscreen" 
+                mozallowfullscreen="mozallowfullscreen"
+                msallowfullscreen="msallowfullscreen"
+                oallowfullscreen="oallowfullscreen"
                 webkitallowfullscreen="webkitallowfullscreen"
               />
             </Popup>
             <GetStarted />
           </ButtonCont>
         </Slide>
-
-        <BubbleCont>
-          {[0, 1, 2].map((_, index) => (
-            <Bubble
-              onClick={e => this.bubbleClick(e, index)}
-              current={this.state.currentActiveBubble === index}
-              key={'Bubble-' + (index + 1)}
-            />
-          ))}
-        </BubbleCont>
       </Container>
     );
   }

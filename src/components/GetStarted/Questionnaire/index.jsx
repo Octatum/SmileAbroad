@@ -59,7 +59,10 @@ class Questionnaire extends Component {
   handleChange = event => {
     const { target } = event;
     const { name } = target;
-    const value = target.type === 'checkbox' || target.type === 'radio' ? target.checked : target.value;
+    const value =
+      target.type === 'checkbox' || target.type === 'radio'
+        ? target.checked
+        : target.value;
     this.setState({ [name]: value });
   };
 

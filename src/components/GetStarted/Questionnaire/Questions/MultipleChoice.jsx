@@ -92,11 +92,13 @@ const OptionsContainer = styled.div`
   display: flex;
   flex-direction: column;
 
-  ${({horizontal}) => horizontal && `
+  ${({ horizontal }) =>
+    horizontal &&
+    `
     flex-direction: row;
     justify-content: space-between;
     flex-flow: row wrap;
-  `}
+  `};
 `;
 
 const OtherInput = styled.input`
@@ -118,7 +120,7 @@ const MultipleChoice = ({
   options,
   className,
   singleAnswer,
-  horizontal
+  horizontal,
 }) => {
   return (
     <ContainerForm className={className}>

@@ -11,8 +11,6 @@ const Cont = styled.div`
   position: relative;
   padding: 5em;
 
-  border-bottom: 2em solid ${props => props.theme.color.lightBlue};
-
   p,
   span,
   a {
@@ -32,8 +30,10 @@ const Cont = styled.div`
   ::before {
     z-index: -2;
     background-image: url(${background});
-    background-size: 100% auto;
-    background-color: #23c5d9;
+    background-repeat: no-repeat;
+    background-position: center left;
+    background-size: cover;
+    background-color: #D6D6D4;
   }
 `;
 
