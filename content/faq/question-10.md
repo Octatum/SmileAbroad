@@ -1,6 +1,6 @@
 ---
 layout: faq
-title: Question 10
+title: question 10
 question: What if I don’t speak Spanish?
 date: '2018-10-03T21:20:32-05:00'
 ---
