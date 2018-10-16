@@ -40,7 +40,7 @@ const SlideShow = styled.div`
     background-repeat: no-repeat;
     background-position: center right;
     background-size: cover;
-    background-color: #D6D6D4;
+    background-color: #d6d6d4;
   }
 
   ::after {

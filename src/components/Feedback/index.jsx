@@ -68,7 +68,7 @@ function encode(data) {
 
 class Feedback extends Component {
   state = {
-    dentalImage: []
+    dentalImage: [],
   };
 
   handleChange = event => {
@@ -80,7 +80,9 @@ class Feedback extends Component {
     } else if (target.type === 'file') {
       const { files } = target;
       const fileList = Object.keys(files).map(fileKey => files[fileKey]);
-      const cleanFiles = fileList.filter(file => file.type.startsWith('image') || file.type === 'application/pdf');
+      const cleanFiles = fileList.filter(
+        file => file.type.startsWith('image') || file.type === 'application/pdf'
+      );
       value = [...this.state.dentalImage, ...cleanFiles];
     } else {
       value = target.value;
@@ -117,7 +119,8 @@ class Feedback extends Component {
         method="post"
         action="/"
         data-netlify="true"
-        data-netlify-honeypot="bot-field">
+        data-netlify-honeypot="bot-field"
+      >
         <input type="hidden" name="form-name" value="customer-review" />
         <p hidden>
           <label>
@@ -176,7 +179,9 @@ class Feedback extends Component {
           multiple
           fileList={this.state.dentalImage}
         />
-        <Text>We look forward to serving you and meeting you in Beautiful Monterrey</Text>
+        <Text>
+          We look forward to serving you and meeting you in Beautiful Monterrey
+        </Text>
         <SendButton type="submit">Send</SendButton>
       </Container>
     );

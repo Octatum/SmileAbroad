@@ -180,7 +180,8 @@ class Navbar extends Component {
               { url: '/terms-and-conditions', name: 'Terms & Conditions' },
             ]}
             isOpen={this.state.companySelection}
-            clickAction={this.handleSelectionClick}>
+            clickAction={this.handleSelectionClick}
+          >
             Company
           </Selection>
           <GetStarted />

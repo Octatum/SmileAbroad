@@ -103,13 +103,7 @@ const ImageExample = styled.img`
   margin: 1em;
 `;
 
-const exampleFiles = [
-  example1,
-  example2,
-  example3,
-  example4,
-  example5,
-]
+const exampleFiles = [example1, example2, example3, example4, example5];
 
 const AcceptedFileFormats = styled.span`
   font-size: 0.8em;
@@ -142,11 +136,12 @@ const SubmitFile = ({
         ))}
       </FileExamples>
 
-      <FileInputLabel htmlFor={name}>
-        Add files
-      </FileInputLabel>
-      <AcceptedFileFormats>{" "} PDFs and all image types are accepted</AcceptedFileFormats>
-      
+      <FileInputLabel htmlFor={name}>Add files</FileInputLabel>
+      <AcceptedFileFormats>
+        {' '}
+        PDFs and all image types are accepted
+      </AcceptedFileFormats>
+
       {fileList && (
         <FileList>
           <p>Selected files:</p>

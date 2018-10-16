@@ -181,7 +181,8 @@ class ServiceSlide extends Component {
             <Popup
               contentStyle={contentStyle}
               trigger={<BlueButton>Watch Video</BlueButton>}
-              modal>
+              modal
+            >
               <iframe
                 width="560"
                 height="315"

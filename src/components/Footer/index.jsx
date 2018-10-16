@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import Link from 'gatsby-link';
+import { OutboundLink } from 'gatsby-plugin-google-analytics';
+
 import { device } from '../../utils/device';
 
 const Container = styled.div`
@@ -86,7 +88,7 @@ const UsefulLink = styled(Link)`
   }
 `;
 
-const SocialLink = styled.a`
+const SocialLink = styled(OutboundLink)`
   text-decoration: none;
   color: ${({ theme }) => theme.color.blueGray};
 
@@ -174,7 +176,8 @@ const Footer = () => (
       <ContactCont>
         <SocialLink
           href="https://www.facebook.com/NeighborHealth/"
-          target="_blank">
+          target="_blank"
+        >
           Facebook
         </SocialLink>
       </ContactCont>
