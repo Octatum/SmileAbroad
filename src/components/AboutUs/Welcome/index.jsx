@@ -33,7 +33,7 @@ const Cont = styled.div`
     background-repeat: no-repeat;
     background-position: center left;
     background-size: cover;
-    background-color: #D6D6D4;
+    background-color: #d6d6d4;
   }
 `;
 

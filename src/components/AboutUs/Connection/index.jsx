@@ -189,7 +189,8 @@ class Connection extends Component {
         <Bubble
           onClick={event => this.bubbleClickHandler(event, value)}
           key={index}
-          isSelected={this.state.currentSelected === value}>
+          isSelected={this.state.currentSelected === value}
+        >
           {value}
         </Bubble>
       );

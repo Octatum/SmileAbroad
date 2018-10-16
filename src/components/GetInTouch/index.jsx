@@ -4,6 +4,7 @@ import { navigateTo } from 'gatsby-link';
 
 import { device } from '../../utils/device';
 import LocationIcon from './assets/Location.svg';
+import { OutboundLink } from 'gatsby-plugin-google-analytics';
 
 const Container = styled.form`
   box-sizing: border-box;
@@ -159,7 +160,8 @@ class GetInTouch extends Component {
         action="/"
         data-netlify="true"
         data-netlify-honeypot="bot-field"
-        onSubmit={this.handleSubmit}>
+        onSubmit={this.handleSubmit}
+      >
         <input type="hidden" name="form-name" value="contact" />
         <p hidden>
           <label>
@@ -196,11 +198,12 @@ class GetInTouch extends Component {
         <Localization>
           <SVGicon src={LocationIcon} />
           <GridText>
-            <a
+            <OutboundLink
               target="__blank"
-              href="https://maps.google.com/maps?q=Av. Eugenio Garza Sada No. 427, Local 37">
+              href="https://maps.google.com/maps?q=Av. Eugenio Garza Sada No. 427, Local 37"
+            >
               Av. Eugenio Garza Sada No. 427, Local 37
-            </a>
+            </OutboundLink>
           </GridText>
         </Localization>
       </Container>
