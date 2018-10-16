@@ -81,7 +81,7 @@ const GetStarted = styled(GetStartedButton)`
 const VideoLink = styled.a``;
 
 const Slide = styled.div`
-  display: ${props => (props.isShow ? 'flex' : 'none')};
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -93,36 +93,6 @@ const BlueButton = styled(ButtonComponent(VideoLink))`
   cursor: pointer;
 `;
 
-const BubbleCont = ButtonCont.extend`
-  height: auto;
-  width: auto;
-
-  ${device.laptop} {
-    width: auto;
-  }
-`;
-
-const Bubble = styled.button`
-  text-decoration: none;
-  height: 20px;
-  width: 20px;
-  border-radius: 10px 10px;
-  border: 2px solid transparent;
-  margin: 0 8px;
-  cursor: pointer;
-  outline: 0;
-  position: relative;
-
-  background: ${props =>
-    props.current ? props.theme.color.lightBlue : 'grey'};
-  transform: ${props => (props.current ? 'scale(1.1, 1.1)' : 'scale(1,1)')};
-  transition: transform 0.25s ease-out;
-
-  :hover {
-    transform: scale(1.3);
-  }
-`;
-
 const contentStyle = {
   padding: '0',
   border: '0',
@@ -130,78 +100,53 @@ const contentStyle = {
   width: 'initial',
 };
 
-class ServiceSlide extends Component {
-  constructor() {
-    super();
-    this.state = {
-      currentActiveBubble: 0,
-    };
+function ServiceSlide(props) {
+  return (
+    <Container className={props.className}>
+      <Slide>
+        <Title>Affordable Health Care</Title>
+        <Separator />
+        <Description>
+          At <BlueText>NeighborHealth</BlueText> we help you find the ideal
+          Dental Health <Bold>Specialized</Bold> Treatment.
+        </Description>
+        <Description>
+          We facilitate the process of your experience abroad by creating a{' '}
+          <Bold>personalized</Bold> itinerary at <Bold>budget-friendly</Bold>{' '}
+          prices.
+        </Description>
+        <Description>
+          Go ahead, Visit Mexico to get your quality dental treatment at a
+          price you can afford.
+        </Description>
+        <ButtonCont>
+          <Popup
+            contentStyle={contentStyle}
+            trigger={<BlueButton>Watch Video</BlueButton>}
+            modal
+          >
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/ra8YOIDrozc"
+              frameborder="0"
+              allow="autoplay; encrypted-media"
+              allowfullscreen="allowfullscreen"
+              mozallowfullscreen="mozallowfullscreen"
+              msallowfullscreen="msallowfullscreen"
+              oallowfullscreen="oallowfullscreen"
+              webkitallowfullscreen="webkitallowfullscreen"
+            />
+          </Popup>
+          <GetStarted />
+        </ButtonCont>
+      </Slide>
 
-    this.onClickVideoHandle = this.onClickVideoHandle.bind(this);
-  }
-
-  onClickVideoHandle(event) {
-    event.preventDefault();
-    window.open(
-      'https://www.youtube.com/watch?v=ra8YOIDrozc',
-      'Video',
-      'width=500,height=500'
-    );
-  }
-
-  bubbleClick(event, key) {
-    event.preventDefault();
-    /**
-     * NEXT SLIDE
-     */
-    this.setState({
-      currentActiveBubble: key,
-    });
-  }
-  render() {
-    return (
-      <Container className={this.props.className}>
-        <Slide isShow={this.state.currentActiveBubble === 0}>
-          <Title>Affordable Health Care</Title>
-          <Separator />
-          <Description>
-            At <BlueText>NeighborHealth</BlueText> we help you find the ideal
-            Dental Health <Bold>Specialized</Bold> Treatment.
-          </Description>
-          <Description>
-            We facilitate the process of your experience abroad by creating a{' '}
-            <Bold>personalized</Bold> itinerary at <Bold>budget-friendly</Bold>{' '}
-            prices.
-          </Description>
-          <Description>
-            Go ahead, Visit Mexico to get your quality dental treatment at a
-            price you can afford.
-          </Description>
-          <ButtonCont>
-            <Popup
-              contentStyle={contentStyle}
-              trigger={<BlueButton>Watch Video</BlueButton>}
-              modal
-            >
-              <iframe
-                width="560"
-                height="315"
-                src="https://www.youtube.com/embed/ra8YOIDrozc"
-                frameborder="0"
-                allow="autoplay; encrypted-media"
-                allowfullscreen="allowfullscreen"
-                mozallowfullscreen="mozallowfullscreen"
-                msallowfullscreen="msallowfullscreen"
-                oallowfullscreen="oallowfullscreen"
-                webkitallowfullscreen="webkitallowfullscreen"
-              />
-            </Popup>
-            <GetStarted />
-          </ButtonCont>
-        </Slide>
-      </Container>
-    );
-  }
+      <React.Fragment>
+        {props.children}
+      </React.Fragment>
+    </Container>
+  );
 }
 
 export default ServiceSlide;

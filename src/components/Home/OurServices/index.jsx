@@ -65,6 +65,49 @@ const SlideShow = styled.div`
   }
 `;
 
+const ButtonCont = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  box-sizing: border-box;
+  padding: 0 20px;
+  margin: 20px 0;
+  width: 70%;
+
+  ${device.laptop} {
+    width: 100%;
+  }
+`;
+
+const BubbleCont = ButtonCont.extend`
+  height: auto;
+  width: auto;
+
+  ${device.laptop} {
+    width: auto;
+  }
+`;
+
+const Bubble = styled.button`
+  text-decoration: none;
+  height: 20px;
+  width: 20px;
+  border-radius: 10px 10px;
+  border: 2px solid transparent;
+  margin: 0 8px;
+  cursor: pointer;
+  outline: 0;
+  position: relative;
+
+  background: ${props =>
+    props.current ? props.theme.color.lightBlue : 'grey'};
+  transform: ${props => (props.current ? 'scale(1.1, 1.1)' : 'scale(1,1)')};
+  transition: transform 0.25s ease-out;
+
+  :hover {
+    transform: scale(1.3);
+  }
+`;
+
 const ServicesComp = styled(Services)`
   margin: 50px 0;
 `;
@@ -73,13 +116,48 @@ const Slider = styled(ServiceSlide)`
   grid-area: Pres;
 `;
 
-const OurServices = () => (
-  <div>
-    <SlideShow>
-      <Slider />
-    </SlideShow>
-    <ServicesComp />
-  </div>
-);
+class OurServices extends React.Component {
+  state = {
+    currentActiveBubble: 0
+  };
+
+  bubbleClick = (index) => {
+    this.setState({
+      currentActiveBubble: index
+    });
+  }
+
+  render() {
+    const backgroundImages = [{
+      key: "1",
+      image: background
+    }, {
+      key: "2",
+      image: background
+    }, {
+      key: "3",
+      image: background
+    }];
+
+    return (
+      <div>
+        <SlideShow>
+          <Slider>
+            <BubbleCont>
+              {backgroundImages.map((item, index) => (
+                <Bubble
+                  onClick={() => this.bubbleClick(index)}
+                  current={this.state.currentActiveBubble === index}
+                  key={item.key}
+                />
+              ))}
+            </BubbleCont>
+          </Slider>
+        </SlideShow>
+        <ServicesComp />
+      </div>
+    );
+  }
+}
 
 export default OurServices;
