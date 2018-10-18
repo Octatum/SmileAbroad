@@ -20,7 +20,7 @@ const Container = styled.div`
   background: white;
   position: sticky;
   top: 0;
-  z-index: 1;
+  z-index: 100;
 
   font-size: calc(0.75rem + 0.5vw);
 
@@ -176,8 +176,7 @@ class Navbar extends Component {
           <Selection
             links={[
               { url: '/network', name: 'Our Network' },
-              { url: '/about', name: 'About Us' },
-              { url: '/terms-and-conditions', name: 'Terms & Conditions' },
+              { url: '/about', name: 'About Us' }
             ]}
             isOpen={this.state.companySelection}
             clickAction={this.handleSelectionClick}

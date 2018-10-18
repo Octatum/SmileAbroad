@@ -97,7 +97,7 @@ const IndivVideo = styled(Video)`
 const NextArrow = styled(SliderArrow)`
   z-index: 2;
   &.slick-next {
-    right: 0;
+    right: 1vw;
   }
   &.slick-next::before {
     content: '';
@@ -109,7 +109,7 @@ const NextArrow = styled(SliderArrow)`
 `;
 const PrevArrow = NextArrow.extend`
   &.slick-prev {
-    left: 0;
+    left: 1vw;
   }
   &.slick-prev::before {
     content: '';

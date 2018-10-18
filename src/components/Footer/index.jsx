@@ -157,6 +157,7 @@ const Footer = () => (
         <UsefulLink to="/blog">Blogs</UsefulLink>
         <UsefulLink to="/get-started">Get Started</UsefulLink>
         <UsefulLink to="/faq">FAQs</UsefulLink>
+        <UsefulLink to="/terms-and-conditions">Terms {"&"} conditions</UsefulLink>
       </LinksCont>
     </Div>
 
