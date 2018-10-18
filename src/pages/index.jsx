@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Presentation from '../components/Presentation';
 import OurServices from '../components/Home/OurServices';
 import AddedValue from '../components/Home/AddedValue';
 import FeaturedBlog from '../components/Home/FeaturedBlog';
@@ -24,7 +23,6 @@ const FeaturedBlogComp = styled(FeaturedBlog)`
 const IndexPage = props => (
   <AppLayout>
     <div>
-      <Presentation />
       <OurServices />
 
       <Separator />

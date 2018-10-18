@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Link from 'gatsby-link';
 
 import ButtonComp from './../Button';
-import DownArrow from './assets/downArrow.svg';
+import DownArrow from './assets/arrow.svg';
 import { device } from './../../utils/device';
 
 const Container = styled.div`
@@ -21,8 +21,8 @@ const Container = styled.div`
 const Arrow = styled.img`
   width: 0.5em;
   position: absolute;
-  right: -0.65em;
-  top: calc(50% - 0.25em);
+  right: -0.8em;
+  top: calc(50% - 0.125em);
 
   transition: transform ease 0.5s;
 

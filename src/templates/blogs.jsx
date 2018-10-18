@@ -126,7 +126,7 @@ const ReactMD = styled(ReactMarkdown)`
 `;
 
 const Title = styled.p`
-  font-size: calc(2rem + 2vw);
+  font-size: calc(2rem + 1vw);
   color: black;
   font-weight: 600;
   font-family: ${props => props.theme.fontFamily.main};

@@ -220,15 +220,9 @@ class Connection extends Component {
             <Text>
               Let us take the stress away! <br />
               After all, isn't that what a good neighbor is all about? <br />
-              Two <BlueText>easy</BlueText> ways to begin your{' '}
-              <BlueText>journey</BlueText>
+              To begin your <BlueText>journey</BlueText> send us a 
+              <br/> message through our website
             </Text>
-            <UList>
-              <li>Send us a message through our website</li>
-              <li>
-                Call us at: <BlueText>+1-512-717-3280</BlueText>
-              </li>
-            </UList>
           </TextContainer>
 
           <ImageContainer>

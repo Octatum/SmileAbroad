@@ -57,7 +57,7 @@ class Presentation extends Component {
   };
 
   render() {
-    return this.state.open ? (
+    return (
       <Container>
         <Text>
           Welcome to
@@ -66,7 +66,7 @@ class Presentation extends Component {
         </Text>
         <Image />
       </Container>
-    ) : null;
+    );
   }
 }
 

@@ -128,7 +128,7 @@ class Questionnaire extends Component {
           includeOpenAnswer
         />
         <OpenQuestion
-          questionText="Where are you from?"
+          questionText="In what state do you live?"
           onChange={this.handleChange}
           name="location"
           required

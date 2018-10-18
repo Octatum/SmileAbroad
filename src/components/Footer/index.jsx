@@ -24,12 +24,15 @@ const Container = styled.div`
 
   ${device.mobile} {
     padding: 20px 10px;
+    font-size: calc(0.75rem + 0.5vw);
+    grid-row-gap: 1rem;
 
     display: grid;
-    grid-template: auto auto / 1fr 1fr 1fr;
+    grid-template: auto auto auto / 1fr 1fr;
     grid-template-areas:
-      'desc useful useful'
-      'desc connect contact';
+      'desc desc'
+      'useful useful'
+      'connect contact';
   }
 `;
 
@@ -157,6 +160,7 @@ const Footer = () => (
         <UsefulLink to="/blog">Blogs</UsefulLink>
         <UsefulLink to="/get-started">Get Started</UsefulLink>
         <UsefulLink to="/faq">FAQs</UsefulLink>
+        <UsefulLink to="/terms-and-conditions">Terms {"&"} conditions</UsefulLink>
       </LinksCont>
     </Div>
 

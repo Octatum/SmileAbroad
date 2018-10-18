@@ -16,16 +16,13 @@ const Container = styled.div`
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-content: space-around;
-  font-size: calc(0.75rem + 0.5vw);
+  font-size: calc(1rem + 0.25vw);
 
-  & > div {
-    margin: 10px;
-  }
-
-  margin: 5em;
+  margin: 0 3rem;
+  margin-bottom: 3rem;
 
   ${device.tablet} {
-    margin: 2em;
+    margin: 0 2rem;
   }
 `;
 
@@ -33,8 +30,9 @@ const NewestPost = styled(Newest)`
   width: 65%;
   order: 1;
 
-  ${device.laptop} {
+  ${device.tablet} {
     width: 100%;
+    
     p {
       max-width: 90%;
     }
@@ -49,9 +47,9 @@ const TopPosts = styled(Top)`
   width: 25%;
   order: 2;
 
-  ${device.laptop} {
+  ${device.tablet} {
     width: 100%;
-    order: 3;
+    order: 2;
   }
   font-size: 1.25em;
 `;
@@ -59,9 +57,10 @@ const TopPosts = styled(Top)`
 const Posts = styled(OtherPosts)`
   order: 3;
 
-  ${device.laptop} {
-    order: 2;
+  ${device.tablet} {
+    order: 3;
   }
+
   font-size: 0.85em;
 `;
 

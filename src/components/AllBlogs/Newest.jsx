@@ -1,13 +1,17 @@
 import React from 'react';
 import Link from 'gatsby-link';
 import styled from 'styled-components';
+import { device } from '../../utils/device';
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
   position: relative;
-  padding: 1em;
+  padding: 0 1em;
+
+  ${device.tablet} {
+    padding: 0;
+  }
 
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   border-radius: 10px;
@@ -32,6 +36,7 @@ const Container = styled.div`
 const Title = styled.p`
   font-weight: bold;
   font-size: 2em;
+  padding-bottom: 1rem;
 `;
 
 const Excerpt = styled.p`
@@ -64,7 +69,7 @@ const Post = props => (
     <Excerpt>{props.firstPost.excerpt}</Excerpt>
     <Author>
       <span style={{ color: 'black', fontWeight: 'initial' }}>By </span>
-      Dr. {props.firstPost.frontmatter.author}
+      {props.firstPost.frontmatter.author}
     </Author>
   </Container>
 );

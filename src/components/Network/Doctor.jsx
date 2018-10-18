@@ -31,7 +31,7 @@ const Doctor = ({ className, imageURL, name, carrera, docId }) => {
   return (
     <Container className={className}>
       <DocImage src={imageURL} />
-      <Name>Dr. {name}</Name>
+      <Name>{name}</Name>
       <p>{carrera}</p>
       <p>{isId ? 'ID ' + docId : docId}</p>
     </Container>
