@@ -5,7 +5,9 @@ import ServiceSlide from './ServicesSlide';
 import Services from './Services';
 import { device } from '../../../utils/device';
 
-import background from './assets/background.jpg';
+import background1 from './assets/1.jpg';
+import background2 from './assets/2.jpg';
+import background3 from './assets/3.jpg';
 
 const SlideShow = styled.div`
   min-height: 100vh;
@@ -36,7 +38,7 @@ const SlideShow = styled.div`
 
   ::before {
     z-index: -2;
-    background-image: url(${background});
+    background-image: url(${({background}) => background});
     background-repeat: no-repeat;
     background-position: center right;
     background-size: cover;
@@ -130,18 +132,18 @@ class OurServices extends React.Component {
   render() {
     const backgroundImages = [{
       key: "1",
-      image: background
+      image: background1
     }, {
       key: "2",
-      image: background
+      image: background2
     }, {
       key: "3",
-      image: background
+      image: background3
     }];
 
     return (
       <div>
-        <SlideShow>
+        <SlideShow background={backgroundImages[this.state.currentActiveBubble].image}>
           <Slider>
             <BubbleCont>
               {backgroundImages.map((item, index) => (
