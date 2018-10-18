@@ -1,10 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 import Link from 'gatsby-link';
+import { device } from '../../utils/device';
 
 const Container = styled.div`
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   flex: 1;
+
+  ${device.tablet} {
+    margin-top: 2rem;
+  }
 `;
 
 const Title = styled.p`
@@ -50,7 +55,6 @@ const PostList = styled.div`
 const BlogEntryLink = styled(Link)`
   display: flex;
   align-items: center;
-  justify-content: center;
   text-align: center;
   margin: 1em 0;
 `;

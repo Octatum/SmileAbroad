@@ -5,7 +5,6 @@ import styled from 'styled-components';
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
   position: relative;
   padding: 1em;
 

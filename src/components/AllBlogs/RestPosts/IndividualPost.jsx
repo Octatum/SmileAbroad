@@ -20,6 +20,7 @@ const Thumbnail = styled.img`
 const Title = styled.p`
   font-weight: bold;
   font-size: 1.5em;
+  margin-top: 1rem;
 `;
 
 const Author = styled.p``;
