@@ -38,6 +38,7 @@ const SlideShow = styled.div`
 
   ::before {
     z-index: -2;
+    transition: 1s background-image ease;
     background-image: url(${({background}) => background});
     background-repeat: no-repeat;
     background-position: center right;
@@ -127,6 +128,20 @@ class OurServices extends React.Component {
     this.setState({
       currentActiveBubble: index
     });
+  }
+
+  getNextBubble = () => {
+    this.setState({
+      currentActiveBubble: (this.state.currentActiveBubble + 1) % 3
+    });
+  }
+
+  componentDidMount() {
+    this.interval = setInterval(this.getNextBubble, 5000);
+  }
+
+  componentWillMount() {
+    clearInterval(this.interval);
   }
 
   render() {

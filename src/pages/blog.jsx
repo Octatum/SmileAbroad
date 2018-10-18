@@ -70,10 +70,9 @@ const Blogs = props => {
   let newestFive = [];
   let latest = null;
   let restData = [];
-  const testRemark = [...Remark.edges, ...Remark.edges, ...Remark.edges, ...Remark.edges, ...Remark.edges, ...Remark.edges]
 
   // eslint-disable-next-line
-  testRemark.map((data, index) => {
+  Remark.edges.map((data, index) => {
     if (index === 0) {
       latest = data.node;
     } else if (index >= 1 && index <= 5) {
