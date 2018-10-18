@@ -32,6 +32,7 @@ const NewestPost = styled(Newest)`
 
   ${device.tablet} {
     width: 100%;
+    
     p {
       max-width: 90%;
     }

@@ -16,7 +16,7 @@ const Title = styled.p`
   color: white;
   background: ${props => props.theme.color.lightBlue};
   border-radius: 10px;
-  font-size: 1.5em;
+  font-size: 1.5rem;
   padding: 0.5rem;
   text-align: center;
   font-weight: bold;

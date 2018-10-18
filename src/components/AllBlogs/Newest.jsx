@@ -1,12 +1,17 @@
 import React from 'react';
 import Link from 'gatsby-link';
 import styled from 'styled-components';
+import { device } from '../../utils/device';
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
-  padding: 1em;
+  padding: 0 1em;
+
+  ${device.tablet} {
+    padding: 0;
+  }
 
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   border-radius: 10px;

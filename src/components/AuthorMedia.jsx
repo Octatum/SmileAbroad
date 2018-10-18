@@ -4,14 +4,12 @@ import PropTypes from 'prop-types';
 import { device } from './../utils/device';
 
 const Container = styled.div`
-  font-size: 2em;
+  font-size: 1.5rem;
   display: flex;
   flex-direction: row;
   align-items: center;
-
-  > * {
-    margin-right: 1em;
-  }
+  justify-content: space-between;
+  width: 100%;
 
   ${device.tablet} {
     padding: 0 15px;
