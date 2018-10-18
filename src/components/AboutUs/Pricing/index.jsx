@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Location } from '@reach/router';
 
 import { device } from './../../../utils/device';
 
@@ -121,33 +122,41 @@ const GiantText = styled.span`
 `;
 
 const Pricing = ({ className }) => (
-  <Container className={className}>
-    <span
-      id="pricing"
-      style={{ position: 'absolute', visibility: 'hidden', top: '-100px' }}
-    />
-    <CompTitle>Pricing</CompTitle>
-    <Text>The payment is divided in two different sections:</Text>
-    <Sections>
-      <PaymentOptions>
-        <Title>Deposit</Title>
-        <Text>
-          Part of the deposit is a security for the dentist to secure your place
-          and appointment.
-        </Text>
-        <Text>the other part is to book your hotel and tourist activities</Text>
-      </PaymentOptions>
-      <GiantText>&amp;</GiantText>
-      <PaymentOptions>
-        <Title>Payment</Title>
-        <Text>
-          This final payment is the renaming amount and must be provided once
-          you have arrived at the dental clinic.
-        </Text>
-      </PaymentOptions>
-      <Button />
-    </Sections>
-  </Container>
+  <Location>
+    {({location}) => {
+      console.log(location);
+
+      return (
+        <Container className={className}>
+          <span
+            id="pricing"
+            style={{ position: 'absolute', visibility: 'hidden', top: '-100px' }}
+          />
+          <CompTitle>Pricing</CompTitle>
+          <Text>The payment is divided in two different sections:</Text>
+          <Sections>
+            <PaymentOptions>
+              <Title>Deposit</Title>
+              <Text>
+                Part of the deposit is a security for the dentist to secure your place
+                and appointment.
+              </Text>
+              <Text>the other part is to book your hotel and tourist activities</Text>
+            </PaymentOptions>
+            <GiantText>&amp;</GiantText>
+            <PaymentOptions>
+              <Title>Payment</Title>
+              <Text>
+                This final payment is the renaming amount and must be provided once
+                you have arrived at the dental clinic.
+              </Text>
+            </PaymentOptions>
+            <Button />
+          </Sections>
+        </Container>
+      )
+    }}
+  </Location>
 );
 
 export default Pricing;
