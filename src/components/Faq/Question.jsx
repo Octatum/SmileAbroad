@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import ReactMarkdown from 'react-markdown';
 
-import { SVGs } from './svg';
+import arrow from './assets/arrow.svg';
 
 const Container = styled.label`
   display: flex;
@@ -60,13 +60,11 @@ const QuestionHeaderTitle = styled.div`
   align-items: center;
 `;
 
-const ArrowContainer = styled.div`
-  svg {
-    transition: transform 0.25s ease-out;
-    transform: rotate(0turn);
-    width: 1em;
-    display: block;
-  }
+const ArrowContainer = styled.img`
+  transition: transform 0.25s ease-out;
+  transform: rotate(0turn);
+  width: 1em;
+  display: block;
 `;
 
 const QuestionContainer = ({ question, answer, className }) => {
@@ -75,7 +73,7 @@ const QuestionContainer = ({ question, answer, className }) => {
       <Checkbox type="checkbox" />
       <QuestionHeaderTitle>
         <Question>{question}</Question>
-        <ArrowContainer>{SVGs.arrow}</ArrowContainer>
+        <ArrowContainer src={arrow} />
       </QuestionHeaderTitle>
       <Answer source={answer} />
     </Container>
