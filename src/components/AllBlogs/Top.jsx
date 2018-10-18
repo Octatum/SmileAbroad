@@ -4,6 +4,7 @@ import Link from 'gatsby-link';
 
 const Container = styled.div`
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
+  flex: 1;
 `;
 
 const Title = styled.p`
@@ -46,12 +47,33 @@ const PostList = styled.div`
   }
 `;
 
+const BlogEntryLink = styled(Link)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 1em 0;
+`;
+
+const ImageContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+`;
+
+const Img = styled.img`
+  max-width: 100%;
+  width: 5em;
+`;
+
 const TopStories = props => {
   const List = props.fivePosts.map((data, index) => {
     return (
-      <span key={index}>
-        <Link to={data.fields.route}>{data.frontmatter.title}</Link>
-      </span>
+      <BlogEntryLink key={data.frontmatter.title} to={data.fields.route}>
+        <ImageContainer><Img src={data.frontmatter.thumbnail} /></ImageContainer>
+        <div>{data.frontmatter.title}</div>
+      </BlogEntryLink>
     );
   });
 

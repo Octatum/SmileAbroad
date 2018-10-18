@@ -18,14 +18,10 @@ const Container = styled.div`
   align-content: space-around;
   font-size: calc(0.75rem + 0.5vw);
 
-  & > div {
-    margin: 10px;
-  }
-
-  margin: 5em;
+  margin: 0 3rem;
 
   ${device.tablet} {
-    margin: 2em;
+    margin: 0 2rem;
   }
 `;
 

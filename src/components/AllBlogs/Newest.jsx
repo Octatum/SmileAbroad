@@ -32,6 +32,7 @@ const Container = styled.div`
 const Title = styled.p`
   font-weight: bold;
   font-size: 2em;
+  padding-bottom: 1rem;
 `;
 
 const Excerpt = styled.p`
@@ -64,7 +65,7 @@ const Post = props => (
     <Excerpt>{props.firstPost.excerpt}</Excerpt>
     <Author>
       <span style={{ color: 'black', fontWeight: 'initial' }}>By </span>
-      Dr. {props.firstPost.frontmatter.author}
+      {props.firstPost.frontmatter.author}
     </Author>
   </Container>
 );
