@@ -8,4 +8,4 @@ Mexico’s economic structure is much different than in North America and Europe
 
 Doctors in the US are required to pay expensive certifications and permissions - and not to mention the high costs of establishing a dental facility. The **cost of labor**, real estate values and government taxes are some factors as well. 
 
-Thanks to the economic differences, Mexican practitioners have access to similar technologies and can provide the same quality procedures for a **fraction of the cost. **
+Due to the economic differences, Mexican practitioners have access to similar technologies and can provide the same quality procedures for a **fraction of the cost. **
