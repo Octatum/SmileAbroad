@@ -4,7 +4,7 @@ title: >-
   What I wish I’d known. . . And what you should know about going to Mexico for
   medical travel purposes.
 date: 2018-10-12T00:40:54.948Z
-thumbnail: /assets/uploads/neighborhealth__thumbnails_logovect-05.png
+thumbnail: /assets/uploads/1653.jpg
 author: Rodolfo Funes
 ---
 There are some among us who are known for obsessing over every little detail; making sure everything is perfectly planned out. Guilty? Yeah, me too!
