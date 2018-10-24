@@ -1,6 +1,6 @@
 ---
 layout: faq
-title: question 4
+title: Question 04
 question: Where are the Dental Clinics Located?
 date: '2018-09-10T10:16:45-05:00'
 ---

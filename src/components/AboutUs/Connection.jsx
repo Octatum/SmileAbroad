@@ -28,7 +28,7 @@ const SlideContainer = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   align-content: flex-start;
-  min-height: 75vh;
+  min-height: 70vh;
 
   margin: 1.5em 3em;
   margin-right: 0;
@@ -119,7 +119,7 @@ const UList = styled.ul`
   list-style-position: inside;
   &,
   & > li {
-    margin: 1em 0;
+    margin: 0.75rem 0;
   }
 `;
 

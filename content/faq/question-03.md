@@ -1,6 +1,6 @@
 ---
 layout: faq
-title: question 3
+title: Question 03
 question: What is NeighborHealth Certification?
 date: '2018-09-10T10:12:00-05:00'
 ---

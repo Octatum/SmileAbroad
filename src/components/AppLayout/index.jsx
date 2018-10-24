@@ -18,10 +18,10 @@ const AppLayout = ({ children }) => (
     <Layout>
       <Navbar />
       <Helmet
-        title="NeighborHealth"
+        title="NeighborHealth - Dental tourism in Mexico"
         meta={[
-          { name: 'description', content: 'Sample' },
-          { name: 'keywords', content: 'sample, something' },
+          { name: 'description', content: 'At NeighborHealth we help you find the ideal Dental Health Specialized Treatment in Mexico. All the way from dental implants to cosmetic dentistry.' },
+          { name: 'keywords', content: 'dental implant, Dental cost in mexico, medical tourism in mexico, cheap implants mexico' },
         ]}
       />
       <link

@@ -51,7 +51,10 @@ export default FaqPage;
 
 export const pageQuery = graphql`
   query GetQuestions {
-    allMarkdownRemark(filter: { frontmatter: { layout: { eq: "faq" } } }) {
+    allMarkdownRemark(
+      filter: { frontmatter: { layout: { eq: "faq" } } }
+      sort: {fields: frontmatter___title}
+    ) {
       edges {
         node {
           rawMarkdownBody

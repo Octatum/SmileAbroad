@@ -1,6 +1,6 @@
 ---
 layout: faq
-title: question 2
+title: Question 02
 question: What makes NeighborHealth different?
 date: '2018-09-10T10:09:40-05:00'
 ---

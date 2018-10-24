@@ -1,6 +1,6 @@
 ---
 layout: faq
-title: question 7
+title: Question 07
 question: How does NeighborHealth assure my safety during my stay in Mexico?
 date: '2018-09-10T10:50:22-05:00'
 ---
