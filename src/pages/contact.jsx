@@ -29,7 +29,7 @@ const Title = styled.p`
     width: 100%;
   }
 `;
-const BlueTitle = Title.withComponent('span').extend`
+const BlueTitle = styled(Title.withComponent('span'))`
   color: ${props => props.theme.color.lightBlue};
 `;
 

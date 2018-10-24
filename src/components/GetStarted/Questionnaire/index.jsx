@@ -128,7 +128,7 @@ class Questionnaire extends Component {
           includeOpenAnswer
         />
         <OpenQuestion
-          questionText="In what state do you live?"
+          questionText="Where are you located?"
           onChange={this.handleChange}
           name="location"
           required
@@ -155,7 +155,7 @@ class Questionnaire extends Component {
           required
         />
         <MultipleChoice
-          questionText="From 1 to 10 in a scale of pain, how would you rate your pain tolerance?"
+          questionText="How would you rate your pain on a scale of 1 to 10, with 1 being no pain and 10 being the worst pain ?"
           onChange={this.handleChange}
           options={['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']}
           name="painTolerance"
