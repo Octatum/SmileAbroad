@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import Link from 'gatsby-link';
 import { device } from '../../utils/device';
 
@@ -75,7 +75,9 @@ const TopStories = props => {
   const List = props.fivePosts.map((data, index) => {
     return (
       <BlogEntryLink key={data.frontmatter.title} to={data.fields.route}>
-        <ImageContainer><Img src={data.frontmatter.thumbnail} /></ImageContainer>
+        <ImageContainer>
+          <Img src={data.frontmatter.thumbnail} />
+        </ImageContainer>
         <div>{data.frontmatter.title}</div>
       </BlogEntryLink>
     );

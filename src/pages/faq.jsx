@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import Helmet from 'react-helmet';
 
 import Faq from './../components/Faq';
@@ -53,7 +53,7 @@ export const pageQuery = graphql`
   query GetQuestions {
     allMarkdownRemark(
       filter: { frontmatter: { layout: { eq: "faq" } } }
-      sort: {fields: frontmatter___title}
+      sort: { fields: frontmatter___title }
     ) {
       edges {
         node {

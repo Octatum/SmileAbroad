@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import { device } from './../../utils/device';
 import slider from 'react-slick';
 
@@ -107,7 +107,7 @@ const NextArrow = styled(SliderArrow)`
     stroke: black;
   }
 `;
-const PrevArrow = NextArrow.extend`
+const PrevArrow = styled(NextArrow)`
   &.slick-prev {
     left: 1vw;
   }

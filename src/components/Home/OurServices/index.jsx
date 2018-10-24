@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 import ServiceSlide from './ServicesSlide';
 import Services from './Services';
@@ -39,9 +39,9 @@ const SlideShow = styled.div`
   ::before {
     z-index: -2;
     transition: 1s background-image ease;
-    background-image: url(${({background}) => background});
+    background-image: url(${({ background }) => background});
     background-repeat: no-repeat;
-    background-position: center right;
+    background-position: center;
     background-size: cover;
     background-color: #d6d6d4;
   }
@@ -81,7 +81,7 @@ const ButtonCont = styled.div`
   }
 `;
 
-const BubbleCont = ButtonCont.extend`
+const BubbleCont = styled(ButtonCont)`
   height: auto;
   width: auto;
 
@@ -121,20 +121,20 @@ const Slider = styled(ServiceSlide)`
 
 class OurServices extends React.Component {
   state = {
-    currentActiveBubble: 0
+    currentActiveBubble: 0,
   };
 
-  bubbleClick = (index) => {
+  bubbleClick = index => {
     this.setState({
-      currentActiveBubble: index
+      currentActiveBubble: index,
     });
-  }
+  };
 
   getNextBubble = () => {
     this.setState({
-      currentActiveBubble: (this.state.currentActiveBubble + 1) % 3
+      currentActiveBubble: (this.state.currentActiveBubble + 1) % 3,
     });
-  }
+  };
 
   componentDidMount() {
     this.interval = setInterval(this.getNextBubble, 5000);
@@ -145,20 +145,26 @@ class OurServices extends React.Component {
   }
 
   render() {
-    const backgroundImages = [{
-      key: "1",
-      image: background1
-    }, {
-      key: "2",
-      image: background2
-    }, {
-      key: "3",
-      image: background3
-    }];
+    const backgroundImages = [
+      {
+        key: '1',
+        image: background1,
+      },
+      {
+        key: '2',
+        image: background2,
+      },
+      {
+        key: '3',
+        image: background3,
+      },
+    ];
 
     return (
       <div>
-        <SlideShow background={backgroundImages[this.state.currentActiveBubble].image}>
+        <SlideShow
+          background={backgroundImages[this.state.currentActiveBubble].image}
+        >
           <Slider>
             <BubbleCont>
               {backgroundImages.map((item, index) => (

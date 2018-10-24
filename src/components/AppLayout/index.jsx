@@ -1,6 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import styled, { ThemeProvider } from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components/macro';
 
 import { globalTheme } from './theme';
 import './index.css';
@@ -18,10 +18,18 @@ const AppLayout = ({ children }) => (
     <Layout>
       <Navbar />
       <Helmet
-        title="NeighborHealth - Dental tourism in Mexico"
+        titleTemplate="%s - NeighborHealth - Dental tourism in Mexico"
         meta={[
-          { name: 'description', content: 'At NeighborHealth we help you find the ideal Dental Health Specialized Treatment in Mexico. All the way from dental implants to cosmetic dentistry.' },
-          { name: 'keywords', content: 'dental implant, Dental cost in mexico, medical tourism in mexico, cheap implants mexico' },
+          {
+            name: 'description',
+            content:
+              'At NeighborHealth we help you find the ideal Dental Health Specialized Treatment in Mexico. All the way from dental implants to cosmetic dentistry.',
+          },
+          {
+            name: 'keywords',
+            content:
+              'dental implant, Dental cost in mexico, medical tourism in mexico, cheap implants mexico',
+          },
         ]}
       />
       <link

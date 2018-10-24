@@ -1,6 +1,6 @@
 import Link from 'gatsby-link';
 import React from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 const Container = styled.div`
   display: flex;

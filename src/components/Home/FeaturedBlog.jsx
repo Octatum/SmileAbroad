@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import Link from 'gatsby-link';
 import { device } from './../../utils/device';
 import AuthorMedia from './../AuthorMedia';

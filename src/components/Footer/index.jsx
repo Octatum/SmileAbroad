@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import Link from 'gatsby-link';
 import { OutboundLink } from 'gatsby-plugin-google-analytics';
 
@@ -40,7 +40,7 @@ const Texto = styled.p`
   color: ${({ theme }) => theme.color.blueGray};
 `;
 
-const Description = Texto.extend`
+const Description = styled(Texto)`
   width: 30%;
   ${device.mobile} {
     width: initial;
@@ -59,7 +59,7 @@ const Separator = styled.div`
   }
 `;
 
-const LinksTitle = Texto.extend`
+const LinksTitle = styled(Texto)`
   font-size: 1.1em;
   text-align: center;
   font-weight: 600;
@@ -101,8 +101,8 @@ const SocialLink = styled(OutboundLink)`
   }
 `;
 
-const ContactCont = LinksCont.extend``;
-const ContactTitle = LinksTitle.extend``;
+const ContactCont = styled(LinksCont)``;
+const ContactTitle = styled(LinksTitle)``;
 
 const MessageButton = styled(Link)`
   background: ${({ theme }) => theme.color.red};
@@ -120,7 +120,6 @@ const MessageButton = styled(Link)`
   transition: all 0.25s ease;
 
   :hover {
-    
     color: ${({ theme }) => theme.color.red};
     background: transparent;
   }
@@ -164,7 +163,9 @@ const Footer = () => (
         <UsefulLink to="/">Home</UsefulLink>
         <UsefulLink to="/blog">Blogs</UsefulLink>
         <UsefulLink to="/get-started">Get Started</UsefulLink>
-        <UsefulLink to="/terms-and-conditions">Terms {"&"} conditions</UsefulLink>
+        <UsefulLink to="/terms-and-conditions">
+          Terms {'&'} conditions
+        </UsefulLink>
       </LinksCont>
     </Div>
 
@@ -186,13 +187,13 @@ const Footer = () => (
           href="https://www.facebook.com/NeighborHealth/"
           target="_blank"
         >
-          <SocialIcon className="fab fa-facebook"></SocialIcon>
+          <SocialIcon className="fab fa-facebook" />
         </SocialLink>
         <SocialLink
           href="https://www.instagram.com/neighborhealthco/"
           target="_blank"
         >
-          <SocialIcon className="fab fa-instagram"></SocialIcon>
+          <SocialIcon className="fab fa-instagram" />
         </SocialLink>
       </ContactCont>
     </Div>

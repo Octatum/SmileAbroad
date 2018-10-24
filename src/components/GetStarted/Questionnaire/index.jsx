@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import { navigateTo } from 'gatsby-link';
 
 import OpenQuestion from './Questions/OpenQuestion';
@@ -120,6 +120,13 @@ class Questionnaire extends Component {
           type="email"
           autoComplete="email"
         />
+        <OpenQuestion
+          questionText="What's your phone number?"
+          onChange={this.handleChange}
+          name="phonenumber"
+          required
+          autoComplete="phone"
+        />
         <MultipleChoice
           questionText="What gender are you?"
           onChange={this.handleChange}
@@ -161,6 +168,11 @@ class Questionnaire extends Component {
           name="painTolerance"
           singleAnswer
           horizontal
+        />
+        <OpenQuestion
+          questionText="Tell us about your dental situation?"
+          onChange={this.handleChange}
+          name="location"
         />
         <MultipleChoice
           questionText="Do you plan to travel accompannied?"

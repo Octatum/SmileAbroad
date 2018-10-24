@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import Slider from 'react-slick';
 
 import { svgs } from './svgs';
@@ -52,7 +52,7 @@ const Title = styled.p`
   font-weight: bold;
 `;
 
-const BlueTitle = Title.withComponent('span').extend`
+const BlueTitle = styled(Title)`
   font-size: 1em;
   color: ${props => props.theme.color.lightBlue};
 `;
@@ -94,7 +94,7 @@ const WhatWeDo = ({ className }) => {
         <Div>
           <IconContainer>{svgs.badge}</IconContainer>
           <Title>
-            We are <BlueTitle>innovative</BlueTitle>{' '}
+            We are <BlueTitle as="span">innovative</BlueTitle>{' '}
           </Title>
           <Text>
             We leverage technological factors and our local expertise to make
@@ -105,7 +105,7 @@ const WhatWeDo = ({ className }) => {
         <Div>
           <IconContainer>{svgs.chat}</IconContainer>
           <Title>
-            We believe in a <BlueTitle>community</BlueTitle>{' '}
+            We believe in a <BlueTitle as="span">community</BlueTitle>{' '}
           </Title>
           <Text>
             Helping one another to ensure mutual success as individuals and as a
@@ -118,7 +118,7 @@ const WhatWeDo = ({ className }) => {
         <Div>
           <IconContainer>{svgs.implant}</IconContainer>
           <Title>
-            Our service <BlueTitle>pledge</BlueTitle>{' '}
+            Our service <BlueTitle as="span">pledge</BlueTitle>{' '}
           </Title>
           <Text>
             We pledge to provide you with a healing, safe, and enjoyable

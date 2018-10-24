@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import PropTypes from 'prop-types';
 import { device } from '../../../../utils/device';
 
@@ -99,7 +99,7 @@ const CheckboxInput = styled.input`
   cursor: default;
 `;
 
-const OtherLabel = Label.extend`
+const OtherLabel = styled(Label)`
   margin-left: 0px;
   align-self: flex-end;
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 import nerdy from './assets/nerdy.png';
 import { device } from './../../utils/device';
@@ -78,7 +78,7 @@ const Title = styled.p`
   font-weight: bold;
 `;
 
-const BlueTitle = Title.withComponent('span').extend`
+const BlueTitle = styled(Title)`
   font-size: 1em;
   color: ${props => props.theme.color.lightBlue};
 `;
@@ -97,7 +97,8 @@ const TextContainer = styled.div`
 const Text = styled.p`
   font-size: 1em;
 `;
-const BlueText = Text.withComponent('span').extend`
+
+const BlueText = styled(Text)`
   color: ${props => props.theme.color.lightBlue};
 `;
 
@@ -212,13 +213,13 @@ class Connection extends Component {
         <SlideContainer show={this.state.currentSelected === 1}>
           <Title>
             {' '}
-            <BlueTitle>Step 1</BlueTitle> - Contact Us!
+            <BlueTitle as="span">Step 1</BlueTitle> - Contact Us!
           </Title>
 
           <TitleCont>
             <Title>
-              Your <BlueTitle>connection</BlueTitle> to easy and affordable{' '}
-              <BlueTitle>healthcare</BlueTitle>
+              Your <BlueTitle as="span">connection</BlueTitle> to easy and
+              affordable <BlueTitle as="span">healthcare</BlueTitle>
             </Title>
           </TitleCont>
 
@@ -226,8 +227,8 @@ class Connection extends Component {
             <Text>
               Let us take the stress away! <br />
               After all, isn't that what a good neighbor is all about? <br />
-              To begin your <BlueText>journey</BlueText> send us a 
-              <br/> message through our website
+              To begin your <BlueText as="span">journey</BlueText> send us a
+              <br /> message through our website
             </Text>
           </TextContainer>
 
@@ -238,11 +239,12 @@ class Connection extends Component {
 
         <SlideContainer show={this.state.currentSelected === 2}>
           <Title>
-            <BlueTitle>Step 2</BlueTitle> - Personalized Plan
+            <BlueTitle as="span">Step 2</BlueTitle> - Personalized Plan
           </Title>
           <TitleCont>
             <Title>
-              Receive a <BlueTitle>personalized plan</BlueTitle> which includes:{' '}
+              Receive a <BlueTitle as="span">personalized plan</BlueTitle> which
+              includes:{' '}
             </Title>
           </TitleCont>
 
@@ -266,7 +268,7 @@ class Connection extends Component {
 
         <SlideContainer show={this.state.currentSelected === 3}>
           <Title>
-            <BlueTitle>Step 3</BlueTitle> - Help us help you!
+            <BlueTitle as="span">Step 3</BlueTitle> - Help us help you!
           </Title>
 
           <TextContainer>
@@ -283,27 +285,28 @@ class Connection extends Component {
 
         <SlideContainer show={this.state.currentSelected === 4}>
           <Title>
-            <BlueTitle>Step 4</BlueTitle> - Payment
+            <BlueTitle as="span">Step 4</BlueTitle> - Payment
           </Title>
 
           <TitleCont>
             <Title>
-              The <BlueTitle>payment</BlueTitle> is divided in two different
-              sections
+              The <BlueTitle as="span">payment</BlueTitle> is divided in two
+              different sections
             </Title>
           </TitleCont>
 
           <TextContainer>
             <UList>
               <li>
-                <BlueText>The deposit:</BlueText> part of the deposit is a
-                security for the dentist to secure your place an appointment.
-                The other, is to book your hotel, tourist activities and
-                transportation services.
+                <BlueText as="span">The deposit:</BlueText> part of the deposit
+                is a security for the dentist to secure your place an
+                appointment. The other, is to book your hotel, tourist
+                activities and transportation services.
               </li>
               <li>
-                <BlueText>Final payment:</BlueText> is the remaining amount and
-                must be provided once you have arrived at the dental clinic.
+                <BlueText as="span">Final payment:</BlueText> is the remaining
+                amount and must be provided once you have arrived at the dental
+                clinic.
               </li>
             </UList>
           </TextContainer>
@@ -314,12 +317,13 @@ class Connection extends Component {
 
         <SlideContainer show={this.state.currentSelected === 5}>
           <Title>
-            <BlueTitle>Step 5</BlueTitle> - Are you ready? Receive your agenda
+            <BlueTitle as="span">Step 5</BlueTitle> - Are you ready? Receive
+            your agenda
           </Title>
 
           <TitleCont>
             <Title>
-              <BlueTitle>NeighborHealth</BlueTitle> will provide your
+              <BlueTitle as="span">NeighborHealth</BlueTitle> will provide your
               personalized itinerary, which includes:
             </Title>
           </TitleCont>

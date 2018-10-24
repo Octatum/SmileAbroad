@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import Helmet from 'react-helmet';
 
 import { device } from '../utils/device';
@@ -29,7 +29,7 @@ const Title = styled.p`
     width: 100%;
   }
 `;
-const BlueTitle = styled(Title.withComponent('span'))`
+const BlueTitle = styled(Title)`
   color: ${props => props.theme.color.lightBlue};
 `;
 
@@ -53,7 +53,7 @@ const Contact = () => (
       <Helmet title="Contact Us" />
       <TitleCont>
         <Title>
-          Get in <BlueTitle>touch</BlueTitle> with us
+          Get in <BlueTitle as="span">touch</BlueTitle> with us
         </Title>
         <SubText>
           We are more than happy to help, let us know what we can do for you.

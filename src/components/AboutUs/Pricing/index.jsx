@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 import { device } from './../../../utils/device';
 
@@ -41,7 +41,7 @@ const Container = styled.div`
 `;
 
 const Title = styled.p`
-  font-size: 1.5em;
+  font-size: 1.2em;
   color: black;
   font-weight: bold;
   text-align: center;
@@ -49,7 +49,7 @@ const Title = styled.p`
     color: black;
   }
 `;
-const CompTitle = Title.extend`
+const CompTitle = styled(Title)`
   text-decoration: underline ${props => props.theme.color.lightBlue};
 `;
 
@@ -127,22 +127,24 @@ const Pricing = ({ className }) => (
       style={{ position: 'absolute', visibility: 'hidden', top: '-100px' }}
     />
     <CompTitle>Pricing</CompTitle>
-    <Text>The payment is divided in two different sections:</Text>
+    <Text>Neighborhealth's payment is divided in two different sections:</Text>
     <Sections>
       <PaymentOptions>
-        <Title>Deposit</Title>
+        <Title>Before Arrival</Title>
+        <Text>Deposit</Text>
         <Text>
-          Part of the deposit is a security for the dentist to secure your place
-          and appointment.
+          This is used to secure your spot for the dentist and to book your
+          hotel and desired activities during your stay.
         </Text>
-        <Text>the other part is to book your hotel and tourist activities</Text>
       </PaymentOptions>
       <GiantText>&amp;</GiantText>
       <PaymentOptions>
-        <Title>Payment</Title>
+        <Title>Prior to Treatment – While in Mexico</Title>
         <Text>
-          This final payment is the renaming amount and must be provided once
-          you have arrived at the dental clinic.
+          Final Payment
+          <br />
+          This is the remaining amount and is to be provided once you’ve arrived
+          at the clinic for your treatment.
         </Text>
       </PaymentOptions>
       <Button />

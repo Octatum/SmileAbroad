@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import Link from 'gatsby-link';
 
 import logo from './assets/logo.svg';
@@ -176,7 +176,7 @@ class Navbar extends Component {
           <Selection
             links={[
               { url: '/network', name: 'Our Network' },
-              { url: '/about', name: 'About Us' }
+              { url: '/about', name: 'About Us' },
             ]}
             isOpen={this.state.companySelection}
             clickAction={this.handleSelectionClick}

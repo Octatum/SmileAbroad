@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import { navigateTo } from 'gatsby-link';
 
 import OpenQuestion from './../GetStarted/Questionnaire/Questions/OpenQuestion';
@@ -54,7 +54,7 @@ const Text = styled.p`
   text-align-last: center;
 `;
 
-const BlueText = Text.withComponent('span').extend`
+const BlueText = styled(Text)`
   font-size: 1em;
   font-weight: bold;
   color: ${props => props.theme.color.lightBlue};
@@ -130,8 +130,11 @@ class Feedback extends Component {
         </p>
         <Text>
           Thank you for choosing
-          <BlueText style={{ color: 'black' }}> Neighbor</BlueText>
-          <BlueText>Health </BlueText>
+          <BlueText as="span" style={{ color: 'black' }}>
+            {' '}
+            Neighbor
+          </BlueText>
+          <BlueText as="span">Health </BlueText>
           for your needs. The next step in our process is to modify and
           personalize your NeigborHealth Personal Plan
         </Text>

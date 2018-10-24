@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import { navigateTo } from 'gatsby-link';
 
 import { device } from '../../utils/device';
@@ -74,7 +74,7 @@ const GridInput = styled.input`
   }
 `;
 
-const MessageInput = GridInput.withComponent('textarea').extend`
+const MessageInput = styled(GridInput)`
   resize: vertical;
   overflow: auto;
   min-height: 10em;
@@ -190,7 +190,11 @@ class GetInTouch extends Component {
 
         <InputCont>
           <GridText>Message:</GridText>
-          <MessageInput name="message" onChange={this.handleChange} />
+          <MessageInput
+            as="textarea"
+            name="message"
+            onChange={this.handleChange}
+          />
         </InputCont>
 
         <Submit type="submit">Send</Submit>

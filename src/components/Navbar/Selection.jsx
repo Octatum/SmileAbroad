@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import Link from 'gatsby-link';
 
 import ButtonComp from './../Button';
@@ -69,7 +69,7 @@ const Hidden = styled.div`
   }
 `;
 
-const SelectionLink = ButtonComp(Link).extend`
+const SelectionLink = styled(ButtonComp(Link))`
   margin: 0.25em auto;
   font-size: 0.9em;
   max-width: 90%;

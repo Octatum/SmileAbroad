@@ -1,6 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 import Welcome from './../components/AboutUs/Welcome';
 import WhatWeDo from './../components/AboutUs/WhatWeDo';

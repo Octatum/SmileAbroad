@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import Helmet from 'react-helmet';
 
 import AppLayout from '../components/AppLayout';
@@ -25,7 +25,7 @@ const TermsComp = styled(Terms)`
 const TermsPage = () => (
   <AppLayout>
     <div>
-      <Helmet title="T&C" />
+      <Helmet title="Terms and Conditions" />
       <Title>
         Terms <BlueTitle>&</BlueTitle> Conditions
       </Title>

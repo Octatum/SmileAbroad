@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 import Slider from 'react-slick';
 import { device } from '../../../utils/device';
@@ -41,7 +41,7 @@ const Title = styled.p`
   }
 `;
 
-const BlueTitle = Title.withComponent('span').extend`
+const BlueTitle = styled(Title)`
   font-size: 1em;
   color: ${props => props.theme.color.lightBlue};
 `;
@@ -193,10 +193,10 @@ const AddedValue = () => {
   return (
     <Container>
       <Title>
-        Get your <BlueTitle>afforadable</BlueTitle> dental treatment
+        Get your <BlueTitle as="span">afforadable</BlueTitle> dental treatment
       </Title>
       <Subtitle style={{ textAlign: 'left' }}>
-        And enjoy <BlueTitle>Mexico</BlueTitle> in three easy steps
+        And enjoy <BlueTitle as="span">Mexico</BlueTitle> in three easy steps
       </Subtitle>
       <InfoContainer {...Settings}>
         <Div>

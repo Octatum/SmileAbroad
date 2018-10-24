@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 import Slider from 'react-slick';
 import { device } from './../../../utils/device';
@@ -48,7 +48,7 @@ const Title = styled.p`
   }
 `;
 
-const Description = Title.extend`
+const Description = styled(Title)`
   font-size: calc(0.75rem + 1vw);
   font-size: 1em;
   font-weight: 500;

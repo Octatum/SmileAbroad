@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import ReactMarkdown from 'react-markdown';
 
 import arrow from './assets/arrow.svg';

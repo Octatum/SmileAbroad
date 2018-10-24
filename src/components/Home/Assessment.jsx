@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 import GetStartedButton from './../GetStarted/Button';
 
@@ -35,7 +35,7 @@ const GetStarted = styled(GetStartedButton)`
     border-color: white;
     border-width: 0.15em;
     background: white;
-    color: ${({theme}) => theme.color.black};
+    color: ${({ theme }) => theme.color.black};
 
     &:hover {
       background: transparent;
