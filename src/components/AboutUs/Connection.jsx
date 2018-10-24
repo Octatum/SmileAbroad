@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-import nerdy from './../assets/nerdy.png';
-import { device } from './../../../utils/device';
+import nerdy from './assets/nerdy.png';
+import { device } from './../../utils/device';
+
+import step1 from './assets/hiw-step-1.png';
+import step2 from './assets/hiw-step-2.png';
+import step3 from './assets/hiw-step-3.png';
+import step4 from './assets/hiw-step-4.png';
+import step5 from './assets/hiw-step-5.png';
 
 const Container = styled.div`
   font-size: calc(1rem + 0.75vw);
@@ -22,10 +28,9 @@ const SlideContainer = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   align-content: flex-start;
+  min-height: 75vh;
 
-  min-height: 70vh;
-
-  margin: 3em;
+  margin: 1.5em 3em;
   margin-right: 0;
 
   font-size: 0.75em;
@@ -72,6 +77,7 @@ const Title = styled.p`
   font-size: 1.75em;
   font-weight: bold;
 `;
+
 const BlueTitle = Title.withComponent('span').extend`
   font-size: 1em;
   color: ${props => props.theme.color.lightBlue};
@@ -79,7 +85,7 @@ const BlueTitle = Title.withComponent('span').extend`
 
 const TextContainer = styled.div`
   width: 60%;
-  padding: 1.5em 2em;
+  padding: 1em 1.5em;
 
   ${device.tablet} {
     width: 90%;
@@ -97,7 +103,6 @@ const BlueText = Text.withComponent('span').extend`
 
 const ImageContainer = styled.div`
   width: 40%;
-  transform: rotateY(180deg);
 
   ${device.tablet} {
     align-self: flex-end;
@@ -125,6 +130,7 @@ const BubbleContainer = styled.div`
   justify-content: space-evenly;
 
   margin: 2em auto;
+  margin-top: 0.5rem;
 
   ${device.mobile} {
     width: 90%;
@@ -226,7 +232,7 @@ class Connection extends Component {
           </TextContainer>
 
           <ImageContainer>
-            <Image src={nerdy} />
+            <Image src={step1} />
           </ImageContainer>
         </SlideContainer>
 
@@ -253,6 +259,9 @@ class Connection extends Component {
               <li>Total savings</li>
             </UList>
           </TextContainer>
+          <ImageContainer>
+            <Image src={step2} />
+          </ImageContainer>
         </SlideContainer>
 
         <SlideContainer show={this.state.currentSelected === 3}>
@@ -267,6 +276,9 @@ class Connection extends Component {
               Panorama, Dental Cone Beam CT, Radiography, etc).
             </Text>
           </TextContainer>
+          <ImageContainer>
+            <Image src={step3} />
+          </ImageContainer>
         </SlideContainer>
 
         <SlideContainer show={this.state.currentSelected === 4}>
@@ -295,6 +307,9 @@ class Connection extends Component {
               </li>
             </UList>
           </TextContainer>
+          <ImageContainer>
+            <Image src={step4} />
+          </ImageContainer>
         </SlideContainer>
 
         <SlideContainer show={this.state.currentSelected === 5}>
@@ -325,6 +340,9 @@ class Connection extends Component {
               keep in contact with you.
             </Text>
           </TextContainer>
+          <ImageContainer>
+            <Image src={step5} />
+          </ImageContainer>
         </SlideContainer>
 
         <BubbleContainer>{bubbles}</BubbleContainer>

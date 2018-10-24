@@ -19,6 +19,7 @@ const GetStarted = styled.div`
 `;
 
 const NavLink = styled(Link)`
+  transition: all 0.25s linear;
   text-decoration: none;
   position: relative;
   font-weight: 600;

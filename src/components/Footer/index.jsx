@@ -96,7 +96,6 @@ const SocialLink = styled(OutboundLink)`
   color: ${({ theme }) => theme.color.blueGray};
 
   padding: 10px 0;
-  font-size: 1em;
   ${device.mobile} {
     padding: 5px;
   }
@@ -118,10 +117,12 @@ const MessageButton = styled(Link)`
 
   text-align: center;
 
-  transition: box-shadow 0.25s linear;
+  transition: all 0.25s ease;
 
   :hover {
-    box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.3);
+    
+    color: ${({ theme }) => theme.color.red};
+    background: transparent;
   }
 
   ${device.mobile} {
@@ -142,6 +143,10 @@ const Div = styled.div`
   }
 `;
 
+const SocialIcon = styled.i`
+  font-size: 1.5em;
+`;
+
 const Footer = () => (
   <Container>
     <Description style={{ gridArea: 'desc' }}>
@@ -159,7 +164,6 @@ const Footer = () => (
         <UsefulLink to="/">Home</UsefulLink>
         <UsefulLink to="/blog">Blogs</UsefulLink>
         <UsefulLink to="/get-started">Get Started</UsefulLink>
-        <UsefulLink to="/faq">FAQs</UsefulLink>
         <UsefulLink to="/terms-and-conditions">Terms {"&"} conditions</UsefulLink>
       </LinksCont>
     </Div>
@@ -182,7 +186,13 @@ const Footer = () => (
           href="https://www.facebook.com/NeighborHealth/"
           target="_blank"
         >
-          Facebook
+          <SocialIcon className="fab fa-facebook"></SocialIcon>
+        </SocialLink>
+        <SocialLink
+          href="https://www.instagram.com/neighborhealthco/"
+          target="_blank"
+        >
+          <SocialIcon className="fab fa-instagram"></SocialIcon>
         </SocialLink>
       </ContactCont>
     </Div>

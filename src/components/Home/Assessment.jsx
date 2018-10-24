@@ -21,20 +21,26 @@ const Container = styled.div`
 
 const GetStarted = styled(GetStartedButton)`
   display: inline-block;
+  background: white;
+  border-radius: 0.75em;
+
+  :hover {
+    background: transparent;
+  }
 
   div {
     border-radius: 0.75em;
     padding: 0.25em 1.5em;
-    background: none;
 
     border-color: white;
     border-width: 0.15em;
-    color: black;
+    background: white;
+    color: ${({theme}) => theme.color.black};
 
     &:hover {
-      background: none;
+      background: transparent;
+      border-color: white;
       color: white;
-      border-color: black;
       border-width: 0.15em;
     }
   }
