@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 import IndividualPost from './IndividualPost';
 import { device } from './../../../utils/device';
@@ -43,7 +43,7 @@ const Post = styled(IndividualPost)`
 
   ${device.laptop} {
     max-width: 30%;
-    min-width: 27%
+    min-width: 27%;
   }
 
   ${device.tablet} {

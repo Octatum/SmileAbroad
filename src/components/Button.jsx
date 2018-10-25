@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 const Button = component => styled(component)`
   text-decoration: none;
@@ -9,7 +9,7 @@ const Button = component => styled(component)`
   text-align: center;
   position: relative;
 
-  color: black;
+  color: ${({theme}) => theme.color.black};
 
   &::before {
     content: '';

@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import Helmet from 'react-helmet';
 
 import { device } from '../utils/device';
@@ -32,7 +32,7 @@ const NewestPost = styled(Newest)`
 
   ${device.tablet} {
     width: 100%;
-    
+
     p {
       max-width: 90%;
     }

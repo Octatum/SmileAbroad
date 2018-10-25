@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import Link from 'gatsby-link';
 
 const GetStarted = styled.div`
@@ -19,6 +19,7 @@ const GetStarted = styled.div`
 `;
 
 const NavLink = styled(Link)`
+  transition: all 0.25s linear;
   text-decoration: none;
   position: relative;
   font-weight: 600;

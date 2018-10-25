@@ -1,6 +1,10 @@
 import React from 'react';
+<<<<<<< HEAD
+import styled from 'styled-components/macro';
+=======
 import styled from 'styled-components';
 import { Location } from '@reach/router';
+>>>>>>> b1805eda3317c61dcf5d0d2233498324bb871624
 
 import { device } from './../../../utils/device';
 
@@ -42,21 +46,21 @@ const Container = styled.div`
 `;
 
 const Title = styled.p`
-  font-size: 1.5em;
-  color: black;
+  font-size: 1.2em;
+  color: ${({theme}) => theme.color.black};
   font-weight: bold;
   text-align: center;
   span {
-    color: black;
+    color: ${({theme}) => theme.color.black};
   }
 `;
-const CompTitle = Title.extend`
+const CompTitle = styled(Title)`
   text-decoration: underline ${props => props.theme.color.lightBlue};
 `;
 
 const Text = styled.p`
   font-size: 1em;
-  color: black;
+  color: ${({theme}) => theme.color.black};
   width: 35%;
   text-align: center;
 
@@ -94,8 +98,8 @@ const Button = styled(GetStartedButton)`
 
     &:hover {
       background: white;
-      color: black;
-      border-color: black;
+      color: ${({theme}) => theme.color.black};
+      border-color: ${({theme}) => theme.color.black};
     }
   }
 `;
@@ -122,6 +126,37 @@ const GiantText = styled.span`
 `;
 
 const Pricing = ({ className }) => (
+<<<<<<< HEAD
+  <Container className={className}>
+    <span
+      id="pricing"
+      style={{ position: 'absolute', visibility: 'hidden', top: '-100px' }}
+    />
+    <CompTitle>Pricing</CompTitle>
+    <Text>Neighborhealth's payment is divided in two different sections:</Text>
+    <Sections>
+      <PaymentOptions>
+        <Title>Before Arrival</Title>
+        <Text>Deposit</Text>
+        <Text>
+          This is used to secure your spot for the dentist and to book your
+          hotel and desired activities during your stay.
+        </Text>
+      </PaymentOptions>
+      <GiantText>&amp;</GiantText>
+      <PaymentOptions>
+        <Title>Prior to Treatment – While in Mexico</Title>
+        <Text>
+          Final Payment
+          <br />
+          This is the remaining amount and is to be provided once you’ve arrived
+          at the clinic for your treatment.
+        </Text>
+      </PaymentOptions>
+      <Button />
+    </Sections>
+  </Container>
+=======
   <Location>
     {({location}) => {
       console.log(location);
@@ -157,6 +192,7 @@ const Pricing = ({ className }) => (
       )
     }}
   </Location>
+>>>>>>> b1805eda3317c61dcf5d0d2233498324bb871624
 );
 
 export default Pricing;

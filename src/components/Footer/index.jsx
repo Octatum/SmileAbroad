@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import Link from 'gatsby-link';
 import { OutboundLink } from 'gatsby-plugin-google-analytics';
 
@@ -40,7 +40,7 @@ const Texto = styled.p`
   color: ${({ theme }) => theme.color.blueGray};
 `;
 
-const Description = Texto.extend`
+const Description = styled(Texto)`
   width: 30%;
   ${device.mobile} {
     width: initial;
@@ -59,7 +59,7 @@ const Separator = styled.div`
   }
 `;
 
-const LinksTitle = Texto.extend`
+const LinksTitle = styled(Texto)`
   font-size: 1.1em;
   text-align: center;
   font-weight: 600;
@@ -96,14 +96,13 @@ const SocialLink = styled(OutboundLink)`
   color: ${({ theme }) => theme.color.blueGray};
 
   padding: 10px 0;
-  font-size: 1em;
   ${device.mobile} {
     padding: 5px;
   }
 `;
 
-const ContactCont = LinksCont.extend``;
-const ContactTitle = LinksTitle.extend``;
+const ContactCont = styled(LinksCont)``;
+const ContactTitle = styled(LinksTitle)``;
 
 const MessageButton = styled(Link)`
   background: ${({ theme }) => theme.color.red};
@@ -118,10 +117,11 @@ const MessageButton = styled(Link)`
 
   text-align: center;
 
-  transition: box-shadow 0.25s linear;
+  transition: all 0.25s ease;
 
   :hover {
-    box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.3);
+    color: ${({ theme }) => theme.color.red};
+    background: transparent;
   }
 
   ${device.mobile} {
@@ -142,6 +142,10 @@ const Div = styled.div`
   }
 `;
 
+const SocialIcon = styled.i`
+  font-size: 1.5em;
+`;
+
 const Footer = () => (
   <Container>
     <Description style={{ gridArea: 'desc' }}>
@@ -159,8 +163,9 @@ const Footer = () => (
         <UsefulLink to="/">Home</UsefulLink>
         <UsefulLink to="/blog">Blogs</UsefulLink>
         <UsefulLink to="/get-started">Get Started</UsefulLink>
-        <UsefulLink to="/faq">FAQs</UsefulLink>
-        <UsefulLink to="/terms-and-conditions">Terms {"&"} conditions</UsefulLink>
+        <UsefulLink to="/terms-and-conditions">
+          Terms {'&'} conditions
+        </UsefulLink>
       </LinksCont>
     </Div>
 
@@ -182,7 +187,13 @@ const Footer = () => (
           href="https://www.facebook.com/NeighborHealth/"
           target="_blank"
         >
-          Facebook
+          <SocialIcon className="fab fa-facebook" />
+        </SocialLink>
+        <SocialLink
+          href="https://www.instagram.com/neighborhealthco/"
+          target="_blank"
+        >
+          <SocialIcon className="fab fa-instagram" />
         </SocialLink>
       </ContactCont>
     </Div>

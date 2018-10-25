@@ -1,8 +1,16 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
-import nerdy from './../assets/nerdy.png';
-import { device } from './../../../utils/device';
+import nerdy from './assets/nerdy.png';
+import { device } from './../../utils/device';
+
+
+import arrow from './assets/arrow.svg';
+import step1 from './assets/hiw-step-1.png';
+import step2 from './assets/hiw-step-2.png';
+import step3 from './assets/hiw-step-3.png';
+import step4 from './assets/hiw-step-4.png';
+import step5 from './assets/hiw-step-5.png';
 
 const Container = styled.div`
   font-size: calc(1rem + 0.75vw);
@@ -22,10 +30,9 @@ const SlideContainer = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   align-content: flex-start;
+  min-height: 75vh;
 
-  min-height: 70vh;
-
-  margin: 3em;
+  margin: 1.5em 3em;
   margin-right: 0;
 
   font-size: 0.75em;
@@ -72,14 +79,15 @@ const Title = styled.p`
   font-size: 1.75em;
   font-weight: bold;
 `;
-const BlueTitle = Title.withComponent('span').extend`
+
+const BlueTitle = styled(Title)`
   font-size: 1em;
   color: ${props => props.theme.color.lightBlue};
 `;
 
 const TextContainer = styled.div`
   width: 60%;
-  padding: 1.5em 2em;
+  padding: 1em 1.5em;
 
   ${device.tablet} {
     width: 90%;
@@ -91,13 +99,13 @@ const TextContainer = styled.div`
 const Text = styled.p`
   font-size: 1em;
 `;
-const BlueText = Text.withComponent('span').extend`
+
+const BlueText = styled(Text)`
   color: ${props => props.theme.color.lightBlue};
 `;
 
 const ImageContainer = styled.div`
   width: 40%;
-  transform: rotateY(180deg);
 
   ${device.tablet} {
     align-self: flex-end;
@@ -114,7 +122,7 @@ const UList = styled.ul`
   list-style-position: inside;
   &,
   & > li {
-    margin: 1em 0;
+    margin: 0.75rem 0;
   }
 `;
 
@@ -125,6 +133,7 @@ const BubbleContainer = styled.div`
   justify-content: space-evenly;
 
   margin: 2em auto;
+  margin-top: 0.5rem;
 
   ${device.mobile} {
     width: 90%;
@@ -164,6 +173,29 @@ const Bubble = styled.button`
   }
 `;
 
+const ChangeSlideArrows = styled.div`
+  display: flex;
+  position: absolute;
+  justify-content: space-between;
+  align-items: center;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+`;
+
+const SlideArrow = styled.img`
+  height: 2em;
+  cursor: pointer;
+`;
+
+const NextSlideArrow = styled(SlideArrow)`
+  transform: rotate(0.25turn);
+`;
+
+const PreviousSlideArrow = styled(SlideArrow)`
+  transform: rotate(-0.25turn);
+`;
+
 class Connection extends Component {
   constructor() {
     super();
@@ -173,6 +205,16 @@ class Connection extends Component {
     };
 
     this.bubbleClickHandler = this.bubbleClickHandler.bind(this);
+  }
+  
+  getPrevSlide = () => {
+    const currentSelected = this.state.currentSelected;
+    this.setState({currentSelected: (currentSelected + 4) % 5});
+  }
+
+  getNextSlide = () => {
+    const currentSelected = this.state.currentSelected;
+    this.setState({currentSelected: (currentSelected + 1) % 5});
   }
 
   bubbleClickHandler(event, key) {
@@ -203,16 +245,22 @@ class Connection extends Component {
           style={{ position: 'absolute', visibility: 'hidden', top: '-100px' }}
         />
         <Title>How It Works</Title>
-        <SlideContainer show={this.state.currentSelected === 1}>
+
+        <ChangeSlideArrows>
+          <NextSlideArrow onClick={this.getPrevSlide} src={arrow} />
+          <PreviousSlideArrow onClick={this.getNextSlide} src={arrow} />
+        </ChangeSlideArrows>
+
+        <SlideContainer show={this.state.currentSelected === 0}>
           <Title>
             {' '}
-            <BlueTitle>Step 1</BlueTitle> - Contact Us!
+            <BlueTitle as="span">Step 1</BlueTitle> - Contact Us!
           </Title>
 
           <TitleCont>
             <Title>
-              Your <BlueTitle>connection</BlueTitle> to easy and affordable{' '}
-              <BlueTitle>healthcare</BlueTitle>
+              Your <BlueTitle as="span">connection</BlueTitle> to easy and
+              affordable <BlueTitle as="span">healthcare</BlueTitle>
             </Title>
           </TitleCont>
 
@@ -220,23 +268,24 @@ class Connection extends Component {
             <Text>
               Let us take the stress away! <br />
               After all, isn't that what a good neighbor is all about? <br />
-              To begin your <BlueText>journey</BlueText> send us a 
-              <br/> message through our website
+              To begin your <BlueText as="span">journey</BlueText> send us a
+              <br /> message through our website
             </Text>
           </TextContainer>
 
           <ImageContainer>
-            <Image src={nerdy} />
+            <Image src={step1} />
           </ImageContainer>
         </SlideContainer>
 
-        <SlideContainer show={this.state.currentSelected === 2}>
+        <SlideContainer show={this.state.currentSelected === 1}>
           <Title>
-            <BlueTitle>Step 2</BlueTitle> - Personalized Plan
+            <BlueTitle as="span">Step 2</BlueTitle> - Personalized Plan
           </Title>
           <TitleCont>
             <Title>
-              Receive a <BlueTitle>personalized plan</BlueTitle> which includes:{' '}
+              Receive a <BlueTitle as="span">personalized plan</BlueTitle> which
+              includes:{' '}
             </Title>
           </TitleCont>
 
@@ -253,11 +302,14 @@ class Connection extends Component {
               <li>Total savings</li>
             </UList>
           </TextContainer>
+          <ImageContainer>
+            <Image src={step2} />
+          </ImageContainer>
         </SlideContainer>
 
-        <SlideContainer show={this.state.currentSelected === 3}>
+        <SlideContainer show={this.state.currentSelected === 2}>
           <Title>
-            <BlueTitle>Step 3</BlueTitle> - Help us help you!
+            <BlueTitle as="span">Step 3</BlueTitle> - Help us help you!
           </Title>
 
           <TextContainer>
@@ -267,44 +319,52 @@ class Connection extends Component {
               Panorama, Dental Cone Beam CT, Radiography, etc).
             </Text>
           </TextContainer>
+          <ImageContainer>
+            <Image src={step3} />
+          </ImageContainer>
         </SlideContainer>
 
-        <SlideContainer show={this.state.currentSelected === 4}>
+        <SlideContainer show={this.state.currentSelected === 3}>
           <Title>
-            <BlueTitle>Step 4</BlueTitle> - Payment
+            <BlueTitle as="span">Step 4</BlueTitle> - Payment
           </Title>
 
           <TitleCont>
             <Title>
-              The <BlueTitle>payment</BlueTitle> is divided in two different
-              sections
+              The <BlueTitle as="span">payment</BlueTitle> is divided in two
+              different sections
             </Title>
           </TitleCont>
 
           <TextContainer>
             <UList>
               <li>
-                <BlueText>The deposit:</BlueText> part of the deposit is a
-                security for the dentist to secure your place an appointment.
-                The other, is to book your hotel, tourist activities and
-                transportation services.
+                <BlueText as="span">The deposit:</BlueText> part of the deposit
+                is a security for the dentist to secure your place an
+                appointment. The other, is to book your hotel, tourist
+                activities and transportation services.
               </li>
               <li>
-                <BlueText>Final payment:</BlueText> is the remaining amount and
-                must be provided once you have arrived at the dental clinic.
+                <BlueText as="span">Final payment:</BlueText> is the remaining
+                amount and must be provided once you have arrived at the dental
+                clinic.
               </li>
             </UList>
           </TextContainer>
+          <ImageContainer>
+            <Image src={step4} />
+          </ImageContainer>
         </SlideContainer>
 
-        <SlideContainer show={this.state.currentSelected === 5}>
+        <SlideContainer show={this.state.currentSelected === 4}>
           <Title>
-            <BlueTitle>Step 5</BlueTitle> - Are you ready? Receive your agenda
+            <BlueTitle as="span">Step 5</BlueTitle> - Are you ready? Receive
+            your agenda
           </Title>
 
           <TitleCont>
             <Title>
-              <BlueTitle>NeighborHealth</BlueTitle> will provide your
+              <BlueTitle as="span">NeighborHealth</BlueTitle> will provide your
               personalized itinerary, which includes:
             </Title>
           </TitleCont>
@@ -325,6 +385,9 @@ class Connection extends Component {
               keep in contact with you.
             </Text>
           </TextContainer>
+          <ImageContainer>
+            <Image src={step5} />
+          </ImageContainer>
         </SlideContainer>
 
         <BubbleContainer>{bubbles}</BubbleContainer>

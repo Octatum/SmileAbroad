@@ -1,6 +1,6 @@
 ---
 layout: faq
-title: question 6
+title: Question 06
 question: Does NeighborHealth include flight bookings with their packages?
 date: '2018-09-10T10:46:45-05:00'
 ---

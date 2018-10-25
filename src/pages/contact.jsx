@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import Helmet from 'react-helmet';
 
 import { device } from '../utils/device';
@@ -18,7 +18,7 @@ const TitleCont = styled.div`
 `;
 
 const Title = styled.p`
-  color: black;
+  color: ${({theme}) => theme.color.black};
   font-weight: 600;
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   width: 80%;
@@ -29,13 +29,13 @@ const Title = styled.p`
     width: 100%;
   }
 `;
-const BlueTitle = Title.withComponent('span').extend`
+const BlueTitle = styled(Title)`
   color: ${props => props.theme.color.lightBlue};
 `;
 
 const SubText = styled.p`
   font-size: 0.75em;
-  color: black;
+  color: ${({theme}) => theme.color.black};
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   width: 80%;
   text-align: center;
@@ -53,7 +53,7 @@ const Contact = () => (
       <Helmet title="Contact Us" />
       <TitleCont>
         <Title>
-          Get in <BlueTitle>touch</BlueTitle> with us
+          Get in <BlueTitle as="span">touch</BlueTitle> with us
         </Title>
         <SubText>
           We are more than happy to help, let us know what we can do for you.

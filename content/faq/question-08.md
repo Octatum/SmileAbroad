@@ -1,6 +1,6 @@
 ---
 layout: faq
-title: Question 8
+title: Question 08
 question: Why is dental care cheaper in Mexico?
 date: '2018-10-03T21:17:06-05:00'
 ---

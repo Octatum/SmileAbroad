@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import PropTypes from 'prop-types';
 import { device } from '../../../../utils/device';
 
@@ -36,7 +36,7 @@ const Label = styled.label`
   }
 `;
 
-const OtherLabel = Label.extend`
+const OtherLabel = styled(Label)`
   margin-left: 0px;
 `;
 

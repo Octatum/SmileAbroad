@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 import { device } from './../../../utils/device';
 
@@ -68,13 +68,13 @@ const Title = styled.p`
   font-size: 2em;
   font-weight: bold;
 `;
-const TitleBlue = Title.withComponent('span').extend`
+const TitleBlue = styled(Title)`
   color: ${props => props.theme.color.lightBlue};
   font-size: 1em;
 `;
 
 const Message = styled.p`
-  color: #000;
+  color: ${({theme}) => theme.color.black};
   width: 70%;
   margin-bottom: 2em;
 
@@ -82,7 +82,7 @@ const Message = styled.p`
     width: 100%;
   }
 `;
-const BoldText = Message.withComponent('span').extend`
+const BoldText = styled(Message)`
   font-weight: bold;
 `;
 
@@ -101,13 +101,13 @@ const Welcome = props => (
   <Cont className={props.className}>
     <MessageContainer>
       <Title>
-        Welcome <TitleBlue>Neighbor</TitleBlue>{' '}
+        Welcome <TitleBlue as="span">Neighbor</TitleBlue>{' '}
       </Title>
       <Message>
-        At <BoldText>NeighborHealth</BoldText> we help you find the ideal Dental
-        Health Specialist Treatment. We facilitate the process of your
-        experience abroad by creating a personalized itinerary and establishing
-        a connection with a pre-screened practitioner.
+        At <BoldText as="span">NeighborHealth</BoldText> we help you find the
+        ideal Dental Health Specialist Treatment. We facilitate the process of
+        your experience abroad by creating a personalized itinerary and
+        establishing a connection with a pre-screened practitioner.
       </Message>
       <GetStarted />
     </MessageContainer>

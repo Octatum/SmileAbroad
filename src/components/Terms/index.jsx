@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 const Container = styled.div`
   font-size: calc(0.75em + 0.5vw);
@@ -34,10 +34,10 @@ const List = styled.ol`
 const Text = styled.p`
   margin-bottom: 1em;
 `;
-const PreListText = Text.extend`
+const PreListText = styled(Text)`
   margin-bottom: 0;
 `;
-const BoldText = Text.withComponent('span').extend`
+const BoldText = styled(Text.withComponent('span'))`
   font-weight: bold;
   display: inline-block;
 `;

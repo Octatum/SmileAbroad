@@ -1,6 +1,6 @@
 export const globalTheme = {
   color: {
-    black: 'black',
+    black: '#343844',
     lightBlue: '#00C6DB',
     lightGray: '#E1F1F3',
     white: 'white',

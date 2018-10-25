@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import Helmet from 'react-helmet';
 
 import Faq from './../components/Faq';
@@ -12,6 +12,7 @@ const Title = styled.p`
   font-size: calc(2rem + 0.75vw);
   font-weight: bold;
   font-family: ${props => props.theme.fontFamily.main};
+  text-align: center;
 
   margin: 1.5em auto;
   width: 70%;
@@ -37,7 +38,7 @@ const FaqComp = styled(Faq)`
 const FaqPage = ({ data }) => (
   <AppLayout>
     <div>
-      <Helmet title="Frequently Asked Questions" />
+      <Helmet title="FAQ" />
       <Title>
         Neighbor
         <BlueText>Health</BlueText> Frequently Asked Questions
@@ -51,7 +52,10 @@ export default FaqPage;
 
 export const pageQuery = graphql`
   query GetQuestions {
-    allMarkdownRemark(filter: { frontmatter: { layout: { eq: "faq" } } }) {
+    allMarkdownRemark(
+      filter: { frontmatter: { layout: { eq: "faq" } } }
+      sort: { fields: frontmatter___title }
+    ) {
       edges {
         node {
           rawMarkdownBody

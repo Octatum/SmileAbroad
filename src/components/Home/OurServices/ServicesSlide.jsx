@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import Popup from 'reactjs-popup';
 
 import ButtonComponent from '../../Button';
@@ -18,7 +18,7 @@ const Title = styled.p`
   font-size: 2em;
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   font-weight: 600;
-  color: black;
+  color: ${({theme}) => theme.color.black};
   max-width: 50%;
 
   ${device.mobile} {
@@ -46,11 +46,11 @@ const Description = styled.p`
   }
 `;
 
-const Bold = Description.withComponent('span').extend`
+const Bold = styled(Description)`
   font-weight: bold;
 `;
 
-const BlueText = Description.withComponent('span').extend`
+const BlueText = styled(Description)`
   color: ${props => props.theme.color.lightBlue};
 `;
 
@@ -107,17 +107,17 @@ function ServiceSlide(props) {
         <Title>Affordable Health Care</Title>
         <Separator />
         <Description>
-          At <BlueText>NeighborHealth</BlueText> we help you find the ideal
-          Dental Health <Bold>Specialized</Bold> Treatment.
+          At <BlueText as="span">NeighborHealth</BlueText> we help you find the
+          ideal Dental Health <Bold as="span">Specialized</Bold> Treatment.
         </Description>
         <Description>
           We facilitate the process of your experience abroad by creating a{' '}
-          <Bold>personalized</Bold> itinerary at <Bold>budget-friendly</Bold>{' '}
-          prices.
+          <Bold as="span">personalized</Bold> itinerary at{' '}
+          <Bold as="span">budget-friendly</Bold> prices.
         </Description>
         <Description>
-          Go ahead, Visit Mexico to get your quality dental treatment at a
-          price you can afford.
+          Go ahead, Visit Mexico to get your quality dental treatment at a price
+          you can afford.
         </Description>
         <ButtonCont>
           <Popup
@@ -142,9 +142,7 @@ function ServiceSlide(props) {
         </ButtonCont>
       </Slide>
 
-      <React.Fragment>
-        {props.children}
-      </React.Fragment>
+      <React.Fragment>{props.children}</React.Fragment>
     </Container>
   );
 }

@@ -1,6 +1,6 @@
 ---
 layout: faq
-title: Question 9
+title: Question 09
 question: How can I trust the quality of the dentist?
 date: '2018-10-03T21:19:05-05:00'
 ---

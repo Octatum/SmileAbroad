@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import { device } from '../../../utils/device';
 
 import patient from './assets/patient.jpg';
@@ -82,7 +82,7 @@ const Text = styled.p`
     text-align: center;
   }
 `;
-const Desc = Text.extend`
+const Desc = styled(Text)`
   text-align: center;
   margin: auto;
   width: 70%;
