@@ -55,6 +55,7 @@ export const pageQuery = graphql`
             title
             video
             description
+            type
           }
           fields {
             route

@@ -1,6 +1,7 @@
 ---
 layout: video
 title: LAUNCH SALE!
+type: "image"
 video: /assets/uploads/discounts-01.png
 date: 2018-10-12T00:24:55.417Z
 description: >-

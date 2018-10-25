@@ -97,7 +97,7 @@ const IndivVideo = styled(Video)`
 const NextArrow = styled(SliderArrow)`
   z-index: 2;
   &.slick-next {
-    right: 1vw;
+    right: 3vw;
   }
   &.slick-next::before {
     content: '';
@@ -109,7 +109,7 @@ const NextArrow = styled(SliderArrow)`
 `;
 const PrevArrow = styled(NextArrow)`
   &.slick-prev {
-    left: 1vw;
+    left: 3vw;
   }
   &.slick-prev::before {
     content: '';
@@ -138,6 +138,7 @@ const Network = props => {
         key={index}
         title={data.node.frontmatter.title}
         video={data.node.frontmatter.video}
+        type={data.node.frontmatter.type}
         description={data.node.frontmatter.description}
       />
     );

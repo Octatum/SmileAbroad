@@ -1,6 +1,7 @@
 ---
 layout: video
 title: Your "to-do" list for your NeighborHealth experience
+type: "image"
 video: /assets/uploads/checklist-01.png
 date: '2018-09-24T20:45:10-05:00'
 description: >-

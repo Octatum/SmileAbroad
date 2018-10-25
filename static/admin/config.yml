@@ -37,8 +37,12 @@ collections:
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - {label: "Layout", name: "layout", widget: "hidden", default: "video"}
-      - {label: "VideoName", name: "title", widget: "string"}
-      - {label: "Video", name: "video", widget: "file"}
+      - {label: "Name", name: "title", widget: "string"}
+      - label: "Type"
+        name: "type"
+        widget: "select"
+        options: ["image", "video"]
+      - {label: "File", name: "video", widget: "file"}
       - {label: "PublishDate", name: "date", widget: "datetime"}
       - {label: "Descripcion", name: "description", widget: "string"}
 

@@ -1,6 +1,7 @@
 ---
 layout: video
 title: 'Monterrey, Mexico'
+type: "video"
 video: /assets/uploads/visit-mexico.mp4
 date: 2018-10-12T00:47:47.390Z
 description: >-
