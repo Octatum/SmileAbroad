@@ -49,7 +49,6 @@ const Checkbox = styled.span`
   width: 1em;
   height: 1em;
   position: relative;
-  background: white;
   padding: 0.2em;
   border-radius: 100%;
   transition: 150ms ease-in-out all;
@@ -68,18 +67,6 @@ const Checkbox = styled.span`
     left: 50%;
     transform: translate(-25%, -50%);
   }
-
-  input[type='checkbox']:checked ~ &:before {
-    opacity: 1;
-  }
-
-  input:focus ~ & {
-    background: ${props => props.theme.color.lightBlue};
-
-    :before {
-      color: white;
-    }
-  }
 `;
 
 const OtherInput = styled.input`
@@ -96,7 +83,10 @@ const OtherInput = styled.input`
 const CheckboxInput = styled.input`
   position: absolute;
   opacity: 0;
-  cursor: default;
+
+  ~ span {
+    background: ${props => props.theme.color.lightBlue} !important;
+  }
 `;
 
 const OtherLabel = styled(Label)`

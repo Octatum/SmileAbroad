@@ -6,6 +6,7 @@ import { device } from '../../../../utils/device';
 const Container = styled.fieldset`
   display: flex;
   width: 100%;
+  flex-direction: column;
 `;
 
 const Title = styled.p`
@@ -13,7 +14,6 @@ const Title = styled.p`
   margin-bottom: 1em;
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   padding: 10px;
-  min-width: 100%;
   box-sizing: border-box;
 
   ${device.mobile} {
@@ -98,7 +98,14 @@ const OtherInput = styled.input`
 const CheckboxInput = styled.input`
   position: absolute;
   opacity: 0;
-  cursor: default;
+
+  &:focus ~ span {
+    background: ${props => props.theme.color.lightBlue};
+
+    :before {
+      color: white;
+    }
+  }
 `;
 
 const OtherLabel = styled(Label)`
@@ -113,8 +120,6 @@ const OtherLabel = styled(Label)`
 const OptionsDiv = styled.div`
   display: flex;
   flex-flow: row wrap;
-  width: 100%;
-  justify-content: space-between;
 `;
 
 const MultipleImageQuestion = ({
