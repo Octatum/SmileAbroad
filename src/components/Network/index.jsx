@@ -103,8 +103,8 @@ const NextArrow = styled(SliderArrow)`
     content: '';
   }
   svg {
-    fill: black;
-    stroke: black;
+    fill: "#343844";
+    stroke: "#343844";
   }
 `;
 const PrevArrow = styled(NextArrow)`

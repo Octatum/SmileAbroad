@@ -96,7 +96,7 @@ const BlueButton = styled(ButtonComponent(VideoLink))`
 const contentStyle = {
   padding: '0',
   border: '0',
-  background: 'black',
+  background: '#343844',
   width: 'initial',
 };
 

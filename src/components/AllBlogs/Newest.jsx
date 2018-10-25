@@ -68,7 +68,7 @@ const Post = props => (
     <Image src={props.firstPost.frontmatter.thumbnail} />
     <Excerpt>{props.firstPost.excerpt}</Excerpt>
     <Author>
-      <span style={{ color: 'black', fontWeight: 'initial' }}>By </span>
+      <span style={{ color: '#343844', fontWeight: 'initial' }}>By </span>
       {props.firstPost.frontmatter.author}
     </Author>
   </Container>

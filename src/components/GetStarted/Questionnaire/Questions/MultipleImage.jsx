@@ -86,7 +86,7 @@ const OtherInput = styled.input`
   font-size: calc(0.85rem + 1vw);
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   border: none;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid ${({theme}) => theme.color.black};
   background: none;
   outline: none;
   width: 100%;
