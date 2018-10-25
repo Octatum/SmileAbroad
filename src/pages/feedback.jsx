@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/macro';
+import Helmet from 'react-helmet';
 
 import Feedback from '../components/Feedback';
 import AppLayout from '../components/AppLayout';
@@ -15,6 +16,7 @@ const Layout = styled.div`
 const FeedbackPage = () => {
   return (
     <AppLayout>
+      <Helmet title="Feedback" />
       <Layout>
         <Feedback />
       </Layout>
