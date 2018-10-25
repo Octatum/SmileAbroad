@@ -42,11 +42,11 @@ const Container = styled.div`
 
 const Title = styled.p`
   font-size: 1.2em;
-  color: black;
+  color: ${({theme}) => theme.color.black};
   font-weight: bold;
   text-align: center;
   span {
-    color: black;
+    color: ${({theme}) => theme.color.black};
   }
 `;
 const CompTitle = styled(Title)`
@@ -55,7 +55,7 @@ const CompTitle = styled(Title)`
 
 const Text = styled.p`
   font-size: 1em;
-  color: black;
+  color: ${({theme}) => theme.color.black};
   width: 35%;
   text-align: center;
 
@@ -93,8 +93,8 @@ const Button = styled(GetStartedButton)`
 
     &:hover {
       background: white;
-      color: black;
-      border-color: black;
+      color: ${({theme}) => theme.color.black};
+      border-color: ${({theme}) => theme.color.black};
     }
   }
 `;

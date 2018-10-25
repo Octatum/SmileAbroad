@@ -12,6 +12,7 @@ const Title = styled.p`
   font-size: calc(2rem + 0.75vw);
   font-weight: bold;
   font-family: ${props => props.theme.fontFamily.main};
+  text-align: center;
 
   margin: 1.5em auto;
   width: 70%;
@@ -37,7 +38,7 @@ const FaqComp = styled(Faq)`
 const FaqPage = ({ data }) => (
   <AppLayout>
     <div>
-      <Helmet title="Frequently Asked Questions" />
+      <Helmet title="FAQ" />
       <Title>
         Neighbor
         <BlueText>Health</BlueText> Frequently Asked Questions

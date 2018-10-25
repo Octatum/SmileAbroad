@@ -74,7 +74,7 @@ const TitleBlue = styled(Title)`
 `;
 
 const Message = styled.p`
-  color: #000;
+  color: ${({theme}) => theme.color.black};
   width: 70%;
   margin-bottom: 2em;
 

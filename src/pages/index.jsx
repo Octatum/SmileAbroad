@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/macro';
+import Helmet from 'react-helmet';
 
 import OurServices from '../components/Home/OurServices';
 import AddedValue from '../components/Home/AddedValue';
@@ -23,6 +24,7 @@ const FeaturedBlogComp = styled(FeaturedBlog)`
 const IndexPage = props => (
   <AppLayout>
     <div>
+      <Helmet title="Home" />
       <OurServices />
 
       <Separator />

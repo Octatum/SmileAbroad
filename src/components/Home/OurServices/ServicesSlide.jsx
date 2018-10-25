@@ -18,7 +18,7 @@ const Title = styled.p`
   font-size: 2em;
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   font-weight: 600;
-  color: black;
+  color: ${({theme}) => theme.color.black};
   max-width: 50%;
 
   ${device.mobile} {

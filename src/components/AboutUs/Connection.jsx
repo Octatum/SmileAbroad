@@ -4,6 +4,8 @@ import styled from 'styled-components/macro';
 import nerdy from './assets/nerdy.png';
 import { device } from './../../utils/device';
 
+
+import arrow from './assets/arrow.svg';
 import step1 from './assets/hiw-step-1.png';
 import step2 from './assets/hiw-step-2.png';
 import step3 from './assets/hiw-step-3.png';
@@ -28,7 +30,7 @@ const SlideContainer = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   align-content: flex-start;
-  min-height: 70vh;
+  min-height: 75vh;
 
   margin: 1.5em 3em;
   margin-right: 0;
@@ -171,6 +173,29 @@ const Bubble = styled.button`
   }
 `;
 
+const ChangeSlideArrows = styled.div`
+  display: flex;
+  position: absolute;
+  justify-content: space-between;
+  align-items: center;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+`;
+
+const SlideArrow = styled.img`
+  height: 2em;
+  cursor: pointer;
+`;
+
+const NextSlideArrow = styled(SlideArrow)`
+  transform: rotate(0.25turn);
+`;
+
+const PreviousSlideArrow = styled(SlideArrow)`
+  transform: rotate(-0.25turn);
+`;
+
 class Connection extends Component {
   constructor() {
     super();
@@ -180,6 +205,16 @@ class Connection extends Component {
     };
 
     this.bubbleClickHandler = this.bubbleClickHandler.bind(this);
+  }
+  
+  getPrevSlide = () => {
+    const currentSelected = this.state.currentSelected;
+    this.setState({currentSelected: (currentSelected + 4) % 5});
+  }
+
+  getNextSlide = () => {
+    const currentSelected = this.state.currentSelected;
+    this.setState({currentSelected: (currentSelected + 1) % 5});
   }
 
   bubbleClickHandler(event, key) {
@@ -210,7 +245,13 @@ class Connection extends Component {
           style={{ position: 'absolute', visibility: 'hidden', top: '-100px' }}
         />
         <Title>How It Works</Title>
-        <SlideContainer show={this.state.currentSelected === 1}>
+
+        <ChangeSlideArrows>
+          <NextSlideArrow onClick={this.getPrevSlide} src={arrow} />
+          <PreviousSlideArrow onClick={this.getNextSlide} src={arrow} />
+        </ChangeSlideArrows>
+
+        <SlideContainer show={this.state.currentSelected === 0}>
           <Title>
             {' '}
             <BlueTitle as="span">Step 1</BlueTitle> - Contact Us!
@@ -237,7 +278,7 @@ class Connection extends Component {
           </ImageContainer>
         </SlideContainer>
 
-        <SlideContainer show={this.state.currentSelected === 2}>
+        <SlideContainer show={this.state.currentSelected === 1}>
           <Title>
             <BlueTitle as="span">Step 2</BlueTitle> - Personalized Plan
           </Title>
@@ -266,7 +307,7 @@ class Connection extends Component {
           </ImageContainer>
         </SlideContainer>
 
-        <SlideContainer show={this.state.currentSelected === 3}>
+        <SlideContainer show={this.state.currentSelected === 2}>
           <Title>
             <BlueTitle as="span">Step 3</BlueTitle> - Help us help you!
           </Title>
@@ -283,7 +324,7 @@ class Connection extends Component {
           </ImageContainer>
         </SlideContainer>
 
-        <SlideContainer show={this.state.currentSelected === 4}>
+        <SlideContainer show={this.state.currentSelected === 3}>
           <Title>
             <BlueTitle as="span">Step 4</BlueTitle> - Payment
           </Title>
@@ -315,7 +356,7 @@ class Connection extends Component {
           </ImageContainer>
         </SlideContainer>
 
-        <SlideContainer show={this.state.currentSelected === 5}>
+        <SlideContainer show={this.state.currentSelected === 4}>
           <Title>
             <BlueTitle as="span">Step 5</BlueTitle> - Are you ready? Receive
             your agenda

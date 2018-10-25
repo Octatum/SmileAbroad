@@ -18,7 +18,7 @@ const TitleCont = styled.div`
 `;
 
 const Title = styled.p`
-  color: black;
+  color: ${({theme}) => theme.color.black};
   font-weight: 600;
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   width: 80%;
@@ -35,7 +35,7 @@ const BlueTitle = styled(Title)`
 
 const SubText = styled.p`
   font-size: 0.75em;
-  color: black;
+  color: ${({theme}) => theme.color.black};
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   width: 80%;
   text-align: center;

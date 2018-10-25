@@ -47,7 +47,7 @@ const PostList = styled.div`
 
     a {
       text-decoration: none;
-      color: black;
+      color: ${({theme}) => theme.color.black};
     }
   }
 `;

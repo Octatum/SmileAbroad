@@ -119,12 +119,12 @@ const GetStarted = styled(GetStartedButton)`
       border: none;
       transition: none;
       background: none;
-      color: black;
+      color: ${({theme}) => theme.color.black};
 
       &:hover {
         background: initial;
         border: none;
-        color: black;
+        color: ${({theme}) => theme.color.black};
       }
     }
   }

@@ -34,7 +34,7 @@ const IndivService = styled.div`
 `;
 
 const Title = styled.p`
-  color: black;
+  color: ${({theme}) => theme.color.black};
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   font-size: calc(0.75rem + 1vw);
   font-size: 1.5em;

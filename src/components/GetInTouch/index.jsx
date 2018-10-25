@@ -50,7 +50,7 @@ const InputCont = styled.label`
 
 const GridText = styled.span`
   font-weight: bold;
-  color: black;
+  color: ${({theme}) => theme.color.black};
   display: inline-block;
 
   padding: 10px 0;
