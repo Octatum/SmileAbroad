@@ -1,10 +1,5 @@
 import React from 'react';
-<<<<<<< HEAD
 import styled from 'styled-components/macro';
-=======
-import styled from 'styled-components';
-import { Location } from '@reach/router';
->>>>>>> b1805eda3317c61dcf5d0d2233498324bb871624
 
 import { device } from './../../../utils/device';
 
