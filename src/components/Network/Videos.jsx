@@ -27,6 +27,11 @@ const Video = styled.video`
   height: auto;
 `;
 
+const Image = styled.img`
+  max-width: 100%;
+  max-height: 36em;
+`;
+
 const Description = styled.p`
   background-color: white;
   text-align: center;
@@ -35,14 +40,19 @@ const Description = styled.p`
   width: 90%;
 `;
 
-const IndivVideo = ({ title, video, description, className }) => {
+const IndivVideo = ({ title, video, description, className, type }) => {
   return (
     <Container className={className}>
       <Title>{title}</Title>
-      <Video controls controlsList="nodownload">
-        <source src={video} type="video/webm" />
-        <source src={video} type="video/mp4" />
-      </Video>
+      {type === "image" ? 
+        <Image src={video} alt={description} />
+        :(
+        <Video controls controlsList="nodownload">
+          <source src={video} type="video/webm" />
+          <source src={video} type="video/mp4" />
+        </Video>)
+      }
+      
       <Description>{description}</Description>
     </Container>
   );

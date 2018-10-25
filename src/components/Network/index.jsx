@@ -138,6 +138,7 @@ const Network = props => {
         key={index}
         title={data.node.frontmatter.title}
         video={data.node.frontmatter.video}
+        type={data.node.frontmatter.type}
         description={data.node.frontmatter.description}
       />
     );
