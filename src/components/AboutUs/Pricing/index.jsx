@@ -121,7 +121,6 @@ const GiantText = styled.span`
 `;
 
 const Pricing = ({ className }) => (
-<<<<<<< HEAD
   <Container className={className}>
     <span
       id="pricing"
@@ -151,43 +150,6 @@ const Pricing = ({ className }) => (
       <Button />
     </Sections>
   </Container>
-=======
-  <Location>
-    {({location}) => {
-      console.log(location);
-
-      return (
-        <Container className={className}>
-          <span
-            id="pricing"
-            style={{ position: 'absolute', visibility: 'hidden', top: '-100px' }}
-          />
-          <CompTitle>Pricing</CompTitle>
-          <Text>The payment is divided in two different sections:</Text>
-          <Sections>
-            <PaymentOptions>
-              <Title>Deposit</Title>
-              <Text>
-                Part of the deposit is a security for the dentist to secure your place
-                and appointment.
-              </Text>
-              <Text>the other part is to book your hotel and tourist activities</Text>
-            </PaymentOptions>
-            <GiantText>&amp;</GiantText>
-            <PaymentOptions>
-              <Title>Payment</Title>
-              <Text>
-                This final payment is the renaming amount and must be provided once
-                you have arrived at the dental clinic.
-              </Text>
-            </PaymentOptions>
-            <Button />
-          </Sections>
-        </Container>
-      )
-    }}
-  </Location>
->>>>>>> b1805eda3317c61dcf5d0d2233498324bb871624
 );
 
 export default Pricing;
