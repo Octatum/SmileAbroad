@@ -37,7 +37,7 @@ const SendButton = styled.button`
   cursor: pointer;
 
   :focus {
-    outline: 1px dotted black;
+    outline: 1px dotted ${({theme}) => theme.color.black};
   }
 `;
 

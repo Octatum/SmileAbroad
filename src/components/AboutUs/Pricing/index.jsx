@@ -71,7 +71,7 @@ const Sections = styled.div`
   align-items: center;
   position: relative;
 
-  border: 4px dashed black;
+  border: 4px dashed ${({theme}) => theme.color.black};
   border-radius: 3em;
 
   width: 90%;
@@ -89,7 +89,7 @@ const Button = styled(GetStartedButton)`
   div {
     border-radius: 0.75em;
     padding: 0.25em 1.5em;
-    background: black;
+    background: ${({theme}) => theme.color.black};
 
     &:hover {
       background: white;

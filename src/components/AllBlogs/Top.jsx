@@ -42,7 +42,7 @@ const PostList = styled.div`
       width: calc(5px + 0.5vw);
       height: calc(5px + 0.5vw);
       border-radius: 100%;
-      background: black;
+      background: ${({theme}) => theme.color.black};;
     }
 
     a {
