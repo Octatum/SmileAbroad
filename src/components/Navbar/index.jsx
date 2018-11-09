@@ -54,6 +54,14 @@ const Logo = styled.img`
   max-height: 100%;
 `;
 
+const PhoneNumber = styled('div')`
+  font-size: 0.75em;
+  position: absolute;
+  top: 0;
+  right: 3.5em;
+  font-family: ${({theme}) => theme.fontFamily.main};
+`;
+
 const ToggleShowButton = styled.div`
   margin-left: auto;
   display: none;
@@ -119,12 +127,12 @@ const GetStarted = styled(GetStartedButton)`
       border: none;
       transition: none;
       background: none;
-      color: ${({theme}) => theme.color.black};
+      color: ${({ theme }) => theme.color.black};
 
       &:hover {
         background: initial;
         border: none;
-        color: ${({theme}) => theme.color.black};
+        color: ${({ theme }) => theme.color.black};
       }
     }
   }
@@ -184,6 +192,7 @@ class Navbar extends Component {
             Company
           </Selection>
           <GetStarted />
+          <PhoneNumber>+1 512 717 3280</PhoneNumber>
         </Nav>
       </Container>
     );

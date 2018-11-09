@@ -9,7 +9,7 @@ const Button = component => styled(component)`
   text-align: center;
   position: relative;
 
-  color: ${({theme}) => theme.color.black};
+  color: ${({ theme }) => theme.color.black};
 
   &::before {
     content: '';

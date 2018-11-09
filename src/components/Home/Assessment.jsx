@@ -47,7 +47,7 @@ const GetStarted = styled(GetStartedButton)`
 `;
 
 const DottedCont = styled.div`
-  border: 3px dashed ${({theme}) => theme.color.black};
+  border: 3px dashed ${({ theme }) => theme.color.black};
   border-radius: 2em;
   padding: 2em;
   margin: 1em auto;

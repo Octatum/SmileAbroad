@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 import PropTypes from 'prop-types';
+import { FastField, ErrorMessage } from 'formik';
+
 import { device } from '../../../../utils/device';
 
 const Container = styled.label`
@@ -21,7 +23,7 @@ const Title = styled.p`
   }
 `;
 
-const Answer = styled.input`
+const Answer = styled(FastField)`
   font-size: 1em;
   border: ${props => props.theme.color.lightBlue} 2px solid;
   border-radius: 15px;
@@ -41,11 +43,12 @@ const Answer = styled.input`
   }
 `;
 
-const OpenQuestion = ({ questionText, ...rest }) => {
+const OpenQuestion = ({ questionText, name, ...rest }) => {
   return (
     <Container>
-      <Title> {questionText} </Title>
-      <Answer {...rest} />
+      {questionText && <Title> {questionText} </Title>}
+      <Answer name={name} {...rest} />
+      <ErrorMessage name={name} component="div" />
     </Container>
   );
 };

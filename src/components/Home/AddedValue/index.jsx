@@ -93,7 +93,7 @@ const SubCont = styled.div`
 
 // Subtitle
 const Subtitle = styled.p`
-  color: ${({theme}) => theme.color.black};
+  color: ${({ theme }) => theme.color.black};
   font-size: 1.25em;
 
   font-weight: 600;

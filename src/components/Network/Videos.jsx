@@ -44,15 +44,15 @@ const IndivVideo = ({ title, video, description, className, type }) => {
   return (
     <Container className={className}>
       <Title>{title}</Title>
-      {type === "image" ? 
+      {type === 'image' ? (
         <Image src={video} alt={description} />
-        :(
+      ) : (
         <Video controls controlsList="nodownload">
           <source src={video} type="video/webm" />
           <source src={video} type="video/mp4" />
-        </Video>)
-      }
-      
+        </Video>
+      )}
+
       <Description>{description}</Description>
     </Container>
   );

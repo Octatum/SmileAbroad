@@ -104,6 +104,14 @@ const SocialLink = styled(OutboundLink)`
 const ContactCont = styled(LinksCont)``;
 const ContactTitle = styled(LinksTitle)``;
 
+const ContactData = styled(Texto)`
+  padding: 10px 0;
+  word-break: break-all;
+  ${device.mobile} {
+    padding: 5px;
+  }
+`;
+
 const MessageButton = styled(Link)`
   background: ${({ theme }) => theme.color.red};
   text-transform: uppercase;
@@ -184,11 +192,18 @@ const Footer = () => (
       <ContactTitle>Let's connect!</ContactTitle>
       <ContactCont>
         <SocialLink
+          href="tel:+1-512-717-3280"
+          target="_blank"
+        >
+        +1 512 717 3280
+        </SocialLink>
+        <SocialLink
           href="https://www.facebook.com/NeighborHealth/"
           target="_blank"
         >
           <SocialIcon className="fab fa-facebook" />
         </SocialLink>
+
         <SocialLink
           href="https://www.instagram.com/neighborhealthco/"
           target="_blank"
