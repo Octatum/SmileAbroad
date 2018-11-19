@@ -5,8 +5,15 @@ media_folder: static/assets/uploads
 public_folder: /assets/uploads
 
 collections:
+  - label: "Paginas"
+    name: "pages"
+    files: 
+      - label: "Home page"
+        name: "home"
+        file: "content/pages/home.yml"
+
   - name: "blog"
-    label: "Entrada de blog"
+    label: "Blog entry"
     folder: "content/blog"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"

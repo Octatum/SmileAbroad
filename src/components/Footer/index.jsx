@@ -191,11 +191,8 @@ const Footer = () => (
     <Div style={{ gridArea: 'connect' }}>
       <ContactTitle>Let's connect!</ContactTitle>
       <ContactCont>
-        <SocialLink
-          href="tel:+1-512-717-3280"
-          target="_blank"
-        >
-        +1 512 717 3280
+        <SocialLink href="tel:+1-512-717-3280" target="_blank">
+          +1 512 717 3280
         </SocialLink>
         <SocialLink
           href="https://www.facebook.com/NeighborHealth/"

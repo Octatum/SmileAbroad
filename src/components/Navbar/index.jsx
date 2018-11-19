@@ -59,7 +59,7 @@ const PhoneNumber = styled('div')`
   position: absolute;
   top: 0;
   right: 3.5em;
-  font-family: ${({theme}) => theme.fontFamily.main};
+  font-family: ${({ theme }) => theme.fontFamily.main};
 `;
 
 const ToggleShowButton = styled.div`

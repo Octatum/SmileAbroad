@@ -125,13 +125,16 @@ const BottomText = styled(Text)`
 `;
 
 class Pricing extends Component {
-  constructor(props) {
-    super(props);
+  state = {
+    checkoutParam: null,
+  };
 
+  componentDidMount() {
     let urlParams = new URLSearchParams(window.location.search);
-    this.state = {
+
+    this.setState({
       checkoutParam: urlParams.get('checkout'),
-    };
+    });
   }
 
   render() {
@@ -174,7 +177,10 @@ class Pricing extends Component {
             <Button />
           )}
         </Sections>
-        <BottomText>NeighborHealth, a more transparent way. Your helping hand at home and abroad.</BottomText>
+        <BottomText>
+          NeighborHealth, a more transparent way. Your helping hand at home and
+          abroad.
+        </BottomText>
       </Container>
     );
   }

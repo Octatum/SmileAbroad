@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 import PropTypes from 'prop-types';
-import { FastField, ErrorMessage } from 'formik';
+import { FastField } from 'formik';
 
 import { device } from '../../../../utils/device';
+import ErrorField from './ErrorField';
 
 const Container = styled.label`
   margin: 20px 0;
@@ -48,7 +49,7 @@ const OpenQuestion = ({ questionText, name, ...rest }) => {
     <Container>
       {questionText && <Title> {questionText} </Title>}
       <Answer name={name} {...rest} />
-      <ErrorMessage name={name} component="div" />
+      <ErrorField name={name} component="div" />
     </Container>
   );
 };

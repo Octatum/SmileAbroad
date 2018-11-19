@@ -3,15 +3,16 @@ import styled from 'styled-components/macro';
 import PropTypes from 'prop-types';
 import { device } from '../../../../utils/device';
 
-const Container = styled.fieldset`
+const ContainerForm = styled.fieldset`
   display: flex;
-  width: 100%;
   flex-direction: column;
+  margin: 20px 0;
+  width: 100%;
 `;
 
 const Title = styled.p`
   font-size: 1.25em;
-  margin-bottom: 1em;
+  margin-bottom: 20px;
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
   padding: 10px;
   box-sizing: border-box;
@@ -23,26 +24,27 @@ const Title = styled.p`
 `;
 
 const Label = styled.label`
-
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
+  margin: 25px 0;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 5px;
-  min-width: 15rem;
-  flex: 1;
-  margin-right: 0;
+  flex-direction: row;
+  min-width: 3rem;
 
-  :before {
-    content: "";
-    display: block;
-    width: 5em;
-    height: 5em;
-    background-image: url('${({ backgroundImage }) => backgroundImage}');
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
+  ${device.mobile} {
+    margin-top: 0;
+    margin-bottom: 15px;
   }
+`;
+
+const OtherLabel = styled(Label)`
+  margin-left: 0px;
+`;
+
+const CheckboxInput = styled.input`
+  font-size: 1em;
+  position: absolute;
+  opacity: 0;
+  cursor: default;
 `;
 
 const Checkbox = styled.span`
@@ -69,20 +71,31 @@ const Checkbox = styled.span`
     transform: translate(-25%, -50%);
   }
 
-  input[type='checkbox']:checked ~ &:before {
+  input[type='checkbox']:checked ~ &:before,
+  input[type='radio']:checked ~ &:before {
     opacity: 1;
   }
-`;
 
-/*    PLACE ON CHECKBOX FOR ON-FOCUS CHANGE BACKGROUND
-input:focus ~ & {
+  input[type='checkbox']:focus ~ & {
     background: ${props => props.theme.color.lightBlue};
 
     :before {
       color: white;
     }
   }
-*/
+`;
+const OptionsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  ${({ horizontal }) =>
+    horizontal &&
+    `
+    flex-direction: row;
+    justify-content: space-between;
+    flex-flow: row wrap;
+  `};
+`;
 
 const OtherInput = styled.input`
   font-size: 1em;
@@ -91,89 +104,60 @@ const OtherInput = styled.input`
   border-bottom: 1px solid ${({ theme }) => theme.color.black};
   background: none;
   outline: none;
-  width: 100%;
   margin-left: 10px;
+  width: 60%;
 `;
 
-const CheckboxInput = styled.input`
-  position: absolute;
-  opacity: 0;
-
-  &:focus ~ span {
-    background: ${props => props.theme.color.lightBlue};
-
-    :before {
-      color: white;
-    }
-  }
-`;
-
-const OtherLabel = styled(Label)`
-  margin-left: 0px;
-  align-self: flex-end;
-
-  :before {
-    content: none;
-  }
-`;
-
-const OptionsDiv = styled.div`
-  display: flex;
-  flex-flow: row wrap;
-`;
-
-const MultipleImageQuestion = ({
+const SingleChoice = ({
   questionText,
   includeOpenAnswer,
-  onChange,
   name,
   options,
+  className,
+  setFieldValue,
+  horizontal,
+  values,
 }) => {
   return (
-    <Container>
+    <ContainerForm className={className}>
       <Title> {questionText} </Title>
-      <OptionsDiv>
+      <OptionsContainer horizontal={horizontal}>
         {options.map(option => (
-          <Label key={option.name} backgroundImage={option.image}>
+          <Label key={option}>
             <CheckboxInput
-              type="checkbox"
-              name={`${name}-${option.name}`}
-              onChange={onChange}
+              type={'checkbox'}
+              onChange={() => setFieldValue(name, option)}
+              checked={values[name] === option}
             />
-            {option.name}
             <Checkbox />
+            &nbsp;
+            {option}
           </Label>
         ))}
-        {includeOpenAnswer && (
-          <OtherLabel>
-            Other:
-            <OtherInput
-              questionText="other"
-              onChange={onChange}
-              name={`${name}-other`}
-            />
-          </OtherLabel>
-        )}
-      </OptionsDiv>
-    </Container>
+      </OptionsContainer>
+      {includeOpenAnswer && (
+        <OtherLabel>
+          Other:
+          <OtherInput
+            questionText="other"
+            onChange={ev => setFieldValue(name, ev.target.value)}
+            name={`${name}-other`}
+          />
+        </OtherLabel>
+      )}
+    </ContainerForm>
   );
 };
 
-MultipleImageQuestion.propTypes = {
+SingleChoice.propTypes = {
   questionText: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
   name: PropTypes.string.isRequired,
-  options: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      image: PropTypes.string.isRequired,
-    })
-  ).isRequired,
+  options: PropTypes.array.isRequired,
   includeOpenAnswer: PropTypes.bool,
 };
 
-MultipleImageQuestion.defaultProps = {
+SingleChoice.defaultProps = {
   includeOpenAnswer: false,
 };
 
-export default MultipleImageQuestion;
+export default SingleChoice;
