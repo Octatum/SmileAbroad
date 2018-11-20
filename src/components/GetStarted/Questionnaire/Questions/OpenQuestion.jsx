@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 import PropTypes from 'prop-types';
-import { FastField } from 'formik';
+import { Field as Field } from 'formik';
 
 import { device } from '../../../../utils/device';
 import ErrorField from './ErrorField';
@@ -22,9 +22,18 @@ const Title = styled.p`
     padding: 0;
     margin-bottom: 10px;
   }
+
+  ${({optional}) => optional && `
+    ::after {
+      content: "optional";
+      display: inline;
+      font-size: 0.5em;
+      opacity: 0.75;
+    }
+  `}
 `;
 
-const Answer = styled(FastField)`
+const Answer = styled(Field)`
   font-size: 1em;
   border: ${props => props.theme.color.lightBlue} 2px solid;
   border-radius: 15px;
@@ -44,10 +53,10 @@ const Answer = styled(FastField)`
   }
 `;
 
-const OpenQuestion = ({ questionText, name, ...rest }) => {
+const OpenQuestion = ({ questionText, name, optional, ...rest }) => {
   return (
     <Container>
-      {questionText && <Title> {questionText} </Title>}
+      {questionText && <Title optional={optional}> {questionText} </Title>}
       <Answer name={name} {...rest} />
       <ErrorField name={name} component="div" />
     </Container>

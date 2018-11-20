@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/macro';
-import { Formik, Form, FastField } from 'formik';
+import { Formik, Form, FastField, ErrorMessage } from 'formik';
 
 import OpenQuestion from './Questions/OpenQuestion';
 import SingleChoice from './Questions/SingleChoice';
@@ -48,6 +48,12 @@ const Text = styled.p`
   text-align-last: center;
 `;
 
+const ErrorText = styled('p')`
+  color: darkred;
+  font-family: ${props => props.theme.fontFamily.main}, sans-serif;
+  padding: 10px;
+`;
+
 function encode(data) {
   return Object.keys(data)
     .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
@@ -79,7 +85,7 @@ function Questionnaire(props) {
             alert(error);
           });
       }}
-      render={({ errors, touched, isSubmitting, setFieldValue, values }) => (
+      render={({ touched, isSubmitting, setFieldValue, values, errors }) => (
         <Container
           className={props.className}
           name="customerData"
@@ -115,7 +121,7 @@ function Questionnaire(props) {
           <SingleChoice
             values={values}
             questionText="What gender are you?"
-            options={['Male', 'Female']}
+            options={['Male', 'Female', 'Prefer not to disclose']}
             disabled={isSubmitting}
             setFieldValue={setFieldValue}
             name="gender"
@@ -217,19 +223,21 @@ function Questionnaire(props) {
             Help us plan your trip, tell us about your hobbies, food
             preferences, allergies, and other interests.
           </Text>
-          <Text>
-            Let us help you plan your trip! We provide you with discounted
-            access to different spots around town. Tell us about yourself
-            (hobbies, favourite food) so we can find you the best deal.
-          </Text>
           <OpenQuestion
-            questionText=""
+            questionText="Let us help you plan your trip! We provide you with discounted
+            access to different spots around town. Tell us about yourself
+            (hobbies, favourite food) so we can find you the best deal."
             autoComplete="off"
             disabled={isSubmitting}
             name="extraDetails"
             as="textarea"
             optional
           />
+          {
+            touched && Object.keys(errors).length > 0 && (
+              <ErrorText>Please fill out all required fields</ErrorText>
+            )
+          }
           <SendButton disabled={isSubmitting} type="submit">
             Send
           </SendButton>

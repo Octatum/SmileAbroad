@@ -150,11 +150,12 @@ const MultipleChoice = ({
   horizontal,
   values,
   optionRender,
+  optional
 }) => {
   console.log({ [name]: values[name] });
   return (
     <ContainerForm className={className}>
-      <Title> {questionText} </Title>
+      <Title optional={optional}> {questionText} </Title>
       <OptionsContainer horizontal={horizontal}>
         {options.map(
           optionData =>
