@@ -150,7 +150,7 @@ function Questionnaire(props) {
           <SingleChoice
             values={values}
             questionText="Planned travel dates:"
-            options={['Within month', 'Within 3 months', 'Later than 3 months']}
+            options={['Within a month', 'Within 3 months', 'Later than 3 months']}
             name="travelDate"
             disabled={isSubmitting}
             setFieldValue={setFieldValue}
@@ -215,6 +215,7 @@ function Questionnaire(props) {
             setFieldValue={setFieldValue}
             includeOpenAnswer
             values={values}
+            keyAccess={(v) => v.name}
             horizontal
           />
           <Text>

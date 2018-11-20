@@ -150,6 +150,7 @@ const MultipleChoice = ({
   horizontal,
   values,
   optionRender,
+  keyAccess,
   optional
 }) => {
   console.log({ [name]: values[name] });
@@ -160,7 +161,7 @@ const MultipleChoice = ({
         {options.map(
           optionData =>
             optionRender ? (
-              optionRender({ name, optionData, onChange: () => setFieldValue(name, setFieldValue, optionData, values[name]), values })
+              optionRender({ name, optionData, setFieldValue, values, keyAccess })
             ) : (
               <Label key={optionData}>
                 <CheckboxInput

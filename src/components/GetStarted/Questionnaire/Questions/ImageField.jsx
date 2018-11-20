@@ -66,17 +66,30 @@ const Checkbox = styled.span`
   }
 `;
 
+const setField = (name, setFieldValue, value, valueList) => {
+  const newValueList = [...valueList];
+  if (newValueList.includes(value)) {
+    const index = valueList.indexOf(value);
+    newValueList.splice(index, 1);
+  } else {
+    newValueList.push(value);
+  }
+
+  setFieldValue(name, newValueList);
+};
+
 function ImageField(props) {
-  const { onChange, optionData } = props;
+  const { setFieldValue, optionData, values, name, keyAccess } = props;
+  console.log(props);
 
   return (
-    <Label key={optionData.name} backgroundImage={optionData.image}>
+    <Label key={keyAccess} backgroundImage={optionData.image}>
       <CheckboxInput
         type="checkbox"
-        onChange={onChange}
+        onChange={() => setField(name, setFieldValue, optionData.name, values[name])}
       />
       {optionData.name}
-      <Checkbox />
+      <Checkbox checked={values[name].includes(optionData.name)} />
     </Label>
   );
 }
