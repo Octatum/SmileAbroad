@@ -4,7 +4,6 @@ import styled from 'styled-components/macro';
 import nerdy from './assets/nerdy.png';
 import { device } from './../../utils/device';
 
-
 import arrow from './assets/arrow.svg';
 import step1 from './assets/hiw-step-1.png';
 import step2 from './assets/hiw-step-2.png';
@@ -30,7 +29,6 @@ const SlideContainer = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   align-content: flex-start;
-  min-height: 75vh;
 
   margin: 1.5em 3em;
   margin-right: 0;
@@ -106,6 +104,10 @@ const BlueText = styled(Text)`
 
 const ImageContainer = styled.div`
   width: 40%;
+  padding-right: 2rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
 
   ${device.tablet} {
     align-self: flex-end;
@@ -114,7 +116,7 @@ const ImageContainer = styled.div`
   }
 `;
 const Image = styled.img`
-  width: 100%;
+  max-width: 25rem;
   height: auto;
 `;
 
@@ -201,21 +203,21 @@ class Connection extends Component {
     super();
 
     this.state = {
-      currentSelected: 1,
+      currentSelected: 0,
     };
 
     this.bubbleClickHandler = this.bubbleClickHandler.bind(this);
   }
-  
+
   getPrevSlide = () => {
     const currentSelected = this.state.currentSelected;
-    this.setState({currentSelected: (currentSelected + 4) % 5});
-  }
+    this.setState({ currentSelected: (currentSelected + 4) % 5 });
+  };
 
   getNextSlide = () => {
     const currentSelected = this.state.currentSelected;
-    this.setState({currentSelected: (currentSelected + 1) % 5});
-  }
+    this.setState({ currentSelected: (currentSelected + 1) % 5 });
+  };
 
   bubbleClickHandler(event, key) {
     event.preventDefault();
@@ -225,7 +227,7 @@ class Connection extends Component {
   }
 
   render() {
-    let bubbles = [1, 2, 3, 4, 5];
+    let bubbles = [0, 1, 2, 3, 4];
     bubbles = bubbles.map((value, index) => {
       return (
         <Bubble
@@ -233,7 +235,7 @@ class Connection extends Component {
           key={index}
           isSelected={this.state.currentSelected === value}
         >
-          {value}
+          {value + 1}
         </Bubble>
       );
     });

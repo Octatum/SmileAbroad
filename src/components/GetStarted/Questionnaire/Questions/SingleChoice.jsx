@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components/macro';
 import PropTypes from 'prop-types';
 import { device } from '../../../../utils/device';
-import ErrorField from './ErrorField';
 
 const ContainerForm = styled.fieldset`
   display: flex;
@@ -109,38 +108,7 @@ const OtherInput = styled.input`
   width: 60%;
 `;
 
-const setField = (name, setFieldValue, value, valueList) => {
-  const newValueList = [...valueList];
-  if (newValueList.includes(value)) {
-    const index = valueList.indexOf(value);
-    newValueList.splice(index, 1);
-  } else {
-    newValueList.push(value);
-  }
-
-  setFieldValue(name, newValueList);
-};
-
-const setOtherField = (name, setFieldValue, value, valueList) => {
-  let newValueList = [...valueList];
-
-  const containsOtherElement =
-    valueList.filter(v => v.includes('other:')).length > 0;
-
-  if (!containsOtherElement) {
-    newValueList = [...newValueList, 'other:'];
-  }
-
-  newValueList = newValueList.map(valueInList => {
-    if (!valueInList.startsWith('other:')) return valueInList;
-
-    return `other: ${value}`;
-  });
-
-  setFieldValue(name, newValueList);
-};
-
-const MultipleChoice = ({
+const SingleChoice = ({
   questionText,
   includeOpenAnswer,
   name,
@@ -149,60 +117,47 @@ const MultipleChoice = ({
   setFieldValue,
   horizontal,
   values,
-  optionRender,
-  keyAccess,
-  optional
 }) => {
-  console.log({ [name]: values[name] });
   return (
     <ContainerForm className={className}>
-      <Title optional={optional}> {questionText} </Title>
+      <Title> {questionText} </Title>
       <OptionsContainer horizontal={horizontal}>
-        {options.map(
-          optionData =>
-            optionRender ? (
-              optionRender({ name, optionData, setFieldValue, values, keyAccess })
-            ) : (
-              <Label key={optionData}>
-                <CheckboxInput
-                  type={'checkbox'}
-                  onChange={() =>
-                    setField(name, setFieldValue, optionData, values[name])
-                  }
-                  checked={values[name].includes(optionData)}
-                />
-                <Checkbox />
-                &nbsp;
-                {optionData}
-              </Label>
-            )
-        )}
+        {options.map(option => (
+          <Label key={option}>
+            <CheckboxInput
+              type={'checkbox'}
+              onChange={() => setFieldValue(name, option)}
+              checked={values[name] === option}
+            />
+            <Checkbox />
+            &nbsp;
+            {option}
+          </Label>
+        ))}
       </OptionsContainer>
       {includeOpenAnswer && (
         <OtherLabel>
           Other:
           <OtherInput
             questionText="other"
-            onChange={ev =>
-              setOtherField(name, setFieldValue, ev.target.value, values[name])
-            }
+            onChange={ev => setFieldValue(name, ev.target.value)}
+            name={`${name}-other`}
           />
         </OtherLabel>
       )}
-      <ErrorField name={name} component="div" />
     </ContainerForm>
   );
 };
 
-MultipleChoice.propTypes = {
+SingleChoice.propTypes = {
   questionText: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   options: PropTypes.array.isRequired,
   includeOpenAnswer: PropTypes.bool,
 };
 
-MultipleChoice.defaultProps = {
+SingleChoice.defaultProps = {
   includeOpenAnswer: false,
 };
 
-export default MultipleChoice;
+export default SingleChoice;

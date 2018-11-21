@@ -1,18 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components/macro';
-import { navigateTo } from 'gatsby-link';
+import { Formik, Form, FastField, ErrorMessage } from 'formik';
 
 import OpenQuestion from './Questions/OpenQuestion';
+import SingleChoice from './Questions/SingleChoice';
 import MultipleChoice from './Questions/MultipleChoice';
-import MultipleImageQuestion from './Questions/MultipleImageQuestion';
+import getInitialState from '../../../page-components/GetStarted/getInitialState';
+import validationSchema from '../../../page-components/GetStarted/validationSchema';
 
 import recreational from './assets/recreational.jpg';
 import cultural from './assets/cultural.jpg';
 import outdoor from './assets/outdoor.jpg';
+import ImageField from './Questions/ImageField';
 
-// Todo: Refactor MultipleImageQuestion and MultipleChoice into a single component.
-
-const Container = styled.form`
+const Container = styled(Form)`
   font-size: calc(0.75rem + 0.5vw);
 
   display: flex;
@@ -41,10 +42,16 @@ const Text = styled.p`
   font-family: ${props => props.theme.fontFamily.main}, sans-serif;
 
   box-sizing: border-box;
-  margin: 50px 0;
+  margin-top: 50px;
 
   text-align: justify;
   text-align-last: center;
+`;
+
+const ErrorText = styled('p')`
+  color: darkred;
+  font-family: ${props => props.theme.fontFamily.main}, sans-serif;
+  padding: 10px;
 `;
 
 function encode(data) {
@@ -53,180 +60,192 @@ function encode(data) {
     .join('&');
 }
 
-class Questionnaire extends Component {
-  state = {};
-
-  handleChange = event => {
-    const { target } = event;
-    const { name } = target;
-    const value =
-      target.type === 'checkbox' || target.type === 'radio'
-        ? target.checked
-        : target.value;
-    this.setState({ [name]: value });
-  };
-
-  handleSubmit = event => {
-    event.preventDefault();
-    const form = event.target;
-
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({
-        'form-name': form.getAttribute('name'),
-        ...this.state,
-      }),
-    })
-      .then(() => {
-        alert(
-          'Thanks, we will contact you soon. Less than 48 hours, we promise'
-        );
-        navigateTo(form.getAttribute('action'));
-      })
-      .catch(error => alert(error));
-  };
-
-  render() {
-    return (
-      <Container
-        className={this.props.className}
-        onSubmit={this.handleSubmit}
-        name="customerData"
-        method="post"
-        action="/"
-        data-netlify="true"
-        data-netlify-honeypot="bot-field"
-      >
-        <input type="hidden" name="form-name" value="customer-data" />
-        <p hidden>
-          <label>
-            Don’t fill this out:{' '}
-            <input name="bot-field" onChange={this.handleChange} />
-          </label>
-        </p>
-        <OpenQuestion
-          questionText="What's your name?"
-          onChange={this.handleChange}
-          name="name"
-          required
-          autoComplete="name"
-        />
-        <OpenQuestion
-          questionText="What's your email address?"
-          onChange={this.handleChange}
-          name="email"
-          required
-          type="email"
-          autoComplete="email"
-        />
-        <OpenQuestion
-          questionText="What's your phone number?"
-          onChange={this.handleChange}
-          name="phonenumber"
-          required
-          autoComplete="phone"
-        />
-        <MultipleChoice
-          questionText="What gender are you?"
-          onChange={this.handleChange}
-          options={['Male', 'Female']}
-          name="gender"
-          includeOpenAnswer
-        />
-        <OpenQuestion
-          questionText="Where are you located?"
-          onChange={this.handleChange}
-          name="location"
-          required
-        />
-        <MultipleChoice
-          questionText="Treatment you are looking for:"
-          onChange={this.handleChange}
-          options={[
-            'Implants',
-            'Root canal',
-            'Veneers',
-            'Extractions',
-            'Crowns and bridges',
-          ]}
-          name="treatmentType"
-          includeOpenAnswer
-        />
-        <MultipleChoice
-          questionText="Planned travel dates:"
-          options={['Within month', 'Within 3 months', 'Later than 3 months']}
-          onChange={this.handleChange}
-          name="travelDate"
-          includeOpenAnswer
-          required
-        />
-        <MultipleChoice
-          questionText="How would you rate your pain on a scale of 1 to 10, with 1 being no pain and 10 being the worst pain ?"
-          onChange={this.handleChange}
-          options={['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']}
-          name="painTolerance"
-          singleAnswer
-          horizontal
-        />
-        <OpenQuestion
-          questionText="Tell us about your dental situation?"
-          onChange={this.handleChange}
-          name="location"
-        />
-        <MultipleChoice
-          questionText="Do you plan to travel accompannied?"
-          onChange={this.handleChange}
-          options={['Yes', 'No']}
-          name="accompanied"
-        />
-        <Text>
-          We’re almost there, we can provide you with discounted prices for
-          attractions, restaurant recommendations based on your interests. Help
-          us plan your trip, tell us about your hobbies, food preferences,
-          allergies, and other interests.
-        </Text>
-        <MultipleChoice
-          questionText="What is most important for you when booking accommodation?"
-          onChange={this.handleChange}
-          options={[
-            'Proximity to shops',
-            'Bar and Terrace',
-            'Breakfast included',
-            'Swimming pool and recreational areas',
-          ]}
-          name="hotelCharacteristics"
-          includeOpenAnswer
-        />
-        <MultipleImageQuestion
-          questionText="Which type of attractions do you prefer?"
-          onChange={this.handleChange}
-          options={[
-            {
-              name: 'Recreational',
-              image: recreational,
-            },
-            {
-              name: 'Outdoor',
-              image: outdoor,
-            },
-            {
-              name: 'Cultural',
-              image: cultural,
-            },
-          ]}
-          name="tourismActivities"
-          includeOpenAnswer
-        />
-        <Text>
-          Let us help you plan your trip! We provide you with discounted access
-          to different spots around town. Tell us about yourself (hobbies,
-          favourite food) so we can find you the best deal.
-        </Text>
-        <SendButton type="submit">Send</SendButton>
-      </Container>
-    );
-  }
+function Questionnaire(props) {
+  return (
+    <Formik
+      initialValues={getInitialState()}
+      validationSchema={validationSchema}
+      onSubmit={(values, actions) => {
+        fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: encode({
+            'form-name': 'customerData',
+            ...values,
+          }),
+        })
+          .then(() => {
+            actions.setSubmitting(false);
+            alert(
+              'Thanks, we will contact you soon. Less than 48 hours, we promise'
+            );
+          })
+          .catch(error => {
+            actions.setSubmitting(false);
+            alert(error);
+          });
+      }}
+      render={({ touched, isSubmitting, setFieldValue, values, errors }) => (
+        <Container
+          className={props.className}
+          name="customerData"
+          method="post"
+          action="/"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+        >
+          <p hidden>
+            <label>
+              Don’t fill this out: <FastField name="bot-field" />
+            </label>
+          </p>
+          <OpenQuestion
+            questionText="What's your name?"
+            name="name"
+            autoComplete="name"
+            disabled={isSubmitting}
+          />
+          <OpenQuestion
+            questionText="What's your email address?"
+            name="email"
+            type="email"
+            disabled={isSubmitting}
+            autoComplete="email"
+          />
+          <OpenQuestion
+            questionText="What's your phone number?"
+            name="phone"
+            disabled={isSubmitting}
+            autoComplete="phone"
+          />
+          <SingleChoice
+            values={values}
+            questionText="What gender are you?"
+            options={['Male', 'Female', 'Prefer not to disclose']}
+            disabled={isSubmitting}
+            setFieldValue={setFieldValue}
+            name="gender"
+            includeOpenAnswer
+          />
+          <OpenQuestion
+            questionText="Where are you located?"
+            name="location"
+            disabled={isSubmitting}
+          />
+          <MultipleChoice
+            values={values}
+            questionText="Treatment you are looking for:"
+            setFieldValue={setFieldValue}
+            options={[
+              'Implants',
+              'Root canal',
+              'Veneers',
+              'Extractions',
+              'Crowns and bridges',
+            ]}
+            disabled={isSubmitting}
+            name="treatment"
+            includeOpenAnswer
+          />
+          <SingleChoice
+            values={values}
+            questionText="Planned travel dates:"
+            options={['Within a month', 'Within 3 months', 'Later than 3 months']}
+            name="travelDate"
+            disabled={isSubmitting}
+            setFieldValue={setFieldValue}
+            includeOpenAnswer
+          />
+          <SingleChoice
+            values={values}
+            questionText="How would you rate your pain on a scale of 0 to 10, with 0 being no pain and 10 being the worst pain ?"
+            options={[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
+            name="pain"
+            singleAnswer
+            setFieldValue={setFieldValue}
+            disabled={isSubmitting}
+            horizontal
+          />
+          <OpenQuestion
+            questionText="Tell us about your dental situation"
+            disabled={isSubmitting}
+            name="dentalSituation"
+          />
+          <SingleChoice
+            values={values}
+            questionText="Do you plan to travel accompannied?"
+            disabled={isSubmitting}
+            setFieldValue={setFieldValue}
+            options={['Yes', 'No']}
+            name="travelAccompanied"
+          />
+          <SingleChoice
+            values={values}
+            questionText="What is most important for you when booking accommodation?"
+            options={[
+              'Proximity to shops',
+              'Bar and Terrace',
+              'Breakfast included',
+              'Swimming pool and recreational areas',
+            ]}
+            disabled={isSubmitting}
+            name="hotelCharacteristics"
+            setFieldValue={setFieldValue}
+            includeOpenAnswer
+          />
+          <MultipleChoice
+            questionText="Which type of attractions do you prefer?"
+            options={[
+              {
+                name: 'Recreational',
+                image: recreational,
+              },
+              {
+                name: 'Outdoor',
+                image: outdoor,
+              },
+              {
+                name: 'Cultural',
+                image: cultural,
+              },
+            ]}
+            optionRender={props => <ImageField {...props} />}
+            disabled={isSubmitting}
+            name="tourismActivities"
+            setFieldValue={setFieldValue}
+            includeOpenAnswer
+            values={values}
+            keyAccess={(v) => v.name}
+            horizontal
+          />
+          <Text>
+            We’re almost there, we can provide you with discounted prices for
+            attractions, restaurant recommendations based on your interests.
+            Help us plan your trip, tell us about your hobbies, food
+            preferences, allergies, and other interests.
+          </Text>
+          <OpenQuestion
+            questionText="Let us help you plan your trip! We provide you with discounted
+            access to different spots around town. Tell us about yourself
+            (hobbies, favourite food) so we can find you the best deal."
+            autoComplete="off"
+            disabled={isSubmitting}
+            name="extraDetails"
+            as="textarea"
+            optional
+          />
+          {
+            touched && Object.keys(errors).length > 0 && (
+              <ErrorText>Please fill out all required fields</ErrorText>
+            )
+          }
+          <SendButton disabled={isSubmitting} type="submit">
+            Send
+          </SendButton>
+        </Container>
+      )}
+    />
+  );
 }
 
 export default Questionnaire;

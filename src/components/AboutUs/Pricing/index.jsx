@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components/macro';
 
 import { device } from './../../../utils/device';
@@ -42,11 +42,11 @@ const Container = styled.div`
 
 const Title = styled.p`
   font-size: 1.2em;
-  color: ${({theme}) => theme.color.black};
+  color: ${({ theme }) => theme.color.black};
   font-weight: bold;
   text-align: center;
   span {
-    color: ${({theme}) => theme.color.black};
+    color: ${({ theme }) => theme.color.black};
   }
 `;
 const CompTitle = styled(Title)`
@@ -55,7 +55,7 @@ const CompTitle = styled(Title)`
 
 const Text = styled.p`
   font-size: 1em;
-  color: ${({theme}) => theme.color.black};
+  color: ${({ theme }) => theme.color.black};
   width: 35%;
   text-align: center;
 
@@ -71,7 +71,7 @@ const Sections = styled.div`
   align-items: center;
   position: relative;
 
-  border: 4px dashed ${({theme}) => theme.color.black};
+  border: 4px dashed ${({ theme }) => theme.color.black};
   border-radius: 3em;
 
   width: 90%;
@@ -89,12 +89,12 @@ const Button = styled(GetStartedButton)`
   div {
     border-radius: 0.75em;
     padding: 0.25em 1.5em;
-    background: ${({theme}) => theme.color.black};
+    background: ${({ theme }) => theme.color.black};
 
     &:hover {
       background: white;
-      color: ${({theme}) => theme.color.black};
-      border-color: ${({theme}) => theme.color.black};
+      color: ${({ theme }) => theme.color.black};
+      border-color: ${({ theme }) => theme.color.black};
     }
   }
 `;
@@ -120,36 +120,70 @@ const GiantText = styled.span`
   font-weight: bold;
 `;
 
-const Pricing = ({ className }) => (
-  <Container className={className}>
-    <span
-      id="pricing"
-      style={{ position: 'absolute', visibility: 'hidden', top: '-100px' }}
-    />
-    <CompTitle>Pricing</CompTitle>
-    <Text>Neighborhealth's payment is divided in two different sections:</Text>
-    <Sections>
-      <PaymentOptions>
-        <Title>Before Arrival</Title>
-        <Text>Deposit</Text>
+const BottomText = styled(Text)`
+  width: 50%;
+`;
+
+class Pricing extends Component {
+  state = {
+    checkoutParam: null,
+  };
+
+  componentDidMount() {
+    let urlParams = new URLSearchParams(window.location.search);
+
+    this.setState({
+      checkoutParam: urlParams.get('checkout'),
+    });
+  }
+
+  render() {
+    return (
+      <Container className={this.props.className}>
+        <span
+          id="pricing"
+          style={{
+            position: 'absolute',
+            visibility: 'hidden',
+            top: '-100px',
+          }}
+        />
+        <CompTitle>Pricing</CompTitle>
         <Text>
-          This is used to secure your spot for the dentist and to book your
-          hotel and desired activities during your stay.
+          Neighborhealth's payment is divided in two different sections:
         </Text>
-      </PaymentOptions>
-      <GiantText>&amp;</GiantText>
-      <PaymentOptions>
-        <Title>Prior to Treatment – While in Mexico</Title>
-        <Text>
-          Final Payment
-          <br />
-          This is the remaining amount and is to be provided once you’ve arrived
-          at the clinic for your treatment.
-        </Text>
-      </PaymentOptions>
-      <Button />
-    </Sections>
-  </Container>
-);
+        <Sections>
+          <PaymentOptions>
+            <Title>Before Arrival</Title>
+            <Text>Deposit</Text>
+            <Text>
+              This is used to secure your spot for the dentist and to book your
+              hotel and desired activities during your stay.
+            </Text>
+          </PaymentOptions>
+          <GiantText>&amp;</GiantText>
+          <PaymentOptions>
+            <Title>Prior to Treatment – While in Mexico</Title>
+            <Text>
+              Final Payment
+              <br />
+              This is the remaining amount and is to be provided once you’ve
+              arrived at the clinic for your treatment.
+            </Text>
+          </PaymentOptions>
+          {this.state.checkoutParam ? (
+            <Button as="div">Cool</Button>
+          ) : (
+            <Button />
+          )}
+        </Sections>
+        <BottomText>
+          NeighborHealth, a more transparent way. Your helping hand at home and
+          abroad.
+        </BottomText>
+      </Container>
+    );
+  }
+}
 
 export default Pricing;

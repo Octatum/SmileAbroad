@@ -53,6 +53,7 @@ const AppLayout = ({ children }) => (
       <link rel="icon" href="/favicon.ico" type="image/x-icon" />
       <div>{children}</div>
       <Footer />
+      <script src="//code.tidio.co/tjf8pbrjyiaciv44aleetr6sg84tfyu8.js" />
     </Layout>
   </ThemeProvider>
 );
