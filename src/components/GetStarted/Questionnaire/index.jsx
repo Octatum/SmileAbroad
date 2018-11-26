@@ -70,7 +70,7 @@ function Questionnaire(props) {
           method: 'POST',
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
           body: encode({
-            'form-name': 'customerData',
+            'form-name': 'Get started',
             ...values,
           }),
         })
@@ -88,12 +88,13 @@ function Questionnaire(props) {
       render={({ touched, isSubmitting, setFieldValue, values, errors }) => (
         <Container
           className={props.className}
-          name="customerData"
+          name="Get started"
           method="post"
           action="/"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
         >
+          <input type="hidden" name="form-name" value="get-started" />
           <p hidden>
             <label>
               Don’t fill this out: <FastField name="bot-field" />
@@ -101,20 +102,20 @@ function Questionnaire(props) {
           </p>
           <OpenQuestion
             questionText="What's your name?"
-            name="name"
+            name="Name"
             autoComplete="name"
             disabled={isSubmitting}
           />
           <OpenQuestion
             questionText="What's your email address?"
-            name="email"
+            name="Email"
             type="email"
             disabled={isSubmitting}
             autoComplete="email"
           />
           <OpenQuestion
             questionText="What's your phone number?"
-            name="phone"
+            name="Phone number"
             disabled={isSubmitting}
             autoComplete="phone"
           />
@@ -124,12 +125,12 @@ function Questionnaire(props) {
             options={['Male', 'Female', 'Prefer not to disclose']}
             disabled={isSubmitting}
             setFieldValue={setFieldValue}
-            name="gender"
+            name="Gender"
             includeOpenAnswer
           />
           <OpenQuestion
             questionText="Where are you located?"
-            name="location"
+            name="Current location"
             disabled={isSubmitting}
           />
           <MultipleChoice
@@ -144,7 +145,7 @@ function Questionnaire(props) {
               'Crowns and bridges',
             ]}
             disabled={isSubmitting}
-            name="treatment"
+            name="Treatment"
             includeOpenAnswer
           />
           <SingleChoice
@@ -155,7 +156,7 @@ function Questionnaire(props) {
               'Within 3 months',
               'Later than 3 months',
             ]}
-            name="travelDate"
+            name="Travel date"
             disabled={isSubmitting}
             setFieldValue={setFieldValue}
             includeOpenAnswer
@@ -164,7 +165,7 @@ function Questionnaire(props) {
             values={values}
             questionText="How would you rate your pain on a scale of 0 to 10, with 0 being no pain and 10 being the worst pain ?"
             options={[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
-            name="pain"
+            name="Pain rating"
             singleAnswer
             setFieldValue={setFieldValue}
             disabled={isSubmitting}
@@ -173,7 +174,7 @@ function Questionnaire(props) {
           <OpenQuestion
             questionText="Tell us about your dental situation"
             disabled={isSubmitting}
-            name="dentalSituation"
+            name="Current dental situation"
           />
           <SingleChoice
             values={values}
@@ -181,7 +182,7 @@ function Questionnaire(props) {
             disabled={isSubmitting}
             setFieldValue={setFieldValue}
             options={['Yes', 'No']}
-            name="travelAccompanied"
+            name="Wants to travel accompannied"
           />
           <SingleChoice
             values={values}
@@ -193,7 +194,7 @@ function Questionnaire(props) {
               'Swimming pool and recreational areas',
             ]}
             disabled={isSubmitting}
-            name="hotelCharacteristics"
+            name="Accommodation priorities"
             setFieldValue={setFieldValue}
             includeOpenAnswer
           />
@@ -215,7 +216,7 @@ function Questionnaire(props) {
             ]}
             optionRender={props => <ImageField {...props} />}
             disabled={isSubmitting}
-            name="tourismActivities"
+            name="Prefered attractions"
             setFieldValue={setFieldValue}
             includeOpenAnswer
             values={values}
@@ -234,7 +235,7 @@ function Questionnaire(props) {
             (hobbies, favourite food) so we can find you the best deal."
             autoComplete="off"
             disabled={isSubmitting}
-            name="extraDetails"
+            name="Extra details"
             as="textarea"
             optional
           />

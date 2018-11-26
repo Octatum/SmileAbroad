@@ -118,13 +118,13 @@ class Feedback extends Component {
         render={() => (
           <Container
             onSubmit={this.handleSubmit}
-            name="customerReview"
+            name="Feedback"
             method="post"
             action="/"
             data-netlify="true"
             data-netlify-honeypot="bot-field"
           >
-            <input type="hidden" name="form-name" value="customer-review" />
+            <input type="hidden" name="form-name" value="Form feedback" />
             <p hidden>
               <label>
                 Don’t fill this out:{' '}
@@ -150,36 +150,36 @@ class Feedback extends Component {
             <OpenQuestion
               questionText="Does this specialist meet your expectations?"
               onChange={this.handleChange}
-              name="expectations"
+              name="Expectations"
               required
             />
             <OpenQuestion
               questionText="Does the plan fit your expected budget?"
               onChange={this.handleChange}
-              name="budget"
+              name="Budget"
               required
             />
             <OpenQuestion
               questionText="Which accommodation option best suits your needs?"
               onChange={this.handleChange}
-              name="accommodationOptions"
+              name="Accommodation options"
               required
             />
             <OpenQuestion
               questionText="Are there any modifications you’d like to make to your plan?"
               onChange={this.handleChange}
-              name="modifications"
+              name="Modifications to plan"
               required
             />
             <OpenQuestion
               questionText="Would you like to personally contact the specialist?"
               onChange={this.handleChange}
-              name="specialistContact"
+              name="Would like to contact specialist"
               required
             />
             <FileSubmission
               questionText="In order to provide you with the best quote possible – please attach any professional study or provide us with pictures of the area of desired treatment. Please look at these examples:"
-              name="dentalImage"
+              name="Previous studies"
               onChange={this.handleChange}
               required
               multiple

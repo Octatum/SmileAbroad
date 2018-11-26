@@ -1,18 +1,18 @@
 function getInitialState() {
   return {
-    name: '',
-    email: '',
-    phone: '',
-    gender: 'male',
-    location: '',
-    treatment: [],
-    travelDate: '',
-    pain: 0,
-    dentalSituation: '',
-    travelAccompanied: false,
-    hotelCharacteristics: '',
-    tourismActivities: [],
-    extraDetails: '',
+    "Name": '',
+    "Email": '',
+    "Phone number": '',
+    "Gender": 'male',
+    "Current location": '',
+    "Treatment": [],
+    "Travel date": '',
+    "Pain rating": 0,
+    "Current dental situation": '',
+    "Wants to travel accompannied": false,
+    "Accommodation priorities": '',
+    "Prefered attractions": [],
+    "Extra details": '',
   };
 }
 
