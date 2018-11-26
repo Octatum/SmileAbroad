@@ -220,12 +220,6 @@ function Questionnaire(props) {
             keyAccess={v => v.name}
             horizontal
           />
-          <Text>
-            We’re almost there, we can provide you with discounted prices for
-            attractions, restaurant recommendations based on your interests.
-            Help us plan your trip, tell us about your hobbies, food
-            preferences, allergies, and other interests.
-          </Text>
           <OpenQuestion
             questionText="Let us help you plan your trip! We provide you with discounted
             access to different spots around town. Tell us about yourself
@@ -234,6 +228,7 @@ function Questionnaire(props) {
             disabled={isSubmitting}
             name="Extra details"
             as="textarea"
+            onChange={(ev) => setFieldValue("Extra details", ev.target.value)}
             optional
           />
           {touched &&
