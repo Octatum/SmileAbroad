@@ -94,7 +94,6 @@ function Questionnaire(props) {
           data-netlify="true"
           data-netlify-honeypot="bot-field"
         >
-          <input type="hidden" name="form-name" value="Get started" />
           <p hidden>
             <label>
               Don’t fill this out: <FastField name="bot-field" />
