@@ -158,6 +158,7 @@ const MultipleChoice = props => {
   return (
     <ContainerForm className={className}>
       <Title optional={optional}> {questionText} </Title>
+      <input type="hidden" name={name} value={values[name].join(', ')} />
       <OptionsContainer horizontal={horizontal}>
         {options.map(
           optionData =>

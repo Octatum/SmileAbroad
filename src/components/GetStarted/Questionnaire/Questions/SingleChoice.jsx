@@ -108,19 +108,22 @@ const OtherInput = styled.input`
   width: 60%;
 `;
 
-const SingleChoice = ({
-  questionText,
-  includeOpenAnswer,
-  name,
-  options,
-  className,
-  setFieldValue,
-  horizontal,
-  values,
-}) => {
+const SingleChoice = (props) => {
+  const {
+    questionText,
+    includeOpenAnswer,
+    name,
+    options,
+    className,
+    setFieldValue,
+    horizontal,
+    values,
+  } = props;
+
   return (
     <ContainerForm className={className}>
       <Title> {questionText} </Title>
+      <input type="hidden" name={name} value={values[name]} />
       <OptionsContainer horizontal={horizontal}>
         {options.map(option => (
           <Label key={option}>
