@@ -5,6 +5,7 @@ import { navigateTo } from 'gatsby-link';
 import OpenQuestion from './../GetStarted/Questionnaire/Questions/OpenQuestion';
 import FileSubmission from './FileSubmission';
 import { device } from './../../utils/device';
+import { Formik } from 'formik';
 
 const Container = styled.form`
   font-size: calc(0.75rem + 0.5vw);
@@ -113,80 +114,85 @@ class Feedback extends Component {
 
   render() {
     return (
-      <Container
-        onSubmit={this.handleSubmit}
-        name="customerReview"
-        method="post"
-        action="/"
-        data-netlify="true"
-        data-netlify-honeypot="bot-field"
-      >
-        <input type="hidden" name="form-name" value="customer-review" />
-        <p hidden>
-          <label>
-            Don’t fill this out:{' '}
-            <input name="bot-field" onChange={this.handleChange} />
-          </label>
-        </p>
-        <Text>
-          Thank you for choosing
-          <BlueText as="span" style={{ color: 'black' }}>
-            {' '}
-            Neighbor
-          </BlueText>
-          <BlueText as="span">Health </BlueText>
-          for your needs. The next step in our process is to modify and
-          personalize your NeigborHealth Personal Plan
-        </Text>
-        <OpenQuestion
-          questionText="What's your name?"
-          onChange={this.handleChange}
-          name="Customer name"
-          required
-        />
-        <OpenQuestion
-          questionText="Does this specialist meet your expectations?"
-          onChange={this.handleChange}
-          name="expectations"
-          required
-        />
-        <OpenQuestion
-          questionText="Does the plan fit your expected budget?"
-          onChange={this.handleChange}
-          name="budget"
-          required
-        />
-        <OpenQuestion
-          questionText="Which accommodation option best suits your needs?"
-          onChange={this.handleChange}
-          name="accommodationOptions"
-          required
-        />
-        <OpenQuestion
-          questionText="Are there any modifications you’d like to make to your plan?"
-          onChange={this.handleChange}
-          name="modifications"
-          required
-        />
-        <OpenQuestion
-          questionText="Would you like to personally contact the specialist?"
-          onChange={this.handleChange}
-          name="specialistContact"
-          required
-        />
-        <FileSubmission
-          questionText="In order to provide you with the best quote possible – please attach any professional study or provide us with pictures of the area of desired treatment. Please look at these examples:"
-          name="dentalImage"
-          onChange={this.handleChange}
-          required
-          multiple
-          fileList={this.state.dentalImage}
-        />
-        <Text>
-          We look forward to serving you and meeting you in Beautiful Monterrey
-        </Text>
-        <SendButton type="submit">Send</SendButton>
-      </Container>
+      <Formik
+        render={() => (
+          <Container
+            onSubmit={this.handleSubmit}
+            name="Feedback"
+            method="post"
+            action="/"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
+          >
+            <input type="hidden" name="form-name" value="Form feedback" />
+            <p hidden>
+              <label>
+                Don’t fill this out:{' '}
+                <input name="bot-field" onChange={this.handleChange} />
+              </label>
+            </p>
+            <Text>
+              Thank you for choosing
+              <BlueText as="span" style={{ color: 'black' }}>
+                {' '}
+                Neighbor
+              </BlueText>
+              <BlueText as="span">Health </BlueText>
+              for your needs. The next step in our process is to modify and
+              personalize your NeigborHealth Personal Plan
+            </Text>
+            <OpenQuestion
+              questionText="What's your name?"
+              onChange={this.handleChange}
+              name="Customer name"
+              required
+            />
+            <OpenQuestion
+              questionText="Does this specialist meet your expectations?"
+              onChange={this.handleChange}
+              name="Expectations"
+              required
+            />
+            <OpenQuestion
+              questionText="Does the plan fit your expected budget?"
+              onChange={this.handleChange}
+              name="Budget"
+              required
+            />
+            <OpenQuestion
+              questionText="Which accommodation option best suits your needs?"
+              onChange={this.handleChange}
+              name="Accommodation options"
+              required
+            />
+            <OpenQuestion
+              questionText="Are there any modifications you’d like to make to your plan?"
+              onChange={this.handleChange}
+              name="Modifications to plan"
+              required
+            />
+            <OpenQuestion
+              questionText="Would you like to personally contact the specialist?"
+              onChange={this.handleChange}
+              name="Would like to contact specialist"
+              required
+            />
+            <FileSubmission
+              questionText="In order to provide you with the best quote possible – please attach any professional study or provide us with pictures of the area of desired treatment. Please look at these examples:"
+              name="Previous studies"
+              onChange={this.handleChange}
+              required
+              multiple
+              fileList={this.state.dentalImage}
+            />
+            <Text>
+              We look forward to serving you and meeting you in Beautiful
+              Monterrey
+            </Text>
+            <SendButton type="submit">Send</SendButton>
+          </Container>
+        )}
+      />
     );
   }
 }

@@ -80,13 +80,14 @@ const setField = (name, setFieldValue, value, valueList) => {
 
 function ImageField(props) {
   const { setFieldValue, optionData, values, name, keyAccess } = props;
-  console.log(props);
 
   return (
     <Label key={keyAccess} backgroundImage={optionData.image}>
       <CheckboxInput
         type="checkbox"
-        onChange={() => setField(name, setFieldValue, optionData.name, values[name])}
+        onChange={() =>
+          setField(name, setFieldValue, optionData.name, values[name])
+        }
       />
       {optionData.name}
       <Checkbox checked={values[name].includes(optionData.name)} />
