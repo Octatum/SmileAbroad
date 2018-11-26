@@ -140,20 +140,21 @@ const setOtherField = (name, setFieldValue, value, valueList) => {
   setFieldValue(name, newValueList);
 };
 
-const MultipleChoice = ({
-  questionText,
-  includeOpenAnswer,
-  name,
-  options,
-  className,
-  setFieldValue,
-  horizontal,
-  values,
-  optionRender,
-  keyAccess,
-  optional
-}) => {
-  console.log({ [name]: values[name] });
+const MultipleChoice = (props) => {
+  const {
+    questionText,
+    includeOpenAnswer,
+    name,
+    options,
+    className,
+    setFieldValue,
+    horizontal,
+    values,
+    optionRender,
+    keyAccess,
+    optional
+  } = props;
+
   return (
     <ContainerForm className={className}>
       <Title optional={optional}> {questionText} </Title>

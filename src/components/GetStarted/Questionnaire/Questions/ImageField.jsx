@@ -80,7 +80,6 @@ const setField = (name, setFieldValue, value, valueList) => {
 
 function ImageField(props) {
   const { setFieldValue, optionData, values, name, keyAccess } = props;
-  console.log(props);
 
   return (
     <Label key={keyAccess} backgroundImage={optionData.image}>

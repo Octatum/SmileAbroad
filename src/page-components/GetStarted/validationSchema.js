@@ -18,7 +18,7 @@ const validationSchema = Yup.object().shape({
   travelDate: Yup.string().required('This field is required'),
   pain: Yup.number().required('This field is required'),
   dentalSituation: Yup.string().required('This field is required'),
-  travelAccompanied: Yup.boolean().required('This field is required'),
+  travelAccompanied: Yup.string().required('This field is required'),
   hotelCharacteristics: Yup.string().required('This field is required'),
   tourismActivities: Yup.array()
     .of(Yup.string())
