@@ -89,8 +89,6 @@ function Questionnaire(props) {
         <Container
           className={props.className}
           name="Get started"
-          method="post"
-          action="/"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
         >
