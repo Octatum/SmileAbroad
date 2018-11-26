@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 import PropTypes from 'prop-types';
-import { Field as Field } from 'formik';
+import { Field } from 'formik';
 
 import { device } from '../../../../utils/device';
 import ErrorField from './ErrorField';
@@ -23,14 +23,16 @@ const Title = styled.p`
     margin-bottom: 10px;
   }
 
-  ${({optional}) => optional && `
+  ${({ optional }) =>
+    optional &&
+    `
     ::after {
       content: "optional";
       display: inline;
       font-size: 0.5em;
       opacity: 0.75;
     }
-  `}
+  `};
 `;
 
 const Answer = styled(Field)`

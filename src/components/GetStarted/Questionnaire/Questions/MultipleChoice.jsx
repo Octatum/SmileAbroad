@@ -140,7 +140,7 @@ const setOtherField = (name, setFieldValue, value, valueList) => {
   setFieldValue(name, newValueList);
 };
 
-const MultipleChoice = (props) => {
+const MultipleChoice = props => {
   const {
     questionText,
     includeOpenAnswer,
@@ -152,7 +152,7 @@ const MultipleChoice = (props) => {
     values,
     optionRender,
     keyAccess,
-    optional
+    optional,
   } = props;
 
   return (
@@ -162,7 +162,13 @@ const MultipleChoice = (props) => {
         {options.map(
           optionData =>
             optionRender ? (
-              optionRender({ name, optionData, setFieldValue, values, keyAccess })
+              optionRender({
+                name,
+                optionData,
+                setFieldValue,
+                values,
+                keyAccess,
+              })
             ) : (
               <Label key={optionData}>
                 <CheckboxInput

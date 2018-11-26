@@ -77,7 +77,7 @@ function Questionnaire(props) {
           .then(() => {
             actions.setSubmitting(false);
             alert(
-              'Thanks, we will contact you soon. Less than 48 hours, we promise'
+              'Thanks, we will contact you soon. Less than 48 hours, we promise.'
             );
           })
           .catch(error => {
@@ -150,7 +150,11 @@ function Questionnaire(props) {
           <SingleChoice
             values={values}
             questionText="Planned travel dates:"
-            options={['Within a month', 'Within 3 months', 'Later than 3 months']}
+            options={[
+              'Within a month',
+              'Within 3 months',
+              'Later than 3 months',
+            ]}
             name="travelDate"
             disabled={isSubmitting}
             setFieldValue={setFieldValue}
@@ -215,7 +219,7 @@ function Questionnaire(props) {
             setFieldValue={setFieldValue}
             includeOpenAnswer
             values={values}
-            keyAccess={(v) => v.name}
+            keyAccess={v => v.name}
             horizontal
           />
           <Text>
@@ -234,11 +238,10 @@ function Questionnaire(props) {
             as="textarea"
             optional
           />
-          {
-            touched && Object.keys(errors).length > 0 && (
+          {touched &&
+            Object.keys(errors).length > 0 && (
               <ErrorText>Please fill out all required fields</ErrorText>
-            )
-          }
+            )}
           <SendButton disabled={isSubmitting} type="submit">
             Send
           </SendButton>

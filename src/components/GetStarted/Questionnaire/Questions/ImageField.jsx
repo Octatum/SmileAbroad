@@ -85,7 +85,9 @@ function ImageField(props) {
     <Label key={keyAccess} backgroundImage={optionData.image}>
       <CheckboxInput
         type="checkbox"
-        onChange={() => setField(name, setFieldValue, optionData.name, values[name])}
+        onChange={() =>
+          setField(name, setFieldValue, optionData.name, values[name])
+        }
       />
       {optionData.name}
       <Checkbox checked={values[name].includes(optionData.name)} />
