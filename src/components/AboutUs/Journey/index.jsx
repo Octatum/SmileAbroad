@@ -116,7 +116,7 @@ const Journey = () => (
   <Container>
     <TitleCont>
       <Title>
-        The NeighborHealth <WhiteTitle as="span">Journey</WhiteTitle>
+        The SmileAbroad <WhiteTitle as="span">Journey</WhiteTitle>
       </Title>
     </TitleCont>
 
@@ -124,7 +124,7 @@ const Journey = () => (
       {svgs.protection}
       <CardTitle>Healthcare for everyone</CardTitle>
       <CardDescription>
-        <BoldText as="span">NeighborHealth</BoldText> is funded by individuals
+        <BoldText as="span">SmileAbroad</BoldText> is funded by individuals
         who believe that healthcare should be easily accessible and affordable
         for all.
       </CardDescription>
@@ -134,16 +134,16 @@ const Journey = () => (
       {svgs.location}
       <CardTitle>Tried and Tested</CardTitle>
       <CardDescription>
-        <BoldText as="span">NeighborHealth</BoldText> has undergone Plug and
+        <BoldText as="span">SmileAbroad</BoldText> has undergone Plug and
         Play Bootcamp, the largest startup accelerator in the world.
       </CardDescription>
     </CardContainer>
 
     <CardContainer>
       {svgs.ekgMonitor}
-      <CardTitle>the NeighborHealth Certified Network</CardTitle>
+      <CardTitle>the SmileAbroad Certified Network</CardTitle>
       <CardDescription>
-        <BoldText as="span">NeighborHealth</BoldText> takes away the anxiety
+        <BoldText as="span">SmileAbroad</BoldText> takes away the anxiety
         associated with trip planning. We have pre-screened specialists and
         provide you only with top-rated practicioners from across Mexico.
       </CardDescription>
@@ -154,7 +154,7 @@ const Journey = () => (
       <CardTitle>Ready For You!</CardTitle>
       <CardDescription>
         We have sorted out the kinks, and are ready to welcome you on your
-        NeighborHealth Experience to Mexico!
+        SmileAbroad Experience to Mexico!
       </CardDescription>
     </CardContainer>
   </Container>

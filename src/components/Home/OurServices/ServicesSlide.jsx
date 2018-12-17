@@ -107,7 +107,7 @@ function ServiceSlide(props) {
         <Title>Affordable Health Care</Title>
         <Separator />
         <Description>
-          At <BlueText as="span">NeighborHealth</BlueText> we help you find the
+          At <BlueText as="span">SmileAbroad</BlueText> we help you find the
           ideal Dental Health <Bold as="span">Specialized</Bold> Treatment.
         </Description>
         <Description>

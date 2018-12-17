@@ -101,10 +101,10 @@ const Welcome = props => (
   <Cont className={props.className}>
     <MessageContainer>
       <Title>
-        Welcome <TitleBlue as="span">Neighbor</TitleBlue>{' '}
+        Be proud of your <TitleBlue as="span">smile</TitleBlue>{' '}
       </Title>
       <Message>
-        At <BoldText as="span">NeighborHealth</BoldText> we help you find the
+        At <BoldText as="span">SmileAbroad</BoldText> we help you find the
         ideal Dental Health Specialist Treatment. We facilitate the process of
         your experience abroad by creating a personalized itinerary and
         establishing a connection with a pre-screened practitioner.

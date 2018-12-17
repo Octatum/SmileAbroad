@@ -159,13 +159,13 @@ const Network = props => {
   return (
     <Container>
       <Title>
-        Neighbor
-        <span>Health</span> Network
+        Smile
+        <span>Abroad</span> Network
       </Title>
-      <Description>What is the NeighborHealth Certified Network?</Description>
+      <Description>What is the SmileAbroad Certified Network?</Description>
       <Description>Simply put; personal peace of mind.</Description>
       <Description>
-        NeighborHealth assures you that each of the specialists in the network
+        SmileAbroad assures you that each of the specialists in the network
         meet stringent standards for quality of services backed by credentials,
         safety, customer satisfaction, and cleanliness. Thus ensuring that you
         will receive quality service from top-rated and highly skilled

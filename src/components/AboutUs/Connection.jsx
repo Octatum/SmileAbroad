@@ -298,7 +298,7 @@ class Connection extends Component {
               <li>Accommodation options</li>
               <li>Touristic recommendations and exclusive coupons</li>
               <li>
-                NeighborHealth services: Transportation to and from the airport
+                SmileAbroad services: Transportation to and from the airport
                 and between your appointments.
               </li>
               <li>Total savings</li>
@@ -377,7 +377,7 @@ class Connection extends Component {
               <li>Your exclusive codes for tourist attractions.</li>
               <li>Recommendation of places to eat in the zone.</li>
               <li>
-                NeighborHealth representative that will assist you during your
+                SmileAbroad representative that will assist you during your
                 stay.
               </li>
             </UList>

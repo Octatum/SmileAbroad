@@ -157,7 +157,7 @@ const SocialIcon = styled.i`
 const Footer = () => (
   <Container>
     <Description style={{ gridArea: 'desc' }}>
-      NeighborHealth creates a personalized itinerary that provides you with
+      SmileAbroad creates a personalized itinerary that provides you with
       personal transportation between dental appointments, any selected tourist
       activities and attractions, and your chosen accommodation services which
       have all been pre-selected for safety and convenience.

@@ -237,7 +237,7 @@ const AddedValue = () => {
           <ContDesc>
             {' '}
             <Description>
-              NeighborHealth provides you with a personalized itinerary and
+              SmileAbroad provides you with a personalized itinerary and
               access to our certified specialists and dental clinics
             </Description>
           </ContDesc>
@@ -246,7 +246,7 @@ const AddedValue = () => {
           <IMG>{svgs.doubleDocs}</IMG>
           <SubCont>
             {' '}
-            <Subtitle>The NeighborHealth Experience</Subtitle>{' '}
+            <Subtitle>The SmileAbroad Experience</Subtitle>{' '}
           </SubCont>
           <Separator />
           <ContDesc>

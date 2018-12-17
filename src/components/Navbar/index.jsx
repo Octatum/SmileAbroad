@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components/macro';
 import Link from 'gatsby-link';
 
-import logo from './assets/logo.svg';
+import logo from './assets/smileabroad_imagotipo.svg';
 import navicon from './assets/navicon.svg';
 
 import GetStartedButton from '../GetStarted/Button';

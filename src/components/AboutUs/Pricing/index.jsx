@@ -150,7 +150,7 @@ class Pricing extends Component {
         />
         <CompTitle>Pricing</CompTitle>
         <Text>
-          Neighborhealth's payment is divided in two different sections:
+          SmileAbroad's payment is divided in two different sections:
         </Text>
         <Sections>
           <PaymentOptions>
@@ -178,7 +178,7 @@ class Pricing extends Component {
           )}
         </Sections>
         <BottomText>
-          NeighborHealth, a more transparent way. Your helping hand at home and
+          SmileAbroad, a more transparent way. Your helping hand at home and
           abroad.
         </BottomText>
       </Container>

@@ -99,7 +99,7 @@ const WhatWeDo = ({ className }) => {
           <Text>
             We leverage technological factors and our local expertise to make
             the “impossible” happen. These key ingredients are essential to
-            ensure you a great experience with NeighborHealth
+            ensure you a great experience with SmileAbroad
           </Text>
         </Div>
         <Div>
@@ -109,7 +109,7 @@ const WhatWeDo = ({ className }) => {
           </Title>
           <Text>
             Helping one another to ensure mutual success as individuals and as a
-            community. This is why NeighborHealth exists, we believe that
+            community. This is why SmileAbroad exists, we believe that
             healthcare should be easily accessible and affordable. Our health
             experts are here to serve you, and for every service purchased, we
             provide a similar service for children in developing nations.

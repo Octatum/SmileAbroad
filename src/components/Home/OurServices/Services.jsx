@@ -98,7 +98,7 @@ const Services = ({ className }) => {
           <Title>Booking</Title>
           <Description>
             Setting up your appointment with a top-rated specialist has never
-            been easier than through the NeighborHealth Certified Network
+            been easier than through the SmileAbroad Certified Network
           </Description>
         </IndivService>
       </Div>
@@ -116,7 +116,7 @@ const Services = ({ className }) => {
         <IndivService>
           <Title>Accomodation</Title>
           <Description>
-            Enjoy the full NeighborHealth experience – Stay with our partner
+            Enjoy the full SmileAbroad experience – Stay with our partner
             hotels that ensure a safe and comfortable stay
           </Description>
         </IndivService>
