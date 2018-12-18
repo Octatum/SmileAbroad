@@ -18,7 +18,7 @@ const AppLayout = ({ children }) => (
     <Layout>
       <Navbar />
       <Helmet
-        titleTemplate="%s - NeighborHealth - Dental tourism in Mexico"
+        titleTemplate="%s - SmileAbroad - Dental tourism in Mexico"
         meta={[
           {
             name: 'description',

@@ -101,7 +101,7 @@ const QuestionnaireIntro = ({ className }) => (
           quote.
         </Text>
         <Text>
-          Upon completion, please expect a NeighborHealth team member to contact
+          Upon completion, please expect a SmileAbroad team member to contact
           you in less than 24 hours with your personalized plan.
         </Text>
         <Text>
@@ -116,7 +116,7 @@ const QuestionnaireIntro = ({ className }) => (
       </ImageCont>
     </IntroContainer>
     <Desc>
-      This is the NeighborHealth Advantage. We are excited to Welcome you to
+      This is the SmileAbroad Advantage. We are excited to Welcome you to
       Mexico! Find out how much you can save on your dental treatment.
     </Desc>
   </Container>

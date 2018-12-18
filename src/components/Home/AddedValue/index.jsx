@@ -246,7 +246,7 @@ const AddedValue = () => {
           <IMG>{svgs.doubleDocs}</IMG>
           <SubCont>
             {' '}
-            <Subtitle>The SmileAbroad Experience</Subtitle>{' '}
+            <Subtitle>The Smile Experience</Subtitle>{' '}
           </SubCont>
           <Separator />
           <ContDesc>
